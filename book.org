@@ -6,6 +6,16 @@
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{listings}
 #+LATEX_HEADER: \usepackage{color}
+#+LATEX_HEADER: \usepackage[type=report]{ugent2016-title}
+#+LATEX_HEADER: \academicyear{2023–2024}
+#+LATEX_HEADER: \subtitle{Learn to code with a data-driven platform}
+#+LATEX_HEADER: \titletext{A dissertation submitted to Ghent University in partial fulfilment of the requirements for the degree of Doctor of Computer Science.}
+#+LATEX_HEADER: \promotors{%
+#+LATEX_HEADER: Supervisors:\\
+#+LATEX_HEADER: Prof.\ Dr.\ Peter Dawyndt\\
+#+LATEX_HEADER: Prof.\ Dr.\ Ir.\ Bart Mesuere\\
+#+LATEX_HEADER: Prof.\ Dr.\ Bram De Wever
+#+LATEX_HEADER: }
 #+OPTIONS: toc:nil
 #+OPTIONS: ':t
 #+cite_export: csl citation-style.csl
@@ -24,6 +34,22 @@
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 09:25]
 :UNNUMBERED: t
+:END:
+
+* Summaries
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 17:56]
+:UNNUMBERED: t
+:END:
+
+** Summmary in English
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 17:54]
+:END:
+
+** Nederlandstalige samenvatting
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 17:54]
 :END:
 
 #+LATEX: \mainmatter
