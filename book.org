@@ -312,7 +312,7 @@ A snapshot of a course edition measures student performance only from informatio
 As a result, the snapshot does not take into account submissions after its timestamp.
 Note that the last snapshot taken at the deadline of the final exam takes into account all submissions during the course edition.
 The learning behaviour of a student is expressed as a set of features extracted from the raw submission data.
-We identified different types of features (see appendix TODO(chvp): Appendices?) that indirectly quantify certain behavioural aspects of students practicing their programming skills.
+We identified different types of features (see appendix [[Feature types]]) that indirectly quantify certain behavioural aspects of students practicing their programming skills.
 When and how long do students work on their exercises?
 Can students correctly solve an exercise and how much feedback do they need to accomplish this?
 What kinds of mistakes do students make while solving programming exercises?
@@ -330,7 +330,7 @@ These features of the snapshot can be used to predict whether a student will fin
 The snapshot also contains a binary value with the actual outcome that is used as a label during training and testing of classification algorithms.
 Students that did not take part in the final examination, automatically fail the course.
 
-Since course B has no hard deadlines, we left out deadline-related features from its snapshots (=first_dl=, =last_dl= and =nr_dl=; see appendix TODO(chvp): Appendices?).
+Since course B has no hard deadlines, we left out deadline-related features from its snapshots (=first_dl=, =last_dl= and =nr_dl=; see appendix [[Feature types]]).
 To investigate the impact of deadline-related features, we also made predictions for course A that ignore these features.
 
 *** Classification algorithms
@@ -620,8 +620,6 @@ Extract new info from article; present here
 :CREATED:  [2023-10-23 Mon 08:51]
 :END:
 
-#+LATEX: \backmatter
-
 * Bibliography
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:59]
@@ -630,3 +628,27 @@ Extract new info from article; present here
 
 #+print_bibliography: 
 
+#+LATEX: \appendix
+* Feature types
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 18:09]
+:APPENDIX: t
+:END:
+
+- =subm= :: numbers of submissions by student in series
+- =nosubm= :: number of exercises student did not submit any solutions for in series
+- =first_dl= :: time difference in seconds between student’s first submission in series and deadline of series
+- =last_dl= :: time difference in seconds between student’s last submission in series before deadline and deadline of series
+- =nr_dl= :: number of correct submissions in series by student before series’ deadline
+- =correct= :: number of correct submissions in series by student
+- =after_correct= :: number of submissions by student after their first correct submission in the series
+- =before_correct= :: number of submissions by student before their first correct submission in the series
+- =time_series= :: time difference in seconds between the student’s first and last submission in the series
+- =time_correct= :: time difference in seconds between the student’s first submission in the series and their first correct submission in the series
+- =wrong= :: number of submissions by student in series with logical errors
+- =comp_error= :: number of submissions by student in series with compilation errors
+- =runtime_error= :: number of submissions by student in series with runtime errors
+- =correct_after_5m= :: number of exercises where first correct submission by student was made within five minutes after first submission
+- =correct_after_15m= :: number of exercises where first correct submission by student was made within fifteen minutes after first submission
+- =correct_after_2h= :: number of exercises where first correct submission by student was made within two hours after first submission
+- =correct_after_24h= :: number of exercises where first correct submission by student was made within twenty-four hours after first submission
