@@ -1,0 +1,16 @@
+((nil . ((org-latex-classes .
+                            (("article" "\\documentclass[11pt]{article}"
+                              ("\\section{%s}" . "\\section*{%s}")
+                              ("\\subsection{%s}" . "\\subsection*{%s}")
+                              ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                              ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                              ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+                             ("report" "\\documentclass[11pt]{report}" ("\\part{%s}" . "\\part*{%s}")
+                              ("\\chapter{%s}" . "\\chapter*{%s}") ("\\section{%s}" . "\\section*{%s}")
+                              ("\\subsection{%s}" . "\\subsection*{%s}")
+                              ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+                             ("book" "\\documentclass[11pt]{scrbook}" ("\\chapter{%s}" . "\\addchap{%s}")
+                              ("\\section{%s}" . "\\addsec{%s}")
+                              ("\\subsection{%s}" . "\\subsection*{%s}")
+                              ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+         (org-latex-src-block-backend . 'listings))))

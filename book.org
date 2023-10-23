@@ -1,0 +1,186 @@
+#+TITLE: Dodona
+#+AUTHOR: Charlotte Van Petegem
+#+LATEX_CLASS: book
+#+LATEX_CLASS_OPTIONS: [11pt,paper=240mm:170mm,paper=portrait]
+#+LATEX_COMPILER: lualatex
+#+LATEX_HEADER: \usepackage{listings}
+#+LATEX_HEADER: \usepackage{color}
+#+OPTIONS: toc:nil
+#+cite_export: csl citation-style.csl
+#+bibliography: bibliography.bib
+
+#+LATEX: \frontmatter
+
+* Table of Contents
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 14:10]
+:UNNUMBERED: t
+:END:
+#+LATEX: \listoftoc*{toc}
+
+* Acknowledgements
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 09:25]
+:UNNUMBERED: t
+:END:
+
+#+LATEX: \mainmatter
+
+* Introduction
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:47]
+:END:
+
+History of automated assessment
+
+* What is Dodona?
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:47]
+:END:
+
+** Students
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:48]
+:END:
+
+** Teachers
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:48]
+:END:
+
+** Related projects
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:48]
+:END:
+
+*** Dolos
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:48]
+:END:
+
+*** TESTed
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:48]
+:END:
+
+* Use
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:48]
+:END:
+
+** University level
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:48]
+:END:
+
+*** FWE
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:48]
+:END:
+
+*** FEA
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:48]
+:END:
+
+*** Others
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:48]
+:END:
+
+** Secondary schools
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:49]
+:END:
+
+* Technical description
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:49]
+:END:
+
+** Dodona
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:49]
+:END:
+
+Development
+
+Setup
+
+Deployment
+
+Testing
+
+...
+
+** Judges
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:49]
+:END:
+
+*** R
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:49]
+:END:
+
+*** TESTed
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:49]
+:END:
+
+* Pass/fail prediction
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:50]
+:END:
+
+** Introduction + context
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:50]
+:END:
+
+#+CAPTION: This is a source block.
+#+BEGIN_SRC python
+  print(input())
+  print(input())
+  print(input())
+  print(input())
+  print(input())
+  print(input())
+  print(input())
+  print(input())
+#+END_SRC
+
+** Original study
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:50]
+:END:
+
+Verbatim [cite/t:@vanpetegemPassFailPrediction2022]?
+
+** Future work/Replication in Finland
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:50]
+:END:
+
+Extract new info from article; present here
+
+* Feedback prediction
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:51]
+:END:
+
+* Discussion and future work
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:51]
+:END:
+
+#+LATEX: \backmatter
+
+* Bibliography
+:PROPERTIES:
+:CREATED:  [2023-10-23 Mon 08:59]
+:UNNUMBERED: t
+:END:
+
+#+print_bibliography: 
+
