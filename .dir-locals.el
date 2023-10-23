@@ -13,4 +13,5 @@
                               ("\\section{%s}" . "\\addsec{%s}")
                               ("\\subsection{%s}" . "\\subsection*{%s}")
                               ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
-         (org-latex-src-block-backend . 'listings))))
+         (org-latex-src-block-backend . 'listings)
+         (fill-column . 200))))
