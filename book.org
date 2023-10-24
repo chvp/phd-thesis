@@ -18,6 +18,7 @@
 #+LATEX_HEADER: }
 #+OPTIONS: toc:nil
 #+OPTIONS: ':t
+#+OPTIONS: H:4
 #+cite_export: csl citation-style.csl
 #+bibliography: bibliography.bib
 
@@ -59,7 +60,16 @@
 :CREATED:  [2023-10-23 Mon 08:47]
 :END:
 
+#+BEGIN_COMMENT
 History of automated assessment
+#+END_COMMENT
+
+Learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated  [cite:@gibbsConditionsWhichAssessment2005].
+Because of its potential to provide feedback loops that are scalable and responsive enough for an active learning environment, automated source code assessment has become a driving force in programming courses.
+This has resulted in a proliferation of educational programming platforms [cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005].
+Automated assessment was introduced into programming education in the early 1960s [cite:@hollingsworthAutomaticGradersProgramming1960] and allows students to receive immediate and personalized feedback on each submitted solution without the need for human intervention.
+[cite/t:@cheangAutomatedGradingProgramming2003] identified the labor-intensive nature of assessing programming assignments as the main reason why students are given few such assignments when ideally they should be given many more.
+While almost all platforms support automated assessment of code submitted by students, contemporary platforms usually offer additional features such as gamification in the FPGE platform [cite:@paivaManagingGamifiedProgramming2022], integration of full-fledged editors in iWeb-TD [cite:@fonsecaWebbasedPlatformMethodology2023], exercise recommendations in PLearn  [cite:@vasyliukDesignImplementationUkrainianLanguage2023], automatic grading with JavAssess [cite:@insaAutomaticAssessmentJava2018], assessment of test suites using test coverage measures in Web-CAT [cite:@edwardsWebCATAutomaticallyGrading2008] and automatic hint generation in GradeIT [cite:@pariharAutomaticGradingFeedback2017].
 
 * What is Dodona?
 :PROPERTIES:
@@ -75,6 +85,217 @@ History of automated assessment
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
 :END:
+
+*** Classroom management
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 09:31]
+:END:
+
+In Dodona, a *course* is where teachers and instructors effectively manage a learning environment by instructing, monitoring and evaluating their students and interacting with them, either individually or as a group.
+A Dodona user who created a course becomes its first administrator and can promote other registered users as *course administrators*.
+In what follows, we will also use the generic term teacher as a synonym for course administrators if this Dodona-specific interpretation is clear from the context, but keep in mind that courses may have multiple administrators.
+
+The course itself is laid out as a *learning path* that consists of course units called *series*, each containing a sequence of *learning activities* (Figure\nbsp{}[[fig:whatcourse]]).
+Among the learning activities we differentiate between *reading activities* that can be marked as read and *programming assignments* with support for automated assessment of submitted solutions.
+Learning paths are composed as a recommended sequence of learning activities to build knowledge progressively, allowing students to monitor their own progress at any point in time.
+Courses can either be created from scratch or from copying an existing course and making additions, deletions and rearrangements to its learning path.
+
+#+CAPTION: Main course page (administrator view) showing some series with deadlines, reading activities and programming assignments in its learning path.
+#+CAPTION: At any point in time, students can see their own progress through the learning path of the course.
+#+CAPTION: Teachers have some additional icons in the navigation bar (top) that lead to an overview of all students and their progress, an overview of all submissions for programming assignments, general learning analytics about the course, course management and a dashboard with questions from students in various stages from being answered (Figure\nbsp{}[[fig:whatquestions]]).
+#+CAPTION: The red dot on the latter icon notifies that some student questions are still pending.
+#+NAME: fig:whatcourse
+[[./images/whatcourse.png]]
+
+Students can *self-register* to courses in order to avoid unnecessary user management.
+A course can either be announced in the public overview of Dodona for everyone to see, or be limited in visibility to students from a certain educational institution.
+Alternatively, students can be invited to a hidden course by sharing a secret link.
+Independent of course visibility, registration for a course can either be open to everyone, restricted to users from the institution the course is associated with or new registrations can be disabled altogether.
+Registrations are either approved automatically or require explicit approval by a teacher.
+Registered users can be tagged with one or more labels to create subgroups that may play a role in learning analytics and reporting.
+
+Students and teachers more or less see the same course page, except for some management features and learning analytics that are reserved for teachers.
+Teachers can make content in the learning path temporarily inaccessible and/or invisible to students.
+Content is typically made inaccessible when it is still in preparation or if it will be used for evaluating students during a specific period.
+A token link can be used to grant access to invisible content, e.g.\nbsp{}when taking a test or exam from a subgroup of students.
+
+Students can only mark reading activities as read once, but there is no restriction on the number of solutions they can submit for programming assignments.
+Submitted solutions are automatically assessed and students receive immediate feedback as soon as the assessment has completed, usually within a few seconds.
+Dodona stores all submissions, along with submission metadata and generated feedback, such that the submission and feedback history can be reclaimed at all times.
+On top of automated assessment, student submissions may be further assessed and graded manually by a teacher.
+
+Series can have a *deadline*.
+Passed deadlines do not prevent students from marking reading activities or submitting solutions for programming assignments in their series.
+However, learning analytics, reports and exports usually only take into account submissions before the deadline.
+Because of the importance of deadlines and to avoid discussions with students about missed deadlines, series deadlines are not only announced on the course page.
+The student's home page highlights upcoming deadlines for individual courses and across all courses.
+While working on a programming assignment, students also start to see a clear warning from ten minutes before a deadline onwards.
+Courses also provide an iCalendar link that students can use to publish course deadlines in their personal calendar application.
+
+Because Dodona logs all student submissions and their metadata, including feedback and grades from automated and manual assessment, we use that data to integrate reports and learning analytics in the course page [cite:@fergusonLearningAnalyticsDrivers2012].
+We also provide export wizards that enable the extraction of raw and aggregated data in CSV-format for downstream processing and educational data mining [cite:@romeroEducationalDataMining2010; @bakerStateEducationalData2009].
+This allows teachers to better understand student behavior, progress and knowledge, and might give deeper insight into the underlying factors that contribute to student actions [cite:@ihantolaReviewRecentSystems2010].
+Understanding, knowledge and insights that can be used to make informed decisions about courses and their pedagogy, increase student engagement, and identify at-risk students [cite:@vanpetegemPassFailPrediction2022].
+
+*** User management
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 09:44]
+:END:
+
+Instead of providing its own authentication and authorization, Dodona delegates authentication to external identity providers (e.g.\nbsp{}educational and research institutions) through SAML [cite:@farrellAssertionsProtocolOASIS2002], OAuth [cite:@leibaOAuthWebAuthorization2012; @hardtOAuthAuthorizationFramework2012] and OpenID Connect [cite:@sakimuraOpenidConnectCore2014].
+This support for *decentralized authentication* allows users to benefit from single sign-on when using their institutional account across multiple platforms and teachers to trust their students’ identities when taking high-stakes tests and exams in Dodona.
+
+Dodona automatically creates user accounts upon successful authentication and uses the association with external identity providers to assign an institution to users.
+By default, newly created users are assigned a student role.
+Teachers and instructors who wish to create content (courses, learning activities and judges), must first request teacher rights using a streamlined form.
+
+*** Automated assessment
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 10:16]
+:END:
+
+The range of approaches, techniques and tools for software testing that may underpin assessing the quality of software under test is incredibly diverse.
+Static testing directly analyzes the syntax, structure and data flow of source code, whereas dynamic testing involves running the code with a given set of test cases [cite:@oberkampfVerificationValidationScientific2010; @grahamFoundationsSoftwareTesting2021].
+Black-box testing uses test cases that examine functionality exposed to end-users without looking at the actual source code, whereas white-box testing hooks test cases onto the internal structure of the code to test specific paths within a single unit, between units during integration, or between subsystems [cite:@nidhraBlackBoxWhite2012].
+So, broadly speaking, there are three levels of white-box testing: unit testing, integration testing and system testing [cite:@wiegersCreatingSoftwareEngineering1996; @dooleySoftwareDevelopmentProfessional2011].
+Source code submitted by students can therefore be verified and validated against a multitude of criteria: functional completeness and correctness, architectural design, usability, performance and scalability in terms of speed, concurrency and memory footprint, security, readability (programming style), maintainability (test quality) and reliability [cite:@staubitzPracticalProgrammingExercises2015].
+This is also reflected by the fact that a diverse range of metrics for measuring software quality have come forward, such as cohesion/coupling [cite:@yourdonStructuredDesignFundamentals1979; @stevensStructuredDesign1999], cyclomatic complexity [cite:@mccabeComplexityMeasure1976] or test coverage [cite:@millerSystematicMistakeAnalysis1963].
+
+To cope with such a diversity in software testing alternatives, Dodona is centered around a generic infrastructure for *programming assignments that support automated assessment*.
+Assessment of a student submission for an assignment comprises three loosely coupled components: containers, judges and assignment-specific assessment configurations.
+More information on this underlying mechanism can be found in Chapter\nbsp{}[[Technical description]].
+
+Where automatic assessment and feedback generation is outsourced to the judge linked to an assignment, Dodona itself takes up the responsibility for rendering the feedback.
+This frees judge developers from putting effort in feedback rendering and gives a coherent look-and-feel even for students that solve programming assignments assessed by different judges.
+Because the way feedback is presented is very important [cite:@maniBetterFeedbackEducational2014], we took great care in designing how feedback is displayed to make its interpretation as easy as possible (Figure\nbsp{}[[fig:whatfeedback]]).
+Differences between generated and expected output are automatically highlighted for each failed test [cite:@myersAnONDDifference1986], and users can swap between displaying the output lines side-by-side or interleaved to make differences more comparable.
+We even provide specific support for highlighting differences between tabular data such as CSV-files, database tables and dataframes.
+Users have the option to dynamically hide contexts whose test cases all succeeded, allowing them to immediately pinpoint reported mistakes in feedback that contains lots of succeeded test cases.
+To ease debugging the source code of submissions for Python assignments, the Python Tutor [cite:@guoOnlinePythonTutor2013] can be launched directly from any context with a combination of the submitted source code and the test code from the context.
+Students typically report this as one of the most useful features of Dodona.
+
+#+CAPTION: Dodona rendering of feedback generated for a submission of the Python programming assignment "Curling".
+#+CAPTION: The feedback is split across three tabs: ~isinside~, ~isvalid~ and ~score~.
+#+CAPTION: 48 tests under the ~score~ tab failed as can be seen immediately from the badge in the tab header.
+#+CAPTION: The fourth tab "Code" displays the source code of the submission with annotations added during automatic and/or manual assessment (Figure\nbsp{}[[fig:whatannotations]]).
+#+CAPTION: The differences between the generated and expected return values of the first and third test cases were automatically highlighted and the judge used HTML snippets to add a graphical representation (SVG) of the curling stone positions that are passed as arguments to the ~score~ function for these failed test cases.
+#+CAPTION: In addition to highlighting differences between the generated and expected return values of the first (failed) test case, the judge also added a text snippet that indicates that a ~tuple~ was expected (not a ~list~).
+#+NAME: fig:whatfeedback
+[[./images/whatfeedback.png]]
+
+*** Content management
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 10:47]
+:END:
+
+Where courses are created and managed in Dodona itself, other content is managed in external git *repositories* (Figure\nbsp{}[[fig:whatrepositories]]).
+In this distributed content management model, a repository either contains a single judge or a collection of learning activities: reading activities and/or programming assignments.
+Setting up a *webhook* for the repository guarantees that any changes pushed to its default branch are automatically and immediately synchronized with Dodona.
+This even works without the need to make repositories public, as they may contain information that should not be disclosed such as programming assignments that are under construction, contain model solutions, or will be used during tests or exams.
+Instead, a *Dodona service account* must be granted push/pull access to the repository.
+Some settings of a learning activity can be modified through the web interface of Dodona, but any changes are always pushed back to the repository in which the learning activity is configured so that it always remains the master copy.
+
+#+CAPTION: Distributed content management model that allows to seamlessly integrate custom learning activities (reading activities and programming assignments with support for automated assessment) and judges (frameworks for automated assessment) into Dodona.
+#+CAPTION: Content creators manage their content in external git repositories, keep ownership over their content, control who can co-create, and set up webhooks to automatically synchronize any changes with the content as published on Dodona.
+#+NAME: fig:whatrepositories
+[[./images/whatrepositories.png]]
+
+Due to the distributed nature of content management, creators also keep ownership over their content and control who may co-create.
+After all, access to a repository is completely independent from access to its learning activities that are published in Dodona.
+The latter is part of the configuration of learning activities, with the option to either share learning activities so that all teachers can include them in their courses or to restrict inclusion of learning activities to courses that are explicitly granted access.
+Dodona automatically stores metadata about all learning activities such as content type, natural language, programming language and repository to increase their findability in our large collection.
+Learning activities may also be tagged with additional labels as part of their configuration.
+
+Any repository containing learning activities must have a predefined directory structure.
+Directories that contain a learning activity also have their own internal directory structure that includes a *description* in HTML or Markdown.
+Descriptions may reference data files and multimedia content included in the repository, and such content can be shared across all learning activities in the repository.
+Embedded images are automatically encapsulated in a responsive lightbox to improve readability.
+Mathematical formulas in descriptions are supported through MathJax [cite:@cervoneMathJaxPlatformMathematics2012].
+
+While reading activities only consist of descriptions, programming assignments need an additional *assessment configuration* that sets a programming language and a judge.
+The configuration may also set a Docker image, a time limit, a memory limit and grant Internet access to the container that is instantiated from the image, but these settings have proper default values.
+Judges, for example, have a default image that is used if the configuration of a programming assignment does not specify one explicitly.
+Dodona builds the available images from Dockerfiles specified in a separate git repository.
+The configuration might also provide additional *assessment resources*: files made accessible to the judge during assessment.
+The specification of how these resources must be structured and how they are used during assessment is completely up to the judge developers.
+Finally, the configuration might also contain *boilerplate code*: a skeleton students can use to start the implementation that is provided in the code editor along with the description.
+
+*** Internationalization and localization
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 10:55]
+:END:
+*Internationalization* (i18n) is a shared responsibility between Dodona, learning activities and judges.
+All boilerplate text in the user interface that comes from Dodona itself is supported in English and Dutch, and users can select their preferred language.
+Content creators can specify descriptions of learning activities in both languages, and Dodona will render a learning activity in the user’s preferred language if available.
+When users submit solutions for a programming assignment, their preferred language is passed as submission metadata to the judge.
+It’s then up to the judge to take this information into account while generating feedback.
+
+Dodona always displays *localized deadlines* based on a time zone setting in the user profile, and users are warned when the current time zone detected by their browser differs from the one in their profile.
+
+*** Questions, answers and code reviews
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 10:56]
+:END:
+
+A downside of using discussion forums in programming courses is that students can ask questions about programming assignments that are either disconnected from their current implementation or contain code snippets that may give away (part of) the solution to other students [cite:@nandiEvaluatingQualityInteraction2012].
+Dodona therefore allows students to address teachers with questions they directly attach to their submitted source code.
+We support both general questions and questions linked to specific lines of their submission (Figure\nbsp{}[[fig:whatquestion]]).
+Questions are written in Markdown (e.g., to include markup, tables, syntax highlighted code snippets or multimedia), with support for MathJax (e.g., to include mathematical formulas).
+
+#+CAPTION: A student (Matilda) previously asked a question that has already been answered by her teacher (Miss Honey).
+#+CAPTION: Based on this response, the student is now asking a follow-up question that can be formatted using Markdown.
+#+NAME: fig:whatquestion
+[[./images/whatquestion.png]]
+
+Teachers are notified whenever there are pending questions (Figure\nbsp{}[[fig:whatcourse]]).
+They can process these questions from a dedicated dashboard with live updates (Figure\nbsp{}[[fig:whatquestions]]).
+The dashboard immediately guides them from an incoming question to the location in the source code of the submission it relates to, where they can answer the question in a similar way as students ask questions.
+To avoid questions being inadvertently handled simultaneously by multiple teachers, they have a three-state lifecycle: pending, in progress and answered.
+In addition to teachers changing question states while answering them, students can also mark their own questions as being answered.
+The latter might reflect the rubber duck debugging [cite:@huntPragmaticProgrammer1999] effect that is triggered when students are forced to explain a problem to someone else while asking questions in Dodona.
+Teachers can (temporarily) disable the option for students to ask questions in a course, e.g.\nbsp{}when a course is over or during hands-on sessions or exams when students are expected to ask questions face-to-face rather than online.
+
+#+CAPTION: Live updated dashboard showing all incoming questions in a course while asking questions is enabled.
+#+CAPTION: Questions are grouped into three categories: unanswered, in progress and answered.
+#+NAME: fig:whatquestions
+[[./images/whatquestions.png]]
+
+Manual source code annotations from students (questions) and teachers (answers) are rendered in the same way as source code annotations resulting from automated assessment.
+They are mixed in the source code displayed in the "Code" tab, showing their complementary nature.
+It is not required that students take the initiative for the conversation.
+Teachers can also start adding source code annotations while reviewing a submission.
+Such *code reviews* will be used as a building block for manual assessment.
+
+*** Manual assessment
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 11:01]
+:END:
+
+Teachers can create an *evaluation* for a series to manually assess student submissions for its programming assignments after a specific period, typically following the deadline of some homework, an intermediate test or a final exam.
+The evaluation embodies all programming assignments in the series and a group of students that submitted solutions for these assignments.
+Because a student may have submitted multiple solutions for the same assignment, the last submission before a given deadline is automatically selected for each student and each assignment in the evaluation.
+This automatic selection can be manually overruled afterwards.
+The evaluation deadline defaults to the deadline set for the associated series, if any, but an alternative deadline can be selected as well.
+
+Evaluations support *two-way navigation* through all selected submissions: per assignment and per student.
+For evaluations with multiple assignments, it is generally recommended to assess per assignment and not per student, as students can build a reputation throughout an assessment [cite:@malouffBiasGradingMetaanalysis2016].
+As a result, they might be rated more favorably with a moderate solution if they had excellent solutions for assignments that were assessed previously, and vice versa [cite:@malouffRiskHaloBias2013].
+Assessment per assignment breaks this reputation as it interferes less with the quality of previously assessed assignments from the same student.
+Possible bias from the same sequence effect is reduced during assessment per assignment as students are visited in random order for each assignment in the evaluation.
+In addition, *anonymous mode* can be activated as a measure to eliminate the actual or perceived halo effect conveyed through seeing a student’s name during assessment [cite:@lebudaTellMeYour2013].
+While anonymous mode is active, all students are automatically pseudonymized.
+Anonymous mode is not restricted to the context of assessment and can be used across Dodona, for example while giving in-class demos.
+
+When reviewing a selected submission from a student, assessors have direct access to the feedback that was previously generated during automated assessment: source code annotations in the "Code" tab and other structured and unstructured feedback in the remaining tabs.
+Moreover, next to the feedback that was made available to the student, the specification of the assignment may also add feedback generated by the judge that is only visible to the assessor.
+Assessors might then complement the assessment made by the judge by adding *source code annotations* as formative feedback and by *grading* the evaluative criteria in a scoring rubric as summative feedback (Figure\nbsp{}[[fig:whatannotations]]).
+Previous annotations can be reused to speed up the code review process, because remarks or suggestions tend to recur frequently when reviewing submissions for the same assignment.
+Grading requires setting up a specific *scoring rubric* for each assignment in the evaluation, as a guidance for evaluating the quality of submissions [cite:@dawsonAssessmentRubricsClearer2017; @pophamWhatWrongWhat1997].
+The evaluation tracks which submissions have been manually assessed, so that analytics about the assessment progress can be displayed and to allow multiple assessors working simultaneously on the same evaluation, for example one (part of a) programming assignment each.
+
+#+CAPTION: Manual assessment of a submission: a teacher (Miss Honey) is giving feedback on the source code by adding inline annotations and is grading the submission by filling up the scoring rubric that was set up for the programming assignment "The Feynman ciphers".
+#+NAME: fig:whatannotations
+[[./images/whatannotations.png]]
 
 ** Related projects
 :PROPERTIES:
@@ -106,6 +327,278 @@ History of automated assessment
 :CREATED:  [2023-10-23 Mon 08:48]
 :END:
 
+Since the academic year 2011-2012 we have organized an introductory Python course at Ghent University (Belgium) with a strong focus on active and online learning.
+Initially the course was offered twice a year in the first and second term, but from academic year 2014-2015 onwards it was only offered in the first term.
+The course is taken by a mix of undergraduate, graduate, and postgraduate students enrolled in various study programmes (mainly formal and natural sciences, but not computer science), with 442 students enrolled for the 2021-2022 edition.
+
+**** Course structure
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 11:47]
+:END:
+
+Each course edition has a fixed structure, with 13 weeks of educational activities subdivided in two successive instructional units that each cover five topics of the Python programming language -- one topic per week -- followed by a graded test about all topics covered in the unit (Figure\nbsp{}[[fig:usefwecoursestructure]]).
+The final exam at the end of the term evaluates all topics covered in the entire course.
+Students who fail the course during the first exam in January can take a resit exam in August/September that gives them a second chance to pass the exam.
+
+#+CAPTION: *Top*: Structure of the Python course that runs each academic year across a 13-week term (September-December).
+#+CAPTION: Programming assignments from the same Dodona series are stacked vertically.
+#+CAPTION: Students submit solutions for ten series with six mandatory assignments, two tests with two assignments and an exam with three assignments.
+#+CAPTION: They can also take a resit exam with three assignments in August/September if they failed the first exam in January.
+#+CAPTION: *Bottom*: Heatmap from Dodona learning analytics page showing distribution per day of all 331\thinsp{}734 solutions submitted during the 2021-2022 edition of the course (442 students).
+#+CAPTION: The darker the color, the more solutions were submitted that day.
+#+CAPTION: A lighter shade of fuchsia means few solutions were submitted that day.
+#+CAPTION: A light gray square means no solutions were submitted that day.
+#+CAPTION: Weekly lab sessions for different groups on Monday afternoon, Friday morning and Friday afternoon, where we can see darker squares.
+#+CAPTION: Weekly deadlines for mandatory assignments on Tuesdays at 22:00.
+#+CAPTION: Three exam sessions for different groups in January.
+#+CAPTION: Low activity in exam periods, except for days where an exam was taken.
+#+CAPTION: The course is not taught in the second term, so this low-activity period was collapsed.
+#+CAPTION: Two more exam sessions for different groups in August/September, granting an extra chance to students who failed on their exam in January.
+#+NAME: fig:usefwecoursestructure
+[[./images/usefwecoursestructure.png]]
+
+Each week in which a new programming topic is covered, students must try to solve six programming assignments on that topic before a deadline one week later.
+That results in 60 mandatory assignments across the semester.
+Following the flipped classroom strategy [cite:@bishopFlippedClassroomSurvey2013; @akcayirFlippedClassroomReview2018], students prepare themselves to achieve this goal by reading the textbook chapters covering the topic.
+Lectures are interactive programming sessions that aim at bridging the initial gap between theory and practice, advancing concepts, and engaging in collaborative learning [cite:@tuckerFlippedClassroom2012].
+Along the same lines, the first assignment for each topic is an ISBN-themed programming challenge whose model solution is shared with the students, together with an instructional video that works step-by-step towards the model solution.
+As soon as students feel they have enough understanding of the topic, they can start working on the five remaining mandatory assignments.
+Students can work on their programming assignments during weekly computer labs, where they can collaborate in small groups and ask help from teaching assistants.
+They can also work on their assignments and submit solutions outside lab sessions.
+In addition to the mandatory assignments, students can further elaborate on their programming skills by tackling additional programming exercises they select from a pool of over 850 exercises linked to the ten programming topics.
+Submissions for these additional exercises are not taken into account in the final grade.
+
+**** Assessment, feedback and grading
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 11:47]
+:END:
+
+We use the online learning environment Dodona to promote active learning through problem solving [cite:@princeDoesActiveLearning2004].
+Each course edition has its own dedicated course in Dodona, with a learning path containing all mandatory, test and exam assignments, grouped into series with corresponding deadlines.
+Mandatory assignments for the first unit are published at the start of the semester, and those for the second unit after the test of the first unit.
+For each test and exam we organize multiple sessions for different groups of students.
+Assignments for test and exam sessions are provided in a hidden series that is only accessible for students participating in the session using a shared token link.
+The test and exam assignments are published afterwards for all students, when grades are announced.
+Students can see class progress when working on their mandatory assignments to nudge them to avoid procrastination.
+Only teachers can see class progress for test and exam series so as not to accidentally stress out students.
+For the same reason, we intentionally organize tests and exams following exactly the same procedure, so that students can take high-stake exams in a familiar context and adjust their approach based on previous experiences.
+The only difference is that test assignments are not as hard as exam assignments, as students are still in the midst of learning programming skills when tests are taken.
+
+Students are stimulated to use an integrated development environment (IDE) to work on their programming assignments.
+IDEs bundle a battery of programming tools to support today’s generation of software developers in writing, building, running, testing and debugging software.
+Working with such tools can be a true blessing for both seasoned and novice programmers, but there is no silver bullet [cite:@brooksNoSilverBullet1987].
+Learning to code remains inherently hard [cite:@kelleherAlice2ProgrammingSyntax2002] and consists of challenges that are different to reading and learning natural languages [cite:@fincherWhatAreWe1999].
+As an additional aid, students can continuously submit (intermediate) solutions for their programming assignments and immediately receive automatically generated feedback upon each submission, even during tests and exams.
+Guided by that feedback, they can track potential errors in their code, remedy them and submit updated solutions.
+There is no restriction on the number of solutions that can be submitted per assignment.
+All submitted solutions are stored, but for each assignment only the last submission before the deadline is taken into account to grade students.
+This allows students to update their solutions after the deadline (i.e.\nbsp{}after model solutions are published) without impacting their grades, as a way to further practice their programming skills.
+One effect of active learning, triggered by mandatory assignments with weekly deadlines and intermediate tests, is that most learning happens during the term (Figure\nbsp{}[[fig:usefwecoursestructure]]).
+In contrast to other courses, students do not spend a lot of time practicing their coding skills for this course in the days before an exam.
+We want to explicitly motivate this behavior, because we strongly believe that one cannot learn to code in a few days' time [cite:@peternorvigTeachYourselfProgramming2001].
+
+For the assessment of tests and exams, we follow the line of thought that human expert feedback through source code annotations is a valuable complement to feedback coming from automated assessment, and that human interpretation is an absolute necessity when it comes to grading [cite:@staubitzPracticalProgrammingExercises2015; @jacksonGradingStudentPrograms1997; @ala-mutkaSurveyAutomatedAssessment2005].
+We shifted from paper-based to digital code reviews and grading when support for manual assessment was released in version 3.7 of Dodona (summer 2020).
+Although online reviewing positively impacted our productivity, the biggest gain did not come from an immediate speed-up in the process of generating feedback and grades compared to the paper-based approach.
+While time-on-task remained about the same, our online source code reviews were much more elaborate than what we produced before on printed copies of student submissions.
+This was triggered by improved reusability of digital annotations and the foresight of streamlined feedback delivery.
+Where delivering custom feedback only requires a single click after the assessment of an evaluation has been completed in Dodona, it took us much more effort before to distribute our paper-based feedback.
+Students were direct beneficiaries from more and richer feedback, as observed from the fact that 75% of our students looked at their personalized feedback within 24 hours after it had been released, before we even published grades in Dodona.
+What did not change is the fact that we complement personalized feedback with collective feedback sessions in which we discuss model solutions for test and exam assignments, and the low numbers of questions we received from students on their personalized feedback.
+As a future development, we hope to reduce the time spent on manual assessment through improved computer-assisted reuse of digital source code annotations in Dodona.
+
+We accept to primarily rely on automated assessment as a first step in providing formative feedback while students work on their mandatory assignments.
+After all, a back-of-the-envelope calculation tells us it would take us 72 full-time equivalents (FTE) to generate equivalent amounts of manual feedback for mandatory assignments compared to what we do for tests and exams.
+In addition to volume, automated assessment also yields the responsiveness needed to establish an interactive feedback loop throughout the iterative software development process while it still matters to students and in time for them to pay attention to further learning or receive further assistance [cite:@gibbsConditionsWhichAssessment2005].
+Automated assessment thus allows us to motivate students working through enough programming assignments and to stimulate their self-monitoring and self-regulated learning [cite:@schunkSelfregulationLearningPerformance1994; @pintrichUnderstandingSelfregulatedLearning1995].
+It results in triggering additional questions from students that we manage to respond to with one-to-one personalized human tutoring, either synchronously during hands-on sessions or asynchronously through Dodona's Q&A module.
+We observe that individual students seem to have a strong bias towards either asking for face-to-face help during hands-on sessions or asking questions online.
+This could be influenced by the time when they mainly work on their assignments, by their way of collaboration on assignments, or by reservations because of perceived threats to self-esteem or social embarrassment [cite:@newmanStudentsPerceptionsTeacher1993; @karabenickRelationshipAcademicHelp1991].
+
+In computing a final score for the course, we try to find an appropriate balance between stimulating students to find solutions for programming assignments themselves and collaborating with and learning from peers, instructors and teachers while working on assignments.
+The final score is computed as the sum of a score obtained for the exam (80%) and a score for each unit that combines the student’s performance on the mandatory and test assignments (10% per unit).
+We use Dodona's grading module to determine scores for tests and exams based on correctness, programming style, choice made between the use of different programming techniques and the overall quality of the implementation.
+The score for a unit is calculated as the score $s$ for the two test assignments multiplied by the fraction $f$ of mandatory assignments the student has solved correctly.
+A solution for a mandatory assignment is considered correct if it passes all unit tests.
+Evaluating mandatory assignments therefore doesn’t require any human intervention, except for writing unit tests when designing the assignments, and is performed entirely by our Python judge.
+In our experience, most students traditionally perform much better on mandatory assignments compared to test and exam assignments [cite:@glassFewerStudentsAre2022], given the possibilities for collaboration on mandatory assignments.
+
+**** Open and collaborative learning environment
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 11:59]
+:END:
+
+We strongly believe that effective collaboration among small groups of students is beneficial for learning [cite:@princeDoesActiveLearning2004], and encourage students to collaborate and ask questions to tutors and other students during and outside lab sessions.
+We also demonstrate how they can embrace collaborative coding and pair programming services provided by modern integrated development environments [cite:@williamsSupportPairProgramming2002; @hanksPairProgrammingEducation2011].
+But we recommend them to collaborate in groups of no more than three students, and to exchange and discuss ideas and strategies for solving assignments rather than sharing literal code with each other.
+After all, our main reason for working with mandatory assignments is to give students sufficient opportunity to learn topic-oriented programming skills by applying them in practice and shared solutions spoil the learning experience.
+The factor $f$ in the score for a unit encourages students to keep finetuning their solutions for programming assignments until all test cases succeed before the deadline passes.
+But maximizing that factor without proper learning of programming skills will likely yield a low test score $s$ and thus an overall low score for the unit, even if many mandatory exercises were solved correctly.
+
+Fostering an open collaboration environment to work on mandatory assignments with strict deadlines and taking them into account for computing the final score is a potential promoter for plagiarism, but using it as a weight factor for the test score rather than as an independent score item should promote learning by avoiding that plagiarism is rewarded.
+It takes some effort to properly explain this to students.
+We initially used Moss [cite:@schleimerWinnowingLocalAlgorithms2003] and now use Dolos [cite:@maertensDolosLanguageagnosticPlagiarism2022] to monitor submitted solutions for mandatory assignments, both before and at the deadline.
+The solution space for the first few mandatory assignments is too small for linking high similarity to plagiarism: submitted solutions only contain a few lines of code and the diversity of implementation strategies is small.
+But at some point, as the solution space broadens, we start to see highly similar solutions that are reliable signals of code exchange among larger groups of students.
+Strikingly this usually happens among students enrolled in the same study programme (Figure\nbsp{}[[fig:usefweplagiarism]]).
+As soon as this happens -- typically in week 3 or 4 of the course -- plagiarism is discussed during the next lecture.
+Usually this is a lecture about working with the string data type, so we can introduce plagiarism detection as a possible application of string processing.
+
+#+CAPTION: Dolos plagiarism graphs for the Python programming assignment "\pi{}-ramidal constants" that was created and used for a test of the 2020-2021 edition of the course (left) and reused as a mandatory assignment in the 2021-2022 edition (right).
+#+CAPTION: Graphs constructed from the last submission before the deadline of 142 and 382 students respectively.
+#+CAPTION: Nodes represent student submissions and their colors represent study programmes as taken from user labels in Dodona.
+#+CAPTION: Edges connect highly similar pairs of submissions, with similarity threshold set to 0.8 in both graphs.
+#+CAPTION: Edge directions are based on submission timestamps in Dodona.
+#+CAPTION: Clusters of connected nodes are highlighted with a distinct background color and have one node with a solid border that indicates the first correct submission among all submissions in that cluster.
+#+CAPTION: All students submitted unique solutions during the test, except for two students who confessed they exchanged a solution during the test.
+#+CAPTION: Submissions for the mandatory assignment show that most students work either individually or in groups of two or three students, but we also observe some clusters of four or more students that exchanged solutions and submitted them with hardly any varying types and amounts of modifications.
+#+CAPTION: This case was used to warn students about the negative learning effect of copying solutions from each other.
+#+NAME: fig:usefweplagiarism
+[[./images/usefweplagiarism.png]]
+
+In an announcement entitled "copy-paste \neq{} learn to code" we show students some pseudonymized Dolos plagiarism graphs that act as mirrors to make them reflect upon which node in the graph they could be (Figure\nbsp{}[[fig:usefweplagiarism]]).
+We stress that the learning effect dramatically drops in groups of four or more students.
+Typically we notice that in such a group only one or a few students make the effort to learn to code, while the other students usually piggyback by copy-pasting solutions.
+We make students aware that understanding someone else's code for programming assignments is a lot easier than trying to find solutions themselves.
+Over the years, we have experienced that a lot of students are caught in the trap of genuinely believing that being able to understand code is the same as being able to write code that solves a problem until they take a test at the end of a unit.
+That's where the $s$ factor of the test score comes into play.
+After all, the goal of summative tests is to evaluate if individual students have acquired the skills to solve programming challenges on their own.
+
+When talking to students about plagiarism, we also point out that the plagiarism graphs are directed graphs, indicating which student is the potential source of exchanging a solution among a cluster of students.
+We specifically address these students by pointing out that they are probably good at programming and might want to exchange their solutions with other students in a way to help their peers.
+But instead of really helping them out, they actually take away learning opportunities from their fellow students by giving away the solution as a spoiler.
+Stated differently, they help maximize the factor $f$ but effectively also reduce the $s$ factor of the test score, where both factors need to be high to yield a high score for the unit.
+After this lecture, we usually notice a stark decline in the amount of plagiarized solutions.
+
+The goal of plagiarism detection at this stage is prevention rather than penalisation, because we want students to take responsibility over their learning.
+The combination of realizing that teachers and instructors can easily detect plagiarism and an upcoming test that evaluates if students can solve programming challenges on their own, usually has an immediate and persistent effect on reducing cluster sizes in the plagiarism graphs to at most three students.
+At the same time, the signal is given that plagiarism detection is one of the tools we have to detect fraud during tests and exams.
+The entire group of students is only addressed once about plagiarism, without going into detail about how plagiarism detection itself works, because we believe that overemphasizing this topic is not very effective and explaining how it works might drive students towards spending time thinking on how they could bypass the detection process, which is time they'd better spend on learning to code.
+Every three or four years we see a persistent cluster of students exchanging code for mandatory assignments over multiple weeks.
+If this is the case, we individually address these students to point them again on their responsibilities, again differentiating between students that share their solution and students that receive solutions from others.
+
+Tests and exams, on the other hand, are taken on-campus under human surveillance and allow no communication with fellow students or other persons.
+Students can work on their personal computers and get exactly two hours to solve two programming assignments during a test, and three hours and thirty minutes to solve three programming assignments during an exam.
+Tests and exams are "open book/open Internet", so any hard copy and digital resources can be consulted while solving test or exam assignments.
+Students are instructed that they can only be passive users of the Internet: all information available on the Internet at the start of a test or exam can be consulted, but no new information can be added.
+When taking over code fragments from the Internet, students have to add a proper citation as a comment in their submitted source code.
+After each test and exam, we again use Moss/Dolos to detect and inspect highly similar code snippets among submitted solutions and to find convincing evidence they result from exchange of code or other forms of interpersonal communication (Figure\nbsp{}[[fig:usefweplagiarism]]).
+If we catalog cases as plagiarism beyond reasonable doubt, the examination board is informed to take further action [cite:@maertensDolosLanguageagnosticPlagiarism2022].
+
+**** Workload for running a course edition
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 13:46]
+:END:
+
+To organize "open book/open Internet" tests and exams that are valid and reliable, we always create new assignments and avoid assignments whose solutions or parts thereof are readily available online.
+At the start of a test or exam, we share a token link that gives students access to the assignments in a hidden series on Dodona.
+
+For each edition of the course, mandatory assignments were initially a combination of selected test and exam exercises reused from the previous edition of the course and newly designed exercises.
+The former to give students an idea about the level of exercises they can expect during tests and exams, and the latter to avoid solution slippage.
+As feedback for the students we publish sample solutions for all mandatory exercises after the weekly deadline has passed.
+This also indicates that students must strictly adhere to deadlines, because sample solutions are available afterwards.
+As deadlines are very clear and adjusted to timezone settings in Dodona, we never experience discussions with students about deadlines.
+
+After nine editions of the course, we felt we had a large enough portfolio of exercises to start reusing mandatory exercises from four or more years ago instead of designing new exercises for each edition.
+However, we still continue to design new exercises for each test and exam.
+After each test and exam, exercises are published and students receive manual reviews on the code they submitted, on top of the automated feedback they already got during the test or exam.
+But in contrast to mandatory exercises we do not publish sample solutions for test and exam exercises, so that these exercises can be reused during the next edition of the course.
+When students ask for sample solutions of test or exam exercises, we explain that we want to give the next generation of students the same learning opportunities they had.
+
+So far, we have created more than 850 programming assignments for this introductory Python course alone.
+All these assignments are publicly shared on Dodona as open educational resources [cite:@hylenOpenEducationalResources2021; @tuomiOpenEducationalResources2013; @wileyOpenEducationalResources2014; @downesModelsSustainableOpen2007; @caswellOpenEducationalResources2008].
+They are used in many other courses on Dodona (on average 10.8 courses per assignment) and by many students (on average 503.7 students and 4801.5 submitted solutions per assignment).
+We estimate that it takes about 10 person-hours on average to create a new assignment for a test or an exam: 2 hours for ideation, 30 minutes for implementing and tweaking a sample solution that meets the educational goals of the assignment and can be used to generate a test suite for automated assessment, 4 hours for describing the assignment (including background research), 30 minutes for translating the description from Dutch into English, one hour to configure support for automated assessment, and another 2 hours for reviewing the result by some extra pair of eyes.
+
+Generating a test suite usually takes 30 to 60 minutes for assignments that can rely on basic test and feedback generation features that are built into the judge.
+The configuration for automated assessment might take 2 to 3 hours for assignments that require more elaborate test generation or that need to extend the judge with custom components for dedicated forms of assessment (e.g.\nbsp{}assessing non-deterministic behavior) or feedback generation (e.g.\nbsp{}generating visual feedback).
+[cite/t:@keuningSystematicLiteratureReview2018] found that publications rarely describe how difficult and time-consuming it is to add assignments to automated assessment platforms, or even if this is possible at all.
+The ease of extending Dodona with new programming assignments is reflected by more than 10 thousand assignments that have been added to the platform so far.
+Our experience is that configuring support for automated assessment only takes a fraction of the total time for designing and implementing assignments for our programming course, and in absolute numbers stays far away from the one person-week reported for adding assignments to Bridge [cite:@bonarBridgeIntelligentTutoring1988].
+Because the automated assessment infrastructure of Dodona provides common resources and functionality through a Docker container and a judge, the assignment-specific configuration usually remains lightweight.
+Only around 5% of the assignments need extensions on top of the built-in test and feedback generation features of the judge.
+
+So how much effort does it cost us to run one edition of our programming course?
+For the most recent 2021-2022 edition we estimate about 34 person-weeks in total (Table\nbsp{}[[tab:usefweworkload]]), the bulk of which is spent on on-campus tutoring of students during hands-on sessions (30%), manual assessment and grading (22%), and creating new assignments (21%).
+About half of the workload (53%) is devoted to summative feedback through tests and exams: creating assignments, supervision, manual assessment and grading.
+Most of the other work (42%) goes into providing formative feedback through on-campus and online assistance while students work on their mandatory assignments.
+Out of 2215 questions that students asked through Dodona’s online Q&A module, 1983 (90%) were answered by teaching assistants and 232 (10%) were marked as answered by the student who originally asked the question.
+Because automated assessment provides first-line support, the need for human tutoring is already heavily reduced.
+We have drastically cut the time we initially spent on mandatory assignments by reusing existing assignments and because the Python judge is stable enough to require hardly any maintenance or further development.
+
+#+CAPTION: Estimated workload to run the 2021-2022 edition of the introductory Python programming course for 442 students with 1 lecturer, 7 teaching assistants and 3 undergraduate students who serve as teaching assistants [cite:@gordonUndergraduateTeachingAssistants2013].
+#+NAME: tab:usefweworkload
+| Task                                      | Estimated workload (hours) |
+|-------------------------------------------+----------------------------|
+| Lectures                                  |                         60 |
+|-------------------------------------------+----------------------------|
+| Mandatory assignments                     |                        540 |
+| \emsp{} Select assignments                |                         10 |
+| \emsp{} Review selected assignments       |                         30 |
+| \emsp{} Tips & tricks                     |                         10 |
+| \emsp{} Automated assessment              |                          0 |
+| \emsp{} Hands-on sessions                 |                        390 |
+| \emsp{} Answering questions in Q&A module |                        100 |
+|-------------------------------------------+----------------------------|
+| Tests & exams                             |                        690 |
+| \emsp{} Create new assignments            |                        270 |
+| \emsp{} Supervise tests and exams         |                        130 |
+| \emsp{} Automated assessment              |                          0 |
+| \emsp{} Manual assessment                 |                        288 |
+| \emsp{} Plagiarism detection              |                          2 |
+|-------------------------------------------+----------------------------|
+| Total                                     |              1\thinsp{}290 |
+
+**** Learning analytics and educational data mining
+:PROPERTIES:
+:CREATED:  [2023-10-24 Tue 14:04]
+:END:
+
+A longitudinal analysis of student submissions across the term shows that most learning happens during the 13 weeks of educational activities and that students don't have to catch up practicing their programming skills during the exam period (Figure\nbsp{}[[fig:usefwecoursestructure]]).
+Active learning thus effectively avoids procrastination.
+We observe that students submit solutions every day of the week and show increased activity around hands-on sessions and in the run-up to the weekly deadlines (Figure\nbsp{}[[fig:usefwepunchcard]]).
+Weekends are also used to work further on programming assignments, but students seem to be watching over a good night's sleep.
+
+#+CAPTION: Punchcard from the Dodona learning analytics page showing the distribution per weekday and per hour of all 331\thinsp{}734 solutions submitted during the 2021-2022 edition of the course (442 students).
+#+NAME: fig:usefwepunchcard
+[[./images/usefwepunchcard.png]]
+
+Throughout a course edition, we use Dodona's series analytics to monitor how students perform on our selection of programming assignments (Figure\nbsp{}[[fig:usefweanalytics]]).
+This allows us to make informed decisions and appropriate interventions, for example when students experience issues with the automated assessment configuration of a particular assignment or if the original order of assignments in a series does not seem to align with our design goal to present them in increasing order of difficulty.
+The first students that start working on assignments usually are good performers.
+Seeing these early birds having trouble with solving one of the assignments may give an early warning that action is needed, as in improving the problem specification, adding extra tips & tricks, or better explaining certain programming concepts to all students during lectures or hands-on sessions.
+Reversely, observing that many students postpone working on their assignments until just before the deadline might indicate that some assignments are simply too hard at this moment in time through the learning pathway of the students or that completing the collection of programming assignments interferes with the workload from other courses.
+Such "deadline hugging" patterns are also a good breeding ground for students to resort on exchanging solutions among each other.
+
+#+CAPTION: Interactive learning analytics on student submission behavior across programming assignments in the series where (unnested) loops are introduced in the course (2021--2022 edition).
+#+CAPTION: *Top*: Distribution of the number of student submissions per programming assignment.
+#+CAPTION: The larger the zone, the more students submitted a particular number of solutions.
+#+CAPTION: Black dot indicates the average number of submissions per student.
+#+CAPTION: *Middle*: Distribution of top-level submission statuses per programming assignment.
+#+CAPTION: *Bottom*: Progression over time of the percentage of students that correctly solved each assignment.
+#+NAME: fig:usefweanalytics
+[[./images/usefweanalytics.png]]
+
+Using educational data mining techniques on historical data exported from several editions of the course, we further investigated what aspects of practicing programming skills promote or inhibit learning, or have no or minor effect on the learning process [cite:@vanpetegemPassFailPrediction2022].
+It won't come as a surprise that mid-term test scores are good predictors for a student's final grade, because tests and exams are both summative assessments that are organized and graded in the same way.
+However, we found that organizing a final exam end-of-term is still a catalyst of learning, even for courses with a strong focus of active learning during weeks of educational activities.
+
+In evaluating if students gain deeper understanding when learning from their mistakes while working progressively on their programming assignments, we found the old adage that practice makes perfect to depend on what kind of mistakes students make.
+Learning to code requires mastering two major competences:
+#+ATTR_LATEX: :environment enumerate*
+#+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{, }}, itemjoin*={{, and }}]
+- getting familiar with the syntax and semantics of a programming language to express the steps for solving a problem in a formal way, so that the algorithm can be executed by a computer
+- problem solving itself.
+  It turns out that staying stuck longer on compilation errors (mistakes against the syntax of the programming language) inhibits learning, whereas taking progressively more time to get rid of logical errors (reflective of solving a problem with a wrong algorithm) as assignments get more complex actually promotes learning.
+  After all, time spent in discovering solution strategies while thinking about logical errors can be reclaimed multifold when confronted with similar issues in later assignments [cite:@glassFewerStudentsAre2022].
+
+These findings neatly align with the claim of [cite/t:@edwardsSeparationSyntaxProblem2018] that problem solving is a higher-order learning task in Bloom's Taxonomy (analysis and synthesis) than language syntax (knowledge, comprehension, and application).
+
+Using historical data from previous course editions, we can also make highly accurate predictions about what students will pass or fail the current course edition [cite:@vanpetegemPassFailPrediction2022].
+This can already be done after a few weeks into the course, so remedial actions for at-risk students can be started well in time.
+The approach is privacy-friendly as we only need to process metadata on student submissions for programming assignments and results from automated and manual assessment extracted from Dodona.
+Given that cohort sizes are large enough, historical data from a single course edition are already enough to make accurate predictions.
+
 *** FEA
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
@@ -131,15 +624,55 @@ History of automated assessment
 :CREATED:  [2023-10-23 Mon 08:49]
 :END:
 
+For proper virtualization we use Docker containers [cite:@pevelerComparingJailedSandboxes2019] that use OS-level containerization technologies and define runtime environments in which all data and executable software (e.g., scripts, compilers, interpreters, linters, database systems) are provided and executed.
+These resources are typically pre-installed in the image of the container.
+Prior to launching the actual assessment, the container is extended with the submission, the judge and the resources included in the assessment configuration (Figure\nbsp{}[[fig:technicaloutline]]).
+Additional resources can be downloaded and/or installed during the assessment itself, provided that Internet access is granted to the container.
+
+#+CAPTION: Outline of the procedure to automatically assess a student submission for a programming assignment.
+#+CAPTION: Dodona instantiates a Docker container (1) from the image linked to the assignment (or from the default image linked to the judge of the assignment) and loads the submission and its metadata (2), the judge linked to the assignment (3) and the assessment resources of the assignment (4) into the container.
+#+CAPTION: Dodona then launches the actual assessment, collects and bundles the generated feedback (5), and stores it into a database along with the submission and its metadata.
+#+NAME: fig:technicaloutline
+[[./images/technicaloutline.png]]
+
+
+The actual assessment of the student submission is done by a software component called a *judge* [cite:@wasikSurveyOnlineJudge2018].
+The judge must be robust enough to provide feedback on all possible submissions for the assignment, especially submissions that are incorrect or deliberately want to tamper with the automatic assessment procedure [cite:@forisekSuitabilityProgrammingTasks2006].
+Following the principles of software reuse, the judge is ideally also a generic framework that can be used to assess submissions for multiple assignments.
+This is enabled by the submission metadata that is passed when calling the judge, which includes the path to the source code of the submission, the path to the assessment resources of the assignment and other metadata such as programming language, natural language, time limit and memory limit.
+
+Rather than providing a fixed set of judges, Dodona adopts a minimalistic interface that allows third parties to create new judges: automatic assessment is bootstrapped by launching the judge’s run executable that can fetch the JSON formatted submission metadata from standard input and must generate JSON formatted feedback on standard output.
+The feedback has a standardized hierarchical structure that is specified in a JSON schema.
+At the lowest level, *tests* are a form of structured feedback expressed as a pair of generated and expected results.
+They typically test some behavior of the submitted code against expected behavior.
+Tests can have a brief description and snippets of unstructured feedback called messages.
+Descriptions and messages can be formatted as plain text, HTML (including images), Markdown, or source code.
+Tests can be grouped into *test cases*, which in turn can be grouped into *contexts* and eventually into *tabs*.
+All these hierarchical levels can have descriptions and messages of their own and serve no other purpose than visually grouping tests in the user interface.
+At the top level, a submission has a fine-grained status that reflects the overall assessment of the submission: =compilation error= (the submitted code did not compile), =runtime error= (executing the submitted code failed during assessment), =memory limit exceeded= (memory limit was exceeded during assessment), =time limit exceeded= (assessment did not complete within the given time), =output limit exceeded= (too much output was generated during assessment), =wrong= (assessment completed but not all strict requirements were fulfilled), or =correct= (assessment completed and all strict requirements were fulfilled).
+
+Taken together, a Docker image, a judge and a programming assignment configuration (including both a description and an assessment configuration) constitute a *task package* as defined by [cite:@verhoeffProgrammingTaskPackages2008]: a unit Dodona uses to render the description of the assignment and to automatically assess its submissions.
+However, Dodona’s layered design embodies the separation of concerns [cite:@laplanteWhatEveryEngineer2007] needed to develop, update and maintain the three modules in isolation and to maximize their reuse: multiple judges can use the same docker image and multiple programming assignments can use the same judge.
+Related to this, an explicit design goal for judges is to make the assessment configuration for individual assignments as lightweight as possible.
+After all, minimal configurations reduce the time and effort teachers and instructors need to create programming assignments that support automated assessment.
+Sharing of data files and multimedia content among the programming assignments in a repository also implements the inheritance mechanism for *bundle packages* as hinted by [cite:@verhoeffProgrammingTaskPackages2008].
+Another form of inheritance is specifying default assessment configurations at the directory level, which takes advantage of the hierarchical grouping of learning activities in a repository to share common settings.
+
+To ensure that the system is robust to sudden increases in workload and when serving hundreds of concurrent users, Dodona has a multi-tier service architecture that delegates different parts of the application to different servers running Ubuntu 22.04 LTS.
+More specifically, the web server, database (MySQL 8), caching system (Memcached 1.6.14) and Python Tutor each run on their own machine.
+In addition, a scalable pool of interchangeable worker servers are available to automatically assess incoming student submissions.
+The web server is the only public-facing part of Dodona, running a Ruby on Rails web application (Ruby 3.1, Rails 7.0) that is available on GitHub under the permissive MIT open-source license.
+
+Dodona needs to operate in a challenging environment where students simultaneously submit untrusted code to be executed on its servers ("remote code execution by design") and expect automatically generated feedback, ideally within a few seconds.
+Many design decisions are therefore aimed at maintaining and improving the reliability and security of its systems.
+
+#+BEGIN_COMMENT
 Development
-
 Setup
-
 Deployment
-
 Testing
-
 ...
+#+END_COMMENT
 
 ** Judges
 :PROPERTIES:
@@ -233,15 +766,15 @@ Table [[tab:passfailcoursestatistics]] summarizes some statistics on the course 
 #+CAPTION: Statistics for course editions included in this study.
 #+CAPTION: The number of attempts is the average number of solutions submitted by a student per exercise they worked on (i.e. for which the student submitted at least one solution in the course edition).
 #+NAME: tab:passfailcoursestatistics
-| course |  academic | students | series | exercises | mandatory | submitted | attempts | pass rate |
-|        |      year |          |        |           | exercises | solutions |          |           |
-|--------+-----------+----------+--------+-----------+-----------+-----------+----------+-----------|
-| A      | 2016-2017 |      322 |     10 |        60 | yes       | 167,675   |     9.56 |    60.86% |
-| A      | 2017-2018 |      249 |     10 |        60 | yes       | 125,920   |     9.19 |    61.44% |
-| A      | 2018-2019 |      307 |     10 |        60 | yes       | 176,535   |    10.29 |    65.14% |
-| B      | 2016-2017 |      372 |     20 |       138 | no        | 371,891   |     9.10 |    56.72% |
-| B      | 2017-2018 |      393 |     20 |       187 | no        | 407,696   |     7.31 |    60.81% |
-| B      | 2018-2019 |      437 |     20 |       201 | no        | 421,461   |     6.26 |    62.47% |
+| course |  academic | students | series | exercises | mandatory | submitted       | attempts | pass rate |
+|        |      year |          |        |           | exercises | solutions       |          |           |
+|--------+-----------+----------+--------+-----------+-----------+-----------------+----------+-----------|
+| A      | 2016-2017 |      322 |     10 |        60 | yes       | 167\thinsp{}675 |     9.56 |    60.86% |
+| A      | 2017-2018 |      249 |     10 |        60 | yes       | 125\thinsp{}920 |     9.19 |    61.44% |
+| A      | 2018-2019 |      307 |     10 |        60 | yes       | 176\thinsp{}535 |    10.29 |    65.14% |
+| B      | 2016-2017 |      372 |     20 |       138 | no        | 371\thinsp{}891 |     9.10 |    56.72% |
+| B      | 2017-2018 |      393 |     20 |       187 | no        | 407\thinsp{}696 |     7.31 |    60.81% |
+| B      | 2018-2019 |      437 |     20 |       201 | no        | 421\thinsp{}461 |     6.26 |    62.47% |
 
 Course A is subdivided into two successive instructional units that each cover five programming topics -- one topic per week -- followed by an evaluation about all topics covered in the unit.
 Students must solve six programming exercises on each topic before a deadline one week later.
@@ -265,7 +798,7 @@ Each edition of the course is taken by about 400 students.
 :END:
 
 Both courses use the same in-house online learning environment to promote active learning through problem solving [cite:@princeDoesActiveLearning2004].
-Each course edition has its own module, with a learning path that groups exercises in separate series (Figure [[fig:passfailstudentcourse]]).
+Each course edition has its own module, with a learning path that groups exercises in separate series (Figure\nbsp{}[[fig:passfailstudentcourse]]).
 Course A has one series per covered programming topic (10 series in total) and course B has one series per lab session (20 series in total).
 A submission deadline is set for each series.
 The learning environment is also used to take tests and exams, within series that are only accessible for participating students.
@@ -283,7 +816,7 @@ This rich feedback is automatically generated by an online judge and unit tests 
 Guided by that feedback, students can track potential errors in their code, remedy them and submit an updated solution.
 There is no restriction on the number of solutions that can be submitted per exercise, and students can continue to submit solutions after a series deadline.
 All submitted solutions are stored, but only the last submission before the deadline is taken into account to determine the status (and grade) of an exercise for a student.
-One of the effects of active learning, triggered by exercises with deadlines and automated feedback, is that most learning happens during the semester as can be seen on the heatmap in Figure [[fig:passfailheatmap]].
+One of the effects of active learning, triggered by exercises with deadlines and automated feedback, is that most learning happens during the semester as can be seen on the heatmap in Figure\nbsp{}[[fig:passfailheatmap]].
 
 #+CAPTION: Heatmap showing the distribution per day of all 176535 solutions submitted during the 2018-2019 edition of course A.
 #+CAPTION: Weekly lab sessions for different groups on Monday afternoon, Friday morning and Friday afternoon.
@@ -339,7 +872,7 @@ To investigate the impact of deadline-related features, we also made predictions
 :END:
 
 We evaluated four classification algorithms to make pass/fail predictions from student behaviour: stochastic gradient descent [cite:@fergusonInconsistentMaximumLikelihood1982], logistic regression [cite:@kleinbaumIntroductionLogisticRegression1994], support vector machines [cite:@cortesSupportVectorNetworks1995], and random forests [cite:@svetnikRandomForestClassification2003].
-We used implementations of the algorithms from scikit-learn [cite:@pedregosaScikitlearnMachineLearning2011] and optimized model parameters for each algorithm by cross-validated grid-search over a parameter grid (=sklearn.model_selection.GridSearchCV=).
+We used implementations of the algorithms from scikit-learn [cite:@pedregosaScikitlearnMachineLearning2011] and optimized model parameters for each algorithm by cross-validated grid-search over a parameter grid.
 
 Readers unfamiliar with machine learning can think of these specific algorithms as black boxes, but we briefly explain the basic principles of classification for their understanding.
 Supervised learning algorithms use a dataset that contains both inputs and desired outputs to build a model that can be used to predict the output associated with new inputs.
@@ -347,7 +880,7 @@ The dataset used to build the model is called the training set and consists of t
 Classification is a specific case of supervised learning where the outputs are restricted to a limited set of values (labels), in contrast to for example all possible numerical values with a range.
 Classification algorithms are validated by splitting a dataset of labelled feature vectors into a training set and a test set, building a model from the training set, and evaluating the accuracy of its predictions on the test set.
 Keeping training and test data separate is crucial to avoid bias during validation.
-A standard method to make unbiased predictions for all examples in a dataset is k-fold cross-validation: partition the dataset in k subsets and then perform k experiments that each take one subset for evaluation and the other k-1 subsets for training the model.
+A standard method to make unbiased predictions for all examples in a dataset is \(k\)-fold cross-validation: partition the dataset in $k$ subsets and then perform $k$ experiments that each take one subset for evaluation and the other $k-1$ subsets for training the model.
 
 Pass/fail prediction is a binary classification problem with two possible outputs: passing or failing a course.
 We evaluated the accuracy of the predictions for each snapshot and each classification algorithm with three different types of training sets.
@@ -361,11 +894,11 @@ However, because we can assume that different editions of the same course yield 
 There are many metrics that can be used to evaluate how accurately a classifier predicted which students will pass or fail the course from the data in a given snapshot.
 Predicting a student will pass the course is called a positive prediction, and predicting they will fail the course is called a negative prediction.
 Predictions that correspond with the actual outcome are called true predictions, and predictions that differ from the actual outcome are called false predictions.
-This results in four possible combinations of predictions: true positives (TP), true negatives (TN), false positives (FP) and false negatives (FN).
-Two standard accuracy metrics used in information retrieval are precision (TP/(TP+FP)) and recall (TP/(TP+FN)).
-The latter is also called sensitivity if used in combination with specificity (TN/(TN+FP)).
+This results in four possible combinations of predictions: true positives ($TP$), true negatives ($TN$), false positives ($FP$) and false negatives ($FN$).
+Two standard accuracy metrics used in information retrieval are precision ($TP/(TP+FP)$) and recall ($TP/(TP+FN)$).
+The latter is also called sensitivity if used in combination with specificity ($TN/(TN+FP)$).
 
-Many studies for pass/fail prediction use accuracy ((TP+TN)/(TP+TN+FP+FN)) as a single performance metric.
+Many studies for pass/fail prediction use accuracy ($(TP+TN)/(TP+TN+FP+FN)$) as a single performance metric.
 However, this can yield misleading results.
 For example, let’s take a dummy classifier that always "predicts" students will pass, no matter what.
 This is clearly a bad classifier, but it will nonetheless have an accuracy of 75% for a course where 75% of the students pass.
@@ -380,7 +913,7 @@ Under the same circumstances, a pessimistic classifier that consistently predict
 :CREATED:  [2023-10-23 Mon 16:55]
 :END:
 
-We evaluated the performance of four classification algorithms for pass/fail predictions in a longitudinal sequence of snapshots from course A and B: stochastic gradient descent (Figure [[fig:passfailsgdresults]]), logistic regression (Figure [[fig:passfaillrresults]]), support vector machines (Figure [[fig:passfailsvmresults]]), and random forests (Figure [[fig:passfailrfresults]]).
+We evaluated the performance of four classification algorithms for pass/fail predictions in a longitudinal sequence of snapshots from course A and B: stochastic gradient descent (Figure\nbsp{}[[fig:passfailsgdresults]]), logistic regression (Figure\nbsp{}[[fig:passfaillrresults]]), support vector machines (Figure\nbsp{}[[fig:passfailsvmresults]]), and random forests (Figure\nbsp{}[[fig:passfailrfresults]]).
 For each classifier, course and snapshot, we evaluated 12 predictions for the following combinations of training and test sets: train on one edition and test on another edition; train on two editions and test on the other edition; train and test on one edition using 5-fold cross validation.
 In addition, we made predictions for course A using both the full set of features and a reduced feature set that ignores deadline-related features.
 We discuss the results in terms of accuracy, potential for early detection, and interpretability.
@@ -485,7 +1018,7 @@ However, in this case we are not interested in the predictions themselves, but i
 The importance of all features for each course edition can be found in the supplementary material.
 We will restrict our discussion by highlighting the importance of a selection of feature types for the two courses.
 
-For course A, we look into the evaluation scores (Figure [[fig:passfailfeaturesAevaluation]]) and the feature types =correct_after_15m= (Figure [[fig:passfailfeaturesAcorrect]]) and =wrong= (Figure [[fig:passfailfeaturesAwrong]]).
+For course A, we look into the evaluation scores (Figure\nbsp{}[[fig:passfailfeaturesAevaluation]]) and the feature types =correct_after_15m= (Figure\nbsp{}[[fig:passfailfeaturesAcorrect]]) and =wrong= (Figure\nbsp{}[[fig:passfailfeaturesAwrong]]).
 Evaluation scores have a very strong impact on predictions, and high evaluation scores increase the odds of passing the course.
 This comes as no surprise, as both the evaluations and exams are summative assessments that are organized and graded in the same way.
 Although the difficulty of evaluation exercises is lower than those of exam exercises, evaluation scores already are good predictors for exam scores.
@@ -496,7 +1029,7 @@ They have zero impact on predictions for earlier snapshots, as the information i
 #+NAME: fig:passfailfeaturesAevaluation
 [[./images/passfailfeaturesAevaluation.png]]
 
-The second feature type we want to highlight is =correct_after_15m=: the number of exercises in a series where the first correct submission was made within fifteen minutes after the first submission (Figure [[fig:passfailfeaturesAcorrect]]).
+The second feature type we want to highlight is =correct_after_15m=: the number of exercises in a series where the first correct submission was made within fifteen minutes after the first submission (Figure\nbsp{}[[fig:passfailfeaturesAcorrect]]).
 Note that we can’t directly measure how long students work on an exercise, as they may write, run and test their solutions on their local machine before their first submission to the learning platform.
 Rather, this feature type measures how long it takes students to find and remedy errors in their code (debugging), after they start getting automatic feedback from the learning platform.
 
@@ -523,7 +1056,7 @@ A possible explanation for these few slightly positive weights is that these exe
 #+NAME: fig:passfailfeaturesAcorrect
 [[./images/passfailfeaturesAcorrect.png]]
 
-Finally, if we look at the feature type =wrong= (Figure [[fig:passfailfeaturesAwrong]]), submitting a lot of submissions with logical errors mostly has a positive impact on the odds of passing the course.
+Finally, if we look at the feature type =wrong= (Figure\nbsp{}[[fig:passfailfeaturesAwrong]]), submitting a lot of submissions with logical errors mostly has a positive impact on the odds of passing the course.
 This underscores the old adage that practice makes perfect, as real learning happens where students learn from their mistakes.
 Exceptions to this rule are found for series 2, 3, 9 and 10.
 The lecturer and teaching assistants identify the topics covered in series 2 and 9 by far as the easiest topics covered in the course, and identify the topics covered in series 3, 6 and 10 as the hardest.
@@ -534,7 +1067,7 @@ This shows that interpreting the importance of feature types is not always strai
 #+NAME: fig:passfailfeaturesAwrong
 [[./images/passfailfeaturesAwrong.png]]
 
-For course B, we look into the evaluation scores (Figure [[fig:passfailfeaturesBevaluation]]) and the feature types =comp_error= (Figure [[fig:passfailfeaturesBcomp]]) and =wrong= (Figure [[fig:passfailfeaturesBwrong]]).
+For course B, we look into the evaluation scores (Figure\nbsp{}[[fig:passfailfeaturesBevaluation]]) and the feature types =comp_error= (Figure\nbsp{}[[fig:passfailfeaturesBcomp]]) and =wrong= (Figure\nbsp{}[[fig:passfailfeaturesBwrong]]).
 The importance of evaluation scores is similar as for course A, although their relative impact on the predictions is slightly lower.
 The latter might be caused by automatic grading of evaluation exercises, where exam exercises are graded by hand.
 The fact that the second evaluation is scheduled a little bit earlier in the semester than for course A, makes that pass/fail predictions for course B can also rely earlier on this important feature.
@@ -553,8 +1086,8 @@ Learning to code requires mastering two major competences:
 - problem solving itself.
 As a result, we can make a distinction between different kinds of errors in source code.
 Compilation errors are mistakes against the syntax of the programming language, whereas logical errors result from solving a problem with a wrong algorithm.
-When comparing the importance of the number of compilation (Figure [[fig:passfailfeaturesBcomp]]) and logical errors (Figure [[fig:passfailfeaturesBwrong]]) students make while practicing their coding skills, we see a clear difference.
-Making a lot of compilation errors has a negative impact on the odds for passing the course (blue colour dominates in Figure [[fig:passfailfeaturesBcomp]]), whereas making a lot of logical errors makes a positive contribution (red colour dominates in Figure [[fig:passfailfeaturesBwrong]]).
+When comparing the importance of the number of compilation (Figure\nbsp{}[[fig:passfailfeaturesBcomp]]) and logical errors (Figure\nbsp{}[[fig:passfailfeaturesBwrong]]) students make while practicing their coding skills, we see a clear difference.
+Making a lot of compilation errors has a negative impact on the odds for passing the course (blue colour dominates in Figure\nbsp{}[[fig:passfailfeaturesBcomp]]), whereas making a lot of logical errors makes a positive contribution (red colour dominates in Figure\nbsp{}[[fig:passfailfeaturesBwrong]]).
 This aligns with the claim of [cite/t:@edwardsSeparationSyntaxProblem2018] that problem solving is a higher-order learning task in Bloom's Taxonomy (analysis and synthesis) than language syntax (knowledge, comprehension, and application).
 Students that get stuck longer in the mechanics of a programming language will more likely fail the course, whereas students that make a lot of logical errors and properly learn from them will more likely pass the course.
 So making mistakes is beneficial for learning, but it depends what kind of mistakes.
