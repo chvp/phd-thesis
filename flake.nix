@@ -3,19 +3,27 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
     devshell = {
       url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
       inputs = {
-        flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
       };
     };
+    flake-utils.url = "github:numtide/flake-utils";
   };
-  outputs = { self, nixpkgs, devshell, flake-utils }:
+  outputs = { self, nixpkgs, devshell, emacs-overlay, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs { inherit system; overlays = [ devshell.overlays.default ]; config.allowUnfree = true; };
+        pkgs = import nixpkgs { inherit system; overlays = [ devshell.overlays.default emacs-overlay.overlays.default ]; config.allowUnfree = true; };
+        emacs = pkgs.emacsWithPackagesFromPackageRequires {
+          packageElisp = builtins.readFile ./build.el;
+          extraEmacsPackages = epkgs: [epkgs.citeproc];
+        };
         ugent2016 = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
           pname = "ugent2016";
           version = "0.10.0";
@@ -82,6 +90,40 @@
               category = "general commands";
               help = "clean directory";
               command = "cat .gitignore | xargs rm";
+            }
+            {
+              name = "revision-sent";
+              category = "general commands";
+              help = "declare sent revision";
+              command = ''
+                git rev-parse --short HEAD > .sent-revision
+                git commit -m "Sent latest revision" --only .sent-revision
+              '';
+            }
+            {
+              name = "build-diffed";
+              category = "general commands";
+              help = "build a diffed PDF between latest sent revision and current";
+              command = ''
+                set -E
+                atexit() {
+                  git worktree remove -f .sent
+                  rm book.tex sent.tex diff.tex -f
+                  rm build -rf
+                }
+                trap "atexit" EXIT
+                ${emacs}/bin/emacs -batch -load build.el
+                git worktree add .sent $(cat .sent-revision)
+                pushd .sent
+                ${emacs}/bin/emacs -batch -load ../build.el
+                mv book.tex ../sent.tex
+                popd
+                mkdir build
+                latexdiff sent.tex book.tex > diff.tex
+                latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory=build book.tex
+                latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory=build diff.tex
+                mv build/book.pdf build/diff.pdf .
+              '';
             }
           ];
         };

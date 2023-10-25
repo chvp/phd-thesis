@@ -14,4 +14,5 @@
                               ("\\subsection{%s}" . "\\subsection*{%s}")
                               ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
          (org-latex-src-block-backend . 'listings)
+         (org-latex-prefer-user-labels . t)
          (fill-column . 200))))

@@ -27,6 +27,7 @@
 * Table of Contents
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 14:10]
+:CUSTOM_ID: chap:toc
 :UNNUMBERED: t
 :END:
 #+LATEX: \listoftoc*{toc}
@@ -34,23 +35,27 @@
 * Acknowledgements
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 09:25]
+:CUSTOM_ID: chap:ack
 :UNNUMBERED: t
 :END:
 
 * Summaries
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 17:56]
+:CUSTOM_ID: chap:summ
 :UNNUMBERED: t
 :END:
 
 ** Summmary in English
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 17:54]
+:CUSTOM_ID: sec:summen
 :END:
 
 ** Nederlandstalige samenvatting
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 17:54]
+:CUSTOM_ID: sec:summnl
 :END:
 
 #+LATEX: \mainmatter
@@ -58,6 +63,7 @@
 * Introduction
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:47]
+:CUSTOM_ID: chap:intro
 :END:
 
 #+BEGIN_COMMENT
@@ -74,21 +80,25 @@ While almost all platforms support automated assessment of code submitted by stu
 * What is Dodona?
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:47]
+:CUSTOM_ID: chap:what
 :END:
 
 ** Students
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
+:CUSTOM_ID: sec:whatstudents
 :END:
 
 ** Teachers
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
+:CUSTOM_ID: sec:whatteachers
 :END:
 
 *** Classroom management
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 09:31]
+:CUSTOM_ID: subsec:whatclassroom
 :END:
 
 In Dodona, a *course* is where teachers and instructors effectively manage a learning environment by instructing, monitoring and evaluating their students and interacting with them, either individually or as a group.
@@ -140,6 +150,7 @@ Understanding, knowledge and insights that can be used to make informed decision
 *** User management
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 09:44]
+:CUSTOM_ID: subsec:whatuser
 :END:
 
 Instead of providing its own authentication and authorization, Dodona delegates authentication to external identity providers (e.g.\nbsp{}educational and research institutions) through SAML [cite:@farrellAssertionsProtocolOASIS2002], OAuth [cite:@leibaOAuthWebAuthorization2012; @hardtOAuthAuthorizationFramework2012] and OpenID Connect [cite:@sakimuraOpenidConnectCore2014].
@@ -152,6 +163,7 @@ Teachers and instructors who wish to create content (courses, learning activitie
 *** Automated assessment
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:16]
+:CUSTOM_ID: subsec:whatassessment
 :END:
 
 The range of approaches, techniques and tools for software testing that may underpin assessing the quality of software under test is incredibly diverse.
@@ -186,6 +198,7 @@ Students typically report this as one of the most useful features of Dodona.
 *** Content management
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:47]
+:CUSTOM_ID: subsec:whatcontent
 :END:
 
 Where courses are created and managed in Dodona itself, other content is managed in external git *repositories* (Figure\nbsp{}[[fig:whatrepositories]]).
@@ -223,6 +236,7 @@ Finally, the configuration might also contain *boilerplate code*: a skeleton stu
 *** Internationalization and localization
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:55]
+:CUSTOM_ID: subsec:whati18n
 :END:
 *Internationalization* (i18n) is a shared responsibility between Dodona, learning activities and judges.
 All boilerplate text in the user interface that comes from Dodona itself is supported in English and Dutch, and users can select their preferred language.
@@ -235,6 +249,7 @@ Dodona always displays *localized deadlines* based on a time zone setting in the
 *** Questions, answers and code reviews
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:56]
+:CUSTOM_ID: subsec:whatqa
 :END:
 
 A downside of using discussion forums in programming courses is that students can ask questions about programming assignments that are either disconnected from their current implementation or contain code snippets that may give away (part of) the solution to other students [cite:@nandiEvaluatingQualityInteraction2012].
@@ -269,6 +284,7 @@ Such *code reviews* will be used as a building block for manual assessment.
 *** Manual assessment
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 11:01]
+:CUSTOM_ID: subsec:whateval
 :END:
 
 Teachers can create an *evaluation* for a series to manually assess student submissions for its programming assignments after a specific period, typically following the deadline of some homework, an intermediate test or a final exam.
@@ -300,31 +316,37 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 ** Related projects
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
+:CUSTOM_ID: sec:whatrelated
 :END:
 
 *** Dolos
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
+:CUSTOM_ID: subsec:whatdolos
 :END:
 
 *** TESTed
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
+:CUSTOM_ID: subsec:whattested
 :END:
 
 * Use
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
+:CUSTOM_ID: chap:use
 :END:
 
 ** University level
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
+:CUSTOM_ID: sec:useuni
 :END:
 
 *** FWE
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
+:CUSTOM_ID: subsec:usefwe
 :END:
 
 Since the academic year 2011-2012 we have organized an introductory Python course at Ghent University (Belgium) with a strong focus on active and online learning.
@@ -334,6 +356,7 @@ The course is taken by a mix of undergraduate, graduate, and postgraduate studen
 **** Course structure
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 11:47]
+:CUSTOM_ID: subsubsec:usecourse
 :END:
 
 Each course edition has a fixed structure, with 13 weeks of educational activities subdivided in two successive instructional units that each cover five topics of the Python programming language -- one topic per week -- followed by a graded test about all topics covered in the unit (Figure\nbsp{}[[fig:usefwecoursestructure]]).
@@ -371,6 +394,7 @@ Submissions for these additional exercises are not taken into account in the fin
 **** Assessment, feedback and grading
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 11:47]
+:CUSTOM_ID: subsubsec:useassessment
 :END:
 
 We use the online learning environment Dodona to promote active learning through problem solving [cite:@princeDoesActiveLearning2004].
@@ -426,6 +450,7 @@ In our experience, most students traditionally perform much better on mandatory 
 **** Open and collaborative learning environment
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 11:59]
+:CUSTOM_ID: subsubsec:useopen
 :END:
 
 We strongly believe that effective collaboration among small groups of students is beneficial for learning [cite:@princeDoesActiveLearning2004], and encourage students to collaborate and ask questions to tutors and other students during and outside lab sessions.
@@ -488,6 +513,7 @@ If we catalog cases as plagiarism beyond reasonable doubt, the examination board
 **** Workload for running a course edition
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 13:46]
+:CUSTOM_ID: subsubsec:useworkload
 :END:
 
 To organize "open book/open Internet" tests and exams that are valid and reliable, we always create new assignments and avoid assignments whose solutions or parts thereof are readily available online.
@@ -602,26 +628,31 @@ Given that cohort sizes are large enough, historical data from a single course e
 *** FEA
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
+:CUSTOM_ID: subsec:usefea
 :END:
 
 *** Others
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
+:CUSTOM_ID: subsec:useothers
 :END:
 
 ** Secondary schools
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:49]
+:CUSTOM_ID: sec:usesecondary
 :END:
 
 * Technical description
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:49]
+:CUSTOM_ID: chap:technical
 :END:
 
 ** Dodona
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:49]
+:CUSTOM_ID: sec:techdodona
 :END:
 
 For proper virtualization we use Docker containers [cite:@pevelerComparingJailedSandboxes2019] that use OS-level containerization technologies and define runtime environments in which all data and executable software (e.g., scripts, compilers, interpreters, linters, database systems) are provided and executed.
@@ -677,26 +708,31 @@ Testing
 ** Judges
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:49]
+:CUSTOM_ID: sec:techjudges
 :END:
 
 *** R
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:49]
+:CUSTOM_ID: subsec:techr
 :END:
 
 *** TESTed
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:49]
+:CUSTOM_ID: subsec:techtested
 :END:
 
 * Pass/fail prediction
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:50]
+:CUSTOM_ID: chap:passfail
 :END:
 
 ** Introduction
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:50]
+:CUSTOM_ID: sec:passfailintro
 :END:
 
 A lot of educational opportunities are missed by keeping assessment separate from learning [cite:@wiliamWhatAssessmentLearning2011; @blackAssessmentClassroomLearning1998].
@@ -749,11 +785,13 @@ The results are discussed from a methodological and educational perspective with
 ** Materials and methods
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:50]
+:CUSTOM_ID: sec:passfailmaterials
 :END:
 
 *** Course structures
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 16:28]
+:CUSTOM_ID: subsec:passfailstructures
 :END:
 
 This study uses data from two introductory programming courses (referenced as course A and course B) collected during 3 editions of each course in academic years 2016-2017, 2017-2018 and 2018-2019.
@@ -795,6 +833,7 @@ Each edition of the course is taken by about 400 students.
 *** Learning environment
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 16:28]
+:CUSTOM_ID: subsec:passfaillearningenvironment
 :END:
 
 Both courses use the same in-house online learning environment to promote active learning through problem solving [cite:@princeDoesActiveLearning2004].
@@ -829,6 +868,7 @@ One of the effects of active learning, triggered by exercises with deadlines and
 *** Submission data
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 16:38]
+:CUSTOM_ID: subsec:passfaildata
 :END:
 
 We exported data from the learning environment on all solutions submitted by students during each course edition included in the study.
@@ -869,6 +909,7 @@ To investigate the impact of deadline-related features, we also made predictions
 *** Classification algorithms
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 16:45]
+:CUSTOM_ID: subsec:passfailclassification
 :END:
 
 We evaluated four classification algorithms to make pass/fail predictions from student behaviour: stochastic gradient descent [cite:@fergusonInconsistentMaximumLikelihood1982], logistic regression [cite:@kleinbaumIntroductionLogisticRegression1994], support vector machines [cite:@cortesSupportVectorNetworks1995], and random forests [cite:@svetnikRandomForestClassification2003].
@@ -911,6 +952,7 @@ Under the same circumstances, a pessimistic classifier that consistently predict
 ** Results and discussion
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 16:55]
+:CUSTOM_ID: sec:passfailresults
 :END:
 
 We evaluated the performance of four classification algorithms for pass/fail predictions in a longitudinal sequence of snapshots from course A and B: stochastic gradient descent (Figure\nbsp{}[[fig:passfailsgdresults]]), logistic regression (Figure\nbsp{}[[fig:passfaillrresults]]), support vector machines (Figure\nbsp{}[[fig:passfailsvmresults]]), and random forests (Figure\nbsp{}[[fig:passfailrfresults]]).
@@ -946,6 +988,7 @@ We discuss the results in terms of accuracy, potential for early detection, and 
 *** Accuracy
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 17:03]
+:CUSTOM_ID: subsec:passfailaccuracy
 :END:
 
 The overall conclusion from the longitudinal analysis is that indirectly measuring how students practice their coding skills by solving programming exercises (formative assessments) in combination with directly measuring how they perform on intermediate evaluations (summative assessments), allows us to predict with high accuracy if students will pass or fail a programming course.
@@ -981,6 +1024,7 @@ This frees us from having to determine the importance of features beforehand, al
 *** Early detection
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 17:05]
+:CUSTOM_ID: subsec:passfailearly
 :END:
 
 Accuracy of predictions systematically increases as we capture more of student behaviour during the semester.
@@ -993,6 +1037,7 @@ This might explain why it takes a bit longer to properly measure student motivat
 *** Interpretability
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 17:05]
+:CUSTOM_ID: subsec:passfailinterpretability
 :END:
 
 So far, we have considered classification models as black boxes in our longitudinal analysis of pass/fail predictions.
@@ -1106,6 +1151,7 @@ This shows that interpreting feature importances always needs to take the educat
 ** Conclusions and future work
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 17:30]
+:CUSTOM_ID: sec:passfailconclusions
 :END:
 
 In this chapter, we presented a classification framework for predicting if students will likely pass or fail introductory programming courses.
@@ -1139,6 +1185,7 @@ Having this new framework at hand immediately raises some follow-up research que
 ** Future work/Replication in Finland
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:50]
+:CUSTOM_ID: sec:passfailfinland
 :END:
 
 Extract new info from article; present here
@@ -1146,16 +1193,19 @@ Extract new info from article; present here
 * Feedback prediction
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:51]
+:CUSTOM_ID: chap:prediction
 :END:
 
 * Discussion and future work
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:51]
+:CUSTOM_ID: chap:discussion
 :END:
 
 * Bibliography
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:59]
+:CUSTOM_ID: chap:bibliography
 :UNNUMBERED: t
 :END:
 
@@ -1165,6 +1215,7 @@ Extract new info from article; present here
 * Feature types
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 18:09]
+:CUSTOM_ID: chap:featuretypes
 :APPENDIX: t
 :END:
 
