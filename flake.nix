@@ -24,6 +24,27 @@
           packageElisp = builtins.readFile ./build.el;
           extraEmacsPackages = epkgs: [epkgs.citeproc];
         };
+        full-texlive = pkgs.texlive.combine { inherit (pkgs.texlive) scheme-full; inherit ugent2016; };
+        build-diffed = pkgs.writeShellScriptBin "build-diffed" ''
+          set -E
+          atexit() {
+            git worktree remove -f .sent
+            rm book.tex sent.tex diff.tex -f
+            rm build -rf
+          }
+          trap "atexit" EXIT
+          ${emacs}/bin/emacs -batch -load build.el
+          ${pkgs.git}/bin/git worktree add .sent $(cat .sent-revision)
+          pushd .sent
+          ${emacs}/bin/emacs -batch -load ../build.el
+          mv book.tex ../sent.tex
+          popd
+          mkdir build
+          ${full-texlive}/bin/latexdiff --math-markup=whole -t CFONT sent.tex book.tex > diff.tex
+          ${full-texlive}/bin/latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory=build book.tex
+          ${full-texlive}/bin/latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory=build diff.tex
+          mv build/book.pdf build/diff.pdf .
+        '';
         ugent2016 = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
           pname = "ugent2016";
           version = "0.10.0";
@@ -81,7 +102,7 @@
         devShells.default = pkgs.devshell.mkShell {
           name = "PhD thesis";
           packages = [
-            (pkgs.texlive.combine { inherit (pkgs.texlive) scheme-full; inherit ugent2016; })
+            full-texlive
             pkgs.nixpkgs-fmt
           ];
           commands = [
@@ -104,29 +125,11 @@
               name = "build-diffed";
               category = "general commands";
               help = "build a diffed PDF between latest sent revision and current";
-              command = ''
-                set -E
-                atexit() {
-                  git worktree remove -f .sent
-                  rm book.tex sent.tex diff.tex -f
-                  rm build -rf
-                }
-                trap "atexit" EXIT
-                ${emacs}/bin/emacs -batch -load build.el
-                git worktree add .sent $(cat .sent-revision)
-                pushd .sent
-                ${emacs}/bin/emacs -batch -load ../build.el
-                mv book.tex ../sent.tex
-                popd
-                mkdir build
-                latexdiff --math-markup=whole -t CFONT sent.tex book.tex > diff.tex
-                latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory=build book.tex
-                latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory=build diff.tex
-                mv build/book.pdf build/diff.pdf .
-              '';
+              package = build-diffed;
             }
           ];
         };
+        packages.build-diffed = build-diffed;
       }
     );
 }

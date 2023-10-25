@@ -1,0 +1,16 @@
+default:
+  tags:
+    - nix
+
+stages:
+  - build
+
+build-pdfs:
+  stage: build
+  script:
+    - nix build .#build-diffed
+    - ./result/bin/build-diffed
+  artifacts:
+    paths:
+      - book.pdf
+      - diff.pdf
