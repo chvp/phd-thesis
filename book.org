@@ -578,6 +578,7 @@ We have drastically cut the time we initially spent on mandatory assignments by 
 **** Learning analytics and educational data mining
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 14:04]
+:CUSTOM_ID: subsubsec:uselearninganalytics
 :END:
 
 A longitudinal analysis of student submissions across the term shows that most learning happens during the 13 weeks of educational activities and that students don't have to catch up practicing their programming skills during the exam period (Figure\nbsp{}[[fig:usefwecoursestructure]]).
