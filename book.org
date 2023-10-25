@@ -7,6 +7,9 @@
 #+LATEX_HEADER: \usepackage{listings}
 #+LATEX_HEADER: \usepackage{color}
 #+LATEX_HEADER: \usepackage[type=report]{ugent2016-title}
+#+LATEX_HEADER: \usepackage[final]{microtype}
+#+LATEX_HEADER: \usepackage[defaultlines=2,all]{nowidow}
+#+LATEX_HEADER: \usepackage{showframe}
 #+LATEX_HEADER: \academicyear{2023–2024}
 #+LATEX_HEADER: \subtitle{Learn to code with a data-driven platform}
 #+LATEX_HEADER: \titletext{A dissertation submitted to Ghent University in partial fulfilment of the requirements for the degree of Doctor of Computer Science.}
@@ -188,10 +191,10 @@ Students typically report this as one of the most useful features of Dodona.
 
 #+CAPTION: Dodona rendering of feedback generated for a submission of the Python programming assignment "Curling".
 #+CAPTION: The feedback is split across three tabs: ~isinside~, ~isvalid~ and ~score~.
-#+CAPTION: 48 tests under the ~score~ tab failed as can be seen immediately from the badge in the tab header.
-#+CAPTION: The fourth tab "Code" displays the source code of the submission with annotations added during automatic and/or manual assessment (Figure\nbsp{}[[fig:whatannotations]]).
-#+CAPTION: The differences between the generated and expected return values of the first and third test cases were automatically highlighted and the judge used HTML snippets to add a graphical representation (SVG) of the curling stone positions that are passed as arguments to the ~score~ function for these failed test cases.
-#+CAPTION: In addition to highlighting differences between the generated and expected return values of the first (failed) test case, the judge also added a text snippet that indicates that a ~tuple~ was expected (not a ~list~).
+#+CAPTION: 48 tests under the ~score~ tab failed as can be seen from the badge in the tab header.
+#+CAPTION: The "Code" tab displays the source code of the submission with annotations added during automatic and/or manual assessment (Figure\nbsp{}[[fig:whatannotations]]).
+#+CAPTION: The differences between the generated and expected return values were automatically highlighted and the judge used HTML snippets to add a graphical representation (SVG) of the problem for the failed test cases.
+#+CAPTION: In addition to highlighting differences between the generated and expected return values of the first (failed) test case, the judge also added a text snippet that points the user to a type error.
 #+NAME: fig:whatfeedback
 [[./images/whatfeedback.png]]
 
@@ -366,10 +369,9 @@ Students who fail the course during the first exam in January can take a resit e
 #+CAPTION: *Top*: Structure of the Python course that runs each academic year across a 13-week term (September-December).
 #+CAPTION: Programming assignments from the same Dodona series are stacked vertically.
 #+CAPTION: Students submit solutions for ten series with six mandatory assignments, two tests with two assignments and an exam with three assignments.
-#+CAPTION: They can also take a resit exam with three assignments in August/September if they failed the first exam in January.
+#+CAPTION: There is also a resit exam with three assignments in August/September if they failed the first exam in January.
 #+CAPTION: *Bottom*: Heatmap from Dodona learning analytics page showing distribution per day of all 331\thinsp{}734 solutions submitted during the 2021-2022 edition of the course (442 students).
 #+CAPTION: The darker the color, the more solutions were submitted that day.
-#+CAPTION: A lighter shade of fuchsia means few solutions were submitted that day.
 #+CAPTION: A light gray square means no solutions were submitted that day.
 #+CAPTION: Weekly lab sessions for different groups on Monday afternoon, Friday morning and Friday afternoon, where we can see darker squares.
 #+CAPTION: Weekly deadlines for mandatory assignments on Tuesdays at 22:00.
@@ -471,13 +473,12 @@ Usually this is a lecture about working with the string data type, so we can int
 
 #+CAPTION: Dolos plagiarism graphs for the Python programming assignment "\pi{}-ramidal constants" that was created and used for a test of the 2020-2021 edition of the course (left) and reused as a mandatory assignment in the 2021-2022 edition (right).
 #+CAPTION: Graphs constructed from the last submission before the deadline of 142 and 382 students respectively.
-#+CAPTION: Nodes represent student submissions and their colors represent study programmes as taken from user labels in Dodona.
+#+CAPTION: The color of each node represents the student's study programme.
 #+CAPTION: Edges connect highly similar pairs of submissions, with similarity threshold set to 0.8 in both graphs.
 #+CAPTION: Edge directions are based on submission timestamps in Dodona.
 #+CAPTION: Clusters of connected nodes are highlighted with a distinct background color and have one node with a solid border that indicates the first correct submission among all submissions in that cluster.
 #+CAPTION: All students submitted unique solutions during the test, except for two students who confessed they exchanged a solution during the test.
 #+CAPTION: Submissions for the mandatory assignment show that most students work either individually or in groups of two or three students, but we also observe some clusters of four or more students that exchanged solutions and submitted them with hardly any varying types and amounts of modifications.
-#+CAPTION: This case was used to warn students about the negative learning effect of copying solutions from each other.
 #+NAME: fig:usefweplagiarism
 [[./images/usefweplagiarism.png]]
 
@@ -554,26 +555,26 @@ We have drastically cut the time we initially spent on mandatory assignments by 
 
 #+CAPTION: Estimated workload to run the 2021-2022 edition of the introductory Python programming course for 442 students with 1 lecturer, 7 teaching assistants and 3 undergraduate students who serve as teaching assistants [cite:@gordonUndergraduateTeachingAssistants2013].
 #+NAME: tab:usefweworkload
-| Task                                      | Estimated workload (hours) |
-|-------------------------------------------+----------------------------|
-| Lectures                                  |                         60 |
-|-------------------------------------------+----------------------------|
-| Mandatory assignments                     |                        540 |
-| \emsp{} Select assignments                |                         10 |
-| \emsp{} Review selected assignments       |                         30 |
-| \emsp{} Tips & tricks                     |                         10 |
-| \emsp{} Automated assessment              |                          0 |
-| \emsp{} Hands-on sessions                 |                        390 |
-| \emsp{} Answering questions in Q&A module |                        100 |
-|-------------------------------------------+----------------------------|
-| Tests & exams                             |                        690 |
-| \emsp{} Create new assignments            |                        270 |
-| \emsp{} Supervise tests and exams         |                        130 |
-| \emsp{} Automated assessment              |                          0 |
-| \emsp{} Manual assessment                 |                        288 |
-| \emsp{} Plagiarism detection              |                          2 |
-|-------------------------------------------+----------------------------|
-| Total                                     |              1\thinsp{}290 |
+| Task                                | Estimated workload (hours) |
+|-------------------------------------+----------------------------|
+| Lectures                            |                         60 |
+|-------------------------------------+----------------------------|
+| Mandatory assignments               |                        540 |
+| \emsp{} Select assignments          |                         10 |
+| \emsp{} Review selected assignments |                         30 |
+| \emsp{} Tips & tricks               |                         10 |
+| \emsp{} Automated assessment        |                          0 |
+| \emsp{} Hands-on sessions           |                        390 |
+| \emsp{} Answering online questions  |                        100 |
+|-------------------------------------+----------------------------|
+| Tests & exams                       |                        690 |
+| \emsp{} Create new assignments      |                        270 |
+| \emsp{} Supervise tests and exams   |                        130 |
+| \emsp{} Automated assessment        |                          0 |
+| \emsp{} Manual assessment           |                        288 |
+| \emsp{} Plagiarism detection        |                          2 |
+|-------------------------------------+----------------------------|
+| Total                               |              1\thinsp{}290 |
 
 **** Learning analytics and educational data mining
 :PROPERTIES:
@@ -589,21 +590,26 @@ Weekends are also used to work further on programming assignments, but students 
 #+NAME: fig:usefwepunchcard
 [[./images/usefwepunchcard.png]]
 
-Throughout a course edition, we use Dodona's series analytics to monitor how students perform on our selection of programming assignments (Figure\nbsp{}[[fig:usefweanalytics]]).
+Throughout a course edition, we use Dodona's series analytics to monitor how students perform on our selection of programming assignments (Figures\nbsp{}[[fig:usefweanalyticssubmissions]],\nbsp{}[[fig:usefweanalyticsstatuses]],\nbsp{}and\nbsp{}[[fig:usefweanalyticscorrect]]).
 This allows us to make informed decisions and appropriate interventions, for example when students experience issues with the automated assessment configuration of a particular assignment or if the original order of assignments in a series does not seem to align with our design goal to present them in increasing order of difficulty.
 The first students that start working on assignments usually are good performers.
 Seeing these early birds having trouble with solving one of the assignments may give an early warning that action is needed, as in improving the problem specification, adding extra tips & tricks, or better explaining certain programming concepts to all students during lectures or hands-on sessions.
 Reversely, observing that many students postpone working on their assignments until just before the deadline might indicate that some assignments are simply too hard at this moment in time through the learning pathway of the students or that completing the collection of programming assignments interferes with the workload from other courses.
 Such "deadline hugging" patterns are also a good breeding ground for students to resort on exchanging solutions among each other.
 
-#+CAPTION: Interactive learning analytics on student submission behavior across programming assignments in the series where (unnested) loops are introduced in the course (2021--2022 edition).
-#+CAPTION: *Top*: Distribution of the number of student submissions per programming assignment.
+#+CAPTION: Distribution of the number of student submissions per programming assignment.
 #+CAPTION: The larger the zone, the more students submitted a particular number of solutions.
 #+CAPTION: Black dot indicates the average number of submissions per student.
-#+CAPTION: *Middle*: Distribution of top-level submission statuses per programming assignment.
-#+CAPTION: *Bottom*: Progression over time of the percentage of students that correctly solved each assignment.
-#+NAME: fig:usefweanalytics
-[[./images/usefweanalytics.png]]
+#+NAME: fig:usefweanalyticssubmissions
+[[./images/usefweanalyticssubmissions.png]]
+
+#+CAPTION: Distribution of top-level submission statuses per programming assignment.
+#+NAME: fig:usefweanalyticsstatuses
+[[./images/usefweanalyticsstatuses.png]]
+
+#+CAPTION: Progression over time of the percentage of students that correctly solved each assignment.
+#+NAME: fig:usefweanalyticscorrect
+[[./images/usefweanalyticscorrect.png]]
 
 Using educational data mining techniques on historical data exported from several editions of the course, we further investigated what aspects of practicing programming skills promote or inhibit learning, or have no or minor effect on the learning process [cite:@vanpetegemPassFailPrediction2022].
 It won't come as a surprise that mid-term test scores are good predictors for a student's final grade, because tests and exams are both summative assessments that are organized and graded in the same way.
@@ -1188,7 +1194,9 @@ Having this new framework at hand immediately raises some follow-up research que
 :CUSTOM_ID: sec:passfailfinland
 :END:
 
+#+BEGIN_COMMENT
 Extract new info from article; present here
+#+END_COMMENT
 
 * Feedback prediction
 :PROPERTIES:
@@ -1209,7 +1217,9 @@ Extract new info from article; present here
 :UNNUMBERED: t
 :END:
 
+#+LATEX: {\setlength{\emergencystretch}{2em}
 #+print_bibliography: 
+#+LATEX: }
 
 #+LATEX: \appendix
 * Feature types
