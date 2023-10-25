@@ -119,7 +119,7 @@
                 mv book.tex ../sent.tex
                 popd
                 mkdir build
-                latexdiff sent.tex book.tex > diff.tex
+                latexdiff --math-markup=whole -t CFONT sent.tex book.tex > diff.tex
                 latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory=build book.tex
                 latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory=build diff.tex
                 mv build/book.pdf build/diff.pdf .
