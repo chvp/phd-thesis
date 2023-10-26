@@ -18,21 +18,14 @@
 #+LATEX_HEADER: Prof.\ Dr.\ Ir.\ Bart Mesuere\\
 #+LATEX_HEADER: Prof.\ Dr.\ Bram De Wever
 #+LATEX_HEADER: }
-#+OPTIONS: toc:nil
 #+OPTIONS: ':t
 #+OPTIONS: H:4
 #+cite_export: csl citation-style.csl
 #+bibliography: bibliography.bib
 
-#+LATEX: \frontmatter
-
-* Table of Contents
-:PROPERTIES:
-:CREATED:  [2023-10-23 Mon 14:10]
-:CUSTOM_ID: chap:toc
-:UNNUMBERED: t
-:END:
-#+LATEX: \listoftoc*{toc}
+#+BEGIN_COMMENT
+There should be a `#+LATEX: \frontmatter` here, but if I want to still be able to export to HTML, have the TOC show up in itself, change its heading and have the TOC be part of the front matter, the `\frontmatter` statement needs to be part of the `org-latex-toc-command`.
+#+END_COMMENT
 
 * Acknowledgements
 :PROPERTIES:

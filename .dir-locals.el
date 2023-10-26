@@ -15,4 +15,5 @@
                               ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
          (org-latex-src-block-backend . 'listings)
          (org-latex-prefer-user-labels . t)
+         (org-latex-toc-command . "\\frontmatter\n\\addchap{Table of Contents}\n\\listoftoc*{toc}\n\n")
          (fill-column . 200))))
