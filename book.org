@@ -149,7 +149,7 @@ Understanding, knowledge and insights that can be used to make informed decision
 :END:
 
 Instead of providing its own authentication and authorization, Dodona delegates authentication to external identity providers (e.g.\nbsp{}educational and research institutions) through SAML [cite:@farrellAssertionsProtocolOASIS2002], OAuth [cite:@leibaOAuthWebAuthorization2012; @hardtOAuthAuthorizationFramework2012] and OpenID Connect [cite:@sakimuraOpenidConnectCore2014].
-This support for *decentralized authentication* allows users to benefit from single sign-on when using their institutional account across multiple platforms and teachers to trust their students’ identities when taking high-stakes tests and exams in Dodona.
+This support for *decentralized authentication* allows users to benefit from single sign-on when using their institutional account across multiple platforms and teachers to trust their students' identities when taking high-stakes tests and exams in Dodona.
 
 Dodona automatically creates user accounts upon successful authentication and uses the association with external identity providers to assign an institution to users.
 By default, newly created users are assigned a student role.
@@ -235,9 +235,9 @@ Finally, the configuration might also contain *boilerplate code*: a skeleton stu
 :END:
 *Internationalization* (i18n) is a shared responsibility between Dodona, learning activities and judges.
 All boilerplate text in the user interface that comes from Dodona itself is supported in English and Dutch, and users can select their preferred language.
-Content creators can specify descriptions of learning activities in both languages, and Dodona will render a learning activity in the user’s preferred language if available.
+Content creators can specify descriptions of learning activities in both languages, and Dodona will render a learning activity in the user's preferred language if available.
 When users submit solutions for a programming assignment, their preferred language is passed as submission metadata to the judge.
-It’s then up to the judge to take this information into account while generating feedback.
+It's then up to the judge to take this information into account while generating feedback.
 
 Dodona always displays *localized deadlines* based on a time zone setting in the user profile, and users are warned when the current time zone detected by their browser differs from the one in their profile.
 
@@ -293,7 +293,7 @@ For evaluations with multiple assignments, it is generally recommended to assess
 As a result, they might be rated more favorably with a moderate solution if they had excellent solutions for assignments that were assessed previously, and vice versa [cite:@malouffRiskHaloBias2013].
 Assessment per assignment breaks this reputation as it interferes less with the quality of previously assessed assignments from the same student.
 Possible bias from the same sequence effect is reduced during assessment per assignment as students are visited in random order for each assignment in the evaluation.
-In addition, *anonymous mode* can be activated as a measure to eliminate the actual or perceived halo effect conveyed through seeing a student’s name during assessment [cite:@lebudaTellMeYour2013].
+In addition, *anonymous mode* can be activated as a measure to eliminate the actual or perceived halo effect conveyed through seeing a student's name during assessment [cite:@lebudaTellMeYour2013].
 While anonymous mode is active, all students are automatically pseudonymized.
 Anonymous mode is not restricted to the context of assessment and can be used across Dodona, for example while giving in-class demos.
 
@@ -403,7 +403,7 @@ For the same reason, we intentionally organize tests and exams following exactly
 The only difference is that test assignments are not as hard as exam assignments, as students are still in the midst of learning programming skills when tests are taken.
 
 Students are stimulated to use an integrated development environment (IDE) to work on their programming assignments.
-IDEs bundle a battery of programming tools to support today’s generation of software developers in writing, building, running, testing and debugging software.
+IDEs bundle a battery of programming tools to support today's generation of software developers in writing, building, running, testing and debugging software.
 Working with such tools can be a true blessing for both seasoned and novice programmers, but there is no silver bullet [cite:@brooksNoSilverBullet1987].
 Learning to code remains inherently hard [cite:@kelleherAlice2ProgrammingSyntax2002] and consists of challenges that are different to reading and learning natural languages [cite:@fincherWhatAreWe1999].
 As an additional aid, students can continuously submit (intermediate) solutions for their programming assignments and immediately receive automatically generated feedback upon each submission, even during tests and exams.
@@ -434,11 +434,11 @@ We observe that individual students seem to have a strong bias towards either as
 This could be influenced by the time when they mainly work on their assignments, by their way of collaboration on assignments, or by reservations because of perceived threats to self-esteem or social embarrassment [cite:@newmanStudentsPerceptionsTeacher1993; @karabenickRelationshipAcademicHelp1991].
 
 In computing a final score for the course, we try to find an appropriate balance between stimulating students to find solutions for programming assignments themselves and collaborating with and learning from peers, instructors and teachers while working on assignments.
-The final score is computed as the sum of a score obtained for the exam (80%) and a score for each unit that combines the student’s performance on the mandatory and test assignments (10% per unit).
+The final score is computed as the sum of a score obtained for the exam (80%) and a score for each unit that combines the student's performance on the mandatory and test assignments (10% per unit).
 We use Dodona's grading module to determine scores for tests and exams based on correctness, programming style, choice made between the use of different programming techniques and the overall quality of the implementation.
 The score for a unit is calculated as the score $s$ for the two test assignments multiplied by the fraction $f$ of mandatory assignments the student has solved correctly.
 A solution for a mandatory assignment is considered correct if it passes all unit tests.
-Evaluating mandatory assignments therefore doesn’t require any human intervention, except for writing unit tests when designing the assignments, and is performed entirely by our Python judge.
+Evaluating mandatory assignments therefore doesn't require any human intervention, except for writing unit tests when designing the assignments, and is performed entirely by our Python judge.
 In our experience, most students traditionally perform much better on mandatory assignments compared to test and exam assignments [cite:@glassFewerStudentsAre2022], given the possibilities for collaboration on mandatory assignments.
 
 **** Open and collaborative learning environment
@@ -541,7 +541,7 @@ So how much effort does it cost us to run one edition of our programming course?
 For the most recent 2021-2022 edition we estimate about 34 person-weeks in total (Table\nbsp{}[[tab:usefweworkload]]), the bulk of which is spent on on-campus tutoring of students during hands-on sessions (30%), manual assessment and grading (22%), and creating new assignments (21%).
 About half of the workload (53%) is devoted to summative feedback through tests and exams: creating assignments, supervision, manual assessment and grading.
 Most of the other work (42%) goes into providing formative feedback through on-campus and online assistance while students work on their mandatory assignments.
-Out of 2215 questions that students asked through Dodona’s online Q&A module, 1983 (90%) were answered by teaching assistants and 232 (10%) were marked as answered by the student who originally asked the question.
+Out of 2215 questions that students asked through Dodona's online Q&A module, 1983 (90%) were answered by teaching assistants and 232 (10%) were marked as answered by the student who originally asked the question.
 Because automated assessment provides first-line support, the need for human tutoring is already heavily reduced.
 We have drastically cut the time we initially spent on mandatory assignments by reusing existing assignments and because the Python judge is stable enough to require hardly any maintenance or further development.
 
@@ -671,7 +671,7 @@ The judge must be robust enough to provide feedback on all possible submissions 
 Following the principles of software reuse, the judge is ideally also a generic framework that can be used to assess submissions for multiple assignments.
 This is enabled by the submission metadata that is passed when calling the judge, which includes the path to the source code of the submission, the path to the assessment resources of the assignment and other metadata such as programming language, natural language, time limit and memory limit.
 
-Rather than providing a fixed set of judges, Dodona adopts a minimalistic interface that allows third parties to create new judges: automatic assessment is bootstrapped by launching the judge’s run executable that can fetch the JSON formatted submission metadata from standard input and must generate JSON formatted feedback on standard output.
+Rather than providing a fixed set of judges, Dodona adopts a minimalistic interface that allows third parties to create new judges: automatic assessment is bootstrapped by launching the judge's run executable that can fetch the JSON formatted submission metadata from standard input and must generate JSON formatted feedback on standard output.
 The feedback has a standardized hierarchical structure that is specified in a JSON schema.
 At the lowest level, *tests* are a form of structured feedback expressed as a pair of generated and expected results.
 They typically test some behavior of the submitted code against expected behavior.
@@ -682,7 +682,7 @@ All these hierarchical levels can have descriptions and messages of their own an
 At the top level, a submission has a fine-grained status that reflects the overall assessment of the submission: =compilation error= (the submitted code did not compile), =runtime error= (executing the submitted code failed during assessment), =memory limit exceeded= (memory limit was exceeded during assessment), =time limit exceeded= (assessment did not complete within the given time), =output limit exceeded= (too much output was generated during assessment), =wrong= (assessment completed but not all strict requirements were fulfilled), or =correct= (assessment completed and all strict requirements were fulfilled).
 
 Taken together, a Docker image, a judge and a programming assignment configuration (including both a description and an assessment configuration) constitute a *task package* as defined by [cite:@verhoeffProgrammingTaskPackages2008]: a unit Dodona uses to render the description of the assignment and to automatically assess its submissions.
-However, Dodona’s layered design embodies the separation of concerns [cite:@laplanteWhatEveryEngineer2007] needed to develop, update and maintain the three modules in isolation and to maximize their reuse: multiple judges can use the same docker image and multiple programming assignments can use the same judge.
+However, Dodona's layered design embodies the separation of concerns [cite:@laplanteWhatEveryEngineer2007] needed to develop, update and maintain the three modules in isolation and to maximize their reuse: multiple judges can use the same docker image and multiple programming assignments can use the same judge.
 Related to this, an explicit design goal for judges is to make the assessment configuration for individual assignments as lightweight as possible.
 After all, minimal configurations reduce the time and effort teachers and instructors need to create programming assignments that support automated assessment.
 Sharing of data files and multimedia content among the programming assignments in a repository also implements the inheritance mechanism for *bundle packages* as hinted by [cite:@verhoeffProgrammingTaskPackages2008].
@@ -765,7 +765,7 @@ These snapshots undergo static and dynamic analysis to detect good practices and
 In a follow-up study they applied the same data and classifier to accurately predict learning outcomes for the same student cohort in another course [cite:@vihavainenUsingStudentsProgramming2013].
 In this case, their predictions were 98.1% accurate, although the sample size was rather small.
 While this procedure does not rely on external background information, it has the drawback that data collection is more invasive and directly intervenes with the learning process.
-Students can’t work in their preferred programming environment and have to agree with extensive behaviour tracking.
+Students can't work in their preferred programming environment and have to agree with extensive behaviour tracking.
 
 In this chapter, we present an alternative framework to predict if students will pass or fail a course within the same context of learning to code.
 The method only relies on submission behaviour for programming exercises to make accurate predictions and does not require any prior knowledge or intrusive behaviour tracking.
@@ -940,7 +940,7 @@ The latter is also called sensitivity if used in combination with specificity ($
 
 Many studies for pass/fail prediction use accuracy ($(TP+TN)/(TP+TN+FP+FN)$) as a single performance metric.
 However, this can yield misleading results.
-For example, let’s take a dummy classifier that always "predicts" students will pass, no matter what.
+For example, let's take a dummy classifier that always "predicts" students will pass, no matter what.
 This is clearly a bad classifier, but it will nonetheless have an accuracy of 75% for a course where 75% of the students pass.
 In our study, we will therefore use two more complex metrics that take these effects into account: balanced accuracy and F_1-score.
 Balanced accuracy is the average of sensitivity and specificity.
@@ -1008,7 +1008,7 @@ The variation in predictive accuracy for a group of corresponding snapshots is h
 This might be explained by the fact that successive editions of course B use the same set of exercises, supplemented with evaluation and exam exercises from the previous edition, whereas each edition of course A uses a different selection of exercises.
 
 Predictions made with training sets from the same student cohort (5-fold cross-validation) perform better than those with training sets from different cohorts (see supplementary material for details).
-This is more pronounced for F_1-scores than for balanced accuracy but the differences are small enough so that nothing prevents us from building classification models with historical data from previous student cohorts to make pass/fail predictions for the current cohort, which is something that can’t be done in practice with data from the same cohort as pass/fail information is needed during the training phase.
+This is more pronounced for F_1-scores than for balanced accuracy but the differences are small enough so that nothing prevents us from building classification models with historical data from previous student cohorts to make pass/fail predictions for the current cohort, which is something that can't be done in practice with data from the same cohort as pass/fail information is needed during the training phase.
 In addition, we found no significant performance differences for classification models using data from a single course edition or combining data from two course editions.
 Given that cohort sizes are large enough, this tells us that accurate predictions can already be made in practice with historical data from a single course edition.
 This is also relevant when the structure of a course changes, because we can only make predictions from historical data for course editions whose snapshots align.
@@ -1074,7 +1074,7 @@ They have zero impact on predictions for earlier snapshots, as the information i
 [[./images/passfailfeaturesAevaluation.png]]
 
 The second feature type we want to highlight is =correct_after_15m=: the number of exercises in a series where the first correct submission was made within fifteen minutes after the first submission (Figure\nbsp{}[[fig:passfailfeaturesAcorrect]]).
-Note that we can’t directly measure how long students work on an exercise, as they may write, run and test their solutions on their local machine before their first submission to the learning platform.
+Note that we can't directly measure how long students work on an exercise, as they may write, run and test their solutions on their local machine before their first submission to the learning platform.
 Rather, this feature type measures how long it takes students to find and remedy errors in their code (debugging), after they start getting automatic feedback from the learning platform.
 
 For exercise series in the first unit of course A (series 1-5), we generally see that the features have a positive impact (red).
@@ -1224,14 +1224,14 @@ Extract new info from article; present here
 
 - =subm= :: numbers of submissions by student in series
 - =nosubm= :: number of exercises student did not submit any solutions for in series
-- =first_dl= :: time difference in seconds between student’s first submission in series and deadline of series
-- =last_dl= :: time difference in seconds between student’s last submission in series before deadline and deadline of series
-- =nr_dl= :: number of correct submissions in series by student before series’ deadline
+- =first_dl= :: time difference in seconds between student's first submission in series and deadline of series
+- =last_dl= :: time difference in seconds between student's last submission in series before deadline and deadline of series
+- =nr_dl= :: number of correct submissions in series by student before series' deadline
 - =correct= :: number of correct submissions in series by student
 - =after_correct= :: number of submissions by student after their first correct submission in the series
 - =before_correct= :: number of submissions by student before their first correct submission in the series
-- =time_series= :: time difference in seconds between the student’s first and last submission in the series
-- =time_correct= :: time difference in seconds between the student’s first submission in the series and their first correct submission in the series
+- =time_series= :: time difference in seconds between the student's first and last submission in the series
+- =time_correct= :: time difference in seconds between the student's first submission in the series and their first correct submission in the series
 - =wrong= :: number of submissions by student in series with logical errors
 - =comp_error= :: number of submissions by student in series with compilation errors
 - =runtime_error= :: number of submissions by student in series with runtime errors
