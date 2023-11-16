@@ -16,5 +16,5 @@
          (org-latex-src-block-backend . 'listings)
          (org-latex-prefer-user-labels . t)
          (org-html-prefer-user-labels . t)
-         (org-latex-toc-command . "\\frontmatter\n\\addchap{Table of Contents}\n\label{chap:toc}\n\\listoftoc*{toc}\n\n")
+         (org-latex-toc-command . "\\frontmatter\n\\addchap{Table of Contents}\n\\label{chap:toc}\n\\listoftoc*{toc}\n\n")
          (fill-column . 200))))
