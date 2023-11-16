@@ -80,19 +80,7 @@ While almost all platforms support automated assessment of code submitted by stu
 :CUSTOM_ID: chap:what
 :END:
 
-** Students
-:PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:48]
-:CUSTOM_ID: sec:whatstudents
-:END:
-
-** Teachers
-:PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:48]
-:CUSTOM_ID: sec:whatteachers
-:END:
-
-*** Classroom management
+** Classroom management
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 09:31]
 :CUSTOM_ID: subsec:whatclassroom
@@ -144,7 +132,7 @@ We also provide export wizards that enable the extraction of raw and aggregated 
 This allows teachers to better understand student behavior, progress and knowledge, and might give deeper insight into the underlying factors that contribute to student actions [cite:@ihantolaReviewRecentSystems2010].
 Understanding, knowledge and insights that can be used to make informed decisions about courses and their pedagogy, increase student engagement, and identify at-risk students [cite:@vanpetegemPassFailPrediction2022].
 
-*** User management
+** User management
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 09:44]
 :CUSTOM_ID: subsec:whatuser
@@ -157,7 +145,7 @@ Dodona automatically creates user accounts upon successful authentication and us
 By default, newly created users are assigned a student role.
 Teachers and instructors who wish to create content (courses, learning activities and judges), must first request teacher rights using a streamlined form.
 
-*** Automated assessment
+** Automated assessment
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:16]
 :CUSTOM_ID: subsec:whatassessment
@@ -177,6 +165,7 @@ More information on this underlying mechanism can be found in Chapter\nbsp{}[[Te
 Where automatic assessment and feedback generation is outsourced to the judge linked to an assignment, Dodona itself takes up the responsibility for rendering the feedback.
 This frees judge developers from putting effort in feedback rendering and gives a coherent look-and-feel even for students that solve programming assignments assessed by different judges.
 Because the way feedback is presented is very important [cite:@maniBetterFeedbackEducational2014], we took great care in designing how feedback is displayed to make its interpretation as easy as possible (Figure\nbsp{}[[fig:whatfeedback]]).
+# TODO(chvp): Expand on the structure of the feedback table here (maybe move some content from the caption?).
 Differences between generated and expected output are automatically highlighted for each failed test [cite:@myersAnONDDifference1986], and users can swap between displaying the output lines side-by-side or interleaved to make differences more comparable.
 We even provide specific support for highlighting differences between tabular data such as CSV-files, database tables and dataframes.
 Users have the option to dynamically hide contexts whose test cases all succeeded, allowing them to immediately pinpoint reported mistakes in feedback that contains lots of succeeded test cases.
@@ -192,7 +181,7 @@ Students typically report this as one of the most useful features of Dodona.
 #+NAME: fig:whatfeedback
 [[./images/whatfeedback.png]]
 
-*** Content management
+** Content management
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:47]
 :CUSTOM_ID: subsec:whatcontent
@@ -230,7 +219,7 @@ The configuration might also provide additional *assessment resources*: files ma
 The specification of how these resources must be structured and how they are used during assessment is completely up to the judge developers.
 Finally, the configuration might also contain *boilerplate code*: a skeleton students can use to start the implementation that is provided in the code editor along with the description.
 
-*** Internationalization and localization
+** Internationalization and localization
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:55]
 :CUSTOM_ID: subsec:whati18n
@@ -243,7 +232,7 @@ It's then up to the judge to take this information into account while generating
 
 Dodona always displays *localized deadlines* based on a time zone setting in the user profile, and users are warned when the current time zone detected by their browser differs from the one in their profile.
 
-*** Questions, answers and code reviews
+** Questions, answers and code reviews
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:56]
 :CUSTOM_ID: subsec:whatqa
@@ -278,7 +267,7 @@ It is not required that students take the initiative for the conversation.
 Teachers can also start adding source code annotations while reviewing a submission.
 Such *code reviews* will be used as a building block for manual assessment.
 
-*** Manual assessment
+** Manual assessment
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 11:01]
 :CUSTOM_ID: subsec:whateval
