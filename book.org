@@ -1189,6 +1189,11 @@ Extract new info from article; present here
 :CUSTOM_ID: chap:prediction
 :END:
 
+# Hoofdstuk hernoemen naar verbeteren?
+# Ook verhaal vertellen over hoe verbeterproces verbeterd is sinds overschakelen van papier naar online verbeteren.
+# Wordt ook beter bekeken door studenten
+# Toevoegen van comments, evaluaties, grading, hergebruik voorspellen
+
 * Discussion and future work
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:51]
