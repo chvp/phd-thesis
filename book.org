@@ -61,6 +61,8 @@ There should be a `#+LATEX: \frontmatter` here, but if I want to still be able t
 :CUSTOM_ID: chap:intro
 :END:
 
+Ever since programming has been taught, programming teachers have sought to automate and optimise their teaching.
+
 #+BEGIN_COMMENT
 History of automated assessment
 #+END_COMMENT
