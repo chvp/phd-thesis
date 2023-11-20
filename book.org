@@ -55,7 +55,7 @@ Include history of automated assessment
 :CREATED:  [2023-11-20 Mon 17:25]
 :END:
 
-This will have to be a lot shorter than the FWE section,
+This will have to be a lot shorter than the FWE section, since I'm far less knowledgeable about the way they run their courses.
 
 *** TODO Write chapter on technical aspects of Dodona
 :PROPERTIES:
@@ -1298,32 +1298,97 @@ The models trained only on self-reported data performed significantly worse than
 The replication done in Finland showed that our devised method can be used in significantly different contexts.
 Of course sometimes adaptations have to be made given differences in course structure and learning environment used, but these adaptations do not result in worse prediction results.
 
-* Grading
+* Summative feedback
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:51]
 :CUSTOM_ID: chap:grading
 :END:
+
+This chapter will discuss the history of giving summative feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of grading and manual feedback features within Dodona.
+We wil then expand on some recent work we have been doing to further optimize the giving of feedback using data mining techniques.
 
 ** Paper-based grading
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 13:04]
 :END:
 
+Since the academic year 2015-2016 the programming course has started taking two open-book/open-internet evaluations.
+One as a midterm and one at the end of the semester (but before the exam period).
+The organisation of these evaluations has been a learning process for everyone involved.
+Although the basic idea has remained the same (solve two Python programming exercises in 2 hours), almost every aspect surrounding this basic premise has changed.
+
+To be able to give summative feedback, student solutions were printed at the end of the evaluation.
+At first by going around with a USB stick, later by using a Ghent University submission platform that had support for printing to printers in the evaluation rooms.
+In fact, printing support for this platform was added specifically for this course.
+Students were then allowed to check their printed solutions to make sure that the correct code was graded.
+This however means that the end of an evaluation takes a lot of time, since printing all these papers is a slow and badly parallelizable process (not the mention the environmental impact!).
+
+It also has some important drawbacks while grading.
+Even though Dodona was not yet in use at this point, SPOJ was used for automated feedback.
+This automated feedback is not available when assessing a student's source code on paper.
+It therefore takes either more mental energy to work out whether the student's code would behave correctly with all inputs or it takes some hassle to look up a student's automated assessment results every time.
+Another important drawback is that students have a much harder time seeing the summative feedback.
+While their numerical grades were posted online or emailed to them, to see the comments graders wrote alongside their code they had to come to a hands-on session and ask the assistent there to be able to view the annotated version of their code.
+Very few students did so.
+A few explanations could be given for this.
+They might experience social barriers for asking feedback on an evaluation they performed poorly on.
+For students who performed well, it might not be worth the hassle of going to ask about feedback.
+But maybe more importantly, a vicious cycle started to appear: because few students look at their feedback, graders did not spend much effort in writing out clear and useful feedback.
+Code that was too complex or plain wrong usually received little more than a strikethrough, instead of an explanation on why the student's method did not work.
+
 ** Adding comments
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 13:32]
 :END:
+
+Seeing the amount of hassle that assessing these evaluations brought with them, we decided to build support for manual feedback and grading into Dodona.
+The first step of this was to allow the adding of comments to code.
+This work was started in the academic year 2019-2020, so the onset of the CoViD-19 pandemic brought a lot of momentum to this work.
+Suddenly, the idea of printing student submissions became impossible, since the evaluations had to be taken by students in their own homes.
+Graders could now add comments to a student's code which would allow the student to view the feedback from their own home as well.
+There were still a few drawbacks to this system though.
+- Knowing which submissions to grade was not always trivial.
+  For most students, the existing deadline system worked, since the solution they submitted right before the deadline was the submission taken into acount when grading.
+  There are however also students who receive extra time based on a special status granted to them by Ghent University (due to e.g. a learning disability).
+  For these students, graders had to manually search for the submission made right before the extended deadline these students receive.
+  This means that students could not be graded anonymously.
+  It also makes the process a lot more error-prone.
+- Since the concept of an evaluation did not exist yet, comment visibility could not yet be time-gated towards students.
+  This meant that graders had to write their comments in a local file with some extra metadata about the assessment.
+  Afterwards this local file could be processed using some home-grown scripts to automatically add all comments at (nearly) the same time.
+It is obvious that this was not a great user experience, and not something we could roll out more widely outside of Dodona developers that were also involved with teaching.
+
+We could already do some anecdotal analysis of this new system.
+One first observation that might seem counterintuitive is that graders did not feel like they spent less time grading.
+If anything, they reported spending more time grading.
+Another observation however is that graders gave more feedback and felt that the feedback they gave was of higher quality than before.
+In the first trial of this system, the feedback was viewed by over 80% of students within 24 hours, which is something that we had never observed when grading on paper.
 
 ** Evaluations
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 13:32]
 :END:
 
-# Wordt ook beter bekeken door studenten
+To streamline and automate the process of grading even more, the concept of an evaluation was added to Dodona.
+Evaluations address the two drawbacks identified above:
+- Comments made within an evaluation are linked to this evaluation.
+  They are only made visible to students once the feedback of the evaluation is released.
+- They also add a handy overview of the submissions that need to receive feedback.
+  Since the submissions are explicitly linked to the evaluation, changing the submissions for students who receive extra time is also a lot less error-prone, since it can be done before actually starting out with the assessment.
+The addition of evaluations resulted in a subjective feeling of time being saved by the graders, at least in comparison with the previous system of adding comments.
+There is still one main drawback though, in the fact that student scores still had to be entered outside of Dodona.
+This is again more error-prone, since this involves manually looking up the correct student and entering their scores in a global spreadsheet.
+It is also less transparent towards students.
+While rubrics were made for every exercise that had to be graded, every grader had their preferred way of aggregating and entering these scores.
+This means that even though rubrics exist, students had no option of seeing the different marks they received for different rubrics.
 
-** Adding scores
+To address this concern, another change was made to Dodona.
+Rubrics and a user-friendly way of entering scores was added.
+This means that students can view the scores they received for each rubric, and can do so right next to the feedback that was added manually.
+
+** Feedback re-use
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 13:32]
+:CREATED:  [2023-11-20 Mon 17:39]
 :END:
 
 ** Feedback prediction
@@ -1351,7 +1416,7 @@ Of course sometimes adaptations have to be made given differences in course stru
 :CREATED:  [2023-11-20 Mon 13:33]
 :END:
 
-*** Future work
+** Future work
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 13:33]
 :END:
