@@ -1255,17 +1255,17 @@ Having this new framework at hand immediately raises some follow-up research que
   How could interpretations of important behavioural features be translated into learning analytics that give teachers more insight into how students learn to code?
 - Can we combine student progress (what programming skills does a student already have and at what level of mastery), student preferences (what skills does a student wants to improve on), and intrinsic properties of programming exercises (what skills are needed to solve an exercise and how difficult is it) into dynamic learning paths that recommend exercises to optimize the learning effect for individual students?
 
-** Replication in Finland
+** Replication at Jyväskylä University
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:50]
 :CUSTOM_ID: sec:passfailfinland
 :END:
 
-In 2022, we collaborated with researchers from Jyväskylä University (JYU) on replicating our study in their context.
+In 2022, we collaborated with researchers from Jyväskylä University (JYU) in Finland on replicating our study in their context.
 There are however, some notable differences to the study performed at Ghent University.
-In the Finnish study, self-reported data was added to the model to see of this enhances its predictions.
+In their study, self-reported data was added to the model to see of this enhances its predictions.
 Also, the focus was shifted from pass/fail prediction to dropout prediction.
-This happened because of the different way the course in Finland is taught.
+This happened because of the different way the course at JYU is taught.
 By performing well enough in all weekly exercises and a project, students can already receive a passing grade.
 This is impossible in the courses studied at Ghent University, where most of the final marks are earned at the exam at the end of the semester.
 
@@ -1275,7 +1275,7 @@ In TIM (the learning environment used at JYU), only a score is kept for each sub
 This score represents the underlying evaluation results (compilation error/mistakes in the output/...).
 While it is possible to reverse engineer the score into some underlying status, for some statuses that Dodona can make a distinction between this is not possible with TIM.
 This means that a different set of features had to be used in the study at JYU than the feature set used in the study at Ghent University.
-The specific feature types left out of the Finnish study are =comp_error= and =runtime_error=.
+The specific feature types left out of the study at JYU are =comp_error= and =runtime_error=.
 
 The course at JYU had been taught in the same way since 2015, resulting in behavioural and survey data from 2\thinsp{}615 students from the 2015-2021 academic years.
 The snapshots were made weekly as well, since the course also works with weekly assignments and deadlines.
@@ -1300,7 +1300,7 @@ For the remaining weeks, the change in predication performance was not statistic
 This again points to the conclusion that the first few weeks of a CS1 course play a significant role in student success.
 The models trained only on self-reported data performed significantly worse than the other models.
 
-The replication done in Finland showed that our devised method can be used in significantly different contexts.
+The replication done at JYU showed that our devised method can be used in significantly different contexts.
 Of course sometimes adaptations have to be made given differences in course structure and learning environment used, but these adaptations do not result in worse prediction results.
 
 * Summative feedback
