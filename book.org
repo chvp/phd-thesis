@@ -75,6 +75,11 @@ Also talk about optimizations done to the feedback table.
 :CREATED:  [2023-11-20 Mon 17:20]
 :END:
 
+*** TODO Add some screenshots to grading chapter, make sure there isn't too much overlap with [[Manual assessment]]
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 18:00]
+:END:
+
 *** TODO Write conclusion and future work
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 17:20]
