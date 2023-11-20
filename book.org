@@ -1222,15 +1222,25 @@ The models trained only on self-reported data performed significantly worse than
 The replication done in Finland showed that our devised method can be used in significantly different contexts.
 Of course sometimes adaptations have to be made given differences in course structure and learning environment used, but these adaptations do not result in worse prediction results.
 
-* Feedback prediction
+* Grading
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:51]
-:CUSTOM_ID: chap:prediction
+:CUSTOM_ID: chap:grading
 :END:
 
-# Hoofdstuk hernoemen naar verbeteren?
-# Ook verhaal vertellen over hoe verbeterproces verbeterd is sinds overschakelen van papier naar online verbeteren.
+** From paper-based grading to Dodona
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 13:04]
+:END:
+
+# Verhaal vertellen over hoe verbeterproces verbeterd is sinds overschakelen van papier naar online verbeteren.
 # Wordt ook beter bekeken door studenten
+
+** Feedback prediction
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 13:04]
+:END:
+
 # Toevoegen van comments, evaluaties, grading, hergebruik voorspellen
 
 * Discussion and future work
