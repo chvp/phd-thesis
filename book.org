@@ -1174,15 +1174,53 @@ Having this new framework at hand immediately raises some follow-up research que
   How could interpretations of important behavioural features be translated into learning analytics that give teachers more insight into how students learn to code?
 - Can we combine student progress (what programming skills does a student already have and at what level of mastery), student preferences (what skills does a student wants to improve on), and intrinsic properties of programming exercises (what skills are needed to solve an exercise and how difficult is it) into dynamic learning paths that recommend exercises to optimize the learning effect for individual students?
 
-** Future work/Replication in Finland
+** Replication in Finland
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:50]
 :CUSTOM_ID: sec:passfailfinland
 :END:
 
-#+BEGIN_COMMENT
-Extract new info from article; present here
-#+END_COMMENT
+In 2022, we collaborated with researchers from Jyväskylä University (JYU) on replicating our study in their context.
+There are however, some notable differences to the study performed at Ghent University.
+In the Finnish study, self-reported data was added to the model to see of this enhances its predictions.
+Also, the focus was shifted from pass/fail prediction to dropout prediction.
+This happened because of the different way the course in Finland is taught.
+By performing well enough in all weekly exercises and a project, students can already receive a passing grade.
+This is impossible in the courses studied at Ghent University, where most of the final marks are earned at the exam at the end of the semester.
+
+Another important difference in the two studies is the data that was available to feed into the machine learning model.
+Dodona keeps rich data about the evaluation results of a student's submission.
+In TIM (the learning environment used at JYU), only a score is kept for each submission.
+This score represents the underlying evaluation results (compilation error/mistakes in the output/...).
+While it is possible to reverse engineer the score into some underlying status, for some statuses that Dodona can make a distinction between this is not possible with TIM.
+This means that a different set of features had to be used in the study at JYU than the feature set used in the study at Ghent University.
+The specific feature types left out of the Finnish study are =comp_error= and =runtime_error=.
+
+The course at JYU had been taught in the same way since 2015, resulting in behavioural and survey data from 2\thinsp{}615 students from the 2015-2021 academic years.
+The snapshots were made weekly as well, since the course also works with weekly assignments and deadlines.
+The self-reported data consists of pre-course and midterm surveys that inquire about aptitudes towards learning programming and motivation, including expectation about grades, prior programming experience, study year, attendance and amount of concurrent courses.
+
+In the analysis, the same four classifiers as the original study were tested.
+In addition to this, the dropout analysis was done for three datasets:
+#+ATTR_LATEX: :environment enumerate*
+#+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{, }}, itemjoin*={{, and }}]
+- behavioural data only
+- self-reported data only
+- combined behavioural and self-reported data.
+
+The results obtained in the study at JYU are very similar to the results obtained at Ghent University.
+Again, logistic regression was found to yield the best and most stable results.
+Even though no data about midterm evaluations or examinations was used (since this data was not available) a similar jump in accuracy around the midterm of the course was also observed.
+The jump in accuracy here can be explained through the fact that the midterm is when most students drop out.
+It was also observed that the first weeks of the course play an important role in reducing dropout.
+
+The addition of the self-reported data to the snapshots resulted in a statistically significant improvement of predictions in the first four weeks of the course.
+For the remaining weeks, the change in predication performance was not statistically significant.
+This again points to the conclusion that the first few weeks of a CS1 course play a significant role in student success.
+The models trained only on self-reported data performed significantly worse than the other models.
+
+The replication done in Finland showed that our devised method can be used in significantly different contexts.
+Of course sometimes adaptations have to be made given differences in course structure and learning environment used, but these adaptations do not result in worse prediction results.
 
 * Feedback prediction
 :PROPERTIES:
