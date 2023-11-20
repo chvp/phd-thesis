@@ -1228,20 +1228,57 @@ Of course sometimes adaptations have to be made given differences in course stru
 :CUSTOM_ID: chap:grading
 :END:
 
-** From paper-based grading to Dodona
+** Paper-based grading
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 13:04]
 :END:
 
-# Verhaal vertellen over hoe verbeterproces verbeterd is sinds overschakelen van papier naar online verbeteren.
+** Adding comments
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 13:32]
+:END:
+
+** Evaluations
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 13:32]
+:END:
+
 # Wordt ook beter bekeken door studenten
+
+** Adding scores
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 13:32]
+:END:
 
 ** Feedback prediction
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 13:04]
 :END:
 
-# Toevoegen van comments, evaluaties, grading, hergebruik voorspellen
+*** TreeminerD
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 13:33]
+:END:
+
+*** Matching
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 13:33]
+:END:
+
+*** PyLint messages
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 13:33]
+:END:
+
+*** Real-world data
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 13:33]
+:END:
+
+*** Future work
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 13:33]
+:END:
 
 * Discussion and future work
 :PROPERTIES:
