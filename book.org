@@ -28,6 +28,95 @@ There should be a `#+LATEX: \frontmatter` here, but I want to still be able to e
 Because of this the `\frontmatter` statement needs to be part of the `org-latex-toc-command` (which is set in the =.dir-locals.el= file).
 #+END_COMMENT
 
+* Todo's
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:14]
+:END:
+
+** High priority
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:17]
+:END:
+
+*** TODO Write introduction
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:20]
+:END:
+
+Include history of automated assessment
+
+*** TODO Write section on related projects
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:24]
+:END:
+
+*** TODO Write sections on FEA, other university level uses and secondary school usage
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:25]
+:END:
+
+This will have to be a lot shorter than the FWE section,
+
+*** TODO Write chapter on technical aspects of Dodona
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:20]
+:END:
+
+(Also) include the following:
+- Development
+- Setup
+- Deployment
+- Testing
+
+Also talk about optimizations done to the feedback table.
+
+*** DOING Write chapter on grading
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:20]
+:END:
+
+*** TODO Write conclusion and future work
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:20]
+:END:
+
+*** TODO Make sure every chapter starts with a (short) introduction of that chapter
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:26]
+:END:
+
+** Medium priority
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:17]
+:END:
+
+*** TODO Rename sections in Use chapter (at least university-level subsections)
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:28]
+:END:
+
+*** TODO Write summaries
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:23]
+:END:
+
+*** TODO Redo screenshots/visualizations
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:19]
+:END:
+
+I might even wait with this explicitly to do this closer to the deadline, to incorporate possible UI changes that might be done in the near future.
+
+** Low priority
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:17]
+:END:
+
+*** TODO Edit pass/fail to not be anonymized
+:PROPERTIES:
+:CREATED:  [2023-11-20 Mon 17:18]
+:END:
+
 * Acknowledgements
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 09:25]
@@ -63,10 +152,6 @@ Because of this the `\frontmatter` statement needs to be part of the `org-latex-
 :END:
 
 Ever since programming has been taught, programming teachers have sought to automate and optimise their teaching.
-
-#+BEGIN_COMMENT
-History of automated assessment
-#+END_COMMENT
 
 Learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated  [cite:@gibbsConditionsWhichAssessment2005].
 Because of its potential to provide feedback loops that are scalable and responsive enough for an active learning environment, automated source code assessment has become a driving force in programming courses.
@@ -687,14 +772,6 @@ The web server is the only public-facing part of Dodona, running a Ruby on Rails
 
 Dodona needs to operate in a challenging environment where students simultaneously submit untrusted code to be executed on its servers ("remote code execution by design") and expect automatically generated feedback, ideally within a few seconds.
 Many design decisions are therefore aimed at maintaining and improving the reliability and security of its systems.
-
-#+BEGIN_COMMENT
-Development
-Setup
-Deployment
-Testing
-...
-#+END_COMMENT
 
 ** Judges
 :PROPERTIES:
