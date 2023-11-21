@@ -1,7 +1,7 @@
 #+TITLE: Dodona
 #+AUTHOR: Charlotte Van Petegem
 #+LATEX_CLASS: book
-#+LATEX_CLASS_OPTIONS: [11pt,paper=240mm:170mm,paper=portrait,parskip=full+]
+#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,paper=portrait,parskip=full+]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{listings}

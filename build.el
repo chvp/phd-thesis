@@ -8,7 +8,7 @@
 (require 'oc-csl)
 
 (setq org-latex-classes '(("book"
-                           "\\documentclass[11pt]{scrbook}"
+                           "\\documentclass[]{scrbook}"
                            ("\\chapter{%s}" . "\\addchap{%s}")
                            ("\\section{%s}" . "\\addsec{%s}")
                            ("\\subsection{%s}" . "\\subsection*{%s}")
