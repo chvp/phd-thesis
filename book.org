@@ -1387,14 +1387,27 @@ It is also less transparent towards students.
 While rubrics were made for every exercise that had to be graded, every grader had their preferred way of aggregating and entering these scores.
 This means that even though rubrics exist, students had no option of seeing the different marks they received for different rubrics.
 
-To address this concern, another change was made to Dodona.
-Rubrics and a user-friendly way of entering scores was added.
+To address this concern, another feature was implemented in Dodona.
+We added rubrics and a user-friendly way of entering scores.
 This means that students can view the scores they received for each rubric, and can do so right next to the feedback that was added manually.
 
 ** Feedback re-use
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 17:39]
 :END:
+
+Grading and giving feedback has always been a time-consuming process, and the move to digital grading did not improve this compared to grading on paper.
+Even though the process itself was optimised, this optimisation was used by graders to write out more and more comprehensive feedback.
+
+Since evaluations are done with two exercises solved by lots of students, there are usually quite a lot of mistakes that are common to a lot of students.
+This leads to graders giving the same feedback a lot of times.
+In fact, most graders kept a list of commonly given annotations in a separate program or document.
+
+We implemented the concept of feedback re-use, to streamline giving commonly re-used feedback.
+When giving feedback, the grader has the option to save the annotation they are currently writing.
+When they later encounter a situation where they want to give that same feedback, the only thing they have to do is write a few letters of the annotation in the saved annotation search box and they can quickly insert the text written earlier.
+While originally conceptualised mainly for the benefit of graders, students can actually benefit from this feature as well.
+Graders only need to write out a detailed and clear message once and can then re-use that message over a lot of submissions instead of writing a shorter message each time.
 
 ** Feedback prediction
 :PROPERTIES:
