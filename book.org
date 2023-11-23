@@ -70,12 +70,12 @@ This will have to be a lot shorter than the FWE section, since I'm far less know
 
 Also talk about optimizations done to the feedback table.
 
-*** DOING Write chapter on grading
+*** TODO Write chapter on grading
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 17:20]
 :END:
 
-*** TODO Add some screenshots to grading chapter, make sure there isn't too much overlap with\nbsp{}[[Manual assessment]]
+**** TODO Add some screenshots to grading chapter, make sure there isn't too much overlap with\nbsp{}[[Manual assessment]]
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 18:00]
 :END:
@@ -95,11 +95,6 @@ Also talk about optimizations done to the feedback table.
 :CREATED:  [2023-11-20 Mon 17:17]
 :END:
 
-*** TODO Rename sections in Use chapter (at least university-level subsections)
-:PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:28]
-:END:
-
 *** TODO Write summaries
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 17:23]
@@ -112,7 +107,7 @@ Also talk about optimizations done to the feedback table.
 
 I might even wait with this explicitly to do this closer to the deadline, to incorporate possible UI changes that might be done in the near future.
 
-*** TODO Expand on the structure of the feedback table in automated assessment section (maybe move some content from the caption?).
+*** TODO Expand on the structure of the feedback table in [[Automated assessment]] (maybe move some content from the caption?).
 :PROPERTIES:
 :CREATED:  [2023-11-21 Tue 16:15]
 :END:
@@ -424,7 +419,7 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 :CUSTOM_ID: sec:useuni
 :END:
 
-*** FWE
+*** Faculty of Sciences
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
 :CUSTOM_ID: subsec:usefwe
@@ -710,13 +705,13 @@ This can already be done after a few weeks into the course, so remedial actions 
 The approach is privacy-friendly as we only need to process metadata on student submissions for programming assignments and results from automated and manual assessment extracted from Dodona.
 Given that cohort sizes are large enough, historical data from a single course edition are already enough to make accurate predictions.
 
-*** FEA
+*** Faculty of Engineering and Architecture
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
 :CUSTOM_ID: subsec:usefea
 :END:
 
-*** Others
+*** Other tertiary education uses
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
 :CUSTOM_ID: subsec:useothers
