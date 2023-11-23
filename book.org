@@ -729,10 +729,24 @@ Given that cohort sizes are large enough, historical data from a single course e
 :CUSTOM_ID: chap:technical
 :END:
 
+Dodona and its related software comprises a lot of code.
+This chapter discusses the technical background of Dodona itself and a stand-alone online code editor that was integrated into Dodona.
+I will also discuss two judges that I was involved with the development of.
+The R judge was written entirely by myself.
+The TESTed judge came forth out of a prototype I built in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in a master's thesis I supervised\nbsp{}[cite:@strijbolTESTedOneJudge2020].
+
 ** Dodona
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:techdodona
+:END:
+
+Dodona is developed as a modern web application.
+In this section we will go over the inner workings of Dodona (both implementation and deployment) and how it adheres to modern standards of software development.
+
+*** Implementation
+:PROPERTIES:
+:CREATED:  [2023-11-23 Thu 17:12]
 :END:
 
 For proper virtualization we use Docker containers\nbsp{}[cite:@pevelerComparingJailedSandboxes2019] that use OS-level containerization technologies and define runtime environments in which all data and executable software (e.g., scripts, compilers, interpreters, linters, database systems) are provided and executed.
@@ -776,6 +790,21 @@ The web server is the only public-facing part of Dodona, running a Ruby on Rails
 
 Dodona needs to operate in a challenging environment where students simultaneously submit untrusted code to be executed on its servers ("remote code execution by design") and expect automatically generated feedback, ideally within a few seconds.
 Many design decisions are therefore aimed at maintaining and improving the reliability and security of its systems.
+
+*** Deployment
+:PROPERTIES:
+:CREATED:  [2023-11-23 Thu 17:13]
+:END:
+
+*** Development
+:PROPERTIES:
+:CREATED:  [2023-11-23 Thu 17:13]
+:END:
+
+** Papyros
+:PROPERTIES:
+:CREATED:  [2023-11-23 Thu 17:29]
+:END:
 
 ** Judges
 :PROPERTIES:
