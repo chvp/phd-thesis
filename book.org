@@ -1418,14 +1418,43 @@ Graders only need to write out a detailed and clear message once and can then re
 :CREATED:  [2023-11-20 Mon 13:04]
 :END:
 
+Given that we now have a system for re-using feedback given earlier, we can ask ourselves if we can do this in a smarter way.
+Instead of teachers having to search for the annotation they want to use, what if we could predict which annotation they want to use?
+This is exactly what we will explore in this section.
+
+The general idea of the method we explored was to find patterns in the syntax trees of submissions that received a certain annotation.
+When a teacher wants to add an annotation, we can then find the annotation that matches the best by calculating a score for each annotation's pattern set.
+To validate this method we used two testing sets that both use actual students submissions from an exam; one using messages given by PyLint and one with real-world data of saved annotations and their uses extracted from Dodona.
+
+We will first give an overview of the algorithm we use to find patterns and then go over how to match these patterns given a syntax tree.
+We will also explain some practical issues that we had to consider during implementation.
+We then discuss what we did to rank annotations and then move on to discussing the results for the two datasets.
+
 *** TreeminerD
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 13:33]
 :END:
 
-*** Matching
+To efficiently mine forests for frequent patterns there are two main options: FREQT\nbsp{}[cite:@asaiEfficientSubstructureDiscovery2004] and Treeminer\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005].
+These two algorithms are in essence the same, and were developed independently and simultaneously.
+They have been used before to mine patterns in source code\nbsp{}[cite:@phamMiningPatternsSource2019], for example to find differing patterns in code written by passing and failing students\nbsp{}[cite:@mensGoodBadUgly2021].
+In this work we opted to use the Treeminer algorithm, and more precise the TreeminerD variation on this algorithm.
+This variation gives only the distinct frequent patterns in a forest instead of all occurrences of all frequent patterns in a forest.
+This can be done much more efficiently, and in this work we don't use the extra information that the unmodified Treeminer algorithm gives us.
+
+*** Matching patterns to trees
 :PROPERTIES:
 :CREATED:  [2023-11-20 Mon 13:33]
+:END:
+
+*** Practical considerations
+:PROPERTIES:
+:CREATED:  [2023-11-22 Wed 14:39]
+:END:
+
+*** Ranking annotations
+:PROPERTIES:
+:CREATED:  [2023-11-22 Wed 14:47]
 :END:
 
 *** PyLint messages
