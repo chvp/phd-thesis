@@ -107,7 +107,7 @@ Also talk about optimizations done to the feedback table.
 
 I might even wait with this explicitly to do this closer to the deadline, to incorporate possible UI changes that might be done in the near future.
 
-*** TODO Expand on the structure of the feedback table in [[Automated assessment]] (maybe move some content from the caption?).
+*** TODO Expand on the structure of the feedback table in Section\nbsp{}[[Automated assessment]] (maybe move some content from Figure\nbsp{}[[fig:whatfeedback]]'s caption?).
 :PROPERTIES:
 :CREATED:  [2023-11-21 Tue 16:15]
 :END:

@@ -7,7 +7,7 @@
   volume = {Volume: 2, Number: 2},
   number = {Volume: 2, Number: 2},
   urldate = {2021-09-20},
-  abstract = {Educational data mining concerns with developing methods for discovering knowledge from data that come from educational domain. In this paper we used educational data mining to improve graduate students' performance, and overcome the problem of low grades of graduate students. In our case study we try to extract useful knowledge from graduate students data collected from the college of Science and Technology\textendash Khanyounis. The data include fifteen years period [1993-2007]. After preprocessing the data, we applied data mining techniques to discover association, classification, clustering and outlier detection rules. In each of these four tasks, we present the extracted knowledge and describe its importance in educational domain.},
+  abstract = {Educational data mining concerns with developing methods for discovering knowledge from data that come from educational domain. In this paper we used educational data mining to improve graduate students' performance, and overcome the problem of low grades of graduate students. In our case study we try to extract useful knowledge from graduate students data collected from the college of Science and Technology{\textendash}Khanyounis. The data include fifteen years period [1993-2007]. After preprocessing the data, we applied data mining techniques to discover association, classification, clustering and outlier detection rules. In each of these four tasks, we present the extracted knowledge and describe its importance in educational domain.},
   copyright = {Creative Commons (CC-BY)},
   langid = {english},
   annotation = {Accepted: 2018-11-19T09:24:34Z},
@@ -486,13 +486,31 @@
   author = {Caiza, Julio C. and del {\'A}lamo Ramiro, Jos{\'e} Mar{\'i}a},
   year = {2013},
   pages = {5691--5700},
-  publisher = {{E.T.S.I. Telecomunicaci\'on (UPM)}},
+  publisher = {{E.T.S.I. Telecomunicaci{\'o}n (UPM)}},
   address = {{Valencia, Spain}},
   urldate = {2022-08-16},
   abstract = {Automatic grading of programming assignments is an important topic in academic research. It aims at improving the level of feedback given to students and optimizing the professor time. Several researches have reported the development of software tools to support this process. Then, it is helpfulto get a quickly and good sight about their key features. This paper reviews an ample set of tools forautomatic grading of programming assignments. They are divided in those most important mature tools, which have remarkable features; and those built recently, with new features. The review includes the definition and description of key features e.g. supported languages, used technology, infrastructure, etc. The two kinds of tools allow making a temporal comparative analysis. This analysis infrastructure, etc. The two kinds of tools allow making a temporal comparative analysis. This analysis shows good improvements in this research field, these include security, more language support, plagiarism detection, etc. On the other hand, the lack of a grading model for assignments is identified as an important gap in the reviewed tools. Thus, a characterization of evaluation metrics to grade programming assignments is provided as first step to get a model. Finally new paths in this research field are proposed.},
   copyright = {https://creativecommons.org/licenses/by-nc-nd/3.0/es/},
   langid = {english},
   file = {/home/charlotte/sync/Zotero/storage/T6US678G/Caiza and Álamo Ramiro - 2013 - Programming assignments automatic grading review .pdf;/home/charlotte/sync/Zotero/storage/8FBZPPGA/25765.html}
+}
+
+@inproceedings{cambroneroWhenDeepLearning2019,
+  title = {When Deep Learning Met Code Search},
+  booktitle = {Proceedings of the 2019 27th {{ACM Joint Meeting}} on {{European Software Engineering Conference}} and {{Symposium}} on the {{Foundations}} of {{Software Engineering}}},
+  author = {Cambronero, Jose and Li, Hongyu and Kim, Seohyun and Sen, Koushik and Chandra, Satish},
+  year = {2019},
+  month = aug,
+  series = {{{ESEC}}/{{FSE}} 2019},
+  pages = {964--974},
+  publisher = {{Association for Computing Machinery}},
+  address = {{New York, NY, USA}},
+  doi = {10.1145/3338906.3340458},
+  urldate = {2023-11-23},
+  abstract = {There have been multiple recent proposals on using deep neural networks for code search using natural language. Common across these proposals is the idea of embedding code and natural language queries into real vectors and then using vector distance to approximate semantic correlation between code and the query. Multiple approaches exist for learning these embeddings, including unsupervised techniques, which rely only on a corpus of code examples, and supervised techniques, which use an aligned corpus of paired code and natural language descriptions. The goal of this supervision is to produce embeddings that are more similar for a query and the corresponding desired code snippet. Clearly, there are choices in whether to use supervised techniques at all, and if one does, what sort of network and training to use for supervision. This paper is the first to evaluate these choices systematically. To this end, we assembled implementations of state-of-the-art techniques to run on a common platform, training and evaluation corpora. To explore the design space in network complexity, we also introduced a new design point that is a minimal supervision extension to an existing unsupervised technique. Our evaluation shows that: 1. adding supervision to an existing unsupervised technique can improve performance, though not necessarily by much; 2. simple networks for supervision can be more effective that more sophisticated sequence-based networks for code search; 3. while it is common to use docstrings to carry out supervision, there is a sizeable gap between the effectiveness of docstrings and a more query-appropriate supervision corpus.},
+  isbn = {978-1-4503-5572-8},
+  keywords = {code search,joint embedding,neural networks},
+  file = {/home/charlotte/sync/Zotero/storage/EENERC5Z/Cambronero et al. - 2019 - When deep learning met code search.pdf}
 }
 
 @article{caswellOpenEducationalResources2008,
@@ -704,6 +722,22 @@
   keywords = {assessment design,replicable research,research synthesis,rubric design,rubrics}
 }
 
+@article{demmeApproximateGraphClustering2012,
+  title = {Approximate Graph Clustering for Program Characterization},
+  author = {Demme, John and Sethumadhavan, Simha},
+  year = {2012},
+  month = jan,
+  journal = {ACM Transactions on Architecture and Code Optimization},
+  volume = {8},
+  number = {4},
+  pages = {21:1--21:21},
+  issn = {1544-3566},
+  doi = {10.1145/2086696.2086700},
+  urldate = {2023-11-23},
+  abstract = {An important aspect of system optimization research is the discovery of program traits or behaviors. In this paper, we present an automated method of program characterization which is able to examine and cluster program graphs, i.e., dynamic data graphs or control flow graphs. Our novel approximate graph clustering technology allows users to find groups of program fragments which contain similar code idioms or patterns in data reuse, control flow, and context. Patterns of this nature have several potential applications including development of new static or dynamic optimizations to be implemented in software or in hardware. For the SPEC CPU 2006 suite of benchmarks, our results show that approximate graph clustering is effective at grouping behaviorally similar functions. Graph based clustering also produces clusters that are more homogeneous than previously proposed non-graph based clustering methods. Further qualitative analysis of the clustered functions shows that our approach is also able to identify some frequent unexploited program behaviors. These results suggest that our approximate graph clustering methods could be very useful for program characterization.},
+  file = {/home/charlotte/sync/Zotero/storage/6WUFLLW5/Demme and Sethumadhavan - 2012 - Approximate graph clustering for program character.pdf}
+}
+
 @inproceedings{dianaInstructorDashboardRealtime2017,
   title = {An Instructor Dashboard for Real-Time Analytics in Interactive Programming Assignments},
   booktitle = {Proceedings of the {{Seventh International Learning Analytics}} \& {{Knowledge Conference}}},
@@ -791,7 +825,7 @@
   publisher = {{Informing Science Institute}},
   issn = {1552-2237},
   urldate = {2022-10-03},
-  abstract = {This paper depicts the sustainability of Open Educational Resources (OERs) in terms of the three models: funding, technical, and content. Discussion and recommendations are focused on the sustainability of OERs and the requirement that we think of OERs as only part of a larger picture \textendash{} one that includes volunteers and incentives, community and partnerships, co-production and sharing, distributed management and control.},
+  abstract = {This paper depicts the sustainability of Open Educational Resources (OERs) in terms of the three models: funding, technical, and content. Discussion and recommendations are focused on the sustainability of OERs and the requirement that we think of OERs as only part of a larger picture {\textendash} one that includes volunteers and incentives, community and partnerships, co-production and sharing, distributed management and control.},
   langid = {english},
   file = {/home/charlotte/sync/Zotero/storage/H3X3P7FN/Downes - 2007 - Models for Sustainable Open Educational Resources.pdf;/home/charlotte/sync/Zotero/storage/EBCULPC9/44796.html}
 }
@@ -940,7 +974,7 @@
   issn = {0162-1459},
   doi = {10.1080/01621459.1982.10477894},
   urldate = {2021-02-19},
-  abstract = {An example is given of a family of distributions on [\textemdash{} 1, 1] with a continuous one-dimensional parameterization that joins the triangular distribution (when {$\Theta$} = 0) to the uniform (when {$\Theta$} = 1), for which the maximum likelihood estimates exist and converge strongly to {$\Theta$} = 1 as the sample size tends to infinity, whatever be the true value of the parameter. A modification that satisfies Cram\'er's conditions is also given.},
+  abstract = {An example is given of a family of distributions on [{\textemdash} 1, 1] with a continuous one-dimensional parameterization that joins the triangular distribution (when {$\Theta$} = 0) to the uniform (when {$\Theta$} = 1), for which the maximum likelihood estimates exist and converge strongly to {$\Theta$} = 1 as the sample size tends to infinity, whatever be the true value of the parameter. A modification that satisfies Cram{\'e}r's conditions is also given.},
   keywords = {Asymptotic efficiency,Inconsistency,Maximum likelihood estimates,Mixtures},
   file = {/home/charlotte/sync/Zotero/storage/QEWUSYDZ/01621459.1982.html}
 }
@@ -977,7 +1011,7 @@
 }
 
 @inproceedings{fonsecaWebbasedPlatformMethodology2023,
-  title = {A Web-Based Platform and a Methodology to Teach Programming Languages in Electrical Engineering Education \textendash{} Evolution and Student Feedback},
+  title = {A Web-Based Platform and a Methodology to Teach Programming Languages in Electrical Engineering Education {\textendash} Evolution and Student Feedback},
   booktitle = {2023 32nd {{Annual Conference}} of the {{European Association}} for {{Education}} in {{Electrical}} and {{Information Engineering}} ({{EAEEIE}})},
   author = {Fonseca, In{\'a}cio and Martins, Nuno Cid and Lopes, Fernando},
   year = {2023},
@@ -986,7 +1020,7 @@
   issn = {2472-7687},
   doi = {10.23919/EAEEIE55804.2023.10181316},
   urldate = {2023-10-02},
-  abstract = {The teaching of diverse programming topics and languages is a fundamental component of electrical engineering education. However, it is a complex task facing many challenges such as the need to accommodate students with very different programming backgrounds and with very different levels of motivation for the programming field \textendash{} these are classical difficulties with electrical engineering candidates.A web-based collaborative tool and a methodology to support student interaction and assistance in classroom teaching of programming languages in electrical engineering courses were presented in [1]. The main technological choices and functionalities, as well as examples of implemented courses, were described. The tool was developed aiming to be flexible, scalable and with high evolution potential.In this paper, we present the evolution of the basis tool through technology improvements, a set of new functionalities and added programming languages. The main technology upgrades include the full integration of the Visual Studio Code for the Web editor, a new web interface we called iWeb-TD and the expansion of the multi-user capabilities. In terms of functionalities, in addition to PHP and Octave, it is now possible to teach C/C++, Python, Java, and ipynb. A new major component is the integration of active debugging with step execution for all supported languages. This is a fundamental aspect that allows students with weak programming skills to evolve in a structured form. The tool can also allow the teacher to develop and test pedagogical elements in Python or Octave and publish them for student access in read-only mode using the Jupyter-Notebook technology.The paper includes example pedagogical elements for two electrical engineering courses taught using the enhanced platform, including the compilation of associated student feedback.},
+  abstract = {The teaching of diverse programming topics and languages is a fundamental component of electrical engineering education. However, it is a complex task facing many challenges such as the need to accommodate students with very different programming backgrounds and with very different levels of motivation for the programming field {\textendash} these are classical difficulties with electrical engineering candidates.A web-based collaborative tool and a methodology to support student interaction and assistance in classroom teaching of programming languages in electrical engineering courses were presented in [1]. The main technological choices and functionalities, as well as examples of implemented courses, were described. The tool was developed aiming to be flexible, scalable and with high evolution potential.In this paper, we present the evolution of the basis tool through technology improvements, a set of new functionalities and added programming languages. The main technology upgrades include the full integration of the Visual Studio Code for the Web editor, a new web interface we called iWeb-TD and the expansion of the multi-user capabilities. In terms of functionalities, in addition to PHP and Octave, it is now possible to teach C/C++, Python, Java, and ipynb. A new major component is the integration of active debugging with step execution for all supported languages. This is a fundamental aspect that allows students with weak programming skills to evolve in a structured form. The tool can also allow the teacher to develop and test pedagogical elements in Python or Octave and publish them for student access in read-only mode using the Jupyter-Notebook technology.The paper includes example pedagogical elements for two electrical engineering courses taught using the enhanced platform, including the compilation of associated student feedback.},
   file = {/home/charlotte/sync/Zotero/storage/WPW7AYUK/Fonseca et al. - 2023 - A web-based platform and a methodology to teach pr.pdf;/home/charlotte/sync/Zotero/storage/SIFC9TWB/10181316.html}
 }
 
@@ -996,7 +1030,7 @@
   year = {2006},
   journal = {Information Technologies at School},
   pages = {553--563},
-  publisher = {{2nd International Conference on Informatics in Secondary Schools: Evolution \ldots}}
+  publisher = {{2nd International Conference on Informatics in Secondary Schools: Evolution {\ldots}}}
 }
 
 @article{forisekSuitabilityProgrammingTasks2006,
@@ -1030,7 +1064,7 @@
   issn = {0091-0260},
   doi = {10.1177/009102600903800103},
   urldate = {2021-04-30},
-  abstract = {Applicants for the jobs of engineering aide and plumber with a large public employer were asked to provide their assessments of the perceived fairness of two different HR selection devices\textemdash a background information form and a written job knowledge test. Significant differences were found in the applicants' perceptions of the fairness of the two selection devices. In addition, the differences found depended on the classification of the job for which individuals were applying. Specifically, engineering aide applicants saw the background information inventory as more just, while plumber applicants preferred the written exam. Implications of the results for HR selection are discussed.},
+  abstract = {Applicants for the jobs of engineering aide and plumber with a large public employer were asked to provide their assessments of the perceived fairness of two different HR selection devices{\textemdash}a background information form and a written job knowledge test. Significant differences were found in the applicants' perceptions of the fairness of the two selection devices. In addition, the differences found depended on the classification of the job for which individuals were applying. Specifically, engineering aide applicants saw the background information inventory as more just, while plumber applicants preferred the written exam. Implications of the results for HR selection are discussed.},
   langid = {english},
   file = {/home/charlotte/sync/Zotero/storage/4IGJ3LIJ/Forsberg and Shultz - 2009 - Perceived Fairness of a Background Information For.pdf}
 }
@@ -1248,7 +1282,7 @@
   issn = {1573-7616},
   doi = {10.1007/s10664-017-9579-0},
   urldate = {2023-11-16},
-  abstract = {Program comprehension is an important skill for programmers \textendash{} extending and debugging existing source code is part of the daily routine. Syntax highlighting is one of the most common tools used to support developers in understanding algorithms. However, most research in this area originates from a time when programmers used a completely different tool chain. We examined the influence of syntax highlighting on novices' ability to comprehend source code. Additional analyses cover the influence of task type and programming experience on the code comprehension ability itself and its relation to syntax highlighting. We conducted a controlled experiment with 390 undergraduate students in an introductory Java programming course. We measured the correctness with which they solved small coding tasks. Each test subject received some tasks with syntax highlighting and some without. The data provided no evidence that syntax highlighting improves novices' ability to comprehend source code. There are very few similar experiments and it is unclear as of yet which factors impact the effectiveness of syntax highlighting. One major limitation may be the types of tasks chosen for this experiment. The results suggest that syntax highlighting squanders a feedback channel from the IDE to the programmer that can be used more effectively.},
+  abstract = {Program comprehension is an important skill for programmers {\textendash} extending and debugging existing source code is part of the daily routine. Syntax highlighting is one of the most common tools used to support developers in understanding algorithms. However, most research in this area originates from a time when programmers used a completely different tool chain. We examined the influence of syntax highlighting on novices' ability to comprehend source code. Additional analyses cover the influence of task type and programming experience on the code comprehension ability itself and its relation to syntax highlighting. We conducted a controlled experiment with 390 undergraduate students in an introductory Java programming course. We measured the correctness with which they solved small coding tasks. Each test subject received some tasks with syntax highlighting and some without. The data provided no evidence that syntax highlighting improves novices' ability to comprehend source code. There are very few similar experiments and it is unclear as of yet which factors impact the effectiveness of syntax highlighting. One major limitation may be the types of tasks chosen for this experiment. The results suggest that syntax highlighting squanders a feedback channel from the IDE to the programmer that can be used more effectively.},
   langid = {english},
   keywords = {Code colouring,IDE interface,Program comprehension,Source code typography,Syntax highlighting},
   file = {/home/charlotte/sync/Zotero/storage/IWUEEJV7/Hannebauer et al. - 2018 - Does syntax highlighting help programming novices.pdf}
@@ -1312,7 +1346,7 @@
   author = {Hole, Niklas Molnes},
   year = {2020},
   urldate = {2023-10-02},
-  abstract = {Den norske regjeringen har bestemt at fra 2021 vil programmering v\ae re lagt til fysikk planen ved norske videreg\aa ende skoler (USS). L\ae rere har v\ae rt i stand til \aa{} delta p\aa{} ProFag (https://www.mn.uio.no/kurt/livslang-lering/profag) og andre tiltak for \aa{} l\ae re \aa{} bruke programmering i sine respektive kurs. Dermed kan utvikling av verkt\o y for \aa{} hjelpe i denne overgangen v\ae re avgj\o rende for \aa{} lykkes i avanserte kurs som fysikk. Imidlertid mangler der verkt\o y spesielt for \aa{} introdusere programmering i helt grunnleggende fysikk kurs. I tillegg har de tilgjengelige verkt\o yene som introduserer programmering generelt, mangler i funksjonalitet for \aa{} lage tilpassede oppgaver. For \aa{} hjelpe til med \aa{} l\o se disse problemene ble det gjennomf\o rt en Design Science Research (DSR) prosess. Ved \aa{} designe et verkt\o y, en online l\ae ringsplattform (OLP), som kunne introdusere programmering i et introduksjonskurs i fysikk, var det mulig \aa{} identifisere hvilke elementer som var viktige i et slikt verkt\o y. Det ble ogs\aa{} designet designet inn en funksjon for \aa{} la brukeren lage egne programmeringsoppgaver. Dette gjorde det mulig \aa{} finne ut hvordan et brukergrensesnitt (UI) kan tilpasses fysikkl\ae rere. For \aa{} f\aa{} et godt svar p\aa{} begge disse problemene, ble designet, elaborert og evaluert p\aa{} tre forskjellige m\aa lgrupper: universitetsstudenter (pilot), eksperter som jobber med dette feltet (expert), og fysikkl\ae rere uten noe tidligere kompetanse p\aa{} dette feltet (main). Totalt 18 elementer ble funnet \aa{} v\ae re avgj\o rende i utformingen av et verkt\o y som pr\o ver \aa{} introdusere programmering i et grunnleggende fysikk kurs. Det ble ogs\aa{} avdekket at ved \aa{} opprettet et brukergrensesnitt for \aa{} lage programmeringsoppgaver som passer til slik grunnleggende fysikk, var det viktig \aa{} ha muligheten til \aa{} skjule distraherende kode og for \aa{} kunne teste oppgaven i et realistisk milj\o{} mens man former oppgaven. I tillegg var det viktig at man laget brukergrensesnittet slik at utformingen av oppgaver tilsvarer m\aa ten oppgave-skaperne vanligvis lager oppgaver. For gruppen av fysikkl\ae rere var det mest interessant \aa{} bruke forh\aa ndsoppgaver enn \aa{} lage dem selv. Imidlertid var de interessert i \aa{} endre eksisterende oppgaver. Bortsett fra det som ble funnet ut i fra evalueringen, har OLPen som ble utviklet her ogs\aa{} som m\aa l \aa{} inspirere til forskningsarbeid og utvikling av verkt\o y som eksplisitt er laget for \aa{} introdusere programmering i spesifikke emner. OLP-artefakten som ble designet og utviklet i l\o pet av arbeid med denne oppgaven er tilgjengelig som en online demo (https://master-thesis-artifact.now.sh/) og som kildekode (https://github.com/niklasmh/master-thesis-artifact)},
+  abstract = {Den norske regjeringen har bestemt at fra 2021 vil programmering v{\ae}re lagt til fysikk planen ved norske videreg{\aa}ende skoler (USS). L{\ae}rere har v{\ae}rt i stand til {\aa} delta p{\aa} ProFag (https://www.mn.uio.no/kurt/livslang-lering/profag) og andre tiltak for {\aa} l{\ae}re {\aa} bruke programmering i sine respektive kurs. Dermed kan utvikling av verkt{\o}y for {\aa} hjelpe i denne overgangen v{\ae}re avgj{\o}rende for {\aa} lykkes i avanserte kurs som fysikk. Imidlertid mangler der verkt{\o}y spesielt for {\aa} introdusere programmering i helt grunnleggende fysikk kurs. I tillegg har de tilgjengelige verkt{\o}yene som introduserer programmering generelt, mangler i funksjonalitet for {\aa} lage tilpassede oppgaver. For {\aa} hjelpe til med {\aa} l{\o}se disse problemene ble det gjennomf{\o}rt en Design Science Research (DSR) prosess. Ved {\aa} designe et verkt{\o}y, en online l{\ae}ringsplattform (OLP), som kunne introdusere programmering i et introduksjonskurs i fysikk, var det mulig {\aa} identifisere hvilke elementer som var viktige i et slikt verkt{\o}y. Det ble ogs{\aa} designet designet inn en funksjon for {\aa} la brukeren lage egne programmeringsoppgaver. Dette gjorde det mulig {\aa} finne ut hvordan et brukergrensesnitt (UI) kan tilpasses fysikkl{\ae}rere. For {\aa} f{\aa} et godt svar p{\aa} begge disse problemene, ble designet, elaborert og evaluert p{\aa} tre forskjellige m{\aa}lgrupper: universitetsstudenter (pilot), eksperter som jobber med dette feltet (expert), og fysikkl{\ae}rere uten noe tidligere kompetanse p{\aa} dette feltet (main). Totalt 18 elementer ble funnet {\aa} v{\ae}re avgj{\o}rende i utformingen av et verkt{\o}y som pr{\o}ver {\aa} introdusere programmering i et grunnleggende fysikk kurs. Det ble ogs{\aa} avdekket at ved {\aa} opprettet et brukergrensesnitt for {\aa} lage programmeringsoppgaver som passer til slik grunnleggende fysikk, var det viktig {\aa} ha muligheten til {\aa} skjule distraherende kode og for {\aa} kunne teste oppgaven i et realistisk milj{\o} mens man former oppgaven. I tillegg var det viktig at man laget brukergrensesnittet slik at utformingen av oppgaver tilsvarer m{\aa}ten oppgave-skaperne vanligvis lager oppgaver. For gruppen av fysikkl{\ae}rere var det mest interessant {\aa} bruke forh{\aa}ndsoppgaver enn {\aa} lage dem selv. Imidlertid var de interessert i {\aa} endre eksisterende oppgaver. Bortsett fra det som ble funnet ut i fra evalueringen, har OLPen som ble utviklet her ogs{\aa} som m{\aa}l {\aa} inspirere til forskningsarbeid og utvikling av verkt{\o}y som eksplisitt er laget for {\aa} introdusere programmering i spesifikke emner. OLP-artefakten som ble designet og utviklet i l{\o}pet av arbeid med denne oppgaven er tilgjengelig som en online demo (https://master-thesis-artifact.now.sh/) og som kildekode (https://github.com/niklasmh/master-thesis-artifact)},
   langid = {english},
   school = {NTNU},
   annotation = {Accepted: 2021-09-15T16:19:35Z},
@@ -1331,7 +1365,7 @@
   issn = {0001-0782},
   doi = {10.1145/367415.367422},
   urldate = {2022-08-16},
-  abstract = {Fifteen months ago the first version of an ``automatic grader'' was tried with a group of twenty students taking a formal course in programming. The first group of twenty programs took only five minutes on the computer (an IBM 650). With such a satisfactory beginning, the grader was then used for the entire course with this group of students and have been used at Rensselaer ever since. For all exercises, the average time spent on the computer has run from half a minute to a minute for each student. In general only an eighth as much computer time is required when the grader is used as is required when each student is expected to run his own program, probably less than a third as much staff time, and considerably less student time. The grader easily justifies itself on economic grounds. It accomplishes more than savings in time and money; it makes possible the teaching of programming to large numbers of students. This spring we had 80 students taking a full semester course in programming; over 120 are expected next spring. We could not accommodate such numbers without the use of the grader. Even though the grader makes the teaching of programming to large numbers of students possible and economically feasible, a most serious question remains, how well did the students learn? After fifteen months, our experience leads us to believe that students learn programming not only as well but probably better than they did under the method we did use\textemdash laboratory groups of four or five students. They are not as skilled in machine operation, however, since they get only a brief introduction to it late in the course. After learning programming, very little time is needed for each student to become at least an adequate machine operator. Students seem to like the grader and are not reluctant to suggest improvements!},
+  abstract = {Fifteen months ago the first version of an ``automatic grader'' was tried with a group of twenty students taking a formal course in programming. The first group of twenty programs took only five minutes on the computer (an IBM 650). With such a satisfactory beginning, the grader was then used for the entire course with this group of students and have been used at Rensselaer ever since. For all exercises, the average time spent on the computer has run from half a minute to a minute for each student. In general only an eighth as much computer time is required when the grader is used as is required when each student is expected to run his own program, probably less than a third as much staff time, and considerably less student time. The grader easily justifies itself on economic grounds. It accomplishes more than savings in time and money; it makes possible the teaching of programming to large numbers of students. This spring we had 80 students taking a full semester course in programming; over 120 are expected next spring. We could not accommodate such numbers without the use of the grader. Even though the grader makes the teaching of programming to large numbers of students possible and economically feasible, a most serious question remains, how well did the students learn? After fifteen months, our experience leads us to believe that students learn programming not only as well but probably better than they did under the method we did use{\textemdash}laboratory groups of four or five students. They are not as skilled in machine operation, however, since they get only a brief introduction to it late in the course. After learning programming, very little time is needed for each student to become at least an adequate machine operator. Students seem to like the grader and are not reluctant to suggest improvements!},
   file = {/home/charlotte/sync/Zotero/storage/JS69Q9SX/Hollingsworth - 1960 - Automatic graders for programming classes.pdf}
 }
 
@@ -1478,7 +1512,7 @@
 }
 
 @article{jesionkowskaActiveLearningAugmented2020,
-  title = {Active {{Learning Augmented Reality}} for {{STEAM Education}}\textemdash{{A Case Study}}},
+  title = {Active {{Learning Augmented Reality}} for {{STEAM Education}}{\textemdash}{{A Case Study}}},
   author = {Jesionkowska, Joanna and Wild, Fridolin and Deval, Yann},
   year = {2020},
   month = aug,
@@ -1572,6 +1606,24 @@
   file = {/home/charlotte/sync/Zotero/storage/7JRDKDS6/Khalifa and Lam - 2002 - Web-based learning effects on learning process an.pdf;/home/charlotte/sync/Zotero/storage/NVP8AJWZ/1049596.html}
 }
 
+@inproceedings{kimFaCoYCodetocodeSearch2018,
+  title = {{{FaCoY}}: A Code-to-Code Search Engine},
+  shorttitle = {{{FaCoY}}},
+  booktitle = {Proceedings of the 40th {{International Conference}} on {{Software Engineering}}},
+  author = {Kim, Kisub and Kim, Dongsun and Bissyand{\'e}, Tegawend{\'e} F. and Choi, Eunjong and Li, Li and Klein, Jacques and Traon, Yves Le},
+  year = {2018},
+  month = may,
+  series = {{{ICSE}} '18},
+  pages = {946--957},
+  publisher = {{Association for Computing Machinery}},
+  address = {{New York, NY, USA}},
+  doi = {10.1145/3180155.3180187},
+  urldate = {2023-11-23},
+  abstract = {Code search is an unavoidable activity in software development. Various approaches and techniques have been explored in the literature to support code search tasks. Most of these approaches focus on serving user queries provided as natural language free-form input. However, there exists a wide range of use-case scenarios where a code-to-code approach would be most beneficial. For example, research directions in code transplantation, code diversity, patch recommendation can leverage a code-to-code search engine to find essential ingredients for their techniques. In this paper, we propose FaCoY, a novel approach for statically finding code fragments which may be semantically similar to user input code. FaCoY implements a query alternation strategy: instead of directly matching code query tokens with code in the search space, FaCoY first attempts to identify other tokens which may also be relevant in implementing the functional behavior of the input code. With various experiments, we show that (1) FaCoY is more effective than online code-to-code search engines; (2) FaCoY can detect more semantic code clones (i.e., Type-4) in BigCloneBench than the state-of-the-art; (3) FaCoY, while static, can detect code fragments which are indeed similar with respect to runtime execution behavior; and (4) FaCoY can be useful in code/patch recommendation.},
+  isbn = {978-1-4503-5638-1},
+  file = {/home/charlotte/sync/Zotero/storage/ZKJSFYC8/Kim et al. - 2018 - FaCoY a code-to-code search engine.pdf}
+}
+
 @incollection{kleinbaumIntroductionLogisticRegression1994,
   title = {Introduction to {{Logistic Regression}}},
   booktitle = {Logistic {{Regression}}: {{A Self-Learning Text}}},
@@ -1592,7 +1644,7 @@
 
 @inproceedings{kosowskiApplicationOnlineJudge2008,
   title = {Application of an {{Online Judge}} \& {{Contester System}} in {{Academic Tuition}}},
-  booktitle = {Advances in {{Web Based Learning}} \textendash{} {{ICWL}} 2007},
+  booktitle = {Advances in {{Web Based Learning}} {\textendash} {{ICWL}} 2007},
   author = {Kosowski, Adrian and Ma{\l}afiejski, Micha{\l} and Noi{\'n}ski, Tomasz},
   editor = {Leung, Howard and Li, Frederick and Lau, Rynson and Li, Qing},
   year = {2008},
@@ -1601,7 +1653,7 @@
   publisher = {{Springer}},
   address = {{Berlin, Heidelberg}},
   doi = {10.1007/978-3-540-78139-4_31},
-  abstract = {The paper contains a description of the SPOJ online judge and contester system, used for E-Learning of programming, which has been successfully applied in the tuition of students at the Gda\'nsk University of Technology. We study the implementation of the system with security demands and present our experiences connected with the use of such systems in academic courses at an undergraduate and graduate level in the last four years.},
+  abstract = {The paper contains a description of the SPOJ online judge and contester system, used for E-Learning of programming, which has been successfully applied in the tuition of students at the Gda{\'n}sk University of Technology. We study the implementation of the system with security demands and present our experiences connected with the use of such systems in academic courses at an undergraduate and graduate level in the last four years.},
   isbn = {978-3-540-78139-4},
   langid = {english},
   keywords = {Contest Organizer,Master Node,Pass Threshold,Programming Assignment,Security Demand}
@@ -1745,6 +1797,41 @@
   file = {/home/charlotte/sync/Zotero/storage/LNF56FUN/Looi et al. - 2005 - Artificial Intelligence in Education Supporting L.pdf}
 }
 
+@article{luanAromaCodeRecommendation2019,
+  title = {Aroma: Code Recommendation via Structural Code Search},
+  shorttitle = {Aroma},
+  author = {Luan, Sifei and Yang, Di and Barnaby, Celeste and Sen, Koushik and Chandra, Satish},
+  year = {2019},
+  month = oct,
+  journal = {Proceedings of the ACM on Programming Languages},
+  volume = {3},
+  number = {OOPSLA},
+  pages = {152:1--152:28},
+  doi = {10.1145/3360578},
+  urldate = {2023-11-23},
+  abstract = {Programmers often write code that has similarity to existing code written somewhere. A tool that could help programmers to search such similar code would be immensely useful. Such a tool could help programmers to extend partially written code snippets to completely implement necessary functionality, help to discover extensions to the partial code which are commonly included by other programmers, help to cross-check against similar code written by other programmers, or help to add extra code which would fix common mistakes and errors. We propose Aroma, a tool and technique for code recommendation via structural code search. Aroma indexes a huge code corpus including thousands of open-source projects, takes a partial code snippet as input, searches the corpus for method bodies containing the partial code snippet, and clusters and intersects the results of the search to recommend a small set of succinct code snippets which both contain the query snippet and appear as part of several methods in the corpus. We evaluated Aroma on 2000 randomly selected queries created from the corpus, as well as 64 queries derived from code snippets obtained from Stack Overflow, a popular website for discussing code. We implemented Aroma for 4 different languages, and developed an IDE plugin for Aroma. Furthermore, we conducted a study where we asked 12 programmers to complete programming tasks using Aroma, and collected their feedback. Our results indicate that Aroma is capable of retrieving and recommending relevant code snippets efficiently.},
+  keywords = {clone detection,clustering,code recommendation,feature-based code representation,structural code search},
+  file = {/home/charlotte/sync/Zotero/storage/HFS4J8WW/Luan et al. - 2019 - Aroma code recommendation via structural code sea.pdf}
+}
+
+@misc{luCodeXGLUEMachineLearning2021,
+  title = {{{CodeXGLUE}}: {{A Machine Learning Benchmark Dataset}} for {{Code Understanding}} and {{Generation}}},
+  shorttitle = {{{CodeXGLUE}}},
+  author = {Lu, Shuai and Guo, Daya and Ren, Shuo and Huang, Junjie and Svyatkovskiy, Alexey and Blanco, Ambrosio and Clement, Colin and Drain, Dawn and Jiang, Daxin and Tang, Duyu and Li, Ge and Zhou, Lidong and Shou, Linjun and Zhou, Long and Tufano, Michele and Gong, Ming and Zhou, Ming and Duan, Nan and Sundaresan, Neel and Deng, Shao Kun and Fu, Shengyu and Liu, Shujie},
+  year = {2021},
+  month = mar,
+  number = {arXiv:2102.04664},
+  eprint = {2102.04664},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2102.04664},
+  urldate = {2023-11-23},
+  abstract = {Benchmark datasets have a significant impact on accelerating research in programming language tasks. In this paper, we introduce CodeXGLUE, a benchmark dataset to foster machine learning research for program understanding and generation. CodeXGLUE includes a collection of 10 tasks across 14 datasets and a platform for model evaluation and comparison. CodeXGLUE also features three baseline systems, including the BERT-style, GPT-style, and Encoder-Decoder models, to make it easy for researchers to use the platform. The availability of such data and baselines can help the development and validation of new methods that can be applied to various program understanding and generation problems.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Computation and Language,Computer Science - Software Engineering},
+  file = {/home/charlotte/sync/Zotero/storage/PCHYC68D/Lu et al. - 2021 - CodeXGLUE A Machine Learning Benchmark Dataset fo.pdf;/home/charlotte/sync/Zotero/storage/L5U8STUS/2102.html}
+}
+
 @inproceedings{luxton-reillyIntroductoryProgrammingSystematic2018,
   title = {Introductory Programming: A Systematic Literature Review},
   shorttitle = {Introductory Programming},
@@ -1850,7 +1937,7 @@
   copyright = {Open Access},
   isbn = {978-989-758-021-5},
   langid = {english},
-  keywords = {\`Arees tem\`atiques de la UPC::Ensenyament i aprenentatge::TIC's aplicades a l'educaci\'o,\`Arees tem\`atiques de la UPC::Inform\`atica,Automatic assessment,Computer-assisted instruction,Data mining,Ensenyament assistit per ordinador,Mineria de dades,Online programming judges},
+  keywords = {{\`A}rees tem{\`a}tiques de la UPC::Ensenyament i aprenentatge::TIC's aplicades a l'educaci{\'o},{\`A}rees tem{\`a}tiques de la UPC::Inform{\`a}tica,Automatic assessment,Computer-assisted instruction,Data mining,Ensenyament assistit per ordinador,Mineria de dades,Online programming judges},
   annotation = {Accepted: 2015-06-04T08:47:03Z},
   file = {/home/charlotte/sync/Zotero/storage/U3W7F48R/Mani et al. - 2014 - Better feedback for educational online judges.pdf}
 }
@@ -2416,7 +2503,7 @@
   address = {{New York, NY, USA}},
   doi = {10.1145/3287324.3287507},
   urldate = {2022-08-16},
-  abstract = {With the continued growth of enrollment within computer science courses, it has become an increasing necessity to utilize autograding systems. These systems have historically graded assignments through either a jailed sandbox environment or within a virtual machine (VM). For a VM, each submission is given its own instantiation of a guest operating system and virtual hardware that runs atop the host system, preventing anything that runs within the VM communicating with any other VM or the host. However, using these VMs are costly in terms of system resources, making it less than ideal for running student submissions given reasonable, limited resources. Jailed sandboxes, on the other hand, run on the host itself, thus taking up minimal resources, and utilize a security model that restricts the process to specified directories on the system. However, due to running on the host machine, the approach suffers as new courses utilize autograding and bring their own set of potentially conflicting requirements for programming languages and system packages. Over the past several years, \textbackslash em containers have seen growing popularity in usage within the software engineering industry as well as within autograding systems. Containers provide similar benefits of isolation as a VM while maintaining similar resource cost to running within a jailed sandbox environment. We present the implementation of both a jailed sandbox and container-based autograder, compare the running time and memory usage of the two implementations, and discuss the overall resource usage.},
+  abstract = {With the continued growth of enrollment within computer science courses, it has become an increasing necessity to utilize autograding systems. These systems have historically graded assignments through either a jailed sandbox environment or within a virtual machine (VM). For a VM, each submission is given its own instantiation of a guest operating system and virtual hardware that runs atop the host system, preventing anything that runs within the VM communicating with any other VM or the host. However, using these VMs are costly in terms of system resources, making it less than ideal for running student submissions given reasonable, limited resources. Jailed sandboxes, on the other hand, run on the host itself, thus taking up minimal resources, and utilize a security model that restricts the process to specified directories on the system. However, due to running on the host machine, the approach suffers as new courses utilize autograding and bring their own set of potentially conflicting requirements for programming languages and system packages. Over the past several years, {\textbackslash}em containers have seen growing popularity in usage within the software engineering industry as well as within autograding systems. Containers provide similar benefits of isolation as a VM while maintaining similar resource cost to running within a jailed sandbox environment. We present the implementation of both a jailed sandbox and container-based autograder, compare the running time and memory usage of the two implementations, and discuss the overall resource usage.},
   isbn = {978-1-4503-5890-3},
   keywords = {autograding,containers,docker,jailed sandbox},
   file = {/home/charlotte/sync/Zotero/storage/T4U4QBDS/Peveler et al. - 2019 - Comparing Jailed Sandboxes vs Containers Within an.pdf}
@@ -2537,7 +2624,7 @@
   issn = {1050-8406},
   doi = {10.1080/10508406.2013.836656},
   urldate = {2021-09-15},
-  abstract = {As secondary students' interest in science is decreasing, schools are faced with the challenging task of providing adequate instruction to engage students\textemdash and more particularly the disadvantaged students\textemdash to learn science and improve their science inquiry skills. In this respect, the integration of Web-based collaborative inquiry can be seen as a possible answer. However, the differential effects of Web-based inquiry on disadvantaged students have barely been studied. To bridge this gap, this study deals with the implementation of a Web-based inquiry project in 19 secondary classes and focuses specifically on gender, achievement level, and academic track. Multilevel analysis was applied to uncover the effects on knowledge acquisition, inquiry skills, and interest in science. The study provides quantitative evidence not only that a Web-based collaborative inquiry project is an effective approach for science learning, but that this approach can also offer advantages for students who are not typically successful in science or who are not enrolled in a science track. This approach can contribute to narrowing the gap between boys and girls in science and can give low-achieving students and general-track students an opportunity to develop confidence and skills for learning science, bringing them to a performance level that is closer to that of high-achieving students.},
+  abstract = {As secondary students' interest in science is decreasing, schools are faced with the challenging task of providing adequate instruction to engage students{\textemdash}and more particularly the disadvantaged students{\textemdash}to learn science and improve their science inquiry skills. In this respect, the integration of Web-based collaborative inquiry can be seen as a possible answer. However, the differential effects of Web-based inquiry on disadvantaged students have barely been studied. To bridge this gap, this study deals with the implementation of a Web-based inquiry project in 19 secondary classes and focuses specifically on gender, achievement level, and academic track. Multilevel analysis was applied to uncover the effects on knowledge acquisition, inquiry skills, and interest in science. The study provides quantitative evidence not only that a Web-based collaborative inquiry project is an effective approach for science learning, but that this approach can also offer advantages for students who are not typically successful in science or who are not enrolled in a science track. This approach can contribute to narrowing the gap between boys and girls in science and can give low-achieving students and general-track students an opportunity to develop confidence and skills for learning science, bringing them to a performance level that is closer to that of high-achieving students.},
   file = {/home/charlotte/sync/Zotero/storage/5A6P3CLX/Raes et al. - 2014 - Web-based Collaborative Inquiry to Bridge Gaps in .pdf;/home/charlotte/sync/Zotero/storage/ECGB3N97/10508406.2013.html}
 }
 
@@ -2676,8 +2763,8 @@
   journal = {instname:Universidad de los Andes},
   publisher = {{Universidad de los Andes}},
   urldate = {2022-07-06},
-  abstract = {"Determinar si dos programas son similares no es una tarea simple. En este trabajo exploramos e implementamos un acercamiento hacia determinar qu\'e tan similares son dos programas de Python usando arboles sint\'acticos abstractos similar al trabajo realizado por Avery et al. [1]. Luego se us\'o esta implementaci\'on para analizar los programas previamente recopilados y clasificados por la herramienta Senecode con la intenci\'on de poder dar retroalimentaci\'on autom\'atica significativa." -- Tomado del Formato de Documento de Grado.},
-  copyright = {Al consultar y hacer uso de este recurso, est\'a aceptando las condiciones de uso establecidas por los autores.},
+  abstract = {"Determinar si dos programas son similares no es una tarea simple. En este trabajo exploramos e implementamos un acercamiento hacia determinar qu{\'e} tan similares son dos programas de Python usando arboles sint{\'a}cticos abstractos similar al trabajo realizado por Avery et al. [1]. Luego se us{\'o} esta implementaci{\'o}n para analizar los programas previamente recopilados y clasificados por la herramienta Senecode con la intenci{\'o}n de poder dar retroalimentaci{\'o}n autom{\'a}tica significativa." -- Tomado del Formato de Documento de Grado.},
+  copyright = {Al consultar y hacer uso de este recurso, est{\'a} aceptando las condiciones de uso establecidas por los autores.},
   langid = {english},
   annotation = {Accepted: 2020-09-03T15:00:44Z},
   file = {/home/charlotte/sync/Zotero/storage/P99CDWYX/Salazar Paredes - 2020 - Comparing python programs using abstract syntax tr.pdf;/home/charlotte/sync/Zotero/storage/LH37DR2A/44754.html}
@@ -2881,7 +2968,7 @@
 }
 
 @article{strijbolTESTedEducationalTesting2023,
-  title = {{{TESTed}}\textemdash{{An}} Educational Testing Framework with Language-Agnostic Test Suites for Programming Exercises},
+  title = {{{TESTed}}{\textemdash}{{An}} Educational Testing Framework with Language-Agnostic Test Suites for Programming Exercises},
   author = {Strijbol, Niko and Van Petegem, Charlotte and Maertens, Rien and Sels, Boris and Scholliers, Christophe and Dawyndt, Peter and Mesuere, Bart},
   year = {2023},
   month = may,
@@ -2895,6 +2982,25 @@
   langid = {english},
   keywords = {Automated assessment tools,Educational software testing,Feedback,Programming},
   file = {/home/charlotte/sync/Zotero/storage/WBTY5M4I/Strijbol et al. - 2023 - TESTed—An educational testing framework with langu.pdf;/home/charlotte/sync/Zotero/storage/KD2266YV/S2352711023001000.html}
+}
+
+@inproceedings{suCodeRelativesDetecting2016,
+  title = {Code Relatives: Detecting Similarly Behaving Software},
+  shorttitle = {Code Relatives},
+  booktitle = {Proceedings of the 2016 24th {{ACM SIGSOFT International Symposium}} on {{Foundations}} of {{Software Engineering}}},
+  author = {Su, Fang-Hsiang and Bell, Jonathan and Harvey, Kenneth and Sethumadhavan, Simha and Kaiser, Gail and Jebara, Tony},
+  year = {2016},
+  month = nov,
+  series = {{{FSE}} 2016},
+  pages = {702--714},
+  publisher = {{Association for Computing Machinery}},
+  address = {{New York, NY, USA}},
+  doi = {10.1145/2950290.2950321},
+  urldate = {2023-11-23},
+  abstract = {Detecting ``similar code'' is useful for many software engineering tasks. Current tools can help detect code with statically similar syntactic and{\textendash}or semantic features (code clones) and with dynamically similar functional input/output (simions). Unfortunately, some code fragments that behave similarly at the finer granularity of their execution traces may be ignored. In this paper, we propose the term ``code relatives'' to refer to code with similar execution behavior. We define code relatives and then present DyCLINK, our approach to detecting code relatives within and across codebases. DyCLINK records instruction-level traces from sample executions, organizes the traces into instruction-level dynamic dependence graphs, and employs our specialized subgraph matching algorithm to efficiently compare the executions of candidate code relatives. In our experiments, DyCLINK analyzed 422+ million prospective subgraph matches in only 43 minutes. We compared DyCLINK to one static code clone detector from the community and to our implementation of a dynamic simion detector. The results show that DyCLINK effectively detects code relatives with a reasonable analysis time.},
+  isbn = {978-1-4503-4218-6},
+  keywords = {code clones,Code relatives,link analysis,runtime behavior,subgraph matching},
+  file = {/home/charlotte/sync/Zotero/storage/TGV3LVY3/Su et al. - 2016 - Code relatives detecting similarly behaving softw.pdf}
 }
 
 @article{svetnikRandomForestClassification2003,
@@ -3157,7 +3263,7 @@
   doi = {10.1051/shsconf/20207701004},
   urldate = {2023-10-02},
   abstract = {With the rapid development of information technology, programming has become a vital skill. An online judge system can be used as a programming education platform, where the daily activities of users and judges are used to generate useful learning objects (e.g., tasks, solution codes, evaluations). Intelligent software agents can utilize such objects to create an ecosystem. To implement such an ecosystem, a generic architecture that covers the whole lifecycle of data on the platform and the functionalities of an e-learning system should take into account the particularities of the online judge system. In this paper, an architecture that implements such an ecosystem based on an online judge system is proposed. The potential benefits and research challenges are discussed.},
-  copyright = {\textcopyright{} The Authors, published by EDP Sciences, 2020},
+  copyright = {{\textcopyright} The Authors, published by EDP Sciences, 2020},
   langid = {english},
   file = {/home/charlotte/sync/Zotero/storage/N4WMWTYP/Watanobe et al. - 2020 - Next-Generation Programming Learning Platform Arc.pdf}
 }
@@ -3255,7 +3361,7 @@
   issn = {2052-4463},
   doi = {10.1038/sdata.2016.18},
   urldate = {2021-08-24},
-  abstract = {There is an urgent need to improve the infrastructure supporting the reuse of scholarly data. A diverse set of stakeholders\textemdash representing academia, industry, funding agencies, and scholarly publishers\textemdash have come together to design and jointly endorse a concise and measureable set of principles that we refer to as the FAIR Data Principles. The intent is that these may act as a guideline for those wishing to enhance the reusability of their data holdings. Distinct from peer initiatives that focus on the human scholar, the FAIR Principles put specific emphasis on enhancing the ability of machines to automatically find and use the data, in addition to supporting its reuse by individuals. This Comment is the first formal publication of the FAIR Principles, and includes the rationale behind them, and some exemplar implementations in the community.},
+  abstract = {There is an urgent need to improve the infrastructure supporting the reuse of scholarly data. A diverse set of stakeholders{\textemdash}representing academia, industry, funding agencies, and scholarly publishers{\textemdash}have come together to design and jointly endorse a concise and measureable set of principles that we refer to as the FAIR Data Principles. The intent is that these may act as a guideline for those wishing to enhance the reusability of their data holdings. Distinct from peer initiatives that focus on the human scholar, the FAIR Principles put specific emphasis on enhancing the ability of machines to automatically find and use the data, in addition to supporting its reuse by individuals. This Comment is the first formal publication of the FAIR Principles, and includes the rationale behind them, and some exemplar implementations in the community.},
   copyright = {2016 The Author(s)},
   langid = {english},
   annotation = {Bandiera\_abtest: a Cg\_type: Nature Research Journals Primary\_atype: Comments \& Opinion Subject\_term: Publication characteristics;Research data Subject\_term\_id: publication-characteristics;research-data},
@@ -3303,7 +3409,7 @@
   issn = {0307-5079},
   doi = {10.1080/03075079.2015.1130032},
   urldate = {2022-03-04},
-  abstract = {For feedback to be effective, it must be used by the receiver. Prior research has outlined numerous reasons why students' use of feedback is sometimes limited, but there has been little systematic exploration of these barriers. In 11 activity-oriented focus groups, 31 undergraduate Psychology students discussed how they use assessment feedback. The data revealed many barriers that inhibit use of feedback, ranging from students' difficulties with decoding terminology, to their unwillingness to expend effort. Thematic analysis identified four underlying psychological processes: awareness, cognisance, agency, and volition. We argue that these processes should be considered when designing interventions to encourage students' engagement with feedback. Whereas the barriers identified could all in principle be removed, we propose that doing so would typically require \textendash{} or would at least benefit from \textendash{} a sharing of responsibility between teacher and student. The data highlight the importance of training students to be proactive receivers of feedback.},
+  abstract = {For feedback to be effective, it must be used by the receiver. Prior research has outlined numerous reasons why students' use of feedback is sometimes limited, but there has been little systematic exploration of these barriers. In 11 activity-oriented focus groups, 31 undergraduate Psychology students discussed how they use assessment feedback. The data revealed many barriers that inhibit use of feedback, ranging from students' difficulties with decoding terminology, to their unwillingness to expend effort. Thematic analysis identified four underlying psychological processes: awareness, cognisance, agency, and volition. We argue that these processes should be considered when designing interventions to encourage students' engagement with feedback. Whereas the barriers identified could all in principle be removed, we propose that doing so would typically require {\textendash} or would at least benefit from {\textendash} a sharing of responsibility between teacher and student. The data highlight the importance of training students to be proactive receivers of feedback.},
   keywords = {communication,feedback,focus groups,interventions,proactivity,student engagement},
   file = {/home/charlotte/sync/Zotero/storage/YAYDZ6ZE/Winstone et al. - 2017 - ‘It'd be useful, but I wouldn't use it’ barriers .pdf;/home/charlotte/sync/Zotero/storage/5RVZ6F2W/03075079.2015.html}
 }
@@ -3474,7 +3580,7 @@
   issn = {1742-6596},
   doi = {10.1088/1742-6596/1840/1/012029},
   urldate = {2023-10-02},
-  abstract = {This study analyzes various publications of scientists on the training of future IT specialists and the features of training programming using online simulators. The authors of the article made a comparative description of different online platforms for teaching programming according to certain criteria, selected interesting tasks from the online platform hackerrank.com, which have already been used to teach students. Online programming simulators have significant potential in organizing an effective distance learning system in Ukrainian universities. It is important to use online simulators in the learning process as an additional tool for the formation of professional competencies, which provides more intensive involvement of students in the process of writing code and practical (situational) application of existing knowledge. Gamification of the process of training future IT specialists helps to increase cognitive activity, and hence \textendash{} the quality of the educational process and distance learning in particular. The authors recommend the use of online programming simulators as an additional tool for teaching computer science disciplines, taking into account their functionality, as well as the level of preparation of students and the expected learning outcomes.},
+  abstract = {This study analyzes various publications of scientists on the training of future IT specialists and the features of training programming using online simulators. The authors of the article made a comparative description of different online platforms for teaching programming according to certain criteria, selected interesting tasks from the online platform hackerrank.com, which have already been used to teach students. Online programming simulators have significant potential in organizing an effective distance learning system in Ukrainian universities. It is important to use online simulators in the learning process as an additional tool for the formation of professional competencies, which provides more intensive involvement of students in the process of writing code and practical (situational) application of existing knowledge. Gamification of the process of training future IT specialists helps to increase cognitive activity, and hence {\textendash} the quality of the educational process and distance learning in particular. The authors recommend the use of online programming simulators as an additional tool for teaching computer science disciplines, taking into account their functionality, as well as the level of preparation of students and the expected learning outcomes.},
   langid = {english},
   file = {/home/charlotte/sync/Zotero/storage/PHEIIZ9J/Zinovieva et al. - 2021 - The use of online coding platforms as additional d.pdf}
 }
