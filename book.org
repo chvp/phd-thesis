@@ -30,38 +30,38 @@ There should be a `#+LATEX: \frontmatter` here, but I want to still be able to e
 Because of this the `\frontmatter` statement needs to be part of the `org-latex-toc-command` (which is set in the =.dir-locals.el= file).
 #+END_COMMENT
 
-* Todo's
+* To-do's
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:14]
+:CREATED: [2023-11-20 Mon 17:14]
 :END:
 
 ** High priority
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:17]
+:CREATED: [2023-11-20 Mon 17:17]
 :END:
 
 *** TODO Write introduction
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:20]
+:CREATED: [2023-11-20 Mon 17:20]
 :END:
 
 Include history of automated assessment
 
 *** TODO Write section on related projects
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:24]
+:CREATED: [2023-11-20 Mon 17:24]
 :END:
 
 *** TODO Write sections on FEA, other university level uses and secondary school usage
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:25]
+:CREATED: [2023-11-20 Mon 17:25]
 :END:
 
 This will have to be a lot shorter than the FWE section, since I'm far less knowledgeable about the way they run their courses.
 
 *** TODO Write chapter on technical aspects of Dodona
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:20]
+:CREATED: [2023-11-20 Mon 17:20]
 :END:
 
 (Also) include the following:
@@ -74,60 +74,60 @@ Also talk about optimizations done to the feedback table.
 
 *** TODO Write chapter on grading
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:20]
+:CREATED: [2023-11-20 Mon 17:20]
 :END:
 
 **** TODO Add some screenshots to grading chapter, make sure there isn't too much overlap with\nbsp{}[[Manual assessment]]
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 18:00]
+:CREATED: [2023-11-20 Mon 18:00]
 :END:
 
 *** TODO Write conclusion and future work
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:20]
+:CREATED: [2023-11-20 Mon 17:20]
 :END:
 
 *** TODO Make sure every chapter starts with a (short) introduction of that chapter
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:26]
+:CREATED: [2023-11-20 Mon 17:26]
 :END:
 
 ** Medium priority
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:17]
+:CREATED: [2023-11-20 Mon 17:17]
 :END:
 
 *** TODO Write summaries
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:23]
+:CREATED: [2023-11-20 Mon 17:23]
 :END:
 
 *** TODO Redo screenshots/visualizations
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:19]
+:CREATED: [2023-11-20 Mon 17:19]
 :END:
 
 I might even wait with this explicitly to do this closer to the deadline, to incorporate possible UI changes that might be done in the near future.
 
 *** TODO Expand on the structure of the feedback table in Section\nbsp{}[[Automated assessment]] (maybe move some content from Figure\nbsp{}[[fig:whatfeedback]]'s caption?).
 :PROPERTIES:
-:CREATED:  [2023-11-21 Tue 16:15]
+:CREATED: [2023-11-21 Tue 16:15]
 :END:
 
 ** Low priority
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:17]
+:CREATED: [2023-11-20 Mon 17:17]
 :END:
 
 *** TODO Edit pass/fail to not be anonymized
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:18]
+:CREATED: [2023-11-20 Mon 17:18]
 :END:
 
 #+LATEX: \begin{dutch}
 * Dankwoord
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 09:25]
+:CREATED: [2023-10-23 Mon 09:25]
 :CUSTOM_ID: chap:ack
 :UNNUMBERED: t
 :END:
@@ -136,21 +136,21 @@ I might even wait with this explicitly to do this closer to the deadline, to inc
 
 * Summaries
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 17:56]
+:CREATED: [2023-10-23 Mon 17:56]
 :CUSTOM_ID: chap:summ
 :UNNUMBERED: t
 :END:
 
 ** Summmary in English
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 17:54]
+:CREATED: [2023-10-23 Mon 17:54]
 :CUSTOM_ID: sec:summen
 :END:
 
 #+LATEX: \begin{dutch}
 ** Nederlandstalige samenvatting
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 17:54]
+:CREATED: [2023-10-23 Mon 17:54]
 :CUSTOM_ID: sec:summnl
 :END:
 
@@ -160,11 +160,11 @@ I might even wait with this explicitly to do this closer to the deadline, to inc
 
 * Introduction
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:47]
+:CREATED: [2023-10-23 Mon 08:47]
 :CUSTOM_ID: chap:intro
 :END:
 
-Ever since programming has been taught, programming teachers have sought to automate and optimise their teaching.
+Ever since programming has been taught, programming teachers have sought to automate and optimize their teaching.
 
 Learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
 Because of its potential to provide feedback loops that are scalable and responsive enough for an active learning environment, automated source code assessment has become a driving force in programming courses.
@@ -175,18 +175,18 @@ While almost all platforms support automated assessment of code submitted by stu
 
 * What is Dodona?
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:47]
+:CREATED: [2023-10-23 Mon 08:47]
 :CUSTOM_ID: chap:what
 :END:
 
 ** Features
 :PROPERTIES:
-:CREATED:  [2023-11-24 Fri 14:03]
+:CREATED: [2023-11-24 Fri 14:03]
 :END:
 
 *** Classroom management
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 09:31]
+:CREATED: [2023-10-24 Tue 09:31]
 :CUSTOM_ID: subsec:whatclassroom
 :END:
 
@@ -209,7 +209,7 @@ Courses can either be created from scratch or from copying an existing course an
 Students can *self-register* to courses in order to avoid unnecessary user management.
 A course can either be announced in the public overview of Dodona for everyone to see, or be limited in visibility to students from a certain educational institution.
 Alternatively, students can be invited to a hidden course by sharing a secret link.
-Independent of course visibility, registration for a course can either be open to everyone, restricted to users from the institution the course is associated with or new registrations can be disabled altogether.
+Independent of course visibility, registration for a course can either be open to everyone, restricted to users from the institution the course is associated with, or new registrations can be disabled altogether.
 Registrations are either approved automatically or require explicit approval by a teacher.
 Registered users can be tagged with one or more labels to create subgroups that may play a role in learning analytics and reporting.
 
@@ -228,17 +228,17 @@ Passed deadlines do not prevent students from marking reading activities or subm
 However, learning analytics, reports and exports usually only take into account submissions before the deadline.
 Because of the importance of deadlines and to avoid discussions with students about missed deadlines, series deadlines are not only announced on the course page.
 The student's home page highlights upcoming deadlines for individual courses and across all courses.
-While working on a programming assignment, students also start to see a clear warning from ten minutes before a deadline onwards.
+While working on a programming assignment, students will also see a clear warning starting from ten minutes before a deadline.
 Courses also provide an iCalendar link that students can use to publish course deadlines in their personal calendar application.
 
 Because Dodona logs all student submissions and their metadata, including feedback and grades from automated and manual assessment, we use that data to integrate reports and learning analytics in the course page\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
 We also provide export wizards that enable the extraction of raw and aggregated data in CSV-format for downstream processing and educational data mining\nbsp{}[cite:@romeroEducationalDataMining2010; @bakerStateEducationalData2009].
-This allows teachers to better understand student behavior, progress and knowledge, and might give deeper insight into the underlying factors that contribute to student actions\nbsp{}[cite:@ihantolaReviewRecentSystems2010].
+This allows teachers to better understand student behaviour, progress and knowledge, and might give deeper insight into the underlying factors that contribute to student actions\nbsp{}[cite:@ihantolaReviewRecentSystems2010].
 Understanding, knowledge and insights that can be used to make informed decisions about courses and their pedagogy, increase student engagement, and identify at-risk students\nbsp{}[cite:@vanpetegemPassFailPrediction2022].
 
 *** User management
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 09:44]
+:CREATED: [2023-10-24 Tue 09:44]
 :CUSTOM_ID: subsec:whatuser
 :END:
 
@@ -251,18 +251,18 @@ Teachers and instructors who wish to create content (courses, learning activitie
 
 *** Automated assessment
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 10:16]
+:CREATED: [2023-10-24 Tue 10:16]
 :CUSTOM_ID: subsec:whatassessment
 :END:
 
 The range of approaches, techniques and tools for software testing that may underpin assessing the quality of software under test is incredibly diverse.
-Static testing directly analyzes the syntax, structure and data flow of source code, whereas dynamic testing involves running the code with a given set of test cases\nbsp{}[cite:@oberkampfVerificationValidationScientific2010; @grahamFoundationsSoftwareTesting2021].
+Static testing directly analyses the syntax, structure and data flow of source code, whereas dynamic testing involves running the code with a given set of test cases\nbsp{}[cite:@oberkampfVerificationValidationScientific2010; @grahamFoundationsSoftwareTesting2021].
 Black-box testing uses test cases that examine functionality exposed to end-users without looking at the actual source code, whereas white-box testing hooks test cases onto the internal structure of the code to test specific paths within a single unit, between units during integration, or between subsystems\nbsp{}[cite:@nidhraBlackBoxWhite2012].
 So, broadly speaking, there are three levels of white-box testing: unit testing, integration testing and system testing\nbsp{}[cite:@wiegersCreatingSoftwareEngineering1996; @dooleySoftwareDevelopmentProfessional2011].
 Source code submitted by students can therefore be verified and validated against a multitude of criteria: functional completeness and correctness, architectural design, usability, performance and scalability in terms of speed, concurrency and memory footprint, security, readability (programming style), maintainability (test quality) and reliability\nbsp{}[cite:@staubitzPracticalProgrammingExercises2015].
 This is also reflected by the fact that a diverse range of metrics for measuring software quality have come forward, such as cohesion/coupling\nbsp{}[cite:@yourdonStructuredDesignFundamentals1979; @stevensStructuredDesign1999], cyclomatic complexity\nbsp{}[cite:@mccabeComplexityMeasure1976] or test coverage\nbsp{}[cite:@millerSystematicMistakeAnalysis1963].
 
-To cope with such a diversity in software testing alternatives, Dodona is centered around a generic infrastructure for *programming assignments that support automated assessment*.
+To cope with such a diversity in software testing alternatives, Dodona is centred around a generic infrastructure for *programming assignments that support automated assessment*.
 Assessment of a student submission for an assignment comprises three loosely coupled components: containers, judges and assignment-specific assessment configurations.
 More information on this underlying mechanism can be found in Chapter\nbsp{}[[Technical description]].
 
@@ -270,7 +270,7 @@ Where automatic assessment and feedback generation is outsourced to the judge li
 This frees judge developers from putting effort in feedback rendering and gives a coherent look-and-feel even for students that solve programming assignments assessed by different judges.
 Because the way feedback is presented is very important\nbsp{}[cite:@maniBetterFeedbackEducational2014], we took great care in designing how feedback is displayed to make its interpretation as easy as possible (Figure\nbsp{}[[fig:whatfeedback]]).
 Differences between generated and expected output are automatically highlighted for each failed test\nbsp{}[cite:@myersAnONDDifference1986], and users can swap between displaying the output lines side-by-side or interleaved to make differences more comparable.
-We even provide specific support for highlighting differences between tabular data such as CSV-files, database tables and dataframes.
+We even provide specific support for highlighting differences between tabular data such as CSV-files, database tables and data frames.
 Users have the option to dynamically hide contexts whose test cases all succeeded, allowing them to immediately pinpoint reported mistakes in feedback that contains lots of succeeded test cases.
 To ease debugging the source code of submissions for Python assignments, the Python Tutor\nbsp{}[cite:@guoOnlinePythonTutor2013] can be launched directly from any context with a combination of the submitted source code and the test code from the context.
 Students typically report this as one of the most useful features of Dodona.
@@ -286,7 +286,7 @@ Students typically report this as one of the most useful features of Dodona.
 
 *** Content management
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 10:47]
+:CREATED: [2023-10-24 Tue 10:47]
 :CUSTOM_ID: subsec:whatcontent
 :END:
 
@@ -303,7 +303,7 @@ Some settings of a learning activity can be modified through the web interface o
 [[./images/whatrepositories.png]]
 
 Due to the distributed nature of content management, creators also keep ownership over their content and control who may co-create.
-After all, access to a repository is completely independent from access to its learning activities that are published in Dodona.
+After all, access to a repository is completely independent of access to its learning activities that are published in Dodona.
 The latter is part of the configuration of learning activities, with the option to either share learning activities so that all teachers can include them in their courses or to restrict inclusion of learning activities to courses that are explicitly granted access.
 Dodona automatically stores metadata about all learning activities such as content type, natural language, programming language and repository to increase their findability in our large collection.
 Learning activities may also be tagged with additional labels as part of their configuration.
@@ -324,7 +324,7 @@ Finally, the configuration might also contain *boilerplate code*: a skeleton stu
 
 *** Internationalization and localization
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 10:55]
+:CREATED: [2023-10-24 Tue 10:55]
 :CUSTOM_ID: subsec:whati18n
 :END:
 *Internationalization* (i18n) is a shared responsibility between Dodona, learning activities and judges.
@@ -337,7 +337,7 @@ Dodona always displays *localized deadlines* based on a time zone setting in the
 
 *** Questions, answers and code reviews
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 10:56]
+:CREATED: [2023-10-24 Tue 10:56]
 :CUSTOM_ID: subsec:whatqa
 :END:
 
@@ -353,7 +353,7 @@ Questions are written in Markdown (e.g., to include markup, tables, syntax highl
 
 Teachers are notified whenever there are pending questions (Figure\nbsp{}[[fig:whatcourse]]).
 They can process these questions from a dedicated dashboard with live updates (Figure\nbsp{}[[fig:whatquestions]]).
-The dashboard immediately guides them from an incoming question to the location in the source code of the submission it relates to, where they can answer the question in a similar way as students ask questions.
+The dashboard immediately guides them from an incoming question to the location in the source code of the submission it relates to, where they can answer the question similar to how students ask questions.
 To avoid questions being inadvertently handled simultaneously by multiple teachers, they have a three-state lifecycle: pending, in progress and answered.
 In addition to teachers changing question states while answering them, students can also mark their own questions as being answered.
 The latter might reflect the rubber duck debugging\nbsp{}[cite:@huntPragmaticProgrammer1999] effect that is triggered when students are forced to explain a problem to someone else while asking questions in Dodona.
@@ -372,7 +372,7 @@ Such *code reviews* will be used as a building block for manual assessment.
 
 *** Manual assessment
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 11:01]
+:CREATED: [2023-10-24 Tue 11:01]
 :CUSTOM_ID: subsec:whateval
 :END:
 
@@ -384,7 +384,7 @@ The evaluation deadline defaults to the deadline set for the associated series, 
 
 Evaluations support *two-way navigation* through all selected submissions: per assignment and per student.
 For evaluations with multiple assignments, it is generally recommended to assess per assignment and not per student, as students can build a reputation throughout an assessment\nbsp{}[cite:@malouffBiasGradingMetaanalysis2016].
-As a result, they might be rated more favorably with a moderate solution if they had excellent solutions for assignments that were assessed previously, and vice versa\nbsp{}[cite:@malouffRiskHaloBias2013].
+As a result, they might be rated more favourably with a moderate solution if they had excellent solutions for assignments that were assessed previously, and vice versa\nbsp{}[cite:@malouffRiskHaloBias2013].
 Assessment per assignment breaks this reputation as it interferes less with the quality of previously assessed assignments from the same student.
 Possible bias from the same sequence effect is reduced during assessment per assignment as students are visited in random order for each assignment in the evaluation.
 In addition, *anonymous mode* can be activated as a measure to eliminate the actual or perceived halo effect conveyed through seeing a student's name during assessment\nbsp{}[cite:@lebudaTellMeYour2013].
@@ -404,12 +404,12 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 
 ** Dolos
 :PROPERTIES:
-:CREATED:  [2023-11-24 Fri 14:03]
+:CREATED: [2023-11-24 Fri 14:03]
 :END:
 
 * Use
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:48]
+:CREATED: [2023-10-23 Mon 08:48]
 :CUSTOM_ID: chap:use
 :END:
 
@@ -442,23 +442,23 @@ Other negative feedback was mostly related to individual courses the students we
 
 ** University level
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:48]
+:CREATED: [2023-10-23 Mon 08:48]
 :CUSTOM_ID: sec:useuni
 :END:
 
 *** Faculty of Sciences
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:48]
+:CREATED: [2023-10-23 Mon 08:48]
 :CUSTOM_ID: subsec:usefwe
 :END:
 
 Since the academic year 2011-2012 we have organized an introductory Python course at Ghent University (Belgium) with a strong focus on active and online learning.
-Initially the course was offered twice a year in the first and second term, but from academic year 2014-2015 onwards it was only offered in the first term.
+Initially the course was offered twice a year in the first and second term, but from academic year 2014--2015 onwards it was only offered in the first term.
 The course is taken by a mix of undergraduate, graduate, and postgraduate students enrolled in various study programmes (mainly formal and natural sciences, but not computer science), with 442 students enrolled for the 2021-2022 edition.
 
 **** Course structure
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 11:47]
+:CREATED: [2023-10-24 Tue 11:47]
 :CUSTOM_ID: subsubsec:usecourse
 :END:
 
@@ -476,7 +476,7 @@ Students who fail the course during the first exam in January can take a resit e
 #+CAPTION: Weekly lab sessions for different groups on Monday afternoon, Friday morning and Friday afternoon, where we can see darker squares.
 #+CAPTION: Weekly deadlines for mandatory assignments on Tuesdays at 22:00.
 #+CAPTION: Three exam sessions for different groups in January.
-#+CAPTION: Low activity in exam periods, except for days where an exam was taken.
+#+CAPTION: Low activity in exam periods, except for days when an exam was taken.
 #+CAPTION: The course is not taught in the second term, so this low-activity period was collapsed.
 #+CAPTION: Two more exam sessions for different groups in August/September, granting an extra chance to students who failed on their exam in January.
 #+NAME: fig:usefwecoursestructure
@@ -495,11 +495,11 @@ Submissions for these additional exercises are not taken into account in the fin
 
 **** Assessment, feedback and grading
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 11:47]
+:CREATED: [2023-10-24 Tue 11:47]
 :CUSTOM_ID: subsubsec:useassessment
 :END:
 
-We use the online learning environment Dodona to promote active learning through problem solving\nbsp{}[cite:@princeDoesActiveLearning2004].
+We use the online learning environment Dodona to promote active learning through problem-solving\nbsp{}[cite:@princeDoesActiveLearning2004].
 Each course edition has its own dedicated course in Dodona, with a learning path containing all mandatory, test and exam assignments, grouped into series with corresponding deadlines.
 Mandatory assignments for the first unit are published at the start of the semester, and those for the second unit after the test of the first unit.
 For each test and exam we organize multiple sessions for different groups of students.
@@ -520,8 +520,8 @@ There is no restriction on the number of solutions that can be submitted per ass
 All submitted solutions are stored, but for each assignment only the last submission before the deadline is taken into account to grade students.
 This allows students to update their solutions after the deadline (i.e.\nbsp{}after model solutions are published) without impacting their grades, as a way to further practice their programming skills.
 One effect of active learning, triggered by mandatory assignments with weekly deadlines and intermediate tests, is that most learning happens during the term (Figure\nbsp{}[[fig:usefwecoursestructure]]).
-In contrast to other courses, students do not spend a lot of time practicing their coding skills for this course in the days before an exam.
-We want to explicitly motivate this behavior, because we strongly believe that one cannot learn to code in a few days' time\nbsp{}[cite:@peternorvigTeachYourselfProgramming2001].
+In contrast to other courses, students do not spend a lot of time practising their coding skills for this course in the days before an exam.
+We want to explicitly encourage this behaviour, because we strongly believe that one cannot learn to code in a few days' time\nbsp{}[cite:@peternorvigTeachYourselfProgramming2001].
 
 For the assessment of tests and exams, we follow the line of thought that human expert feedback through source code annotations is a valuable complement to feedback coming from automated assessment, and that human interpretation is an absolute necessity when it comes to grading\nbsp{}[cite:@staubitzPracticalProgrammingExercises2015; @jacksonGradingStudentPrograms1997; @ala-mutkaSurveyAutomatedAssessment2005].
 We shifted from paper-based to digital code reviews and grading when support for manual assessment was released in version 3.7 of Dodona (summer 2020).
@@ -551,7 +551,7 @@ In our experience, most students traditionally perform much better on mandatory 
 
 **** Open and collaborative learning environment
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 11:59]
+:CREATED: [2023-10-24 Tue 11:59]
 :CUSTOM_ID: subsubsec:useopen
 :END:
 
@@ -559,7 +559,7 @@ We strongly believe that effective collaboration among small groups of students 
 We also demonstrate how they can embrace collaborative coding and pair programming services provided by modern integrated development environments\nbsp{}[cite:@williamsSupportPairProgramming2002; @hanksPairProgrammingEducation2011].
 But we recommend them to collaborate in groups of no more than three students, and to exchange and discuss ideas and strategies for solving assignments rather than sharing literal code with each other.
 After all, our main reason for working with mandatory assignments is to give students sufficient opportunity to learn topic-oriented programming skills by applying them in practice and shared solutions spoil the learning experience.
-The factor $f$ in the score for a unit encourages students to keep finetuning their solutions for programming assignments until all test cases succeed before the deadline passes.
+The factor $f$ in the score for a unit encourages students to keep fine-tuning their solutions for programming assignments until all test cases succeed before the deadline passes.
 But maximizing that factor without proper learning of programming skills will likely yield a low test score $s$ and thus an overall low score for the unit, even if many mandatory exercises were solved correctly.
 
 Fostering an open collaboration environment to work on mandatory assignments with strict deadlines and taking them into account for computing the final score is a potential promoter for plagiarism, but using it as a weight factor for the test score rather than as an independent score item should promote learning by avoiding that plagiarism is rewarded.
@@ -573,10 +573,10 @@ Usually this is a lecture about working with the string data type, so we can int
 
 #+CAPTION: Dolos plagiarism graphs for the Python programming assignment "\pi{}-ramidal constants" that was created and used for a test of the 2020-2021 edition of the course (left) and reused as a mandatory assignment in the 2021-2022 edition (right).
 #+CAPTION: Graphs constructed from the last submission before the deadline of 142 and 382 students respectively.
-#+CAPTION: The color of each node represents the student's study programme.
+#+CAPTION: The colour of each node represents the student's study programme.
 #+CAPTION: Edges connect highly similar pairs of submissions, with similarity threshold set to 0.8 in both graphs.
 #+CAPTION: Edge directions are based on submission timestamps in Dodona.
-#+CAPTION: Clusters of connected nodes are highlighted with a distinct background color and have one node with a solid border that indicates the first correct submission among all submissions in that cluster.
+#+CAPTION: Clusters of connected nodes are highlighted with a distinct background colour and have one node with a solid border that indicates the first correct submission among all submissions in that cluster.
 #+CAPTION: All students submitted unique solutions during the test, except for two students who confessed they exchanged a solution during the test.
 #+CAPTION: Submissions for the mandatory assignment show that most students work either individually or in groups of two or three students, but we also observe some clusters of four or more students that exchanged solutions and submitted them with hardly any varying types and amounts of modifications.
 #+NAME: fig:usefweplagiarism
@@ -584,7 +584,7 @@ Usually this is a lecture about working with the string data type, so we can int
 
 In an announcement entitled "copy-paste \neq{} learn to code" we show students some pseudonymized Dolos plagiarism graphs that act as mirrors to make them reflect upon which node in the graph they could be (Figure\nbsp{}[[fig:usefweplagiarism]]).
 We stress that the learning effect dramatically drops in groups of four or more students.
-Typically we notice that in such a group only one or a few students make the effort to learn to code, while the other students usually piggyback by copy-pasting solutions.
+Typically, we notice that in such a group only one or a few students make the effort to learn to code, while the other students usually piggyback by copy-pasting solutions.
 We make students aware that understanding someone else's code for programming assignments is a lot easier than trying to find solutions themselves.
 Over the years, we have experienced that a lot of students are caught in the trap of genuinely believing that being able to understand code is the same as being able to write code that solves a problem until they take a test at the end of a unit.
 That's where the $s$ factor of the test score comes into play.
@@ -596,7 +596,7 @@ But instead of really helping them out, they actually take away learning opportu
 Stated differently, they help maximize the factor $f$ but effectively also reduce the $s$ factor of the test score, where both factors need to be high to yield a high score for the unit.
 After this lecture, we usually notice a stark decline in the amount of plagiarized solutions.
 
-The goal of plagiarism detection at this stage is prevention rather than penalisation, because we want students to take responsibility over their learning.
+The goal of plagiarism detection at this stage is prevention rather than penalization, because we want students to take responsibility over their learning.
 The combination of realizing that teachers and instructors can easily detect plagiarism and an upcoming test that evaluates if students can solve programming challenges on their own, usually has an immediate and persistent effect on reducing cluster sizes in the plagiarism graphs to at most three students.
 At the same time, the signal is given that plagiarism detection is one of the tools we have to detect fraud during tests and exams.
 The entire group of students is only addressed once about plagiarism, without going into detail about how plagiarism detection itself works, because we believe that overemphasizing this topic is not very effective and explaining how it works might drive students towards spending time thinking on how they could bypass the detection process, which is time they'd better spend on learning to code.
@@ -613,7 +613,7 @@ If we catalog cases as plagiarism beyond reasonable doubt, the examination board
 
 **** Workload for running a course edition
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 13:46]
+:CREATED: [2023-10-24 Tue 13:46]
 :CUSTOM_ID: subsubsec:useworkload
 :END:
 
@@ -638,7 +638,7 @@ They are used in many other courses on Dodona (on average 10.8 courses per assig
 We estimate that it takes about 10 person-hours on average to create a new assignment for a test or an exam: 2 hours for ideation, 30 minutes for implementing and tweaking a sample solution that meets the educational goals of the assignment and can be used to generate a test suite for automated assessment, 4 hours for describing the assignment (including background research), 30 minutes for translating the description from Dutch into English, one hour to configure support for automated assessment, and another 2 hours for reviewing the result by some extra pair of eyes.
 
 Generating a test suite usually takes 30 to 60 minutes for assignments that can rely on basic test and feedback generation features that are built into the judge.
-The configuration for automated assessment might take 2 to 3 hours for assignments that require more elaborate test generation or that need to extend the judge with custom components for dedicated forms of assessment (e.g.\nbsp{}assessing non-deterministic behavior) or feedback generation (e.g.\nbsp{}generating visual feedback).
+The configuration for automated assessment might take 2 to 3 hours for assignments that require more elaborate test generation or that need to extend the judge with custom components for dedicated forms of assessment (e.g.\nbsp{}assessing non-deterministic behaviour) or feedback generation (e.g.\nbsp{}generating visual feedback).
 [cite/t:@keuningSystematicLiteratureReview2018] found that publications rarely describe how difficult and time-consuming it is to add assignments to automated assessment platforms, or even if this is possible at all.
 The ease of extending Dodona with new programming assignments is reflected by more than 10 thousand assignments that have been added to the platform so far.
 Our experience is that configuring support for automated assessment only takes a fraction of the total time for designing and implementing assignments for our programming course, and in absolute numbers stays far away from the one person-week reported for adding assignments to Bridge\nbsp{}[cite:@bonarBridgeIntelligentTutoring1988].
@@ -678,11 +678,11 @@ We have drastically cut the time we initially spent on mandatory assignments by 
 
 **** Learning analytics and educational data mining
 :PROPERTIES:
-:CREATED:  [2023-10-24 Tue 14:04]
+:CREATED: [2023-10-24 Tue 14:04]
 :CUSTOM_ID: subsubsec:uselearninganalytics
 :END:
 
-A longitudinal analysis of student submissions across the term shows that most learning happens during the 13 weeks of educational activities and that students don't have to catch up practicing their programming skills during the exam period (Figure\nbsp{}[[fig:usefwecoursestructure]]).
+A longitudinal analysis of student submissions across the term shows that most learning happens during the 13 weeks of educational activities and that students don't have to catch up practising their programming skills during the exam period (Figure\nbsp{}[[fig:usefwecoursestructure]]).
 Active learning thus effectively avoids procrastination.
 We observe that students submit solutions every day of the week and show increased activity around hands-on sessions and in the run-up to the weekly deadlines (Figure\nbsp{}[[fig:usefwepunchcard]]).
 Weekends are also used to work further on programming assignments, but students seem to be watching over a good night's sleep.
@@ -712,8 +712,8 @@ Such "deadline hugging" patterns are also a good breeding ground for students to
 #+NAME: fig:usefweanalyticscorrect
 [[./images/usefweanalyticscorrect.png]]
 
-Using educational data mining techniques on historical data exported from several editions of the course, we further investigated what aspects of practicing programming skills promote or inhibit learning, or have no or minor effect on the learning process\nbsp{}[cite:@vanpetegemPassFailPrediction2022].
-It won't come as a surprise that mid-term test scores are good predictors for a student's final grade, because tests and exams are both summative assessments that are organized and graded in the same way.
+Using educational data mining techniques on historical data exported from several editions of the course, we further investigated what aspects of practising programming skills promote or inhibit learning, or have no or minor effect on the learning process\nbsp{}[cite:@vanpetegemPassFailPrediction2022].
+It won't come as a surprise that midterm test scores are good predictors for a student's final grade, because tests and exams are both summative assessments that are organized and graded in the same way.
 However, we found that organizing a final exam end-of-term is still a catalyst of learning, even for courses with a strong focus of active learning during weeks of educational activities.
 
 In evaluating if students gain deeper understanding when learning from their mistakes while working progressively on their programming assignments, we found the old adage that practice makes perfect to depend on what kind of mistakes students make.
@@ -721,11 +721,11 @@ Learning to code requires mastering two major competences:
 #+ATTR_LATEX: :environment enumerate*
 #+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{, }}, itemjoin*={{, and }}]
 - getting familiar with the syntax and semantics of a programming language to express the steps for solving a problem in a formal way, so that the algorithm can be executed by a computer
-- problem solving itself.
+- problem-solving itself.
   It turns out that staying stuck longer on compilation errors (mistakes against the syntax of the programming language) inhibits learning, whereas taking progressively more time to get rid of logical errors (reflective of solving a problem with a wrong algorithm) as assignments get more complex actually promotes learning.
   After all, time spent in discovering solution strategies while thinking about logical errors can be reclaimed multifold when confronted with similar issues in later assignments\nbsp{}[cite:@glassFewerStudentsAre2022].
 
-These findings neatly align with the claim of [cite/t:@edwardsSeparationSyntaxProblem2018] that problem solving is a higher-order learning task in Bloom's Taxonomy (analysis and synthesis) than language syntax (knowledge, comprehension, and application).
+These findings neatly align with the claim of [cite/t:@edwardsSeparationSyntaxProblem2018] that problem-solving is a higher-order learning task in Bloom's Taxonomy (analysis and synthesis) than language syntax (knowledge, comprehension, and application).
 
 Using historical data from previous course editions, we can also make highly accurate predictions about what students will pass or fail the current course edition\nbsp{}[cite:@vanpetegemPassFailPrediction2022].
 This can already be done after a few weeks into the course, so remedial actions for at-risk students can be started well in time.
@@ -734,25 +734,25 @@ Given that cohort sizes are large enough, historical data from a single course e
 
 *** Faculty of Engineering and Architecture
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:48]
+:CREATED: [2023-10-23 Mon 08:48]
 :CUSTOM_ID: subsec:usefea
 :END:
 
 *** Other tertiary education uses
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:48]
+:CREATED: [2023-10-23 Mon 08:48]
 :CUSTOM_ID: subsec:useothers
 :END:
 
 ** Secondary schools
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:49]
+:CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:usesecondary
 :END:
 
 * Technical description
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:49]
+:CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: chap:technical
 :END:
 
@@ -764,7 +764,7 @@ The TESTed judge came forth out of a prototype I built in my master's thesis\nbs
 
 ** Dodona
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:49]
+:CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:techdodona
 :END:
 
@@ -773,7 +773,7 @@ In this section we will go over the inner workings of Dodona (both implementatio
 
 *** Implementation
 :PROPERTIES:
-:CREATED:  [2023-11-23 Thu 17:12]
+:CREATED: [2023-11-23 Thu 17:12]
 :END:
 
 Dodona is a Ruby-on-Rails web application.
@@ -805,12 +805,12 @@ This is enabled by the submission metadata that is passed when calling the judge
 Rather than providing a fixed set of judges, Dodona adopts a minimalistic interface that allows third parties to create new judges: automatic assessment is bootstrapped by launching the judge's run executable that can fetch the JSON formatted submission metadata from standard input and must generate JSON formatted feedback on standard output.
 The feedback has a standardized hierarchical structure that is specified in a JSON schema.
 At the lowest level, *tests* are a form of structured feedback expressed as a pair of generated and expected results.
-They typically test some behavior of the submitted code against expected behavior.
+They typically test some behaviour of the submitted code against expected behaviour.
 Tests can have a brief description and snippets of unstructured feedback called messages.
 Descriptions and messages can be formatted as plain text, HTML (including images), Markdown, or source code.
 Tests can be grouped into *test cases*, which in turn can be grouped into *contexts* and eventually into *tabs*.
 All these hierarchical levels can have descriptions and messages of their own and serve no other purpose than visually grouping tests in the user interface.
-At the top level, a submission has a fine-grained status that reflects the overall assessment of the submission: =compilation error= (the submitted code did not compile), =runtime error= (executing the submitted code failed during assessment), =memory limit exceeded= (memory limit was exceeded during assessment), =time limit exceeded= (assessment did not complete within the given time), =output limit exceeded= (too much output was generated during assessment), =wrong= (assessment completed but not all strict requirements were fulfilled), or =correct= (assessment completed and all strict requirements were fulfilled).
+At the top level, a submission has a fine-grained status that reflects the overall assessment of the submission: =compilation error= (the submitted code did not compile), =runtime error= (executing the submitted code failed during assessment), =memory limit exceeded= (memory limit was exceeded during assessment), =time limit exceeded= (assessment did not complete within the given time), =output limit exceeded= (too much output was generated during assessment), =wrong= (assessment completed but not all strict requirements were fulfilled), or =correct= (assessment completed, and all strict requirements were fulfilled).
 
 Taken together, a Docker image, a judge and a programming assignment configuration (including both a description and an assessment configuration) constitute a *task package* as defined by\nbsp{}[cite:@verhoeffProgrammingTaskPackages2008]: a unit Dodona uses to render the description of the assignment and to automatically assess its submissions.
 However, Dodona's layered design embodies the separation of concerns\nbsp{}[cite:@laplanteWhatEveryEngineer2007] needed to develop, update and maintain the three modules in isolation and to maximize their reuse: multiple judges can use the same docker image and multiple programming assignments can use the same judge.
@@ -821,7 +821,7 @@ Another form of inheritance is specifying default assessment configurations at t
 
 *** Deployment
 :PROPERTIES:
-:CREATED:  [2023-11-23 Thu 17:13]
+:CREATED: [2023-11-23 Thu 17:13]
 :END:
 
 To ensure that the system is robust to sudden increases in workload and when serving hundreds of concurrent users, Dodona has a multi-tier service architecture that delegates different parts of the application to different servers running Ubuntu 22.04 LTS.
@@ -831,41 +831,41 @@ In addition, a scalable pool of interchangeable worker servers are available to 
 
 *** Development
 :PROPERTIES:
-:CREATED:  [2023-11-23 Thu 17:13]
+:CREATED: [2023-11-23 Thu 17:13]
 :END:
 
 ** Papyros
 :PROPERTIES:
-:CREATED:  [2023-11-23 Thu 17:29]
+:CREATED: [2023-11-23 Thu 17:29]
 :END:
 
 ** R judge
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:49]
+:CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:techr
 :END:
 
 ** TESTed
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:49]
+:CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:techtested
 :END:
 
 * Pass/fail prediction
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:50]
+:CREATED: [2023-10-23 Mon 08:50]
 :CUSTOM_ID: chap:passfail
 :END:
 
 ** Introduction
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:50]
+:CREATED: [2023-10-23 Mon 08:50]
 :CUSTOM_ID: sec:passfailintro
 :END:
 
 A lot of educational opportunities are missed by keeping assessment separate from learning\nbsp{}[cite:@wiliamWhatAssessmentLearning2011; @blackAssessmentClassroomLearning1998].
 Educational technology can bridge this divide by providing real-time data and feedback to help students learn better, teachers teach better, and education systems become more effective\nbsp{}[cite:@oecdOECDDigitalEducation2021].
-Earlier research demonstrated that the adoption of interactive platforms may lead to better learning outcomes\nbsp{}[cite:@khalifaWebbasedLearningEffects2002] and allows to collect rich data on student behaviour throughout the learning process in non-evasive ways.
+Earlier research demonstrated that the adoption of interactive platforms may lead to better learning outcomes\nbsp{}[cite:@khalifaWebbasedLearningEffects2002] and allows collecting rich data on student behaviour throughout the learning process in non-evasive ways.
 Effectively using such data to extract knowledge and further improve the underlying processes, which is called educational data mining\nbsp{}[cite:@bakerStateEducationalData2009], is increasingly explored as a way to enhance learning and educational processes\nbsp{}[cite:@duttSystematicReviewEducational2017].
 About one third of the students enrolled in introductory programming courses fail\nbsp{}[cite:@watsonFailureRatesIntroductory2014; @bennedsenFailureRatesIntroductory2007].
 Such high failure rates are problematic in light of low enrolment numbers and high industrial demand for software engineering and data science profiles\nbsp{}[cite:@watsonFailureRatesIntroductory2014].
@@ -881,7 +881,7 @@ They were able to predict success with 60% accuracy.
 They used data from one cohort to train models and from another cohort to test that the accuracy of their predictions is about 80%.
 This evaluates their models in a similar scenario in which they could be applied in practice.
 A downside of the previous studies is that collecting uniform and complete data on student enrolment, educational history and socio-economic background is impractical for use in educational practice.
-Data collection is time-consuming and the data itself can be considered privacy sensitive.
+Data collection is time-consuming and the data itself can be considered privacy-sensitive.
 Usability of predictive models therefore not only depends on their accuracy, but also on their dependency on findable, accessible, interoperable and reusable data\nbsp{}[cite:@wilkinsonFAIRGuidingPrinciples2016].
 Predictions based on educational history and socio-economic background also raise ethical concerns.
 Such background information definitely does not explain everything and lowers the perceived fairness of predictions\nbsp{}[cite:@grgic-hlacaCaseProcessFairness2018; @binnsItReducingHuman2018].
@@ -890,7 +890,7 @@ A student can also not change their background, so these items are not actionabl
 It might be more convenient and acceptable if predictive models are restricted to data collected on student behaviour during the learning process of a single course.
 An example of such an approach comes from [cite/t:@vihavainenPredictingStudentsPerformance2013], using snapshots of source code written by students to capture their work attitude.
 Students are actively monitored while writing source code and a snapshot is taken automatically each time they edit a document.
-These snapshots undergo static and dynamic analysis to detect good practices and code smells, which are fed as features to a nonparametric Bayesian network classifier whose pass/fail predictions are 78% accurate by the end of the semester.
+These snapshots undergo static and dynamic analysis to detect good practices and code smells, which are fed as features to a non-parametric Bayesian network classifier whose pass/fail predictions are 78% accurate by the end of the semester.
 In a follow-up study they applied the same data and classifier to accurately predict learning outcomes for the same student cohort in another course\nbsp{}[cite:@vihavainenUsingStudentsProgramming2013].
 In this case, their predictions were 98.1% accurate, although the sample size was rather small.
 While this procedure does not rely on external background information, it has the drawback that data collection is more invasive and directly intervenes with the learning process.
@@ -912,13 +912,13 @@ The results are discussed from a methodological and educational perspective with
 
 ** Materials and methods
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:50]
+:CREATED: [2023-10-23 Mon 08:50]
 :CUSTOM_ID: sec:passfailmaterials
 :END:
 
 *** Course structures
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 16:28]
+:CREATED: [2023-10-23 Mon 16:28]
 :CUSTOM_ID: subsec:passfailstructures
 :END:
 
@@ -960,11 +960,11 @@ Each edition of the course is taken by about 400 students.
 
 *** Learning environment
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 16:28]
+:CREATED: [2023-10-23 Mon 16:28]
 :CUSTOM_ID: subsec:passfaillearningenvironment
 :END:
 
-Both courses use the same in-house online learning environment to promote active learning through problem solving\nbsp{}[cite:@princeDoesActiveLearning2004].
+Both courses use the same in-house online learning environment to promote active learning through problem-solving\nbsp{}[cite:@princeDoesActiveLearning2004].
 Each course edition has its own module, with a learning path that groups exercises in separate series (Figure\nbsp{}[[fig:passfailstudentcourse]]).
 Course A has one series per covered programming topic (10 series in total) and course B has one series per lab session (20 series in total).
 A submission deadline is set for each series.
@@ -995,7 +995,7 @@ One of the effects of active learning, triggered by exercises with deadlines and
 
 *** Submission data
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 16:38]
+:CREATED: [2023-10-23 Mon 16:38]
 :CUSTOM_ID: subsec:passfaildata
 :END:
 
@@ -1013,7 +1013,7 @@ A snapshot of a course edition measures student performance only from informatio
 As a result, the snapshot does not take into account submissions after its timestamp.
 Note that the last snapshot taken at the deadline of the final exam takes into account all submissions during the course edition.
 The learning behaviour of a student is expressed as a set of features extracted from the raw submission data.
-We identified different types of features (see appendix\nbsp{}[[Feature types]]) that indirectly quantify certain behavioural aspects of students practicing their programming skills.
+We identified different types of features (see appendix\nbsp{}[[Feature types]]) that indirectly quantify certain behavioural aspects of students practising their programming skills.
 When and how long do students work on their exercises?
 Can students correctly solve an exercise and how much feedback do they need to accomplish this?
 What kinds of mistakes do students make while solving programming exercises?
@@ -1036,7 +1036,7 @@ To investigate the impact of deadline-related features, we also made predictions
 
 *** Classification algorithms
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 16:45]
+:CREATED: [2023-10-23 Mon 16:45]
 :CUSTOM_ID: subsec:passfailclassification
 :END:
 
@@ -1079,7 +1079,7 @@ Under the same circumstances, a pessimistic classifier that consistently predict
 
 ** Results and discussion
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 16:55]
+:CREATED: [2023-10-23 Mon 16:55]
 :CUSTOM_ID: sec:passfailresults
 :END:
 
@@ -1115,7 +1115,7 @@ We discuss the results in terms of accuracy, potential for early detection, and 
 
 *** Accuracy
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 17:03]
+:CREATED: [2023-10-23 Mon 17:03]
 :CUSTOM_ID: subsec:passfailaccuracy
 :END:
 
@@ -1137,7 +1137,7 @@ The variation in predictive accuracy for a group of corresponding snapshots is h
 This might be explained by the fact that successive editions of course B use the same set of exercises, supplemented with evaluation and exam exercises from the previous edition, whereas each edition of course A uses a different selection of exercises.
 
 Predictions made with training sets from the same student cohort (5-fold cross-validation) perform better than those with training sets from different cohorts (see supplementary material for details).
-This is more pronounced for F_1-scores than for balanced accuracy but the differences are small enough so that nothing prevents us from building classification models with historical data from previous student cohorts to make pass/fail predictions for the current cohort, which is something that can't be done in practice with data from the same cohort as pass/fail information is needed during the training phase.
+This is more pronounced for F_1-scores than for balanced accuracy, but the differences are small enough so that nothing prevents us from building classification models with historical data from previous student cohorts to make pass/fail predictions for the current cohort, which is something that can't be done in practice with data from the same cohort as pass/fail information is needed during the training phase.
 In addition, we found no significant performance differences for classification models using data from a single course edition or combining data from two course editions.
 Given that cohort sizes are large enough, this tells us that accurate predictions can already be made in practice with historical data from a single course edition.
 This is also relevant when the structure of a course changes, because we can only make predictions from historical data for course editions whose snapshots align.
@@ -1151,7 +1151,7 @@ This frees us from having to determine the importance of features beforehand, al
 
 *** Early detection
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 17:05]
+:CREATED: [2023-10-23 Mon 17:05]
 :CUSTOM_ID: subsec:passfailearly
 :END:
 
@@ -1164,17 +1164,17 @@ This might explain why it takes a bit longer to properly measure student motivat
 
 *** Interpretability
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 17:05]
+:CREATED: [2023-10-23 Mon 17:05]
 :CUSTOM_ID: subsec:passfailinterpretability
 :END:
 
 So far, we have considered classification models as black boxes in our longitudinal analysis of pass/fail predictions.
 However, many machine learning techniques can tell us something about the contribution of individual features to make the predictions.
-In the case of our pass/fail predictions, looking at the importance of feature types and linking them to aspects of practicing programming skills, might give us insights into what kind of behaviour promotes or inhibits learning, or has no or a minor effect on the learning process.
+In the case of our pass/fail predictions, looking at the importance of feature types and linking them to aspects of practising programming skills, might give us insights into what kind of behaviour promotes or inhibits learning, or has no or a minor effect on the learning process.
 Temporal information can tell us what behaviour makes a steady contribution to learning or where we see shifts throughout the semester.
 
 This interpretability was a considerable factor in our choice of the classification algorithms we investigated in this study.
-Since we identified logistic regression as the best-performing classifier, we will take a closer look at feature contributions in its models.
+Since we identified logistic regression as the best-performing classifier, we will have a closer look at feature contributions in its models.
 These models are explained by the feature weights in the logistic regression equation, so we will express the importance of a feature as its actual weight in the model.
 We use a temperature scale when plotting importances: white for zero importance, a red gradient for positive importance values and a blue gradient for negative importance values.
 A feature importance w can be interpreted as follows for logistic regression models: an increase of the feature value by one standard deviation increases the odds of passing the course by a factor of $e^w$ when all other feature values remain the same\nbsp{}[cite:@molnarInterpretableMachineLearning2019].
@@ -1186,7 +1186,7 @@ The sign of the importance determines whether the feature promotes or inhibits t
 Features with a positive importance (red colour) will increase the odds with increasing feature values, and features with a negative importance (blue colour) will decrease the odds with increasing feature values.
 
 To simulate that we want to make predictions for each course edition included in this study, we trained logistic regression models with data from the remaining two editions of the same course.
-A label "edition 18-19" therefore means that we want to make predictions for the 2018-2019 edition of a course with a model built from the 2016-2017 and 2017-2018 editions of the course.
+A label "edition 18--19" therefore means that we want to make predictions for the 2018--2019 edition of a course with a model built from the 2016--2017 and 2017--2018 editions of the course.
 However, in this case we are not interested in the predictions themselves, but in the importance of the features in the models.
 The importance of all features for each course edition can be found in the supplementary material.
 We will restrict our discussion by highlighting the importance of a selection of feature types for the two courses.
@@ -1210,7 +1210,7 @@ For exercise series in the first unit of course A (series 1-5), we generally see
 This means that students will more likely pass the course if they are able to quickly remedy errors in their solutions for these exercises.
 The first and fourth series are an exception here.
 The fact that students need more time for the first series might reflect that learning something new is hard at the beginning, even if the exercises are still relatively easy.
-Series 4 of course A covers strings as the first compound data type of Python in combination with nested loops, where (unnested) loops themselves are covered in series 3.
+Series 4 of course A covers strings as the first compound data type of Python in combination with nested loops, where (non-nested) loops themselves are covered in series 3.
 This complex combination might mean that students generally need more time to debug the exercises in series 4.
 
 For the series of the second unit (series 6-10), we observe two different effects.
@@ -1256,14 +1256,14 @@ Learning to code requires mastering two major competences:
 - getting familiar with the syntax rules of a programming language
   to express the steps for solving a problem in a formal way, so that
   the algorithm can be executed by a computer
-- problem solving itself.
+- problem-solving itself.
 As a result, we can make a distinction between different kinds of errors in source code.
 Compilation errors are mistakes against the syntax of the programming language, whereas logical errors result from solving a problem with a wrong algorithm.
-When comparing the importance of the number of compilation (Figure\nbsp{}[[fig:passfailfeaturesBcomp]]) and logical errors (Figure\nbsp{}[[fig:passfailfeaturesBwrong]]) students make while practicing their coding skills, we see a clear difference.
+When comparing the importance of the number of compilation (Figure\nbsp{}[[fig:passfailfeaturesBcomp]]) and logical errors (Figure\nbsp{}[[fig:passfailfeaturesBwrong]]) students make while practising their coding skills, we see a clear difference.
 Making a lot of compilation errors has a negative impact on the odds for passing the course (blue colour dominates in Figure\nbsp{}[[fig:passfailfeaturesBcomp]]), whereas making a lot of logical errors makes a positive contribution (red colour dominates in Figure\nbsp{}[[fig:passfailfeaturesBwrong]]).
-This aligns with the claim of [cite/t:@edwardsSeparationSyntaxProblem2018] that problem solving is a higher-order learning task in Bloom's Taxonomy (analysis and synthesis) than language syntax (knowledge, comprehension, and application).
+This aligns with the claim of [cite/t:@edwardsSeparationSyntaxProblem2018] that problem-solving is a higher-order learning task in Bloom's Taxonomy (analysis and synthesis) than language syntax (knowledge, comprehension, and application).
 Students that get stuck longer in the mechanics of a programming language will more likely fail the course, whereas students that make a lot of logical errors and properly learn from them will more likely pass the course.
-So making mistakes is beneficial for learning, but it depends what kind of mistakes.
+So making mistakes is beneficial for learning, but it depends on what kind of mistakes.
 We also looked at the number of solutions with logical errors while interpreting feature types for course A.
 Although we hinted there towards the same conclusions as for course B, the signals were less consistent.
 This shows that interpreting feature importances always needs to take the educational context into account.
@@ -1278,7 +1278,7 @@ This shows that interpreting feature importances always needs to take the educat
 
 ** Conclusions and future work
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 17:30]
+:CREATED: [2023-10-23 Mon 17:30]
 :CUSTOM_ID: sec:passfailconclusions
 :END:
 
@@ -1292,8 +1292,8 @@ Making predictions requires aligning snapshots between successive editions of a 
 Historical metadata from a single course edition suffices if group sizes are large enough.
 Different classification algorithms can be plugged into the framework, but logistic regression resulted in the best-performing classifiers.
 
-Apart from their application to make pass/fail predictions, an interesting side-effect of classification models that map indirect measurements of learning behaviour onto mastery of programming skills is that they allow us to interpret what behavioural aspects contribute to learning to code.
-Visualisation of feature importance turned out to be a useful instrument for linking individual feature types with student behaviour that promotes or inhibits learning.
+Apart from their application to make pass/fail predictions, an interesting side effect of classification models that map indirect measurements of learning behaviour onto mastery of programming skills is that they allow us to interpret what behavioural aspects contribute to learning to code.
+Visualization of feature importance turned out to be a useful instrument for linking individual feature types with student behaviour that promotes or inhibits learning.
 We applied this interpretability to some important feature types that popped up for the two courses included in this study.
 
 We can thus conclude that the proposed framework achieves the objectives set for accuracy, early prediction and interpretability.
@@ -1308,11 +1308,11 @@ Having this new framework at hand immediately raises some follow-up research que
 - What actions could teachers take upon early insights which students will likely fail the course?
   What recommendations could they make to increase the odds that more students will pass the course?
   How could interpretations of important behavioural features be translated into learning analytics that give teachers more insight into how students learn to code?
-- Can we combine student progress (what programming skills does a student already have and at what level of mastery), student preferences (what skills does a student wants to improve on), and intrinsic properties of programming exercises (what skills are needed to solve an exercise and how difficult is it) into dynamic learning paths that recommend exercises to optimize the learning effect for individual students?
+- Can we combine student progress (what programming skills does a student already have and at what level of mastery), student preferences (which skills does a student want to improve on), and intrinsic properties of programming exercises (what skills are needed to solve an exercise and how difficult is it) into dynamic learning paths that recommend exercises to optimize the learning effect for individual students?
 
 ** Replication at Jyväskylä University
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:50]
+:CREATED: [2023-10-23 Mon 08:50]
 :CUSTOM_ID: sec:passfailfinland
 :END:
 
@@ -1360,7 +1360,7 @@ Of course sometimes adaptations have to be made given differences in course stru
 
 * Summative feedback
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:51]
+:CREATED: [2023-10-23 Mon 08:51]
 :CUSTOM_ID: chap:grading
 :END:
 
@@ -1369,12 +1369,12 @@ We wil then expand on some recent work we have been doing to further optimize th
 
 ** Paper-based grading
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 13:04]
+:CREATED: [2023-11-20 Mon 13:04]
 :END:
 
 Since the academic year 2015-2016 the programming course has started taking two open-book/open-internet evaluations.
 One as a midterm and one at the end of the semester (but before the exam period).
-The organisation of these evaluations has been a learning process for everyone involved.
+The organization of these evaluations has been a learning process for everyone involved.
 Although the basic idea has remained the same (solve two Python programming exercises in 2 hours), almost every aspect surrounding this basic premise has changed.
 
 To be able to give summative feedback, student solutions were printed at the end of the evaluation.
@@ -1388,7 +1388,7 @@ Even though Dodona was not yet in use at this point, SPOJ was used for automated
 This automated feedback is not available when assessing a student's source code on paper.
 It therefore takes either more mental energy to work out whether the student's code would behave correctly with all inputs or it takes some hassle to look up a student's automated assessment results every time.
 Another important drawback is that students have a much harder time seeing the summative feedback.
-While their numerical grades were posted online or emailed to them, to see the comments graders wrote alongside their code they had to come to a hands-on session and ask the assistent there to be able to view the annotated version of their code.
+While their numerical grades were posted online or emailed to them, to see the comments graders wrote alongside their code they had to come to a hands-on session and ask the assistant there to be able to view the annotated version of their code.
 Very few students did so.
 A few explanations could be given for this.
 They might experience social barriers for asking feedback on an evaluation they performed poorly on.
@@ -1398,17 +1398,17 @@ Code that was too complex or plain wrong usually received little more than a str
 
 ** Adding comments
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 13:32]
+:CREATED: [2023-11-20 Mon 13:32]
 :END:
 
 Seeing the amount of hassle that assessing these evaluations brought with them, we decided to build support for manual feedback and grading into Dodona.
 The first step of this was to allow the adding of comments to code.
-This work was started in the academic year 2019-2020, so the onset of the CoViD-19 pandemic brought a lot of momentum to this work.
+This work was started in the academic year 2019-2020, so the onset of the COVID-19 pandemic brought a lot of momentum to this work.
 Suddenly, the idea of printing student submissions became impossible, since the evaluations had to be taken by students in their own homes.
 Graders could now add comments to a student's code which would allow the student to view the feedback from their own home as well.
 There were still a few drawbacks to this system though.
 - Knowing which submissions to grade was not always trivial.
-  For most students, the existing deadline system worked, since the solution they submitted right before the deadline was the submission taken into acount when grading.
+  For most students, the existing deadline system worked, since the solution they submitted right before the deadline was the submission taken into account when grading.
   There are however also students who receive extra time based on a special status granted to them by Ghent University (due to e.g. a learning disability).
   For these students, graders had to manually search for the submission made right before the extended deadline these students receive.
   This means that students could not be graded anonymously.
@@ -1426,7 +1426,7 @@ In the first trial of this system, the feedback was viewed by over 80% of studen
 
 ** Evaluations
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 13:32]
+:CREATED: [2023-11-20 Mon 13:32]
 :END:
 
 To streamline and automate the process of grading even more, the concept of an evaluation was added to Dodona.
@@ -1448,11 +1448,11 @@ This means that students can view the scores they received for each rubric, and 
 
 ** Feedback re-use
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 17:39]
+:CREATED: [2023-11-20 Mon 17:39]
 :END:
 
 Grading and giving feedback has always been a time-consuming process, and the move to digital grading did not improve this compared to grading on paper.
-Even though the process itself was optimised, this optimisation was used by graders to write out more and more comprehensive feedback.
+Even though the process itself was optimized, this optimization was used by graders to write out more and more comprehensive feedback.
 
 Since evaluations are done with two exercises solved by lots of students, there are usually quite a lot of mistakes that are common to a lot of students.
 This leads to graders giving the same feedback a lot of times.
@@ -1460,13 +1460,13 @@ In fact, most graders kept a list of commonly given annotations in a separate pr
 
 We implemented the concept of feedback re-use, to streamline giving commonly re-used feedback.
 When giving feedback, the grader has the option to save the annotation they are currently writing.
-When they later encounter a situation where they want to give that same feedback, the only thing they have to do is write a few letters of the annotation in the saved annotation search box and they can quickly insert the text written earlier.
-While originally conceptualised mainly for the benefit of graders, students can actually benefit from this feature as well.
+When they later encounter a situation where they want to give that same feedback, the only thing they have to do is write a few letters of the annotation in the saved annotation search box, and they can quickly insert the text written earlier.
+While originally conceptualized mainly for the benefit of graders, students can actually benefit from this feature as well.
 Graders only need to write out a detailed and clear message once and can then re-use that message over a lot of submissions instead of writing a shorter message each time.
 
 ** Feedback prediction
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 13:04]
+:CREATED: [2023-11-20 Mon 13:04]
 :END:
 
 Given that we now have a system for re-using feedback given earlier, we can ask ourselves if we can do this in a smarter way.
@@ -1479,11 +1479,11 @@ To validate this method we used two testing sets that both use actual students s
 
 We will first give an overview of the algorithm we use to find patterns and then go over how to match these patterns given a syntax tree.
 We will also explain some practical issues that we had to consider during implementation.
-We then discuss what we did to rank annotations and then move on to discussing the results for the two datasets.
+Then, we discuss what we did to rank annotations and then move on to discussing the results for the two datasets.
 
 *** TreeminerD
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 13:33]
+:CREATED: [2023-11-20 Mon 13:33]
 :END:
 
 To efficiently mine forests for frequent patterns there are two main options: FREQT\nbsp{}[cite:@asaiEfficientSubstructureDiscovery2004] and Treeminer\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005].
@@ -1495,43 +1495,43 @@ This can be done much more efficiently, and in this work we don't use the extra 
 
 *** Matching patterns to trees
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 13:33]
+:CREATED: [2023-11-20 Mon 13:33]
 :END:
 
 *** Practical considerations
 :PROPERTIES:
-:CREATED:  [2023-11-22 Wed 14:39]
+:CREATED: [2023-11-22 Wed 14:39]
 :END:
 
 *** Ranking annotations
 :PROPERTIES:
-:CREATED:  [2023-11-22 Wed 14:47]
+:CREATED: [2023-11-22 Wed 14:47]
 :END:
 
 *** PyLint messages
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 13:33]
+:CREATED: [2023-11-20 Mon 13:33]
 :END:
 
 *** Real-world data
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 13:33]
+:CREATED: [2023-11-20 Mon 13:33]
 :END:
 
 ** Future work
 :PROPERTIES:
-:CREATED:  [2023-11-20 Mon 13:33]
+:CREATED: [2023-11-20 Mon 13:33]
 :END:
 
 * Discussion and future work
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:51]
+:CREATED: [2023-10-23 Mon 08:51]
 :CUSTOM_ID: chap:discussion
 :END:
 
 * Bibliography
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:59]
+:CREATED: [2023-10-23 Mon 08:59]
 :CUSTOM_ID: chap:bibliography
 :UNNUMBERED: t
 :END:
@@ -1543,7 +1543,7 @@ This can be done much more efficiently, and in this work we don't use the extra 
 #+LATEX: \appendix
 * Feature types
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 18:09]
+:CREATED: [2023-10-23 Mon 18:09]
 :CUSTOM_ID: chap:featuretypes
 :APPENDIX: t
 :END:
