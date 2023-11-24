@@ -1,5 +1,6 @@
 #+TITLE: Dodona
 #+AUTHOR: Charlotte Van Petegem
+#+LANGUAGE: en-gb
 #+LATEX_CLASS: book
 #+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip]
 #+LATEX_COMPILER: lualatex
@@ -9,6 +10,7 @@
 #+LATEX_HEADER: \usepackage[type=report]{ugent2016-title}
 #+LATEX_HEADER: \usepackage[final]{microtype}
 #+LATEX_HEADER: \usepackage[defaultlines=3,all]{nowidow}
+#+LATEX_HEADER: \usepackage[dutch,AUTO]{polyglossia}
 #+LATEX_HEADER: \academicyear{2023–2024}
 #+LATEX_HEADER: \subtitle{Learn to code with a data-driven platform}
 #+LATEX_HEADER: \titletext{A dissertation submitted to Ghent University in partial fulfilment of the requirements for the degree of Doctor of Computer Science.}
@@ -122,12 +124,15 @@ I might even wait with this explicitly to do this closer to the deadline, to inc
 :CREATED:  [2023-11-20 Mon 17:18]
 :END:
 
-* Acknowledgements
+#+LATEX: \begin{dutch}
+* Dankwoord
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 09:25]
 :CUSTOM_ID: chap:ack
 :UNNUMBERED: t
 :END:
+
+#+LATEX: \end{dutch}
 
 * Summaries
 :PROPERTIES:
@@ -142,11 +147,14 @@ I might even wait with this explicitly to do this closer to the deadline, to inc
 :CUSTOM_ID: sec:summen
 :END:
 
+#+LATEX: \begin{dutch}
 ** Nederlandstalige samenvatting
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 17:54]
 :CUSTOM_ID: sec:summnl
 :END:
+
+#+LATEX: \end{dutch}
 
 #+LATEX: \mainmatter
 
