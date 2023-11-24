@@ -171,7 +171,12 @@ While almost all platforms support automated assessment of code submitted by stu
 :CUSTOM_ID: chap:what
 :END:
 
-** Classroom management
+** Features
+:PROPERTIES:
+:CREATED:  [2023-11-24 Fri 14:03]
+:END:
+
+*** Classroom management
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 09:31]
 :CUSTOM_ID: subsec:whatclassroom
@@ -223,7 +228,7 @@ We also provide export wizards that enable the extraction of raw and aggregated 
 This allows teachers to better understand student behavior, progress and knowledge, and might give deeper insight into the underlying factors that contribute to student actions\nbsp{}[cite:@ihantolaReviewRecentSystems2010].
 Understanding, knowledge and insights that can be used to make informed decisions about courses and their pedagogy, increase student engagement, and identify at-risk students\nbsp{}[cite:@vanpetegemPassFailPrediction2022].
 
-** User management
+*** User management
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 09:44]
 :CUSTOM_ID: subsec:whatuser
@@ -236,7 +241,7 @@ Dodona automatically creates user accounts upon successful authentication and us
 By default, newly created users are assigned a student role.
 Teachers and instructors who wish to create content (courses, learning activities and judges), must first request teacher rights using a streamlined form.
 
-** Automated assessment
+*** Automated assessment
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:16]
 :CUSTOM_ID: subsec:whatassessment
@@ -271,7 +276,7 @@ Students typically report this as one of the most useful features of Dodona.
 #+NAME: fig:whatfeedback
 [[./images/whatfeedback.png]]
 
-** Content management
+*** Content management
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:47]
 :CUSTOM_ID: subsec:whatcontent
@@ -309,7 +314,7 @@ The configuration might also provide additional *assessment resources*: files ma
 The specification of how these resources must be structured and how they are used during assessment is completely up to the judge developers.
 Finally, the configuration might also contain *boilerplate code*: a skeleton students can use to start the implementation that is provided in the code editor along with the description.
 
-** Internationalization and localization
+*** Internationalization and localization
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:55]
 :CUSTOM_ID: subsec:whati18n
@@ -322,7 +327,7 @@ It's then up to the judge to take this information into account while generating
 
 Dodona always displays *localized deadlines* based on a time zone setting in the user profile, and users are warned when the current time zone detected by their browser differs from the one in their profile.
 
-** Questions, answers and code reviews
+*** Questions, answers and code reviews
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 10:56]
 :CUSTOM_ID: subsec:whatqa
@@ -357,7 +362,7 @@ It is not required that students take the initiative for the conversation.
 Teachers can also start adding source code annotations while reviewing a submission.
 Such *code reviews* will be used as a building block for manual assessment.
 
-** Manual assessment
+*** Manual assessment
 :PROPERTIES:
 :CREATED:  [2023-10-24 Tue 11:01]
 :CUSTOM_ID: subsec:whateval
@@ -389,22 +394,9 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 #+NAME: fig:whatannotations
 [[./images/whatannotations.png]]
 
-** Related projects
+** Dolos
 :PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:48]
-:CUSTOM_ID: sec:whatrelated
-:END:
-
-*** Dolos
-:PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:48]
-:CUSTOM_ID: subsec:whatdolos
-:END:
-
-*** TESTed
-:PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:48]
-:CUSTOM_ID: subsec:whattested
+:CREATED:  [2023-11-24 Fri 14:03]
 :END:
 
 * Use
