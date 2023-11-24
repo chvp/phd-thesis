@@ -413,6 +413,33 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 :CUSTOM_ID: chap:use
 :END:
 
+Dodona's design decisions have allowed it to spread to more than 1\thinsp{}000 schools, colleges and universities, mainly in Flanders (Belgium) and the Netherlands.
+The renewed interest in embedding computational thinking in formal education has undoubtedly been an important stimulus for such a wide uptake\nbsp{}[cite:@wingComputationalThinking2006].
+All other educational institutions use the version of Dodona hosted at Ghent University, which is free to use for educational purposes.
+
+Dodona currently hosts a collection of 15 thousand learning activities that are freely available to all teachers, allowing them to create their own learning paths tailored to their teaching practice.
+In total, 61 thousand students have submitted more than 15 million solutions to Dodona in the seven years that it has been running (Figures\nbsp{}[[fig:useadoption1]] & [[fig:useadoption2]]).
+
+#+CAPTION: Overview of the number of submitted solutions by academic year.
+#+NAME: fig:useadoption1
+[[./images/useadoption1.png]]
+
+#+CAPTION: Overview of the number of active users by academic year.
+#+CAPTION: Users were active when they submitted at least one solution for a programming assignment during the academic year.
+#+NAME: fig:useadoption2
+[[./images/useadoption2.png]]
+
+A qualitative user experience study of Dodona was performed in 2018.
+271 higher education students responded to a questionnaire that contained the following three questions:
+#+ATTR_LATEX: :environment enumerate*
+#+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{ }}, itemjoin*={{ }}]
+- What are the things you value while working with Dodona?
+- What are the things that bother you while working with Dodona?
+- What are your suggestions for improvements to Dodona?
+Students praised its user-friendliness, beautiful interface, immediate feedback with visualized differences between expected and generated output, integration of the Python Tutor, linting feedback and large number of test cases.
+Negative points were related to differences between the students’ local execution environments and the environment in which Dodona runs the tests, and the strictness with which the tests are evaluated.
+Other negative feedback was mostly related to individual courses the students were taking instead of the platform itself.
+
 ** University level
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:48]
