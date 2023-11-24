@@ -757,9 +757,9 @@ Given that cohort sizes are large enough, historical data from a single course e
 :END:
 
 Dodona and its related software comprises a lot of code.
-This chapter discusses the technical background of Dodona itself and a stand-alone online code editor that was integrated into Dodona.
+This chapter discusses the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
 I will also discuss two judges that I was involved with the development of.
-The R judge was written entirely by myself.
+The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
 The TESTed judge came forth out of a prototype I built in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in a master's thesis I supervised\nbsp{}[cite:@strijbolTESTedOneJudge2020].
 
 ** Dodona
@@ -776,17 +776,26 @@ In this section we will go over the inner workings of Dodona (both implementatio
 :CREATED:  [2023-11-23 Thu 17:12]
 :END:
 
+Dodona is a Ruby-on-Rails web application.
+Web components are used where complex logic in the front-end is required.
+Dodona needs to operate in a challenging environment where students simultaneously submit untrusted code to be executed on its servers ("remote code execution as a service") and expect automatically generated feedback, ideally within a few seconds.
+Many design decisions are therefore aimed at maintaining and improving the reliability and security of its systems.
+
+Student code is run in background jobs.
 For proper virtualization we use Docker containers\nbsp{}[cite:@pevelerComparingJailedSandboxes2019] that use OS-level containerization technologies and define runtime environments in which all data and executable software (e.g., scripts, compilers, interpreters, linters, database systems) are provided and executed.
 These resources are typically pre-installed in the image of the container.
 Prior to launching the actual assessment, the container is extended with the submission, the judge and the resources included in the assessment configuration (Figure\nbsp{}[[fig:technicaloutline]]).
 Additional resources can be downloaded and/or installed during the assessment itself, provided that Internet access is granted to the container.
+When the container is started, limits are placed on the amount of resources it can consume.
+This includes a limit in runtime, memory usage, disk usage, network access and the amount of processes a container can have running at the same time.
+Some of these limits are (partially) configurable per exercise, but sane upper bounds are always applied.
+This is also the case for network access, where even if the container is allowed internet access, it can not access other Dodona hosts such as the database server.
 
 #+CAPTION: Outline of the procedure to automatically assess a student submission for a programming assignment.
 #+CAPTION: Dodona instantiates a Docker container (1) from the image linked to the assignment (or from the default image linked to the judge of the assignment) and loads the submission and its metadata (2), the judge linked to the assignment (3) and the assessment resources of the assignment (4) into the container.
 #+CAPTION: Dodona then launches the actual assessment, collects and bundles the generated feedback (5), and stores it into a database along with the submission and its metadata.
 #+NAME: fig:technicaloutline
 [[./images/technicaloutline.png]]
-
 
 The actual assessment of the student submission is done by a software component called a *judge*\nbsp{}[cite:@wasikSurveyOnlineJudge2018].
 The judge must be robust enough to provide feedback on all possible submissions for the assignment, especially submissions that are incorrect or deliberately want to tamper with the automatic assessment procedure\nbsp{}[cite:@forisekSuitabilityProgrammingTasks2006].
@@ -810,18 +819,15 @@ After all, minimal configurations reduce the time and effort teachers and instru
 Sharing of data files and multimedia content among the programming assignments in a repository also implements the inheritance mechanism for *bundle packages* as hinted by\nbsp{}[cite:@verhoeffProgrammingTaskPackages2008].
 Another form of inheritance is specifying default assessment configurations at the directory level, which takes advantage of the hierarchical grouping of learning activities in a repository to share common settings.
 
-To ensure that the system is robust to sudden increases in workload and when serving hundreds of concurrent users, Dodona has a multi-tier service architecture that delegates different parts of the application to different servers running Ubuntu 22.04 LTS.
-More specifically, the web server, database (MySQL 8), caching system (Memcached 1.6.14) and Python Tutor each run on their own machine.
-In addition, a scalable pool of interchangeable worker servers are available to automatically assess incoming student submissions.
-The web server is the only public-facing part of Dodona, running a Ruby on Rails web application (Ruby 3.1, Rails 7.0) that is available on GitHub under the permissive MIT open-source license.
-
-Dodona needs to operate in a challenging environment where students simultaneously submit untrusted code to be executed on its servers ("remote code execution by design") and expect automatically generated feedback, ideally within a few seconds.
-Many design decisions are therefore aimed at maintaining and improving the reliability and security of its systems.
-
 *** Deployment
 :PROPERTIES:
 :CREATED:  [2023-11-23 Thu 17:13]
 :END:
+
+To ensure that the system is robust to sudden increases in workload and when serving hundreds of concurrent users, Dodona has a multi-tier service architecture that delegates different parts of the application to different servers running Ubuntu 22.04 LTS.
+More specifically, the web server, database (MySQL) and caching system (Memcached) each run on their own machine.
+The Python Tutor is run client-side using Pyodide.
+In addition, a scalable pool of interchangeable worker servers are available to automatically assess incoming student submissions.
 
 *** Development
 :PROPERTIES:
@@ -833,22 +839,16 @@ Many design decisions are therefore aimed at maintaining and improving the relia
 :CREATED:  [2023-11-23 Thu 17:29]
 :END:
 
-** Judges
+** R judge
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:49]
-:CUSTOM_ID: sec:techjudges
+:CUSTOM_ID: sec:techr
 :END:
 
-*** R
+** TESTed
 :PROPERTIES:
 :CREATED:  [2023-10-23 Mon 08:49]
-:CUSTOM_ID: subsec:techr
-:END:
-
-*** TESTed
-:PROPERTIES:
-:CREATED:  [2023-10-23 Mon 08:49]
-:CUSTOM_ID: subsec:techtested
+:CUSTOM_ID: sec:techtested
 :END:
 
 * Pass/fail prediction
