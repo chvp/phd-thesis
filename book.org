@@ -783,7 +783,7 @@ Additional resources can be downloaded and/or installed during the assessment it
 When the container is started, limits are placed on the amount of resources it can consume.
 This includes a limit in runtime, memory usage, disk usage, network access and the amount of processes a container can have running at the same time.
 Some of these limits are (partially) configurable per exercise, but sane upper bounds are always applied.
-This is also the case for network access, where even if the container is allowed internet access, it can not access other Dodona hosts such as the database server.
+This is also the case for network access, where even if the container is allowed internet access, it can not access other Dodona hosts (such as the database server).
 
 #+CAPTION: Outline of the procedure to automatically assess a student submission for a programming assignment.
 #+CAPTION: Dodona instantiates a Docker container (1) from the image linked to the assignment (or from the default image linked to the judge of the assignment) and loads the submission and its metadata (2), the judge linked to the assignment (3) and the assessment resources of the assignment (4) into the container.
@@ -810,27 +810,145 @@ Taken together, a Docker image, a judge and a programming assignment configurati
 However, Dodona's layered design embodies the separation of concerns\nbsp{}[cite:@laplanteWhatEveryEngineer2007] needed to develop, update and maintain the three modules in isolation and to maximize their reuse: multiple judges can use the same docker image and multiple programming assignments can use the same judge.
 Related to this, an explicit design goal for judges is to make the assessment configuration for individual assignments as lightweight as possible.
 After all, minimal configurations reduce the time and effort teachers and instructors need to create programming assignments that support automated assessment.
-Sharing of data files and multimedia content among the programming assignments in a repository also implements the inheritance mechanism for *bundle packages* as hinted by\nbsp{}[cite:@verhoeffProgrammingTaskPackages2008].
+Sharing of data files and multimedia content among the programming assignments in a repository also implements the inheritance mechanism for *bundle packages* as hinted by\nbsp{}[cite/t:@verhoeffProgrammingTaskPackages2008].
 Another form of inheritance is specifying default assessment configurations at the directory level, which takes advantage of the hierarchical grouping of learning activities in a repository to share common settings.
 
-*** Deployment
-:PROPERTIES:
-:CREATED: [2023-11-23 Thu 17:13]
-:END:
+Since Dodona grew from being used to teach mostly by people we knew personally to being used in secondary schools all over Flanders, we went from being able to fully trust exercise authors to having this trust reduced (as it is impossible for a team of our size to vet all the people we give teacher's rights in Dodona).
+This meant that our threat model and therefore the security measures we had to take also changed over the years.
+Once Dodona was opened up to more and more teachers, we gradually locked down what teachers could do with e.g. their exercise descriptions.
+Content where teachers can inject raw HTML into Dodona and we don't was moved to iframes, to make sure that teachers could still be as creative as they wanted while writing exercises, while simultaneously not allowing them to execute JavaScript in a session where users are logged in.
+For user content where this creative freedom is not as necessary (e.g. series or descriptions), but some Markdown/HTML content is still wanted, we sanitize the (generated) HTML so that it can only include HTML elements and attributes that are specifically allowed.
 
-To ensure that the system is robust to sudden increases in workload and when serving hundreds of concurrent users, Dodona has a multi-tier service architecture that delegates different parts of the application to different servers running Ubuntu 22.04 LTS.
-More specifically, the web server, database (MySQL) and caching system (Memcached) each run on their own machine.
-The Python Tutor is run client-side using Pyodide.
-In addition, a scalable pool of interchangeable worker servers are available to automatically assess incoming student submissions.
+One of the most important components of Dodona is the feedback table.
+It has, therefore, seen a lot of security, optimization and UI work over the years.
+Since teachers can determine a lot of the content that eventually ends up in the feedback table, the same sanitization that is used for series and course descriptions is used for the messages that are added to the feedback table (since these can contain Markdown and arbitrary HTML as well).
+The increase in teachers that added exercises to Dodona also meant that the variety in feedback given grew, sometimes resulting in a huge volume of testcases and long output.
+Optimization work was needed to cope with this volume of feedback.
+
+When Dodona was first written, the library used for diffing generated and expected results actually shelled out to the GNU =diff= command.
+This output was parsed and changed into HTML by the library using find and replace operations.
+As one can expect, starting a new process and doing a lot of string operations every time outputs had to be diffed resulted in very slow loading times for the feedback table.
+The library was replaced with a pure Ruby library (=diff-lcs=), and it's outputs were built into HTML using Rails' efficient =Builder= class.
+This change of diffing method also fixed a number of bugs we were experiencing along the way.
+
+Even this was not enough to handle the most extreme of exercises though.
+Diffing hundreds of lines hundreds of times still takes a long time, even if done in-process while optimized by a JIT.
+The resulting feedback tables also contained so much HTML that the browser on our development machines (which are pretty powerful machines) noticeably slowed down when loading and rendering them.
+To handle these cases, we needed to do less work and needed to output less HTML.
+We decided to only diff line-by-line (instead of character-by-character) in most cases and to not diff at all in the most extreme cases, reducing the amount of HTML required to render them as well.
+This was also motivated by a usability perspective.
+If there are lots of small differences between a very long generated and expected output, the diff view in the feedback table could also become visually overwhelming for students.
 
 *** Development
 :PROPERTIES:
 :CREATED: [2023-11-23 Thu 17:13]
 :END:
 
+Development of Dodona is done on GitHub.
+All new features and bug fixes are added to the main branch through pull requests.
+These pull requests are reviewed by (at least) two others on the Dodona team before they are merged.
+The extensive test suite is also run automatically for every pull request, and developers are encouraged to add new tests for each feature or bug fix.
+We've also made it very easy to deploy to our testing and staging environments so that reviewers can test changes without having to spin up their local development instance of Dodona.
+
+The way we release Dodona has seen a few changes over the years.
+We've gone from a few large releases with bugfix point-releases between them, to lots of smaller releases, to in the end a /release/ per pull request.
+Since we are the only deployment of Dodona, releasing every pull request immediately after merging makes getting feedback from our users a very quick process.
+
+*** Deployment
+:PROPERTIES:
+:CREATED: [2023-11-23 Thu 17:13]
+:END:
+
+To ensure that the system is robust to sudden increases in workload and when serving hundreds of concurrent users, Dodona has a multi-tier service architecture that delegates different parts of the application to different servers.
+More specifically, the web server, database (MySQL) and caching system (Memcached) each run on their own machine.
+In addition, a scalable pool of interchangeable worker servers are available to automatically assess incoming student submissions.
+The deployment of the Python Tutor also saw a number of changes over the years.
+The Python Tutor itself is written in Python, so could not be part of Dodona itself
+It started out as a Docker container on the same server as the main Dodona web application.
+Because it is used mainly by students who made mistakes, the service responsible for running student code could become overwhelmed and in extreme cases even make the entire server unresponsive.
+After we identified this issue, the Python tutor was moved to its own server.
+This did not fix the Tutor itself becoming overwhelmed however, which meant that students that depended on the Tutor were sometimes unable to use it.
+This of course happened more during periods were the Tutor was being used a lot, such as evaluations and exams.
+One can imagine that the experience for students who are already quite stressed out about the exam they are taking when the Tutor suddenly failed was not very good.
+In the meantime, we had started to experiment with running Python code client-side in the browser (see section\nbsp{}[[Papyros]] for more info).
+Because these experiments were successful, we migrated the Python Tutor from its own server to being run by students in their own browser using Pyodide.
+This means that the only student that can by impacted by the Python Tutor failing for a testcase is the student themselves (and because the Tutor is being run on a device that is under a far less heavy load, the Python Tutor fails much less often).
+
+Backups of the database are automatically saved every day and kept for 12 months, although the frequency which they are kept with decreases over time.
+The backups are taken by dumping a replica database.
+The replica database is used because dumping the main database write-locks it while it is being dumped, which would result in Dodona being unusable for a significant amount of time.
+
+We also have an extensive monitoring and alerting system in place.
+This gives us some light analytics about Dodona usage, but can also tell us if there are problems with one of our servers.
+The analytics are also calculated using the replica database to avoid putting unnecessary load on our main production database.
+The web server and worker servers also send notifications when an error occurs in their runtime.
+This is one of the main ways we discover bugs that got through our tests, since our users don't regularly report bugs themselves.
+We also get notified when there are long-running requests, since we consider our users having to wait a long time to see the page they requested a bug in itself.
+These notifications were an important driver to optimize some pages or to make certain operations asynchronous.
+
 ** Papyros
 :PROPERTIES:
 :CREATED: [2023-11-23 Thu 17:29]
+:CUSTOM_ID: sec:papyros
+:END:
+
+*** Introduction
+:PROPERTIES:
+:CREATED:  [2023-11-27 Mon 17:27]
+:END:
+
+One of the main feedback items we got when introducing Dodona to secondary education teachers was that Dodona did not have a simple way for students to run and test their code themselves.
+Testing their code in this case also means manually typing a response to an input prompt when an =input= statement is run by the interpreter.
+In the educational practice that Dodona was born out of, this was an explicit design goal.
+We wanted to guide students to use an IDE locally instead of programming in Dodona directly, since if they needed to program later in life, they would not have Dodona available to program in.
+This same goal is not present in secondary education.
+In that context, the challenge of programming is already big enough, without complicating things by installing a real IDE with a lot of buttons and menus that students will never use.
+Students might also be working on devices that they don't own (PC's in the school), where installing an IDE might not even be possible.
+Solutions like Repl.it provided a simple online IDE, why could Dodona not do so?
+
+Well, there are a few reasons why we were not able to do this.
+Even though we can use a lot of the infrastructure very graciously offered by Ghent University, these resources are not limitless.
+The extra (interactive) evaluation of student code was something we did not have the resources for, nor did we have any architectural components in place to easily integrate this into Dodona.
+The main goal of this work was thus to provide a client-side Python execution environment we could then include in Dodona.
+Note that we don't want to replace the entire execution model with client-side execution, as the client is an untrusted execution environment where debugging tools could be used to manipulate the results.
+
+Given that the target audience for this tool is secondary education students, we identified a number of secondary requirements:
+- The editor of our online IDE should have syntax higlighting.
+  Recent literature\nbsp{}[cite:@hannebauerDoesSyntaxHighlighting2018] has shown that this does not necessarily have an impact on students' learning, but as the authors point out, it was the prevailing wisdom for a long time that it does help.
+- It should also include linting.
+  Linters notify students about syntax errors, but also about style guide violations and anti-patterns.
+- Error messages for errors that occur during execution should be user-friendly\nbsp{}[cite:@beckerCompilerErrorMessages2019].
+- Code completion should be available. When starting out with programming, it is hard to remember all the different functions available.
+  Completion frameworks allow students to search for functions, and can show inline documentation for these functions.
+
+*** Execution
+:PROPERTIES:
+:CREATED:  [2023-11-27 Mon 17:28]
+:END:
+
+Python can not be executed directly by a browser, since only JavaScript and WebAssembly are natively supported.
+We investigated a number of solutions for running Python code in the browser.
+
+The first of these is Brython [cite:@quentelBrython2014].
+Brython works by transpiling Python code to JavaScript, where the transpilation itself is also implemented in JavaScript.
+The project itself is conceptualized as a way to develop web applications in Python, and not to run arbitrary Python code in the browser, so a lot of its tooling is not directly applicable to our use case, especially concerning interactive input prompts.
+It also runs on the main thread of the browser, so executing a student's code would freeze the browser until it is done running.
+
+Another solution we looked at is Skulpt [cite:@scottSkulpt2009].
+
+*** Implementation
+:PROPERTIES:
+:CREATED:  [2023-11-27 Mon 17:28]
+:END:
+
+*** Feedback
+:PROPERTIES:
+:CREATED:  [2023-11-27 Mon 17:28]
+:END:
+
+*** Future work
+:PROPERTIES:
+:CREATED:  [2023-11-27 Mon 17:28]
 :END:
 
 ** R judge
@@ -1523,7 +1641,7 @@ This can be done much more efficiently, and in this work we don't use the extra 
 :CUSTOM_ID: chap:discussion
 :END:
 
-* Bibliography
+* References
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:59]
 :CUSTOM_ID: chap:bibliography
