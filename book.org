@@ -40,49 +40,43 @@ Because of this the `\frontmatter` statement needs to be part of the `org-latex-
 :CREATED: [2023-11-20 Mon 17:17]
 :END:
 
-*** TODO Write introduction
+*** TODO Write [[#chap:intro]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
 
 Include history of automated assessment
 
-*** TODO Write section on related projects
+*** TODO Write [[Dolos]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:24]
 :END:
 
-*** TODO Write sections on FEA, other university level uses and secondary school usage
+*** TODO Write [[Faculty of Engineering and Architecture]], [[Other tertiary education uses]], and [[Secondary schools]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:25]
 :END:
 
 This will have to be a lot shorter than the FWE section, since I'm far less knowledgeable about the way they run their courses.
 
-*** TODO Write chapter on technical aspects of Dodona
+*** DOING Write chapter [[Technical description]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
 
-(Also) include the following:
-- Development
-- Setup
-- Deployment
-- Testing
-
-Also talk about optimizations done to the feedback table.
-
-*** TODO Write chapter on grading
+*** TODO Finish chapter [[Summative feedback]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
+
+Remaining text should probably be written in the form of an article, so we can try and publish it.
 
 **** TODO Add some screenshots to grading chapter, make sure there isn't too much overlap with\nbsp{}[[Manual assessment]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 18:00]
 :END:
 
-*** TODO Write conclusion and future work
+*** TODO Write [[Discussion and future work]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
@@ -97,7 +91,7 @@ Also talk about optimizations done to the feedback table.
 :CREATED: [2023-11-20 Mon 17:17]
 :END:
 
-*** TODO Write summaries
+*** TODO Write [[Summaries]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:23]
 :END:
@@ -452,9 +446,9 @@ Other negative feedback was mostly related to individual courses the students we
 :CUSTOM_ID: subsec:usefwe
 :END:
 
-Since the academic year 2011-2012 we have organized an introductory Python course at Ghent University (Belgium) with a strong focus on active and online learning.
+Since the academic year 2011--2012 we have organized an introductory Python course at Ghent University (Belgium) with a strong focus on active and online learning.
 Initially the course was offered twice a year in the first and second term, but from academic year 2014--2015 onwards it was only offered in the first term.
-The course is taken by a mix of undergraduate, graduate, and postgraduate students enrolled in various study programmes (mainly formal and natural sciences, but not computer science), with 442 students enrolled for the 2021-2022 edition.
+The course is taken by a mix of undergraduate, graduate, and postgraduate students enrolled in various study programmes (mainly formal and natural sciences, but not computer science), with 442 students enrolled for the 2021--2022 edition.
 
 **** Course structure
 :PROPERTIES:
@@ -470,7 +464,7 @@ Students who fail the course during the first exam in January can take a resit e
 #+CAPTION: Programming assignments from the same Dodona series are stacked vertically.
 #+CAPTION: Students submit solutions for ten series with six mandatory assignments, two tests with two assignments and an exam with three assignments.
 #+CAPTION: There is also a resit exam with three assignments in August/September if they failed the first exam in January.
-#+CAPTION: *Bottom*: Heatmap from Dodona learning analytics page showing distribution per day of all 331\thinsp{}734 solutions submitted during the 2021-2022 edition of the course (442 students).
+#+CAPTION: *Bottom*: Heatmap from Dodona learning analytics page showing distribution per day of all 331\thinsp{}734 solutions submitted during the 2021--2022 edition of the course (442 students).
 #+CAPTION: The darker the color, the more solutions were submitted that day.
 #+CAPTION: A light gray square means no solutions were submitted that day.
 #+CAPTION: Weekly lab sessions for different groups on Monday afternoon, Friday morning and Friday afternoon, where we can see darker squares.
@@ -571,7 +565,7 @@ Strikingly this usually happens among students enrolled in the same study progra
 As soon as this happens -- typically in week 3 or 4 of the course -- plagiarism is discussed during the next lecture.
 Usually this is a lecture about working with the string data type, so we can introduce plagiarism detection as a possible application of string processing.
 
-#+CAPTION: Dolos plagiarism graphs for the Python programming assignment "\pi{}-ramidal constants" that was created and used for a test of the 2020-2021 edition of the course (left) and reused as a mandatory assignment in the 2021-2022 edition (right).
+#+CAPTION: Dolos plagiarism graphs for the Python programming assignment "\pi{}-ramidal constants" that was created and used for a test of the 2020--2021 edition of the course (left) and reused as a mandatory assignment in the 2021--2022 edition (right).
 #+CAPTION: Graphs constructed from the last submission before the deadline of 142 and 382 students respectively.
 #+CAPTION: The colour of each node represents the student's study programme.
 #+CAPTION: Edges connect highly similar pairs of submissions, with similarity threshold set to 0.8 in both graphs.
@@ -646,14 +640,14 @@ Because the automated assessment infrastructure of Dodona provides common resour
 Only around 5% of the assignments need extensions on top of the built-in test and feedback generation features of the judge.
 
 So how much effort does it cost us to run one edition of our programming course?
-For the most recent 2021-2022 edition we estimate about 34 person-weeks in total (Table\nbsp{}[[tab:usefweworkload]]), the bulk of which is spent on on-campus tutoring of students during hands-on sessions (30%), manual assessment and grading (22%), and creating new assignments (21%).
+For the most recent 2021--2022 edition we estimate about 34 person-weeks in total (Table\nbsp{}[[tab:usefweworkload]]), the bulk of which is spent on on-campus tutoring of students during hands-on sessions (30%), manual assessment and grading (22%), and creating new assignments (21%).
 About half of the workload (53%) is devoted to summative feedback through tests and exams: creating assignments, supervision, manual assessment and grading.
 Most of the other work (42%) goes into providing formative feedback through on-campus and online assistance while students work on their mandatory assignments.
 Out of 2215 questions that students asked through Dodona's online Q&A module, 1983 (90%) were answered by teaching assistants and 232 (10%) were marked as answered by the student who originally asked the question.
 Because automated assessment provides first-line support, the need for human tutoring is already heavily reduced.
 We have drastically cut the time we initially spent on mandatory assignments by reusing existing assignments and because the Python judge is stable enough to require hardly any maintenance or further development.
 
-#+CAPTION: Estimated workload to run the 2021-2022 edition of the introductory Python programming course for 442 students with 1 lecturer, 7 teaching assistants and 3 undergraduate students who serve as teaching assistants\nbsp{}[cite:@gordonUndergraduateTeachingAssistants2013].
+#+CAPTION: Estimated workload to run the 2021--2022 edition of the introductory Python programming course for 442 students with 1 lecturer, 7 teaching assistants and 3 undergraduate students who serve as teaching assistants\nbsp{}[cite:@gordonUndergraduateTeachingAssistants2013].
 #+NAME: tab:usefweworkload
 | Task                                | Estimated workload (hours) |
 |-------------------------------------+----------------------------|
@@ -687,7 +681,7 @@ Active learning thus effectively avoids procrastination.
 We observe that students submit solutions every day of the week and show increased activity around hands-on sessions and in the run-up to the weekly deadlines (Figure\nbsp{}[[fig:usefwepunchcard]]).
 Weekends are also used to work further on programming assignments, but students seem to be watching over a good night's sleep.
 
-#+CAPTION: Punchcard from the Dodona learning analytics page showing the distribution per weekday and per hour of all 331\thinsp{}734 solutions submitted during the 2021-2022 edition of the course (442 students).
+#+CAPTION: Punchcard from the Dodona learning analytics page showing the distribution per weekday and per hour of all 331\thinsp{}734 solutions submitted during the 2021--2022 edition of the course (442 students).
 #+NAME: fig:usefwepunchcard
 [[./images/usefwepunchcard.png]]
 
@@ -922,7 +916,7 @@ The results are discussed from a methodological and educational perspective with
 :CUSTOM_ID: subsec:passfailstructures
 :END:
 
-This study uses data from two introductory programming courses (referenced as course A and course B) collected during 3 editions of each course in academic years 2016-2017, 2017-2018 and 2018-2019.
+This study uses data from two introductory programming courses (referenced as course A and course B) collected during 3 editions of each course in academic years 2016--2017, 2017--2018 and 2018--2019.
 Both courses run once per academic year across a 12-week semester (September-December).
 They have separate lecturers and teaching assistants, and are taken by students of different faculties.
 The courses have their own structure, but each edition of a course follows the same structure.
@@ -935,12 +929,12 @@ Table\nbsp{}[[tab:passfailcoursestatistics]] summarizes some statistics on the c
 | course |  academic | students | series | exercises | mandatory | submitted       | attempts | pass rate |
 |        |      year |          |        |           | exercises | solutions       |          |           |
 |--------+-----------+----------+--------+-----------+-----------+-----------------+----------+-----------|
-| A      | 2016-2017 |      322 |     10 |        60 | yes       | 167\thinsp{}675 |     9.56 |    60.86% |
-| A      | 2017-2018 |      249 |     10 |        60 | yes       | 125\thinsp{}920 |     9.19 |    61.44% |
-| A      | 2018-2019 |      307 |     10 |        60 | yes       | 176\thinsp{}535 |    10.29 |    65.14% |
-| B      | 2016-2017 |      372 |     20 |       138 | no        | 371\thinsp{}891 |     9.10 |    56.72% |
-| B      | 2017-2018 |      393 |     20 |       187 | no        | 407\thinsp{}696 |     7.31 |    60.81% |
-| B      | 2018-2019 |      437 |     20 |       201 | no        | 421\thinsp{}461 |     6.26 |    62.47% |
+| A      | 2016--2017 |      322 |     10 |        60 | yes       | 167\thinsp{}675 |     9.56 |    60.86% |
+| A      | 2017--2018 |      249 |     10 |        60 | yes       | 125\thinsp{}920 |     9.19 |    61.44% |
+| A      | 2018--2019 |      307 |     10 |        60 | yes       | 176\thinsp{}535 |    10.29 |    65.14% |
+| B      | 2016--2017 |      372 |     20 |       138 | no        | 371\thinsp{}891 |     9.10 |    56.72% |
+| B      | 2017--2018 |      393 |     20 |       187 | no        | 407\thinsp{}696 |     7.31 |    60.81% |
+| B      | 2018--2019 |      437 |     20 |       201 | no        | 421\thinsp{}461 |     6.26 |    62.47% |
 
 Course A is subdivided into two successive instructional units that each cover five programming topics -- one topic per week -- followed by an evaluation about all topics covered in the unit.
 Students must solve six programming exercises on each topic before a deadline one week later.
@@ -985,7 +979,7 @@ There is no restriction on the number of solutions that can be submitted per exe
 All submitted solutions are stored, but only the last submission before the deadline is taken into account to determine the status (and grade) of an exercise for a student.
 One of the effects of active learning, triggered by exercises with deadlines and automated feedback, is that most learning happens during the semester as can be seen on the heatmap in Figure\nbsp{}[[fig:passfailheatmap]].
 
-#+CAPTION: Heatmap showing the distribution per day of all 176535 solutions submitted during the 2018-2019 edition of course A.
+#+CAPTION: Heatmap showing the distribution per day of all 176535 solutions submitted during the 2018--2019 edition of course A.
 #+CAPTION: Weekly lab sessions for different groups on Monday afternoon, Friday morning and Friday afternoon.
 #+CAPTION: Weekly deadlines for mandatory exercises on Tuesdays at 22:00.
 #+CAPTION: Four exam sessions for different groups in January.
@@ -1332,7 +1326,7 @@ While it is possible to reverse engineer the score into some underlying status, 
 This means that a different set of features had to be used in the study at JYU than the feature set used in the study at Ghent University.
 The specific feature types left out of the study at JYU are =comp_error= and =runtime_error=.
 
-The course at JYU had been taught in the same way since 2015, resulting in behavioural and survey data from 2\thinsp{}615 students from the 2015-2021 academic years.
+The course at JYU had been taught in the same way since 2015, resulting in behavioural and survey data from 2\thinsp{}615 students from the 2015--2021 academic years.
 The snapshots were made weekly as well, since the course also works with weekly assignments and deadlines.
 The self-reported data consists of pre-course and midterm surveys that inquire about aptitudes towards learning programming and motivation, including expectation about grades, prior programming experience, study year, attendance and amount of concurrent courses.
 
@@ -1372,7 +1366,7 @@ We wil then expand on some recent work we have been doing to further optimize th
 :CREATED: [2023-11-20 Mon 13:04]
 :END:
 
-Since the academic year 2015-2016 the programming course has started taking two open-book/open-internet evaluations.
+Since the academic year 2015--2016 the programming course has started taking two open-book/open-internet evaluations.
 One as a midterm and one at the end of the semester (but before the exam period).
 The organization of these evaluations has been a learning process for everyone involved.
 Although the basic idea has remained the same (solve two Python programming exercises in 2 hours), almost every aspect surrounding this basic premise has changed.
@@ -1403,7 +1397,7 @@ Code that was too complex or plain wrong usually received little more than a str
 
 Seeing the amount of hassle that assessing these evaluations brought with them, we decided to build support for manual feedback and grading into Dodona.
 The first step of this was to allow the adding of comments to code.
-This work was started in the academic year 2019-2020, so the onset of the COVID-19 pandemic brought a lot of momentum to this work.
+This work was started in the academic year 2019--2020, so the onset of the COVID-19 pandemic brought a lot of momentum to this work.
 Suddenly, the idea of printing student submissions became impossible, since the evaluations had to be taken by students in their own homes.
 Graders could now add comments to a student's code which would allow the student to view the feedback from their own home as well.
 There were still a few drawbacks to this system though.
