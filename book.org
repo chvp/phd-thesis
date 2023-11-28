@@ -929,12 +929,17 @@ Given that the target audience for this tool is secondary education students, we
 Python can not be executed directly by a browser, since only JavaScript and WebAssembly are natively supported.
 We investigated a number of solutions for running Python code in the browser.
 
-The first of these is Brython [cite:@quentelBrython2014].
+The first of these is Brython\nbsp{}[cite:@quentelBrython2014].
 Brython works by transpiling Python code to JavaScript, where the transpilation itself is also implemented in JavaScript.
 The project itself is conceptualized as a way to develop web applications in Python, and not to run arbitrary Python code in the browser, so a lot of its tooling is not directly applicable to our use case, especially concerning interactive input prompts.
 It also runs on the main thread of the browser, so executing a student's code would freeze the browser until it is done running.
 
-Another solution we looked at is Skulpt [cite:@scottSkulpt2009].
+Another solution we looked at is Skulpt\nbsp{}[cite:@scottSkulpt2009].
+It also transpiles Python code to JavaScript, and supports Python 2 and Python 3.7.
+After loading Skulpt, a global object is added to the page where Python code can be executed through JavaScript.
+Skulpt however also has the main drawback of Brython, namely that it executes on the main thread of the currently open tab.
+
+The final option we looked at was Pyodide\nbsp{}[cite:@droettboomPyodide2018].
 
 *** Implementation
 :PROPERTIES:
