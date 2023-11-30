@@ -59,6 +59,11 @@ Include history of automated assessment
 
 This will have to be a lot shorter than the FWE section, since I'm far less knowledgeable about the way they run their courses.
 
+**** TODO Hogescholen, lerarenopleidingen contacteren en getuigenis vragen
+:PROPERTIES:
+:CREATED:  [2023-11-30 Thu 10:39]
+:END:
+
 *** DOING Write chapter [[Technical description]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
@@ -85,6 +90,8 @@ Remaining text should probably be written in the form of an article, so we can t
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:26]
 :END:
+
+Make sure to mention that the content is based on certain articles (if applicable).
 
 ** Medium priority
 :PROPERTIES:
