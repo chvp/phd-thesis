@@ -7,6 +7,7 @@
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{listings}
 #+LATEX_HEADER: \usepackage{color}
+#+LATEX_HEADER: \usepackage{url}
 #+LATEX_HEADER: \usepackage[type=report]{ugent2016-title}
 #+LATEX_HEADER: \usepackage[final]{microtype}
 #+LATEX_HEADER: \usepackage[defaultlines=3,all]{nowidow}
@@ -758,7 +759,7 @@ Given that cohort sizes are large enough, historical data from a single course e
 :END:
 
 Dodona and its related software comprises a lot of code.
-This chapter discusses the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
+This chapter discusses the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor, Papyros (\url{https://papyros.dodona.be}), that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
 I will also discuss two judges that I was involved with the development of.
 The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
 The TESTed judge came forth out of a prototype I built in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in a master's thesis I supervised\nbsp{}[cite:@strijbolTESTedOneJudge2020].
@@ -918,6 +919,7 @@ Even though we can use a lot of the infrastructure very graciously offered by Gh
 The extra (interactive) evaluation of student code was something we did not have the resources for, nor did we have any architectural components in place to easily integrate this into Dodona.
 The main goal of this work was thus to provide a client-side Python execution environment we could then include in Dodona.
 Note that we don't want to replace the entire execution model with client-side execution, as the client is an untrusted execution environment where debugging tools could be used to manipulate the results.
+Because the main idea is integration in Dodona, we primarily wanted users to be able to execute entire programs, and not necessarily offer a REPL at first.
 
 Given that the target audience for this tool is secondary education students, we identified a number of secondary requirements:
 - The editor of our online IDE should have syntax higlighting.
@@ -944,16 +946,35 @@ It also runs on the main thread of the browser, so executing a student's code wo
 Another solution we looked at is Skulpt\nbsp{}[cite:@scottSkulpt2009].
 It also transpiles Python code to JavaScript, and supports Python 2 and Python 3.7.
 After loading Skulpt, a global object is added to the page where Python code can be executed through JavaScript.
-Skulpt however also has the main drawback of Brython, namely that it executes on the main thread of the currently open tab.
 
 The final option we looked at was Pyodide\nbsp{}[cite:@droettboomPyodide2018].
+Pyodide was developed by Mozilla as part of their Iodide project, aiming to make scientific research shareable and reproducable via the browser.
+Pyodide is a port of the Python interpreter to WebAssembly, allowing code to be executed by the browser.
+Since the project is focused on scientific research, it has wide support for external libraries such as NumPy.
+Because Pyodide can be treated as a regular library, it can be run in a web worker, making sure that the page stays responsive while the user's code is being executed.
+
+We chose to continue this work with Pyodide given its active development, support for recent Python versions and its ability to be executed on a separate thread.
+We also looked into integrating other platforms such as Repl.it, but none of them were free or integratable.
 
 *** Implementation
 :PROPERTIES:
 :CREATED:  [2023-11-27 Mon 17:28]
 :END:
 
-*** Feedback
+There are two aspects to the implementation: the user interface and the technical inner workings.
+Given that this work will primarily be used by secondary school students, the user interface is an important part of this work that should not be neglected.
+
+**** User interface
+:PROPERTIES:
+:CREATED:  [2023-11-29 Wed 14:48]
+:END:
+
+**** Inner workings
+:PROPERTIES:
+:CREATED:  [2023-11-29 Wed 14:48]
+:END:
+
+*** User feedback
 :PROPERTIES:
 :CREATED:  [2023-11-27 Mon 17:28]
 :END:
