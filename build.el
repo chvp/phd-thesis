@@ -6,6 +6,7 @@
 (package-initialize)
 (require 'org)
 (require 'oc-csl)
+(require 'ox)
 
 (setq org-latex-classes '(("book"
                            "\\documentclass[]{scrbook}"
