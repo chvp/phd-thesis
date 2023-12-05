@@ -11,4 +11,11 @@
          (org-latex-toc-command . "\\frontmatter\n\\addchap{Table of Contents}\n\\label{chap:toc}\n\\listoftoc*{toc}\n\n")
          (fill-column . 200)))
  (org-mode . ((eval . (progn (visual-line-mode)
-                             (org-toggle-link-display))))))
+                             (org-toggle-link-display)
+                             (add-to-list
+                              'org-export-smart-quotes-alist
+                              '("en-gb" (primary-opening :utf-8 "“" :html "&ldquo;" :latex "``" :texinfo "``")
+                                (primary-closing :utf-8 "”" :html "&rdquo;" :latex "''" :texinfo "''")
+                                (secondary-opening :utf-8 "‘" :html "&lsquo;" :latex "`" :texinfo "`")
+                                (secondary-closing :utf-8 "’" :html "&rsquo;" :latex "'" :texinfo "'")
+                                (apostrophe :utf-8 "’" :html "&rsquo;"))))))))

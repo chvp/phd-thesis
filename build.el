@@ -17,6 +17,14 @@
       org-latex-prefer-user-labels t
       org-latex-toc-command "\\frontmatter\n\\addchap{Table of Contents}\n\\label{chap:toc}\n\\listoftoc*{toc}\n\n")
 
+(add-to-list
+ 'org-export-smart-quotes-alist
+ '("en-gb" (primary-opening :utf-8 "“" :html "&ldquo;" :latex "``" :texinfo "``")
+   (primary-closing :utf-8 "”" :html "&rdquo;" :latex "''" :texinfo "''")
+   (secondary-opening :utf-8 "‘" :html "&lsquo;" :latex "`" :texinfo "`")
+   (secondary-closing :utf-8 "’" :html "&rsquo;" :latex "'" :texinfo "'")
+   (apostrophe :utf-8 "’" :html "&rsquo;")))
+
 (find-file "book.org")
 (org-latex-export-to-latex)
 
