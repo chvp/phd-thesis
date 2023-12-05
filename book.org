@@ -969,6 +969,42 @@ Given that this work will primarily be used by secondary school students, the us
 :CREATED:  [2023-11-29 Wed 14:48]
 :END:
 
+The most important choice in the user interface was the choice of the editor.
+There were three main options:
+#+ATTR_LATEX: :environment enumerate*
+#+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{, }}, itemjoin*={{, and }}]
+- Ace
+- Monaco
+- CodeMirror.
+
+Ace was the editor used by Dodona at the time.
+It support syntax highlighting and has some built-in linting.
+However, it is not very extensible, it doesn't support mobile devices well, and it's not in active development anymore.
+
+Monaco is the editor extracted from Visual Studio Code and often used by people building full-fledged web IDE's.
+It also has syntax highlighting and linting and is much more extensible.
+As with Ace though, support for mobile devices is lacking.
+
+CodeMirror is a modern editor made for the web, and not linked to any specific project.
+It is also extensible and has modular syntax highlighting and linting support.
+In contrast with Ace and Monaco, it has very good support for mobile devices.
+Its documentation is also very clear and extensive.
+
+Given the clear advantages, we decided to use CodeMirror for Papyros.
+The two other main components of Papyros are the output window and the input window.
+The output window is a simple readonly textarea.
+The input window is a text area that has two modes: interactive mode and batch input.
+In interactive mode, the user is expected to write the input needed by the program they wrote the moment they ask for it (similar to running their program on the command line and answering the prompts when they appear).
+In batch mode, the user can prefill all the input required by their program.
+The full user interface can be seen in Figure\nbsp{}[[fig:technicalpapyros]].
+
+#+CAPTION: User interface of Papyros.
+#+CAPTION: The editor can be seen on the left, with the output window to the right of it.
+#+CAPTION: The input window is below the output window and is currently in batch mode.
+#+CAPTION: All empty text fields have placeholder text that explains how they can be used.
+#+NAME: fig:technicalpapyros
+[[./images/technicalpapyros.png]]
+
 **** Inner workings
 :PROPERTIES:
 :CREATED:  [2023-11-29 Wed 14:48]
