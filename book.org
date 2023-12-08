@@ -1075,6 +1075,42 @@ They also gave some interesting ideas about future additions to Papyros such as 
 :CUSTOM_ID: sec:techr
 :END:
 
+Because Dodona had proven itself as a useful tool for teaching Python and Java to students, colleagues teaching statistics started asking if we could build R support into Dodona.
+Since the judge system of Dodona makes this fairly easy, I started working on an R judge soon after.
+
+Because R is mostly used for statistics, there are a few extra features that come to mind that are not typically handled by judges, such as handling of data frames and outputting visual graphs (or even evaluating that a graph was built correctly).
+Another feature that teachers wanted that we had not built into a judge previously was support for inspecting the student's source code, e.g. for making sure that certain functions were or were not used.
+
+The API for the R judge was designed to follow the visual structure of the feedback table as closely as possible, as can be seen in the sample evaluation code in Listing\nbsp{}[[lst:technicalrsample]].
+
+#+CAPTION: Sample evaluation code for a simple R exercise.
+#+NAME: lst:technicalrsample
+#+BEGIN_SRC r
+context({
+  testcase('The correct method was used', {
+    testEqual("test$alternative",
+              function(studentEnv) {
+                studentEnv$test$alternative
+              },
+              'two.sided')
+    testEqual("test$method",
+              function(studentEnv) {
+                studentEnv$test$method
+              },
+              ' Two Sample t-test')
+  })
+  testcase('p value is correct', {
+    testEqual("test$p.value",
+              function(studentEnv) {
+                studentEnv$test$p.value
+              },
+              0.175)
+  })
+}, preExec = {
+  set.seed(20190322)
+})
+#+END_SRC
+
 ** TESTed
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:49]
