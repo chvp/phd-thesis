@@ -14,7 +14,23 @@
                            ("\\section{%s}" . "\\addsec{%s}")
                            ("\\subsection{%s}" . "\\subsection*{%s}")
                            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
-      org-latex-src-block-backend 'minted
+      org-latex-src-block-backend 'listings
+      org-latex-listings-options  '(("backgroundcolor" "\\color{white}")
+                                    ("commentstyle" "\\color{green}")
+                                    ("keywordstyle" "\\color{magenta}")
+                                    ("numberstyle" "\\color{gray}")
+                                    ("stringstyle" "\\color{purple}")
+                                    ("basicstyle" "\\ttfamily")
+                                    ("breakatwhitespace" "false")
+                                    ("breaklines" "true")
+                                    ("captionpos" "b")
+                                    ("keepspaces" "true")
+                                    ("numbers" "left")
+                                    ("numbersep" "5pt")
+                                    ("showspaces" "false")
+                                    ("showstringspaces" "false")
+                                    ("showtabs" "false")
+                                    ("tabsize" "2"))
       org-latex-prefer-user-labels t
       org-latex-toc-command "\\frontmatter\n\\addchap{Table of Contents}\n\\label{chap:toc}\n\\listoftoc*{toc}\n\n")
 
