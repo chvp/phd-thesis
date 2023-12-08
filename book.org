@@ -5,7 +5,7 @@
 #+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
-#+LATEX_HEADER: \usepackage{listings}
+#+LATEX_HEADER: \usepackage{minted}
 #+LATEX_HEADER: \usepackage{color}
 #+LATEX_HEADER: \usepackage{url}
 #+LATEX_HEADER: \usepackage[type=report]{ugent2016-title}
