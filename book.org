@@ -1010,15 +1010,64 @@ The full user interface can be seen in Figure\nbsp{}[[fig:technicalpapyros]].
 :CREATED:  [2023-11-29 Wed 14:48]
 :END:
 
+Since Pyodide does the heavy lifting of executing the actual Python code, most of the implementation work consisted of making Pyodide run in a web worker and hooking up the Python internals to our user interface.
+The communication between the main UI thread and the web worker happens via message passing.
+With message passing, all data has to be copied.
+To avoid having to copy large amounts of data, and to be able to copy actual functions, classes or HTML elements, shared memory can be used.
+To work correctly with shared memory, synchronisation primitives have to be used.
+
+After loading Pyodide, we load a Python script that overwrites certain functions with our versions.
+For example, base Pyodide will overwrite =input= with a function that calls into JavaScript-land and executes =prompt=.
+Since we're running Pyodide in a web worker, =prompt= is not available (and in any case, we want to implement custom input handling).
+For =input= we actually run into another problem: =input= is synchronous in Python.
+In a normal Python environment, =input= will only return a value once the user entered some value on the command line.
+We don't want to edit user code (to make it asynchronous) because that process is error-prone and fragile.
+So we need a way to make our overwritten version of =input= synchronous as well.
+
+The best way to do this is by using the synchronization primitives of shared memory.
+We can block on some other thread writing to a certain memory location, and since blocking is synchronous, this makes our =input= synchronous as well.
+Unfortunately, not all browser supported shared memory at the time.
+Other browsers also severely constrain the environment in which shared memory can be used, since a number of CPU side channel attacks related to it were discovered.
+
+Luckily, there is another way we can make the browser perform indefinite synchronous operations from a web worker.
+Web workers can perform synchronous HTTP requests.
+We can then intercept these HTTP requests from a service worker.
+Service workers were originally conceived to allow web applications to continue functioning even when devices go offline.
+In that case, a service worker could respond to network requests with data it has in its cache.
+So, putting this together, the web worker tells the main thread that it needs input and then fires off a synchronous HTTP request to some non-existent endpoint.
+The service worker intercepts this request, and responds to the request once it receives some input from the main thread.
+
+The functionality for performing synchronous communication with the main thread from a web worker was parceled off into its own library (=sync-message=).
+This library could then decide which of these two methods to use, depending on the available environment.
+Another package, =python_runner=, bundles all required modifications to the Python environment in Pyodide.
+
+**** Extensions
+:PROPERTIES:
+:CREATED:  [2023-12-07 Thu 15:19]
+:END:
+
+CodeMirror already has a number of functionalities it supports out of the box such as linting and code completion.
+It is, however, a pure JavaScript library.
+This means that these functionalities had to be newly implemented, since the standard tooling for Python is almost entirely implemented in Python.
+Fortunately CodeMirror also supports supplying one's own linting message and code completion.
+Since we have a working Python environment, we can also use it to run the standard Python tools for linting (PyLint) and code completion (Jedi) and hook up their results to CodeMirror.
+For code completion this has the added benefit of also showing the documentation for the autocompleted items, which is especially useful for people new to programming (which is exactly our target audience).
+
+Another usability feature we added was the addition of the =FriendlyTraceback=.
+=FriendlyTraceback= is a Python library that changes error messages in Python to be more clear to beginners, by explicitely answering questions such as where and why an error occurred.
+
 *** User feedback
 :PROPERTIES:
 :CREATED:  [2023-11-27 Mon 17:28]
 :END:
 
-*** Future work
-:PROPERTIES:
-:CREATED:  [2023-11-27 Mon 17:28]
-:END:
+To collect some qualitative data about how teachers see Papyros, we sent out a questionnaire.
+The first part of this questionnaire described Papyros, why we developed it and what the goal of the questionnaire is.
+Then we asked about the context in which the teacher operates and what their programming lectures usually look like.
+Finally we asked about their opinion on Papyros and the impact they imagined the tool could have on their teaching practice.
+
+The teachers were all positive about Papyros and were looking forward to using it in their lessons.
+They also gave some interesting ideas about future additions to Papyros such as working with local files and adding a REPL, as well as reporting some bugs that occurred in their specific environments.
 
 ** R judge
 :PROPERTIES:
