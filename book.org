@@ -10,7 +10,7 @@
 #+LATEX_HEADER: \usepackage{url}
 #+LATEX_HEADER: \usepackage[type=report]{ugent2016-title}
 #+LATEX_HEADER: \usepackage[final]{microtype}
-#+LATEX_HEADER: \usepackage[defaultlines=3,all]{nowidow}
+#+LATEX_HEADER: \usepackage[defaultlines=2,all]{nowidow}
 #+LATEX_HEADER: \usepackage[dutch,AUTO]{polyglossia}
 #+LATEX_HEADER: \academicyear{2023–2024}
 #+LATEX_HEADER: \subtitle{Learn to code with a data-driven platform}
@@ -167,6 +167,7 @@ I might even wait with this explicitly to do this closer to the deadline, to inc
 :END:
 
 Ever since programming has been taught, programming teachers have sought to automate and optimize their teaching.
+Due to the ever increasing digitalization of society, this teaching has to happen for larger and larger groups, and these groups will include students for whom programming is not necessarily their main subject.
 
 Learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
 Because of its potential to provide feedback loops that are scalable and responsive enough for an active learning environment, automated source code assessment has become a driving force in programming courses.
@@ -938,16 +939,16 @@ Given that the target audience for this tool is secondary education students, we
 Python can not be executed directly by a browser, since only JavaScript and WebAssembly are natively supported.
 We investigated a number of solutions for running Python code in the browser.
 
-The first of these is Brython\nbsp{}[cite:@quentelBrython2014].
+The first of these is Brython[fn:: https://brython.info].
 Brython works by transpiling Python code to JavaScript, where the transpilation itself is also implemented in JavaScript.
 The project itself is conceptualized as a way to develop web applications in Python, and not to run arbitrary Python code in the browser, so a lot of its tooling is not directly applicable to our use case, especially concerning interactive input prompts.
 It also runs on the main thread of the browser, so executing a student's code would freeze the browser until it is done running.
 
-Another solution we looked at is Skulpt\nbsp{}[cite:@scottSkulpt2009].
+Another solution we looked at is Skulpt[fn:: https://skulpt.org].
 It also transpiles Python code to JavaScript, and supports Python 2 and Python 3.7.
 After loading Skulpt, a global object is added to the page where Python code can be executed through JavaScript.
 
-The final option we looked at was Pyodide\nbsp{}[cite:@droettboomPyodide2018].
+The final option we looked at was Pyodide[fn:: https://pyodide.org/en/stable].
 Pyodide was developed by Mozilla as part of their Iodide project, aiming to make scientific research shareable and reproducable via the browser.
 Pyodide is a port of the Python interpreter to WebAssembly, allowing code to be executed by the browser.
 Since the project is focused on scientific research, it has wide support for external libraries such as NumPy.
@@ -1053,8 +1054,8 @@ Fortunately CodeMirror also supports supplying one's own linting message and cod
 Since we have a working Python environment, we can also use it to run the standard Python tools for linting (PyLint) and code completion (Jedi) and hook up their results to CodeMirror.
 For code completion this has the added benefit of also showing the documentation for the autocompleted items, which is especially useful for people new to programming (which is exactly our target audience).
 
-Another usability feature we added was the addition of the =FriendlyTraceback=.
-=FriendlyTraceback= is a Python library that changes error messages in Python to be more clear to beginners, by explicitely answering questions such as where and why an error occurred.
+Usability was further improved by adding the =FriendlyTraceback= library.
+=FriendlyTraceback= is a Python library that changes error messages in Python to be more clear to beginners, by explicitly answering questions such as where and why an error occurred.
 
 *** User feedback
 :PROPERTIES:
@@ -1093,10 +1094,13 @@ The generated feedback is also limited to 5 lines of output, to avoid overwhelmi
 To test whether students use certain functions, =testFunctionUsed= and =testFunctionUsedInVar= can be used.
 The latter tests whether the specific function is used when initializing a specific variable.
 
+If some code needs to be executed in the student's environment before the student's code is run (e.g. to make some dataset available, or to fix a random seed), the =preExec= argument of the =context= function can be used to do so.
+
 #+CAPTION: Sample evaluation code for a simple R exercise.
 #+CAPTION: The feedback table will contain one context with two testcases in it.
 #+CAPTION: The first testcase checks whether some t-test was performed correctly, and does this by performing two equality checks.
 #+CAPTION: The second testcase checks that the $p$ value calculated by the t-test is correct.
+#+CAPTION: The =preExec= is executed in the student's environment and here fixes a random seed for the student's execution.
 #+NAME: lst:technicalrsample
 #+ATTR_LATEX: :float t
 #+BEGIN_SRC r
@@ -1142,6 +1146,48 @@ This prevents the student and teacher code from e.g. writing to standard output 
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:techtested
+:END:
+
+During my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] one of the goals was to allow the method I developed to work over many programming languages.
+To do this, I wrote a framework based on Jupyter kernels[fn:: https://jupyter.org] where the interaction with each programming language was abstracted away behind a common interface.
+It was however, only developed as far as I needed for my master's thesis and thus served as a proof of concept for TESTed.
+
+TESTed was developed to solve two major drawbacks with the current judge system of Dodona.
+- When creating the same exercise in multiple programming languages, the exercise description and test cases need to be redone for every programming language.
+  This is especially relevant for very simple exercises that students almost always start with, and for exercises in algorithms courses, where the programming language a student solves an exercise in is of lesser importance than the way they solve it.
+  Mistakes in exercises also have to be fixed in all versions of the exercise when having to duplicate the exercises.
+- The judges themselves have to be created from scratch every time.
+  Most judges offer the same basic concepts and features, most of which are indepedent of programming language (communication with Dodona, checking correctness, I/O, ...).
+
+The goal of TESTed was to implement a judge so that exercises only have to be created once to be available in all programming languages TESTed supports.
+An exercise should also not have to be changed when support for a new programming language is added.
+
+*** Implementation
+:PROPERTIES:
+:CREATED:  [2023-12-11 Mon 17:21]
+:END:
+
+TESTed generally works using the following steps:
+1. The submission, exercise test plan, and any auxiliary files are received from Dodona.
+1. Validating the test plan and making sure the submission's programming language is supported for the given exercise.
+1. Test code is generated for each context in the test plan.
+1. The test code is optionally compiled, either in batch mode or per context.
+   This step is skipped if evaluation a submission written in an interpreted language.
+1. The test code is executed.
+   Each context is executed in its own process.
+1. The results are evaluated, either with programming language-specific evaluation, programmed evaluation, or generic evaluation.
+1. The evaluation results are sent to Dodona.
+
+We will now explain this process in more detail.
+
+*** DSL
+:PROPERTIES:
+:CREATED:  [2023-12-11 Mon 17:22]
+:END:
+
+*** Generic exercise descriptions
+:PROPERTIES:
+:CREATED:  [2023-12-11 Mon 17:22]
 :END:
 
 * Pass/fail prediction
