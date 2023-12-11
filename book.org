@@ -762,7 +762,7 @@ Dodona and its related software comprises a lot of code.
 This chapter discusses the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor, Papyros (\url{https://papyros.dodona.be}), that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
 I will also discuss two judges that I was involved with the development of.
 The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
-The TESTed judge came forth out of a prototype I built in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in a master's thesis I supervised\nbsp{}[cite:@strijbolTESTedOneJudge2020].
+The TESTed judge came forth out of a prototype I built in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two master's thesises I supervised\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
 
 ** Dodona
 :PROPERTIES:
@@ -1077,13 +1077,26 @@ They also gave some interesting ideas about future additions to Papyros such as 
 
 Because Dodona had proven itself as a useful tool for teaching Python and Java to students, colleagues teaching statistics started asking if we could build R support into Dodona.
 Since the judge system of Dodona makes this fairly easy, I started working on an R judge soon after.
+By now, more than 1\thinsp{}250 R exercises have been added, and almost 1 million submissions have been made to an R exercise.
 
 Because R is mostly used for statistics, there are a few extra features that come to mind that are not typically handled by judges, such as handling of data frames and outputting visual graphs (or even evaluating that a graph was built correctly).
 Another feature that teachers wanted that we had not built into a judge previously was support for inspecting the student's source code, e.g. for making sure that certain functions were or were not used.
 
 The API for the R judge was designed to follow the visual structure of the feedback table as closely as possible, as can be seen in the sample evaluation code in Listing\nbsp{}[[lst:technicalrsample]].
+Tabs are represented by different evaluation files.
+In addition to the =testEqual= function demonstrated in Listing\nbsp{}[[lst:technicalrsample]] there are some other functions to specifically support the requested functionality.
+=testImage= will set up some the R environment so that generated plots (or other images) are sent to the feedback table (in a base 64 encoded string) instead of the filesystem.
+It will also make the test fail if no image was generated (but does not do any verification of the image contents).
+=testDF= has some extra functionality for testing the equality of data frames, where it is possible to ignore row and column order.
+The generated feedback is also limited to 5 lines of output, to avoid overwhelming students (and their browsers) with the entire table.
+=testGGPlot= can be used to introspect plots generated with GGPlot\nbsp{}[cite:@wickhamGgplot2CreateElegant2023].
+To test whether students use certain functions, =testFunctionUsed= and =testFunctionUsedInVar= can be used.
+The latter tests whether the specific function is used when initializing a specific variable.
 
 #+CAPTION: Sample evaluation code for a simple R exercise.
+#+CAPTION: The feedback table will contain one context with two testcases in it.
+#+CAPTION: The first testcase checks whether some t-test was performed correctly, and does this by performing two equality checks.
+#+CAPTION: The second testcase checks that the $p$ value calculated by the t-test is correct.
 #+NAME: lst:technicalrsample
 #+ATTR_LATEX: :float t
 #+BEGIN_SRC r
@@ -1111,6 +1124,19 @@ context({
   set.seed(20190322)
 })
 #+END_SRC
+
+Other than the API for teachers creating exercises, encapsulation of student code is also an important part of a judge.
+Students should not be able to access functions defined by the judge, or be able to find the correct solution or the evaluating code.
+The R judge makes sure of this by making extensive use of environments.
+This is also reflected in the teacher API: they can access variables or execute functions in the student environment, but this environment has to be explicitely passed to the function generating the student result.
+In R, all environments except the root environment have a parent, essentialy creating a tree structure of environments.
+In most cases, this tree will actually be a path, but in the R judge, the student environment is explicitely attached to the base environment.
+This even makes sure that libraries loaded by the judge are not initially available to the student code (thus allowing teachers to test that students can correctly load libraries).
+The judge itself runs in an anonymous environment, so that even students with intimate knowledge of the inner workings of R and the judge itself would not be able to find this environment.
+
+The judge is also programmed very defensively.
+Every time execution is handed off to student code (or even teacher code), appropriate error handlers and output redirections are installed.
+This prevents the student and teacher code from e.g. writing to standard output (and thus messing up the JSON expected by Dodona).
 
 ** TESTed
 :PROPERTIES:
