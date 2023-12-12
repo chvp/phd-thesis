@@ -62,7 +62,7 @@ This will have to be a lot shorter than the FWE section, since I'm far less know
 
 **** TODO Hogescholen, lerarenopleidingen contacteren en getuigenis vragen
 :PROPERTIES:
-:CREATED:  [2023-11-30 Thu 10:39]
+:CREATED: [2023-11-30 Thu 10:39]
 :END:
 
 *** DOING Write chapter [[Technical description]]
@@ -167,7 +167,7 @@ I might even wait with this explicitly to do this closer to the deadline, to inc
 :END:
 
 Ever since programming has been taught, programming teachers have sought to automate and optimize their teaching.
-Due to the ever increasing digitalization of society, this teaching has to happen for larger and larger groups, and these groups will include students for whom programming is not necessarily their main subject.
+Due to the ever-increasing digitalization of society, this teaching has to happen for larger and larger groups, and these groups will include students for whom programming is not necessarily their main subject.
 
 Learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
 Because of its potential to provide feedback loops that are scalable and responsive enough for an active learning environment, automated source code assessment has become a driving force in programming courses.
@@ -474,7 +474,7 @@ Students who fail the course during the first exam in January can take a resit e
 #+CAPTION: Students submit solutions for ten series with six mandatory assignments, two tests with two assignments and an exam with three assignments.
 #+CAPTION: There is also a resit exam with three assignments in August/September if they failed the first exam in January.
 #+CAPTION: *Bottom*: Heatmap from Dodona learning analytics page showing distribution per day of all 331\thinsp{}734 solutions submitted during the 2021--2022 edition of the course (442 students).
-#+CAPTION: The darker the color, the more solutions were submitted that day.
+#+CAPTION: The darker the colour, the more solutions were submitted that day.
 #+CAPTION: A light gray square means no solutions were submitted that day.
 #+CAPTION: Weekly lab sessions for different groups on Monday afternoon, Friday morning and Friday afternoon, where we can see darker squares.
 #+CAPTION: Weekly deadlines for mandatory assignments on Tuesdays at 22:00.
@@ -611,8 +611,8 @@ Students can work on their personal computers and get exactly two hours to solve
 Tests and exams are "open book/open Internet", so any hard copy and digital resources can be consulted while solving test or exam assignments.
 Students are instructed that they can only be passive users of the Internet: all information available on the Internet at the start of a test or exam can be consulted, but no new information can be added.
 When taking over code fragments from the Internet, students have to add a proper citation as a comment in their submitted source code.
-After each test and exam, we again use Moss/Dolos to detect and inspect highly similar code snippets among submitted solutions and to find convincing evidence they result from exchange of code or other forms of interpersonal communication (Figure\nbsp{}[[fig:usefweplagiarism]]).
-If we catalog cases as plagiarism beyond reasonable doubt, the examination board is informed to take further action\nbsp{}[cite:@maertensDolosLanguageagnosticPlagiarism2022].
+After each test and exam, we again use MOSS/Dolos to detect and inspect highly similar code snippets among submitted solutions and to find convincing evidence they result from exchange of code or other forms of interpersonal communication (Figure\nbsp{}[[fig:usefweplagiarism]]).
+If we catalogue cases as plagiarism beyond reasonable doubt, the examination board is informed to take further action\nbsp{}[cite:@maertensDolosLanguageagnosticPlagiarism2022].
 
 **** Workload for running a course edition
 :PROPERTIES:
@@ -763,7 +763,7 @@ Dodona and its related software comprises a lot of code.
 This chapter discusses the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor, Papyros (\url{https://papyros.dodona.be}), that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
 I will also discuss two judges that I was involved with the development of.
 The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
-The TESTed judge came forth out of a prototype I built in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two master's thesises I supervised\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
+The TESTed judge came forth out of a prototype I built in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two master's theses I supervised\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
 
 ** Dodona
 :PROPERTIES:
@@ -825,7 +825,7 @@ Another form of inheritance is specifying default assessment configurations at t
 Since Dodona grew from being used to teach mostly by people we knew personally to being used in secondary schools all over Flanders, we went from being able to fully trust exercise authors to having this trust reduced (as it is impossible for a team of our size to vet all the people we give teacher's rights in Dodona).
 This meant that our threat model and therefore the security measures we had to take also changed over the years.
 Once Dodona was opened up to more and more teachers, we gradually locked down what teachers could do with e.g. their exercise descriptions.
-Content where teachers can inject raw HTML into Dodona and we don't was moved to iframes, to make sure that teachers could still be as creative as they wanted while writing exercises, while simultaneously not allowing them to execute JavaScript in a session where users are logged in.
+Content where teachers can inject raw HTML into Dodona was moved to iframes, to make sure that teachers could still be as creative as they wanted while writing exercises, while simultaneously not allowing them to execute JavaScript in a session where users are logged in.
 For user content where this creative freedom is not as necessary (e.g. series or descriptions), but some Markdown/HTML content is still wanted, we sanitize the (generated) HTML so that it can only include HTML elements and attributes that are specifically allowed.
 
 One of the most important components of Dodona is the feedback table.
@@ -837,7 +837,7 @@ Optimization work was needed to cope with this volume of feedback.
 When Dodona was first written, the library used for diffing generated and expected results actually shelled out to the GNU =diff= command.
 This output was parsed and changed into HTML by the library using find and replace operations.
 As one can expect, starting a new process and doing a lot of string operations every time outputs had to be diffed resulted in very slow loading times for the feedback table.
-The library was replaced with a pure Ruby library (=diff-lcs=), and it's outputs were built into HTML using Rails' efficient =Builder= class.
+The library was replaced with a pure Ruby library (=diff-lcs=), and its outputs were built into HTML using Rails' efficient =Builder= class.
 This change of diffing method also fixed a number of bugs we were experiencing along the way.
 
 Even this was not enough to handle the most extreme of exercises though.
@@ -856,7 +856,7 @@ If there are lots of small differences between a very long generated and expecte
 Development of Dodona is done on GitHub.
 All new features and bug fixes are added to the main branch through pull requests.
 These pull requests are reviewed by (at least) two others on the Dodona team before they are merged.
-The extensive test suite is also run automatically for every pull request, and developers are encouraged to add new tests for each feature or bug fix.
+The extensive test suite also runs automatically for every pull request, and developers are encouraged to add new tests for each feature or bug fix.
 We've also made it very easy to deploy to our testing and staging environments so that reviewers can test changes without having to spin up their local development instance of Dodona.
 
 The way we release Dodona has seen a few changes over the years.
@@ -881,7 +881,7 @@ This of course happened more during periods where the Tutor was being used a lot
 One can imagine that the experience for students who are already quite stressed out about the exam they are taking when the Tutor suddenly failed was not very good.
 In the meantime, we had started to experiment with running Python code client-side in the browser (see section\nbsp{}[[Papyros]] for more info).
 Because these experiments were successful, we migrated the Python Tutor from its own server to being run by students in their own browser using Pyodide.
-This means that the only student that can by impacted by the Python Tutor failing for a testcase is the student themselves (and because the Tutor is being run on a device that is under a far less heavy load, the Python Tutor fails much less often).
+This means that the only student that can be impacted by the Python Tutor failing for a testcase is the student themselves (and because the Tutor is being run on a device that is under a far less heavy load, the Python Tutor fails much less often).
 
 Backups of the database are automatically saved every day and kept for 12 months, although the frequency which they are kept with decreases over time.
 The backups are taken by dumping a replica database.
@@ -903,7 +903,7 @@ These notifications were an important driver to optimize some pages or to make c
 
 *** Introduction
 :PROPERTIES:
-:CREATED:  [2023-11-27 Mon 17:27]
+:CREATED: [2023-11-27 Mon 17:27]
 :END:
 
 One of the main feedback items we got when introducing Dodona to secondary education teachers was that Dodona did not have a simple way for students to run and test their code themselves.
@@ -923,17 +923,17 @@ Note that we don't want to replace the entire execution model with client-side e
 Because the main idea is integration in Dodona, we primarily wanted users to be able to execute entire programs, and not necessarily offer a REPL at first.
 
 Given that the target audience for this tool is secondary education students, we identified a number of secondary requirements:
-- The editor of our online IDE should have syntax higlighting.
+- The editor of our online IDE should have syntax highlighting.
   Recent literature\nbsp{}[cite:@hannebauerDoesSyntaxHighlighting2018] has shown that this does not necessarily have an impact on students' learning, but as the authors point out, it was the prevailing wisdom for a long time that it does help.
 - It should also include linting.
-  Linters notify students about syntax errors, but also about style guide violations and anti-patterns.
+  Linters notify students about syntax errors, but also about style guide violations and antipatterns.
 - Error messages for errors that occur during execution should be user-friendly\nbsp{}[cite:@beckerCompilerErrorMessages2019].
 - Code completion should be available. When starting out with programming, it is hard to remember all the different functions available.
   Completion frameworks allow students to search for functions, and can show inline documentation for these functions.
 
 *** Execution
 :PROPERTIES:
-:CREATED:  [2023-11-27 Mon 17:28]
+:CREATED: [2023-11-27 Mon 17:28]
 :END:
 
 Python can not be executed directly by a browser, since only JavaScript and WebAssembly are natively supported.
@@ -949,17 +949,17 @@ It also transpiles Python code to JavaScript, and supports Python 2 and Python 3
 After loading Skulpt, a global object is added to the page where Python code can be executed through JavaScript.
 
 The final option we looked at was Pyodide[fn:: https://pyodide.org/en/stable].
-Pyodide was developed by Mozilla as part of their Iodide project, aiming to make scientific research shareable and reproducable via the browser.
+Pyodide was developed by Mozilla as part of their Iodide project, aiming to make scientific research shareable and reproducible via the browser.
 Pyodide is a port of the Python interpreter to WebAssembly, allowing code to be executed by the browser.
 Since the project is focused on scientific research, it has wide support for external libraries such as NumPy.
 Because Pyodide can be treated as a regular library, it can be run in a web worker, making sure that the page stays responsive while the user's code is being executed.
 
 We chose to continue this work with Pyodide given its active development, support for recent Python versions and its ability to be executed on a separate thread.
-We also looked into integrating other platforms such as Repl.it, but none of them were free or integratable.
+We also looked into integrating other platforms such as Repl.it, but none of them were free or integrable.
 
 *** Implementation
 :PROPERTIES:
-:CREATED:  [2023-11-27 Mon 17:28]
+:CREATED: [2023-11-27 Mon 17:28]
 :END:
 
 There are two aspects to the implementation: the user interface and the technical inner workings.
@@ -967,7 +967,7 @@ Given that this work will primarily be used by secondary school students, the us
 
 **** User interface
 :PROPERTIES:
-:CREATED:  [2023-11-29 Wed 14:48]
+:CREATED: [2023-11-29 Wed 14:48]
 :END:
 
 The most important choice in the user interface was the choice of the editor.
@@ -979,8 +979,8 @@ There were three main options:
 - CodeMirror.
 
 Ace was the editor used by Dodona at the time.
-It support syntax highlighting and has some built-in linting.
-However, it is not very extensible, it doesn't support mobile devices well, and it's not in active development anymore.
+It supports syntax highlighting and has some built-in linting.
+However, it is not very extensible, it doesn't support mobile devices well, and it's not in active development any more.
 
 Monaco is the editor extracted from Visual Studio Code and often used by people building full-fledged web IDE's.
 It also has syntax highlighting and linting and is much more extensible.
@@ -993,7 +993,7 @@ Its documentation is also very clear and extensive.
 
 Given the clear advantages, we decided to use CodeMirror for Papyros.
 The two other main components of Papyros are the output window and the input window.
-The output window is a simple readonly textarea.
+The output window is a simple read-only textarea.
 The input window is a text area that has two modes: interactive mode and batch input.
 In interactive mode, the user is expected to write the input needed by the program they wrote the moment they ask for it (similar to running their program on the command line and answering the prompts when they appear).
 In batch mode, the user can prefill all the input required by their program.
@@ -1008,14 +1008,14 @@ The full user interface can be seen in Figure\nbsp{}[[fig:technicalpapyros]].
 
 **** Inner workings
 :PROPERTIES:
-:CREATED:  [2023-11-29 Wed 14:48]
+:CREATED: [2023-11-29 Wed 14:48]
 :END:
 
 Since Pyodide does the heavy lifting of executing the actual Python code, most of the implementation work consisted of making Pyodide run in a web worker and hooking up the Python internals to our user interface.
 The communication between the main UI thread and the web worker happens via message passing.
 With message passing, all data has to be copied.
 To avoid having to copy large amounts of data, and to be able to copy actual functions, classes or HTML elements, shared memory can be used.
-To work correctly with shared memory, synchronisation primitives have to be used.
+To work correctly with shared memory, synchronization primitives have to be used.
 
 After loading Pyodide, we load a Python script that overwrites certain functions with our versions.
 For example, base Pyodide will overwrite =input= with a function that calls into JavaScript-land and executes =prompt=.
@@ -1038,13 +1038,13 @@ In that case, a service worker could respond to network requests with data it ha
 So, putting this together, the web worker tells the main thread that it needs input and then fires off a synchronous HTTP request to some non-existent endpoint.
 The service worker intercepts this request, and responds to the request once it receives some input from the main thread.
 
-The functionality for performing synchronous communication with the main thread from a web worker was parceled off into its own library (=sync-message=).
+The functionality for performing synchronous communication with the main thread from a web worker was parcelled off into its own library (=sync-message=).
 This library could then decide which of these two methods to use, depending on the available environment.
 Another package, =python_runner=, bundles all required modifications to the Python environment in Pyodide.
 
 **** Extensions
 :PROPERTIES:
-:CREATED:  [2023-12-07 Thu 15:19]
+:CREATED: [2023-12-07 Thu 15:19]
 :END:
 
 CodeMirror already has a number of functionalities it supports out of the box such as linting and code completion.
@@ -1055,17 +1055,17 @@ Since we have a working Python environment, we can also use it to run the standa
 For code completion this has the added benefit of also showing the documentation for the autocompleted items, which is especially useful for people new to programming (which is exactly our target audience).
 
 Usability was further improved by adding the =FriendlyTraceback= library.
-=FriendlyTraceback= is a Python library that changes error messages in Python to be more clear to beginners, by explicitly answering questions such as where and why an error occurred.
+=FriendlyTraceback= is a Python library that changes error messages in Python to be clearer to beginners, by explicitly answering questions such as where and why an error occurred.
 
 *** User feedback
 :PROPERTIES:
-:CREATED:  [2023-11-27 Mon 17:28]
+:CREATED: [2023-11-27 Mon 17:28]
 :END:
 
 To collect some qualitative data about how teachers see Papyros, we sent out a questionnaire.
 The first part of this questionnaire described Papyros, why we developed it and what the goal of the questionnaire is.
 Then we asked about the context in which the teacher operates and what their programming lectures usually look like.
-Finally we asked about their opinion on Papyros and the impact they imagined the tool could have on their teaching practice.
+Finally, we asked about their opinion on Papyros and the impact they imagined the tool could have on their teaching practice.
 
 The teachers were all positive about Papyros and were looking forward to using it in their lessons.
 They also gave some interesting ideas about future additions to Papyros such as working with local files and adding a REPL, as well as reporting some bugs that occurred in their specific environments.
@@ -1132,9 +1132,9 @@ context({
 Other than the API for teachers creating exercises, encapsulation of student code is also an important part of a judge.
 Students should not be able to access functions defined by the judge, or be able to find the correct solution or the evaluating code.
 The R judge makes sure of this by making extensive use of environments.
-This is also reflected in the teacher API: they can access variables or execute functions in the student environment, but this environment has to be explicitely passed to the function generating the student result.
-In R, all environments except the root environment have a parent, essentialy creating a tree structure of environments.
-In most cases, this tree will actually be a path, but in the R judge, the student environment is explicitely attached to the base environment.
+This is also reflected in the teacher API: they can access variables or execute functions in the student environment, but this environment has to be explicitly passed to the function generating the student result.
+In R, all environments except the root environment have a parent, essentially creating a tree structure of environments.
+In most cases, this tree will actually be a path, but in the R judge, the student environment is explicitly attached to the base environment.
 This even makes sure that libraries loaded by the judge are not initially available to the student code (thus allowing teachers to test that students can correctly load libraries).
 The judge itself runs in an anonymous environment, so that even students with intimate knowledge of the inner workings of R and the judge itself would not be able to find this environment.
 
@@ -1157,7 +1157,7 @@ TESTed was developed to solve two major drawbacks with the current judge system 
   This is especially relevant for very simple exercises that students almost always start with, and for exercises in algorithms courses, where the programming language a student solves an exercise in is of lesser importance than the way they solve it.
   Mistakes in exercises also have to be fixed in all versions of the exercise when having to duplicate the exercises.
 - The judges themselves have to be created from scratch every time.
-  Most judges offer the same basic concepts and features, most of which are indepedent of programming language (communication with Dodona, checking correctness, I/O, ...).
+  Most judges offer the same basic concepts and features, most of which are independent of programming language (communication with Dodona, checking correctness, I/O, ...).
 
 The goal of TESTed was to implement a judge so that exercises only have to be created once to be available in all programming languages TESTed supports.
 An exercise should also not have to be changed when support for a new programming language is added.
@@ -1704,7 +1704,7 @@ Of course sometimes adaptations have to be made given differences in course stru
 :END:
 
 This chapter will discuss the history of giving summative feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of grading and manual feedback features within Dodona.
-We wil then expand on some recent work we have been doing to further optimize the giving of feedback using data mining techniques.
+We will then expand on some recent work we have been doing to further optimize the giving of feedback using data mining techniques.
 
 ** Paper-based grading
 :PROPERTIES:
