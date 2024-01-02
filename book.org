@@ -547,7 +547,7 @@ This could be influenced by the time when they mainly work on their assignments,
 In computing a final score for the course, we try to find an appropriate balance between stimulating students to find solutions for programming assignments themselves and collaborating with and learning from peers, instructors and teachers while working on assignments.
 The final score is computed as the sum of a score obtained for the exam (80%) and a score for each unit that combines the student's performance on the mandatory and test assignments (10% per unit).
 We use Dodona's grading module to determine scores for tests and exams based on correctness, programming style, choice made between the use of different programming techniques and the overall quality of the implementation.
-The score for a unit is calculated as the score $s$ for the two test assignments multiplied by the fraction $f$ of mandatory assignments the student has solved correctly.
+The score for a unit is calculated as the score \(s\) for the two test assignments multiplied by the fraction \(f\) of mandatory assignments the student has solved correctly.
 A solution for a mandatory assignment is considered correct if it passes all unit tests.
 Evaluating mandatory assignments therefore doesn't require any human intervention, except for writing unit tests when designing the assignments, and is performed entirely by our Python judge.
 In our experience, most students traditionally perform much better on mandatory assignments compared to test and exam assignments\nbsp{}[cite:@glassFewerStudentsAre2022], given the possibilities for collaboration on mandatory assignments.
@@ -562,8 +562,8 @@ We strongly believe that effective collaboration among small groups of students 
 We also demonstrate how they can embrace collaborative coding and pair programming services provided by modern integrated development environments\nbsp{}[cite:@williamsSupportPairProgramming2002; @hanksPairProgrammingEducation2011].
 But we recommend them to collaborate in groups of no more than three students, and to exchange and discuss ideas and strategies for solving assignments rather than sharing literal code with each other.
 After all, our main reason for working with mandatory assignments is to give students sufficient opportunity to learn topic-oriented programming skills by applying them in practice and shared solutions spoil the learning experience.
-The factor $f$ in the score for a unit encourages students to keep fine-tuning their solutions for programming assignments until all test cases succeed before the deadline passes.
-But maximizing that factor without proper learning of programming skills will likely yield a low test score $s$ and thus an overall low score for the unit, even if many mandatory exercises were solved correctly.
+The factor \(f\) in the score for a unit encourages students to keep fine-tuning their solutions for programming assignments until all test cases succeed before the deadline passes.
+But maximizing that factor without proper learning of programming skills will likely yield a low test score \(s\) and thus an overall low score for the unit, even if many mandatory exercises were solved correctly.
 
 Fostering an open collaboration environment to work on mandatory assignments with strict deadlines and taking them into account for computing the final score is a potential promoter for plagiarism, but using it as a weight factor for the test score rather than as an independent score item should promote learning by avoiding that plagiarism is rewarded.
 It takes some effort to properly explain this to students.
@@ -590,13 +590,13 @@ We stress that the learning effect dramatically drops in groups of four or more 
 Typically, we notice that in such a group only one or a few students make the effort to learn to code, while the other students usually piggyback by copy-pasting solutions.
 We make students aware that understanding someone else's code for programming assignments is a lot easier than trying to find solutions themselves.
 Over the years, we have experienced that a lot of students are caught in the trap of genuinely believing that being able to understand code is the same as being able to write code that solves a problem until they take a test at the end of a unit.
-That's where the $s$ factor of the test score comes into play.
+That's where the \(s\) factor of the test score comes into play.
 After all, the goal of summative tests is to evaluate if individual students have acquired the skills to solve programming challenges on their own.
 
 When talking to students about plagiarism, we also point out that the plagiarism graphs are directed graphs, indicating which student is the potential source of exchanging a solution among a cluster of students.
 We specifically address these students by pointing out that they are probably good at programming and might want to exchange their solutions with other students in a way to help their peers.
 But instead of really helping them out, they actually take away learning opportunities from their fellow students by giving away the solution as a spoiler.
-Stated differently, they help maximize the factor $f$ but effectively also reduce the $s$ factor of the test score, where both factors need to be high to yield a high score for the unit.
+Stated differently, they help maximize the factor \(f\) but effectively also reduce the \(s\) factor of the test score, where both factors need to be high to yield a high score for the unit.
 After this lecture, we usually notice a stark decline in the amount of plagiarized solutions.
 
 The goal of plagiarism detection at this stage is prevention rather than penalization, because we want students to take responsibility over their learning.
@@ -1087,19 +1087,25 @@ The API for the R judge was designed to follow the visual structure of the feedb
 Tabs are represented by different evaluation files.
 In addition to the =testEqual= function demonstrated in Listing\nbsp{}[[lst:technicalrsample]] there are some other functions to specifically support the requested functionality.
 =testImage= will set up some the R environment so that generated plots (or other images) are sent to the feedback table (in a base 64 encoded string) instead of the filesystem.
-It will also make the test fail if no image was generated (but does not do any verification of the image contents).
+It will also by default make the test fail if no image was generated (but does not do any verification of the image contents).
+An example of what the feedback table looks like when an image is generated can be seen in Figure\nbsp{}[[fig:technicalrplot]].
 =testDF= has some extra functionality for testing the equality of data frames, where it is possible to ignore row and column order.
 The generated feedback is also limited to 5 lines of output, to avoid overwhelming students (and their browsers) with the entire table.
 =testGGPlot= can be used to introspect plots generated with GGPlot\nbsp{}[cite:@wickhamGgplot2CreateElegant2023].
 To test whether students use certain functions, =testFunctionUsed= and =testFunctionUsedInVar= can be used.
 The latter tests whether the specific function is used when initializing a specific variable.
 
+#+CAPTION: Feedback table showing the feedback for an R exercise where the goal is to generate a plot.
+#+CAPTION: The code generates a plot showing a simple sine function, which is reflected in the feedback table.
+#+NAME: fig:technicalrplot
+[[./images/technicalrplot.png]]
+
 If some code needs to be executed in the student's environment before the student's code is run (e.g. to make some dataset available, or to fix a random seed), the =preExec= argument of the =context= function can be used to do so.
 
 #+CAPTION: Sample evaluation code for a simple R exercise.
 #+CAPTION: The feedback table will contain one context with two testcases in it.
 #+CAPTION: The first testcase checks whether some t-test was performed correctly, and does this by performing two equality checks.
-#+CAPTION: The second testcase checks that the $p$ value calculated by the t-test is correct.
+#+CAPTION: The second testcase checks that the \(p\) value calculated by the t-test is correct.
 #+CAPTION: The =preExec= is executed in the student's environment and here fixes a random seed for the student's execution.
 #+NAME: lst:technicalrsample
 #+ATTR_LATEX: :float t
@@ -1164,19 +1170,19 @@ An exercise should also not have to be changed when support for a new programmin
 
 *** Implementation
 :PROPERTIES:
-:CREATED:  [2023-12-11 Mon 17:21]
+:CREATED: [2023-12-11 Mon 17:21]
 :END:
 
 TESTed generally works using the following steps:
-1. The submission, exercise test plan, and any auxiliary files are received from Dodona.
-1. Validating the test plan and making sure the submission's programming language is supported for the given exercise.
-1. Test code is generated for each context in the test plan.
-1. The test code is optionally compiled, either in batch mode or per context.
+1. Receive the submission, exercise test plan, and any auxiliary files from Dodona.
+1. Validate the test plan and making sure the submission's programming language is supported for the given exercise.
+1. Generate test code for each context in the test plan.
+1. Optionally compile the test code, either in batch mode or per context.
    This step is skipped if evaluation a submission written in an interpreted language.
-1. The test code is executed.
+1. Execute the test code.
    Each context is executed in its own process.
-1. The results are evaluated, either with programming language-specific evaluation, programmed evaluation, or generic evaluation.
-1. The evaluation results are sent to Dodona.
+1. Evaluate the results, either with programming language-specific evaluation, programmed evaluation, or generic evaluation.
+1. Send the evaluation results to Dodona.
 
 We will now explain this process in more detail.
 
@@ -1388,7 +1394,7 @@ The dataset used to build the model is called the training set and consists of t
 Classification is a specific case of supervised learning where the outputs are restricted to a limited set of values (labels), in contrast to for example all possible numerical values with a range.
 Classification algorithms are validated by splitting a dataset of labelled feature vectors into a training set and a test set, building a model from the training set, and evaluating the accuracy of its predictions on the test set.
 Keeping training and test data separate is crucial to avoid bias during validation.
-A standard method to make unbiased predictions for all examples in a dataset is \(k\)-fold cross-validation: partition the dataset in $k$ subsets and then perform $k$ experiments that each take one subset for evaluation and the other $k-1$ subsets for training the model.
+A standard method to make unbiased predictions for all examples in a dataset is \(k\)-fold cross-validation: partition the dataset in \(k\) subsets and then perform \(k\) experiments that each take one subset for evaluation and the other \(k-1\) subsets for training the model.
 
 Pass/fail prediction is a binary classification problem with two possible outputs: passing or failing a course.
 We evaluated the accuracy of the predictions for each snapshot and each classification algorithm with three different types of training sets.
@@ -1402,11 +1408,11 @@ However, because we can assume that different editions of the same course yield 
 There are many metrics that can be used to evaluate how accurately a classifier predicted which students will pass or fail the course from the data in a given snapshot.
 Predicting a student will pass the course is called a positive prediction, and predicting they will fail the course is called a negative prediction.
 Predictions that correspond with the actual outcome are called true predictions, and predictions that differ from the actual outcome are called false predictions.
-This results in four possible combinations of predictions: true positives ($TP$), true negatives ($TN$), false positives ($FP$) and false negatives ($FN$).
-Two standard accuracy metrics used in information retrieval are precision ($TP/(TP+FP)$) and recall ($TP/(TP+FN)$).
-The latter is also called sensitivity if used in combination with specificity ($TN/(TN+FP)$).
+This results in four possible combinations of predictions: true positives (\(TP\)), true negatives (\(TN\)), false positives (\(FP\)) and false negatives (\(FN\)).
+Two standard accuracy metrics used in information retrieval are precision (\(TP/(TP+FP)\)) and recall (\(TP/(TP+FN)\)).
+The latter is also called sensitivity if used in combination with specificity (\(TN/(TN+FP)\)).
 
-Many studies for pass/fail prediction use accuracy ($(TP+TN)/(TP+TN+FP+FN)$) as a single performance metric.
+Many studies for pass/fail prediction use accuracy (\((TP+TN)/(TP+TN+FP+FN)\)) as a single performance metric.
 However, this can yield misleading results.
 For example, let's take a dummy classifier that always "predicts" students will pass, no matter what.
 This is clearly a bad classifier, but it will nonetheless have an accuracy of 75% for a course where 75% of the students pass.
@@ -1516,11 +1522,11 @@ This interpretability was a considerable factor in our choice of the classificat
 Since we identified logistic regression as the best-performing classifier, we will have a closer look at feature contributions in its models.
 These models are explained by the feature weights in the logistic regression equation, so we will express the importance of a feature as its actual weight in the model.
 We use a temperature scale when plotting importances: white for zero importance, a red gradient for positive importance values and a blue gradient for negative importance values.
-A feature importance w can be interpreted as follows for logistic regression models: an increase of the feature value by one standard deviation increases the odds of passing the course by a factor of $e^w$ when all other feature values remain the same\nbsp{}[cite:@molnarInterpretableMachineLearning2019].
+A feature importance w can be interpreted as follows for logistic regression models: an increase of the feature value by one standard deviation increases the odds of passing the course by a factor of \(e^w\) when all other feature values remain the same\nbsp{}[cite:@molnarInterpretableMachineLearning2019].
 The absolute value of the importance determines the impact the feature has on predictions.
-Features with zero importance have no impact because $e^0 = 1$.
+Features with zero importance have no impact because \(e^0 = 1\).
 Features represented with a light colour have a weak impact and features represented with a dark colour have a strong impact.
-As a reference, an importance of 0.7 doubles the odds for passing the course with each standard deviation increase of the feature value, because $e^{0.7} \sim 2$.
+As a reference, an importance of 0.7 doubles the odds for passing the course with each standard deviation increase of the feature value, because \(e^{0.7} \sim 2\).
 The sign of the importance determines whether the feature promotes or inhibits the odds of passing the course.
 Features with a positive importance (red colour) will increase the odds with increasing feature values, and features with a negative importance (blue colour) will decrease the odds with increasing feature values.
 
