@@ -1225,6 +1225,18 @@ Note that this is a recursive format: the values of a collection are also serial
 
 The types that values can have are split in three categories.
 The first category are the basic types listed above.
+The second category are the extended types.
+These are specialized versions of the basic types, for example to specify the number of bits that a number should be.
+The final category of types can only be used to specify an expected type.
+In addition to the other categories, =any= and =custom= can be specified.
+Like the name says, =any= signifies that the expected type is unknown, and the student can therefore return any type.
+=custom= requires the name of the type to be given.
+This can be used to, for example, create variable with a class that the student had to implement.
+
+**** Statements
+:PROPERTIES:
+:CREATED:  [2024-01-03 Wed 17:09]
+:END:
 
 *** Generic exercise descriptions
 :PROPERTIES:
