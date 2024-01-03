@@ -29,6 +29,7 @@
          (fill-column . 200)))
  (org-mode . ((eval . (progn (visual-line-mode)
                              (org-toggle-link-display)
+                             (require 'ox)
                              (add-to-list
                               'org-export-smart-quotes-alist
                               '("en-gb" (primary-opening :utf-8 "“" :html "&ldquo;" :latex "``" :texinfo "``")

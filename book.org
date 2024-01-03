@@ -1167,6 +1167,8 @@ TESTed was developed to solve two major drawbacks with the current judge system 
 
 The goal of TESTed was to implement a judge so that exercises only have to be created once to be available in all programming languages TESTed supports.
 An exercise should also not have to be changed when support for a new programming language is added.
+As a secondary goal, we also wanted to make it as easy as possible to create new exercises.
+Teachers who have not used Dodona before should be able to create a basic new exercise without too much issues.
 
 *** Implementation
 :PROPERTIES:
@@ -1184,14 +1186,52 @@ TESTed generally works using the following steps:
 1. Evaluate the results, either with programming language-specific evaluation, programmed evaluation, or generic evaluation.
 1. Send the evaluation results to Dodona.
 
-We will now explain this process in more detail.
+**** Test plan 
+:PROPERTIES:
+:CREATED: [2024-01-02 Tue 10:23]
+:END:
 
-*** DSL
+One of the most important elements that is needed to perform these steps is the test plan.
+This test plan is a hierarchical structure, which closely resembles the underlying structure of Dodona's feedback table.
+There are, however, a few important differences.
+The first of these is the /context testcase/.
+This is a special testcase per context that executes the main function (or the entire program in case this is more appropriate for the language being executed).
+The only possible inputs for this testcase are text for the standard input stream, command-line arguments and files in the working directory.
+The exit status code can only be checked in this testcase as well.
+
+Like the communication with Dodona, this test plan is a JSON document.
+The one unfortunate drawback of working with JSON is that it is a pretty verbose language.
+In section [[DSL]] we will look further at the steps we took to mitigate this issue.
+
+**** Data serialization
+:PROPERTIES:
+:CREATED: [2024-01-02 Tue 10:50]
+:END:
+
+As part of the test plan, we also need a way to generically describe values and their types.
+This is what we will call the /serialization format/.
+The serialization format should be able to represent all the basic data types we want to support in the programming language independent part of the test plan.
+This data types are the basic primitives like integers, reals (floating point numbers), booleans, and strings, but also more complex collection types like arrays (or lists), sets and mapping types (maps, dictionaries, and objects).
+Note that the serialization format is also used on the side of the programming language, to receive (function) arguments and send back execution results.
+
+Of course, a number of data serialization formats already exist, like =MessagePack=, =ProtoBuf=, ...
+Binary formats were excluded from the start, because they can't easily be embedded in our JSON test plan, but more importantly, they can neither be written nor read by humans.
+Other formats did not support all the types we wanted to support and could not be extended to do so.
+Because of our goal in supporting many programming languages, the format also had to be either widely implemented or be easily implementable.
+None of the formats we investigated met all these requirements.
+We opted to make the serialization format in JSON as well.
+Values are represented by objects containing the encoded value and the accompanying type.
+Note that this is a recursive format: the values of a collection are also serialized according to this specification.
+
+The types that values can have are split in three categories.
+The first category are the basic types listed above.
+
+*** Generic exercise descriptions
 :PROPERTIES:
 :CREATED:  [2023-12-11 Mon 17:22]
 :END:
 
-*** Generic exercise descriptions
+*** DSL
 :PROPERTIES:
 :CREATED:  [2023-12-11 Mon 17:22]
 :END:
