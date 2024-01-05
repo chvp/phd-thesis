@@ -182,12 +182,7 @@ While almost all platforms support automated assessment of code submitted by stu
 :CUSTOM_ID: chap:what
 :END:
 
-** Features
-:PROPERTIES:
-:CREATED: [2023-11-24 Fri 14:03]
-:END:
-
-*** Classroom management
+** Classroom management
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 09:31]
 :CUSTOM_ID: subsec:whatclassroom
@@ -239,7 +234,7 @@ We also provide export wizards that enable the extraction of raw and aggregated 
 This allows teachers to better understand student behaviour, progress and knowledge, and might give deeper insight into the underlying factors that contribute to student actions\nbsp{}[cite:@ihantolaReviewRecentSystems2010].
 Understanding, knowledge and insights that can be used to make informed decisions about courses and their pedagogy, increase student engagement, and identify at-risk students\nbsp{}[cite:@vanpetegemPassFailPrediction2022].
 
-*** User management
+** User management
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 09:44]
 :CUSTOM_ID: subsec:whatuser
@@ -252,7 +247,7 @@ Dodona automatically creates user accounts upon successful authentication and us
 By default, newly created users are assigned a student role.
 Teachers and instructors who wish to create content (courses, learning activities and judges), must first request teacher rights using a streamlined form.
 
-*** Automated assessment
+** Automated assessment
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 10:16]
 :CUSTOM_ID: subsec:whatassessment
@@ -287,7 +282,7 @@ Students typically report this as one of the most useful features of Dodona.
 #+NAME: fig:whatfeedback
 [[./images/whatfeedback.png]]
 
-*** Content management
+** Content management
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 10:47]
 :CUSTOM_ID: subsec:whatcontent
@@ -325,7 +320,7 @@ The configuration might also provide additional *assessment resources*: files ma
 The specification of how these resources must be structured and how they are used during assessment is completely up to the judge developers.
 Finally, the configuration might also contain *boilerplate code*: a skeleton students can use to start the implementation that is provided in the code editor along with the description.
 
-*** Internationalization and localization
+** Internationalization and localization
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 10:55]
 :CUSTOM_ID: subsec:whati18n
@@ -338,7 +333,7 @@ It's then up to the judge to take this information into account while generating
 
 Dodona always displays *localized deadlines* based on a time zone setting in the user profile, and users are warned when the current time zone detected by their browser differs from the one in their profile.
 
-*** Questions, answers and code reviews
+** Questions, answers and code reviews
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 10:56]
 :CUSTOM_ID: subsec:whatqa
@@ -373,7 +368,7 @@ It is not required that students take the initiative for the conversation.
 Teachers can also start adding source code annotations while reviewing a submission.
 Such *code reviews* will be used as a building block for manual assessment.
 
-*** Manual assessment
+** Manual assessment
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 11:01]
 :CUSTOM_ID: subsec:whateval
@@ -409,6 +404,9 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 :PROPERTIES:
 :CREATED: [2023-11-24 Fri 14:03]
 :END:
+
+Dolos is not (yet) integrated into Dodona, but it is an important element of the educational practice around Dodona.
+Dolos is a tool for measuring the similarity of code (the most common use-case of which is plagiarism detection).
 
 * Use
 :PROPERTIES:
@@ -1083,6 +1081,11 @@ By now, more than 1\thinsp{}250 R exercises have been added, and almost 1 millio
 Because R is mostly used for statistics, there are a few extra features that come to mind that are not typically handled by judges, such as handling of data frames and outputting visual graphs (or even evaluating that a graph was built correctly).
 Another feature that teachers wanted that we had not built into a judge previously was support for inspecting the student's source code, e.g. for making sure that certain functions were or were not used.
 
+*** Exercise API
+:PROPERTIES:
+:CREATED:  [2024-01-05 Fri 14:06]
+:END:
+
 The API for the R judge was designed to follow the visual structure of the feedback table as closely as possible, as can be seen in the sample evaluation code in Listing\nbsp{}[[lst:technicalrsample]].
 Tabs are represented by different evaluation files.
 In addition to the =testEqual= function demonstrated in Listing\nbsp{}[[lst:technicalrsample]] there are some other functions to specifically support the requested functionality.
@@ -1135,6 +1138,11 @@ context({
 })
 #+END_SRC
 
+*** Security
+:PROPERTIES:
+:CREATED:  [2024-01-05 Fri 14:06]
+:END:
+
 Other than the API for teachers creating exercises, encapsulation of student code is also an important part of a judge.
 Students should not be able to access functions defined by the judge, or be able to find the correct solution or the evaluating code.
 The R judge makes sure of this by making extensive use of environments.
@@ -1170,9 +1178,9 @@ An exercise should also not have to be changed when support for a new programmin
 As a secondary goal, we also wanted to make it as easy as possible to create new exercises.
 Teachers who have not used Dodona before should be able to create a basic new exercise without too much issues.
 
-*** Implementation
+*** Overview
 :PROPERTIES:
-:CREATED: [2023-12-11 Mon 17:21]
+:CREATED:  [2024-01-05 Fri 14:03]
 :END:
 
 TESTed generally works using the following steps:
@@ -1186,7 +1194,9 @@ TESTed generally works using the following steps:
 1. Evaluate the results, either with programming language-specific evaluation, programmed evaluation, or generic evaluation.
 1. Send the evaluation results to Dodona.
 
-**** Test plan 
+In the following sections I will expand on these steps.
+
+*** Test plan 
 :PROPERTIES:
 :CREATED: [2024-01-02 Tue 10:23]
 :END:
@@ -1200,10 +1210,10 @@ The only possible inputs for this testcase are text for the standard input strea
 The exit status code can only be checked in this testcase as well.
 
 Like the communication with Dodona, this test plan is a JSON document.
-The one unfortunate drawback of working with JSON is that it is a pretty verbose language.
-In section [[DSL]] we will look further at the steps we took to mitigate this issue.
+The one unfortunate drawback of working with JSON is that it is a very verbose language and has an unforgiving syntax.
+In section\nbsp{}[[DSL]] we will look further at the steps we took to mitigate this issue.
 
-**** Data serialization
+*** Data serialization
 :PROPERTIES:
 :CREATED: [2024-01-02 Tue 10:50]
 :END:
@@ -1211,7 +1221,7 @@ In section [[DSL]] we will look further at the steps we took to mitigate this is
 As part of the test plan, we also need a way to generically describe values and their types.
 This is what we will call the /serialization format/.
 The serialization format should be able to represent all the basic data types we want to support in the programming language independent part of the test plan.
-This data types are the basic primitives like integers, reals (floating point numbers), booleans, and strings, but also more complex collection types like arrays (or lists), sets and mapping types (maps, dictionaries, and objects).
+These data types are the basic primitives like integers, reals (floating point numbers), booleans, and strings, but also more complex collection types like arrays (or lists), sets and mapping types (maps, dictionaries, and objects).
 Note that the serialization format is also used on the side of the programming language, to receive (function) arguments and send back execution results.
 
 Of course, a number of data serialization formats already exist, like =MessagePack=, =ProtoBuf=, ...
@@ -1226,27 +1236,82 @@ Note that this is a recursive format: the values of a collection are also serial
 The types that values can have are split in three categories.
 The first category are the basic types listed above.
 The second category are the extended types.
-These are specialized versions of the basic types, for example to specify the number of bits that a number should be.
+These are specialized versions of the basic types, for example to specify the number of bits that a number should be, or whether a collection should be a tuple or a list.
 The final category of types can only be used to specify an expected type.
 In addition to the other categories, =any= and =custom= can be specified.
 Like the name says, =any= signifies that the expected type is unknown, and the student can therefore return any type.
 =custom= requires the name of the type to be given.
-This can be used to, for example, create variable with a class that the student had to implement.
+This can be used to, for example, create variable with a class that the student had to implement as its type.
 
-**** Statements
+*** Statements
 :PROPERTIES:
 :CREATED:  [2024-01-03 Wed 17:09]
 :END:
 
-*** Generic exercise descriptions
+There is more complexity hidden in the idea of creating a variable of a custom type.
+It implies that we need to be able to create variables, instead of just capturing the result of function calls or other expressions.
+To support this, specific structures were added to the test plan JSON schema.
+
+*** Checking programming language support
 :PROPERTIES:
-:CREATED:  [2023-12-11 Mon 17:22]
+:CREATED:  [2024-01-04 Thu 09:16]
 :END:
+
+We also need to make sure that the programming language being executed is supported by the given test plan.
+The two things that are checked are whether a programming language supports all the types that are used and whether the language has all the necessary language constructs.
+For example, if the test plan uses a =tuple=, but the language doesn't support it, it's obviously not possible to evaluate a submission in the at language.
+The same is true for overloaded functions: if it is necessary that a function can be called with a string and with a number, a language like C will not be able to support this.
+
+*** Execution
+:PROPERTIES:
+:CREATED:  [2024-01-04 Thu 09:43]
+:END:
+
+To go from the generic test plan to something that can actually be executed in the given language, we need to generate test code.
+This is done by way of a templating system.
+For each programming language supported by TESTed, a few templates need to be defined.
+The serialization format also needs to be implemented in the given programming language.
+Because the serialization format is based on JSON and JSON is a widely used format, this requirement is usually pretty easy to fulfil.
+
+For some languages, the code needs to be compiled as well.
+All test code is usually compiled into one executable, since this only results in one call to the compiler (which is usually a pretty slow process).
+There is one big drawback to this way of compiling code: if there is a compilation error (for example because a student has not yet implemented all requested functions) the compilation will fail for all contexts.
+Because of this, TESTed will fall back to separate compilation for each context if a compilation error occurs.
+Subsequently, the test code is executed and its results collected.
+
+*** Evaluation
+:PROPERTIES:
+:CREATED:  [2024-01-04 Thu 10:45]
+:END:
+
+The collected results are evaluated, usually by TESTed itself.
+TESTed can however only evaluate the results as far as it is programmed to do so.
+There are two other ways the results can be evaluated: programmed evaluation and programming-language specific evaluation.
+With programmed evaluation, the results are passed to code written by a teacher (which is executed in a new process).
+This code will then check the results, and generate appropriate feedback.
+Programming-language specific evaluation is executed immediately after the test code in that process.
+This can be used to evaluate programming-language specific concepts, for example the correct use of pointers in C.
+
+*** Linting
+:PROPERTIES:
+:CREATED:  [2024-01-04 Thu 10:47]
+:END:
+
+Next to correctness, style is also an important element of programming.
+In a lot of contexts, linters are used to perform basic style checks.
+Linting was also implemented in TESTed.
+For each supported programming language, both the linter to be used and how its output should be interpreted are specified.
 
 *** DSL
 :PROPERTIES:
 :CREATED:  [2023-12-11 Mon 17:22]
 :END:
+
+As mentioned in section\nbsp{}[[Test plan]], JSON is not the best format.
+It is very verbose and error-prone when writing (trailing commas are not allowed, all object keys are strings and need to be written as such, etc.).
+This aspect of usability was not the initial focus of TESTed, since most Dodona power users already use code to generate their evaluation files.
+Because code is very good at outputting an exact and verbose format like JSON, this avoids its main drawback.
+We wanted secondary education teachers to be able to work with TESTed however, and most secondary education teachers do not have enough experience with programming themselves to generate a test plan.
 
 * Pass/fail prediction
 :PROPERTIES:
@@ -1926,17 +1991,6 @@ This can be done much more efficiently, and in this work we don't use the extra 
 :CUSTOM_ID: chap:discussion
 :END:
 
-* References
-:PROPERTIES:
-:CREATED: [2023-10-23 Mon 08:59]
-:CUSTOM_ID: chap:bibliography
-:UNNUMBERED: t
-:END:
-
-#+LATEX: {\setlength{\emergencystretch}{2em}
-#+print_bibliography: 
-#+LATEX: }
-
 #+LATEX: \appendix
 * Feature types
 :PROPERTIES:
@@ -1962,3 +2016,15 @@ This can be done much more efficiently, and in this work we don't use the extra 
 - =correct_after_15m= :: number of exercises where first correct submission by student was made within fifteen minutes after first submission
 - =correct_after_2h= :: number of exercises where first correct submission by student was made within two hours after first submission
 - =correct_after_24h= :: number of exercises where first correct submission by student was made within twenty-four hours after first submission
+
+* References
+:PROPERTIES:
+:CREATED: [2023-10-23 Mon 08:59]
+:CUSTOM_ID: chap:bibliography
+:UNNUMBERED: t
+:END:
+
+#+LATEX: {\setlength{\emergencystretch}{2em}
+#+print_bibliography: 
+#+LATEX: }
+
