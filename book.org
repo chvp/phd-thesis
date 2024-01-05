@@ -1311,7 +1311,30 @@ As mentioned in section\nbsp{}[[Test plan]], JSON is not the best format.
 It is very verbose and error-prone when writing (trailing commas are not allowed, all object keys are strings and need to be written as such, etc.).
 This aspect of usability was not the initial focus of TESTed, since most Dodona power users already use code to generate their evaluation files.
 Because code is very good at outputting an exact and verbose format like JSON, this avoids its main drawback.
-We wanted secondary education teachers to be able to work with TESTed however, and most secondary education teachers do not have enough experience with programming themselves to generate a test plan.
+However, we wanted teachers in secondary education to be able to work with TESTed, and they mostly do not have enough experience with programming themselves to generate a test plan.
+To solve this problem we wanted to integrate a domain-specific language (DSL) to describe TESTed test plans.
+
+We first investigated whether we could use an existing format to do so.
+The best option of these was PEML: the Programming Exercise Markup Language\nbsp{}[cite:@mishraProgrammingExerciseMarkup2023].
+Envisioned as a universal format for programming exercise descriptions, their goals seemed to align with ours.
+Unfortunately, they did not base themselves on any existing formats.
+This means that there is little tooling around PEML.
+Parsing it as part of TESTed would require a lot of implementation work, and IDEs or other editors don't do syntax highlighting for it.
+The format itself is also quite error-prone when writing.
+Because of these reasons, we discarded PEML and started working on our own DSL.
+
+The idea is not to supplant the JSON test plans, but to allow a JSON test plan to be transparently generated from a file written in the DSL.
+We also don't necessarily want the DSL to offer all the features of the JSON test plan.
+The DSL is meant for teachers creating basic exercises; they don't necessarily need all the advanced features of TESTed, and if they do, they can always still switch to the JSON format.
+Keeping the JSON test plan would also allow for different DSLs tuned for different types of exercises in the future.
+Our own DSL is based on YAML[fn:: https://yaml.org].
+YAML is a superset of JSON and describes itself as "a human-friendly data serialization language for all programming languages".
+The DSL structure is quite similar to the actual test plan, though it does limit the amount of repetition required for common operations.
+YAML's concise nature also contributes to the read- and writability of its test plans.
+
+The main addition of the DSL is an abstract programming language, made to look somewhat like Python 3.
+Note that this is not a full programming language, but only supports language constructs as far as they are needed by TESTed.
+Values are interpreted as basic types, but can be explicitly cast to one of the more advanced types.
 
 * Pass/fail prediction
 :PROPERTIES:
