@@ -127,6 +127,37 @@
               help = "build a diffed PDF between latest sent revision and current";
               package = build-diffed;
             }
+            {
+              name = "build";
+              category = "general commands";
+              help = "build the PDF";
+              command = ''
+                builddir=$(mktemp -d --tmpdir=/tmp)
+                ${emacs}/bin/emacs -batch -load build.el
+                ${full-texlive}/bin/latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory="''${builddir}" book.tex
+                mv "''${builddir}"/book.pdf .
+                rm "''${builddir}" -rf
+              '';
+            }
+            {
+              name = "watch-build";
+              category = "general commands";
+              help = "watch main file and build on change";
+              command = ''
+                trap "exit 0" SIGINT SIGTERM
+                while true
+                do
+                  time=$(date "+%s")
+                  echo "Waiting for change..."
+                  ${pkgs.fswatch}/bin/fswatch -1 book.org >/dev/null
+                  while [ "$time" -lt "$(stat -c %Y book.org)" ]
+                  do
+                    time=$(date "+%s")
+                    build
+                  done
+                done
+              '';
+            }
           ];
         };
         packages.build-diffed = build-diffed;
