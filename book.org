@@ -65,7 +65,7 @@ This will have to be a lot shorter than the FWE section, since I'm far less know
 :CREATED: [2023-11-30 Thu 10:39]
 :END:
 
-*** TODO Finish chapter [[#chap:feedback]]
+*** DOING Finish chapter [[#chap:feedback]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
@@ -888,11 +888,6 @@ These notifications were an important driver to optimize some pages or to make c
 :PROPERTIES:
 :CREATED: [2023-11-23 Thu 17:29]
 :CUSTOM_ID: sec:papyros
-:END:
-
-*** Introduction
-:PROPERTIES:
-:CREATED: [2023-11-27 Mon 17:27]
 :END:
 
 One of the main feedback items we got when introducing Dodona to secondary education teachers was that Dodona did not have a simple way for students to run and test their code themselves.
@@ -1833,13 +1828,13 @@ The models trained only on self-reported data performed significantly worse than
 The replication done at JYU showed that our devised method can be used in significantly different contexts.
 Of course sometimes adaptations have to be made given differences in course structure and learning environment used, but these adaptations do not result in worse prediction results.
 
-* Summative feedback
+* Manual feedback
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:51]
 :CUSTOM_ID: chap:feedback
 :END:
 
-This chapter will discuss the history of giving summative feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of grading and manual feedback features within Dodona.
+This chapter will discuss the history of manual feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of evaluation and features within Dodona.
 We will then expand on some recent work we have been doing to further optimize the giving of feedback using data mining techniques.
 
 ** Paper-based grading
@@ -1847,25 +1842,25 @@ We will then expand on some recent work we have been doing to further optimize t
 :CREATED: [2023-11-20 Mon 13:04]
 :END:
 
-Since the academic year 2015--2016 the programming course has started taking two open-book/open-internet evaluations.
-One as a midterm and one at the end of the semester (but before the exam period).
+Since the academic year 2015--2016 the programming course has started taking two open-book/open-internet evaluations in addition to the regular exam.
+The first is a midterm and the other happens at the end of the semester (but before the exam period).
 The organization of these evaluations has been a learning process for everyone involved.
-Although the basic idea has remained the same (solve two Python programming exercises in 2 hours), almost every aspect surrounding this basic premise has changed.
+Although the basic idea has remained the same (solve two Python programming exercises in two hours, or three in 3.5 hours for the exam), almost every aspect surrounding this basic premise has changed.
 
-To be able to give summative feedback, student solutions were printed at the end of the evaluation.
-At first by going around with a USB stick, later by using a Ghent University submission platform that had support for printing to printers in the evaluation rooms.
-In fact, printing support for this platform was added specifically for this course.
+To be able to give feedback, student solutions were printed at the end of the evaluation.
+At first this happened by going around with a USB stick that students had to copy their solution to, later by using a submission platform developed at Ghent University (Indianio) that had support for printing to printers in the evaluation rooms.
+Printing support in Indianio was added specifically for this course, in fact.
 Students were then allowed to check their printed solutions to make sure that the correct code was graded.
 This however means that the end of an evaluation takes a lot of time, since printing all these papers is a slow and badly parallelizable process (not the mention the environmental impact!).
 
 It also has some important drawbacks while grading.
-Even though Dodona was not yet in use at this point, SPOJ was used for automated feedback.
-This automated feedback is not available when assessing a student's source code on paper.
+Even though Dodona was not yet in use at this point, SPOJ was used to generate automated feedback on correctness.
+This automated feedback was not available when assessing a student's source code on paper.
 It therefore takes either more mental energy to work out whether the student's code would behave correctly with all inputs or it takes some hassle to look up a student's automated assessment results every time.
-Another important drawback is that students have a much harder time seeing the summative feedback.
+Another important drawback is that students have a much harder time seeing their feedback.
 While their numerical grades were posted online or emailed to them, to see the comments graders wrote alongside their code they had to come to a hands-on session and ask the assistant there to be able to view the annotated version of their code.
 Very few students did so.
-A few explanations could be given for this.
+There are a few possible explanations for this.
 They might experience social barriers for asking feedback on an evaluation they performed poorly on.
 For students who performed well, it might not be worth the hassle of going to ask about feedback.
 But maybe more importantly, a vicious cycle started to appear: because few students look at their feedback, graders did not spend much effort in writing out clear and useful feedback.
@@ -1877,18 +1872,18 @@ Code that was too complex or plain wrong usually received little more than a str
 :END:
 
 Seeing the amount of hassle that assessing these evaluations brought with them, we decided to build support for manual feedback and grading into Dodona.
-The first step of this was to allow the adding of comments to code.
+The first step of this was the functionality of adding comments to code.
 This work was started in the academic year 2019--2020, so the onset of the COVID-19 pandemic brought a lot of momentum to this work.
-Suddenly, the idea of printing student submissions became impossible, since the evaluations had to be taken by students in their own homes.
+Suddenly, the idea of printing student submissions became impossible, since the evaluations had to be taken by students in their own homes and the graders were working from home as well.
 Graders could now add comments to a student's code which would allow the student to view the feedback from their own home as well.
-There were still a few drawbacks to this system though.
+There were still a few drawbacks to this system for assessing and grading though:
 - Knowing which submissions to grade was not always trivial.
   For most students, the existing deadline system worked, since the solution they submitted right before the deadline was the submission taken into account when grading.
   There are however also students who receive extra time based on a special status granted to them by Ghent University (due to e.g. a learning disability).
   For these students, graders had to manually search for the submission made right before the extended deadline these students receive.
   This means that students could not be graded anonymously.
   It also makes the process a lot more error-prone.
-- Since the concept of an evaluation did not exist yet, comment visibility could not yet be time-gated towards students.
+- Comment visibility could not yet be time-gated towards students.
   This meant that graders had to write their comments in a local file with some extra metadata about the assessment.
   Afterwards this local file could be processed using some home-grown scripts to automatically add all comments at (nearly) the same time.
 It is obvious that this was not a great user experience, and not something we could roll out more widely outside of Dodona developers that were also involved with teaching.
@@ -1908,14 +1903,15 @@ To streamline and automate the process of grading even more, the concept of an e
 Evaluations address the two drawbacks identified above:
 - Comments made within an evaluation are linked to this evaluation.
   They are only made visible to students once the feedback of the evaluation is released.
-- They also add a handy overview of the submissions that need to receive feedback.
+- They also add an overview of the submissions that need to receive feedback.
   Since the submissions are explicitly linked to the evaluation, changing the submissions for students who receive extra time is also a lot less error-prone, since it can be done before actually starting out with the assessment.
+  Evaluations also have specific UI to do this, where the timestamps are shown to teachers as accurately as Dodona saves them.
 The addition of evaluations resulted in a subjective feeling of time being saved by the graders, at least in comparison with the previous system of adding comments.
 There is still one main drawback though, in the fact that student scores still had to be entered outside of Dodona.
 This is again more error-prone, since this involves manually looking up the correct student and entering their scores in a global spreadsheet.
 It is also less transparent towards students.
 While rubrics were made for every exercise that had to be graded, every grader had their preferred way of aggregating and entering these scores.
-This means that even though rubrics exist, students had no option of seeing the different marks they received for different rubrics.
+This means that even though the rubrics exist, students had no option of seeing the different marks they received for different rubrics.
 
 To address this concern, another feature was implemented in Dodona.
 We added rubrics and a user-friendly way of entering scores.
@@ -1929,11 +1925,11 @@ This means that students can view the scores they received for each rubric, and 
 Grading and giving feedback has always been a time-consuming process, and the move to digital grading did not improve this compared to grading on paper.
 Even though the process itself was optimized, this optimization was used by graders to write out more and more comprehensive feedback.
 
-Since evaluations are done with two exercises solved by lots of students, there are usually quite a lot of mistakes that are common to a lot of students.
+Since evaluations are done with a few exercises solved by lots of students, there are usually a lot of mistakes that are common to a lot of students.
 This leads to graders giving the same feedback a lot of times.
-In fact, most graders kept a list of commonly given annotations in a separate program or document.
+In fact, most graders maintained a list of commonly given feedback in a separate program or document.
 
-We implemented the concept of feedback re-use, to streamline giving commonly re-used feedback.
+We implemented the concept of feedback re-use to streamline giving commonly re-used feedback.
 When giving feedback, the grader has the option to save the annotation they are currently writing.
 When they later encounter a situation where they want to give that same feedback, the only thing they have to do is write a few letters of the annotation in the saved annotation search box, and they can quickly insert the text written earlier.
 While originally conceptualized mainly for the benefit of graders, students can actually benefit from this feature as well.
@@ -1956,7 +1952,12 @@ We will first give an overview of the algorithm we use to find patterns and then
 We will also explain some practical issues that we had to consider during implementation.
 Then, we discuss what we did to rank annotations and then move on to discussing the results for the two datasets.
 
-*** TreeminerD
+*** Methodology
+:PROPERTIES:
+:CREATED: [2024-01-08 Mon 13:18]
+:END:
+
+**** TreeminerD
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:33]
 :END:
@@ -1968,32 +1969,36 @@ In this work we opted to use the Treeminer algorithm, and more precise the Treem
 This variation gives only the distinct frequent patterns in a forest instead of all occurrences of all frequent patterns in a forest.
 This can be done much more efficiently, and in this work we don't use the extra information that the unmodified Treeminer algorithm gives us.
 
-*** Matching patterns to trees
+**** Matching patterns to trees
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:33]
 :END:
 
-*** Practical considerations
+**** Practical considerations
 :PROPERTIES:
 :CREATED: [2023-11-22 Wed 14:39]
 :END:
 
-*** Ranking annotations
+**** Ranking annotations
 :PROPERTIES:
 :CREATED: [2023-11-22 Wed 14:47]
 :END:
 
-*** PyLint messages
+*** Validation and results
+:PROPERTIES:
+:CREATED: [2024-01-08 Mon 13:18]
+:END:
+**** PyLint messages
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:33]
 :END:
 
-*** Real-world data
+**** Real-world data
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:33]
 :END:
 
-** Future work
+*** Conclusion
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:33]
 :END:
