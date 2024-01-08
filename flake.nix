@@ -132,11 +132,19 @@
               category = "general commands";
               help = "build the PDF";
               command = ''
-                builddir=$(mktemp -d --tmpdir=/tmp)
+                if [ $# -eq 1 ]
+                then
+                    builddir=$1
+                else
+                    builddir=$(mktemp -d --tmpdir=/tmp)
+                fi
                 ${emacs}/bin/emacs -batch -load build.el
                 ${full-texlive}/bin/latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory="''${builddir}" book.tex
                 mv "''${builddir}"/book.pdf .
-                rm "''${builddir}" -rf
+                if ! [ $# -eq 1 ]
+                then
+                    rm "''${builddir}" -rf
+                fi
               '';
             }
             {
@@ -144,17 +152,26 @@
               category = "general commands";
               help = "watch main file and build on change";
               command = ''
-                trap "exit 0" SIGINT SIGTERM
+                builddir=$(mktemp -d --tmpdir=/tmp)
+
+                trap "rm \"''${builddir}\" -rf; exit 0" SIGINT SIGTERM
+                if [ -e book.pdf ]
+                then
+                    time=$(stat -c %Y book.pdf)
+                else
+                    time=$(date "+%s")
+                    build "''${builddir}"
+                fi
                 while true
                 do
-                  time=$(date "+%s")
-                  echo "Waiting for change..."
-                  ${pkgs.fswatch}/bin/fswatch -1 book.org >/dev/null
                   while [ "$time" -lt "$(stat -c %Y book.org)" ]
                   do
                     time=$(date "+%s")
-                    build
+                    build "''${builddir}"
                   done
+                  time=$(date "+%s")
+                  echo "Waiting for change..."
+                  ${pkgs.fswatch}/bin/fswatch -1 book.org >/dev/null
                 done
               '';
             }
