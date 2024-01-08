@@ -1835,9 +1835,9 @@ Of course sometimes adaptations have to be made given differences in course stru
 :END:
 
 This chapter will discuss the history of manual feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of evaluation and features within Dodona.
-We will then expand on some recent work we have been doing to further optimize the giving of feedback using data mining techniques.
+I will then expand on what we did to further reduce the time spent adding manual feedback using data mining techniques.
 
-** Paper-based grading
+** Assessment on paper
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:04]
 :END:
@@ -1866,7 +1866,7 @@ For students who performed well, it might not be worth the hassle of going to as
 But maybe more importantly, a vicious cycle started to appear: because few students look at their feedback, graders did not spend much effort in writing out clear and useful feedback.
 Code that was too complex or plain wrong usually received little more than a strikethrough, instead of an explanation on why the student's method did not work.
 
-** Adding comments
+** Adding comments via Dodona
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:32]
 :END:
