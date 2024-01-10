@@ -61,7 +61,6 @@ Pyodide:
 
 TESTed
 
-- Eerste zin is daar raar “one of the goals was to allow the method I developed to work over many programming languages”. Welke method?
 - Ik begrijp dat je dit niet in detail wil toevoegen als deel van je thesis, maar nu blijft het allemaal een beetje abstract. Ik denk dat een externe hier niet veel van zal begrijpen. Misschien dat een running voorbeeld toevoegen kan helpen?
 
 algemeen: 
@@ -1185,9 +1184,11 @@ This prevents the student and teacher code from e.g. writing to standard output 
 :CUSTOM_ID: sec:techtested
 :END:
 
-During my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] one of the goals was to allow the method I developed to work over many programming languages.
+My master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] presented a method for estimating the computational complexity of solutions for programming exercises.
+One of the goals was to make it work over many programming languages.
 To do this, I wrote a framework based on Jupyter kernels[fn:: https://jupyter.org] where the interaction with each programming language was abstracted away behind a common interface.
-It was however, only developed as far as I needed for my master's thesis and thus served as a proof of concept for TESTed.
+We realized this framework could be useful in itself, but it was only developed as far as I needed for my master's thesis.
+It did however serve as a proof of concept for TESTed, which I will present in this section.
 
 TESTed was developed to solve two major drawbacks with the current judge system of Dodona.
 - When creating the same exercise in multiple programming languages, the exercise description and test cases need to be redone for every programming language.
