@@ -46,13 +46,27 @@ Because of this the `\frontmatter` statement needs to be part of the `org-latex-
 :CREATED:  [2024-01-09 Tue 17:28]
 :END:
 
-Bij implementation begint het met een zin over ruby on rails en web components, maar dan gaat het plots enkel over het judgen. Dat judgen is zeker belangrijk, maar ik zou daar een aparte sectie over maken
-het stukje over de algemene architectuur is nogal beknopt. Misschien kan je een schema van onze servers toevoegen en dat als kapstok gebruiken om er wat meer over te vertellen?
-Over development: hier mis ik nog iets over dependabot, een paar statistieken (aantal commits, personen, releases). Hoe we nu release notes doen, dat we onze PR's goed documenteren met screenshots etc evt voorbeeld toevoegen
-aha, het stuk over deployment is wat ik misschien eerst verwachtte, maar dat gaat niet specifiek over het deploy proces zelf
-ik zou het deployen zelf (automatisch, via github action, capistrano) dan nog toevoegen aan development
-papyros user feedback: kunnen we daar concreter zijn? Gestelde vragen toevoegen (evt als appendix?) concrete antwoorden? Aan hoeveel mensen hebben we feedback gevraagd, etc
-algemeen: moeten er geen links naar github worden toegevoegd bij de relevante secties?
+Dodona zelf:
+
+- Beginnen met figuur met alle servers op en dat als kapstok gebruiken
+- Betere/meer sectietitels
+- Dingen die ontbreken: dependabot, release notes, naos, mestra, deployen via action + capistrano, statistieken over aantal commits, contributors, releases
+- Bij development staat nu dat we code review doen, maar ik zou hier ook schrijven dat we onze PRs als documentatie gebruiken en we een uitgebreide beschrijving en screenshots toevoegen
+- Dit mag van mij gerust een stuk technischer
+
+Pyodide:
+
+- papyros user feedback: kunnen we daar concreter zijn? Gestelde vragen toevoegen (evt als appendix?) concrete antwoorden? Aan hoeveel mensen hebben we feedback gevraagd, etc
+
+TESTed
+
+- Eerste zin is daar raar “one of the goals was to allow the method I developed to work over many programming languages”. Welke method?
+- Ik begrijp dat je dit niet in detail wil toevoegen als deel van je thesis, maar nu blijft het allemaal een beetje abstract. Ik denk dat een externe hier niet veel van zal begrijpen. Misschien dat een running voorbeeld toevoegen kan helpen?
+
+algemeen: 
+
+- moeten er geen links naar github worden toegevoegd bij de relevante secties?
+- Captions bij figuren in een kleinere font size
 
 *** TODO Write [[#chap:intro]]
 :PROPERTIES:
