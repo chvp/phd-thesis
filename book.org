@@ -21,6 +21,7 @@
 #+LATEX_HEADER: Prof.\ Dr.\ Ir.\ Bart Mesuere\\
 #+LATEX_HEADER: Prof.\ Dr.\ Bram De Wever
 #+LATEX_HEADER: }
+#+LATEX_HEADER: \addtokomafont{caption}{\small}
 #+OPTIONS: ':t
 #+OPTIONS: H:4
 #+cite_export: csl citation-style.csl
@@ -66,7 +67,6 @@ TESTed
 algemeen: 
 
 - moeten er geen links naar github worden toegevoegd bij de relevante secties?
-- Captions bij figuren in een kleinere font size
 
 *** TODO Write [[#chap:intro]]
 :PROPERTIES:
