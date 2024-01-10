@@ -41,6 +41,19 @@ Because of this the `\frontmatter` statement needs to be part of the `org-latex-
 :CREATED: [2023-11-20 Mon 17:17]
 :END:
 
+*** TODO Feedback Bart
+:PROPERTIES:
+:CREATED:  [2024-01-09 Tue 17:28]
+:END:
+
+Bij implementation begint het met een zin over ruby on rails en web components, maar dan gaat het plots enkel over het judgen. Dat judgen is zeker belangrijk, maar ik zou daar een aparte sectie over maken
+het stukje over de algemene architectuur is nogal beknopt. Misschien kan je een schema van onze servers toevoegen en dat als kapstok gebruiken om er wat meer over te vertellen?
+Over development: hier mis ik nog iets over dependabot, een paar statistieken (aantal commits, personen, releases). Hoe we nu release notes doen, dat we onze PR's goed documenteren met screenshots etc evt voorbeeld toevoegen
+aha, het stuk over deployment is wat ik misschien eerst verwachtte, maar dat gaat niet specifiek over het deploy proces zelf
+ik zou het deployen zelf (automatisch, via github action, capistrano) dan nog toevoegen aan development
+papyros user feedback: kunnen we daar concreter zijn? Gestelde vragen toevoegen (evt als appendix?) concrete antwoorden? Aan hoeveel mensen hebben we feedback gevraagd, etc
+algemeen: moeten er geen links naar github worden toegevoegd bij de relevante secties?
+
 *** TODO Write [[#chap:intro]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
@@ -401,8 +414,8 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 :CUSTOM_ID: sec:whatdolos
 :END:
 
-Dolos is not (yet) integrated into Dodona, but it is an important element of the educational practice around Dodona.
 Dolos is a tool for measuring the similarity of code (the most common use-case of which is plagiarism detection).
+Dolos is not (yet) integrated into Dodona, but it is an important element of the educational practice around Dodona.
 
 * Use
 :PROPERTIES:
@@ -760,17 +773,54 @@ The TESTed judge came forth out of a prototype I built in my master's thesis\nbs
 :END:
 
 Dodona is developed as a modern web application.
-In this section I will go over the inner workings of Dodona (both implementation and deployment) and how it adheres to modern standards of software development.
+In this section I will go over the inner workings of Dodona as a web application and how it evaluates student code.
+I will also discuss how we adhere to modern standards of software development, both in development and deployment.
 
-*** Implementation
+*** The Dodona web application
 :PROPERTIES:
 :CREATED: [2023-11-23 Thu 17:12]
 :END:
 
-Dodona is a Ruby-on-Rails web application.
+Dodona is a Ruby-on-Rails web application, following the Rails-standard way of organizing functionality in models, views and controllers.
 Web components are used where complex logic in the front-end is required.
+
+**** Security and performance
+:PROPERTIES:
+:CREATED:  [2024-01-10 Wed 14:23]
+:END:
+
 Dodona needs to operate in a challenging environment where students simultaneously submit untrusted code to be executed on its servers ("remote code execution as a service") and expect automatically generated feedback, ideally within a few seconds.
 Many design decisions are therefore aimed at maintaining and improving the reliability and security of its systems.
+Since Dodona grew from being used to teach mostly by people we knew personally to being used in secondary schools all over Flanders, we went from being able to fully trust exercise authors to having this trust reduced (as it is impossible for a team of our size to vet all the people we give teacher's rights in Dodona).
+This meant that our threat model and therefore the security measures we had to take also changed over the years.
+Once Dodona was opened up to more and more teachers, we gradually locked down what teachers could do with e.g. their exercise descriptions.
+Content where teachers can inject raw HTML into Dodona was moved to iframes, to make sure that teachers could still be as creative as they wanted while writing exercises, while simultaneously not allowing them to execute JavaScript in a session where users are logged in.
+For user content where this creative freedom is not as necessary (e.g. series or course descriptions), but some Markdown/HTML content is still wanted, we sanitize the (generated) HTML so that it can only include HTML elements and attributes that are specifically allowed.
+
+One of the most important components of Dodona is the feedback table.
+It has, therefore, seen a lot of security, optimization and UI work over the years.
+Since teachers can determine a lot of the content that eventually ends up in the feedback table, the same sanitization that is used for series and course descriptions is used for the messages that are added to the feedback table (since these can contain Markdown and arbitrary HTML as well).
+The increase in teachers that added exercises to Dodona also meant that the variety in feedback given grew, sometimes resulting in a huge volume of testcases and long output.
+Optimization work was needed to cope with this volume of feedback.
+
+When Dodona was first written, the library used creating diffs of the generated and expected results actually shelled out to the GNU =diff= command.
+This output was parsed and changed into HTML by the library using find and replace operations.
+As one can expect, starting a new process and doing a lot of string operations every time outputs had to be diffed resulted in very slow loading times for the feedback table.
+The library was replaced with a pure Ruby library (=diff-lcs=), and its outputs were built into HTML using Rails' efficient =Builder= class.
+This change of diffing method also fixed a number of bugs we were experiencing along the way.
+
+Even this was not enough to handle the most extreme of exercises though.
+Diffing hundreds of lines hundreds of times still takes a long time, even if done in-process while optimized by a JIT.
+The resulting feedback tables also contained so much HTML that the browsers on our development machines (which are pretty powerful machines) noticeably slowed down when loading and rendering them.
+To handle these cases, we needed to do less work and needed to output less HTML.
+We decided to only diff line-by-line (instead of character-by-character) in most of these cases and to not diff at all in the most extreme cases, reducing the amount of HTML required to render them as well.
+This was also motivated by usability.
+If there are lots of small differences between a very long generated and expected output, the diff view in the feedback table could also become visually overwhelming for students.
+
+*** Judging submissions
+:PROPERTIES:
+:CREATED:  [2024-01-10 Wed 14:01]
+:END:
 
 Student code is run in background jobs.
 For proper virtualization we use Docker containers\nbsp{}[cite:@pevelerComparingJailedSandboxes2019] that use OS-level containerization technologies and define runtime environments in which all data and executable software (e.g., scripts, compilers, interpreters, linters, database systems) are provided and executed.
@@ -810,33 +860,7 @@ After all, minimal configurations reduce the time and effort teachers and instru
 Sharing of data files and multimedia content among the programming assignments in a repository also implements the inheritance mechanism for /bundle packages/ as hinted by\nbsp{}[cite/t:@verhoeffProgrammingTaskPackages2008].
 Another form of inheritance is specifying default assessment configurations at the directory level, which takes advantage of the hierarchical grouping of learning activities in a repository to share common settings.
 
-Since Dodona grew from being used to teach mostly by people we knew personally to being used in secondary schools all over Flanders, we went from being able to fully trust exercise authors to having this trust reduced (as it is impossible for a team of our size to vet all the people we give teacher's rights in Dodona).
-This meant that our threat model and therefore the security measures we had to take also changed over the years.
-Once Dodona was opened up to more and more teachers, we gradually locked down what teachers could do with e.g. their exercise descriptions.
-Content where teachers can inject raw HTML into Dodona was moved to iframes, to make sure that teachers could still be as creative as they wanted while writing exercises, while simultaneously not allowing them to execute JavaScript in a session where users are logged in.
-For user content where this creative freedom is not as necessary (e.g. series or course descriptions), but some Markdown/HTML content is still wanted, we sanitize the (generated) HTML so that it can only include HTML elements and attributes that are specifically allowed.
-
-One of the most important components of Dodona is the feedback table.
-It has, therefore, seen a lot of security, optimization and UI work over the years.
-Since teachers can determine a lot of the content that eventually ends up in the feedback table, the same sanitization that is used for series and course descriptions is used for the messages that are added to the feedback table (since these can contain Markdown and arbitrary HTML as well).
-The increase in teachers that added exercises to Dodona also meant that the variety in feedback given grew, sometimes resulting in a huge volume of testcases and long output.
-Optimization work was needed to cope with this volume of feedback.
-
-When Dodona was first written, the library used creating diffs of the generated and expected results actually shelled out to the GNU =diff= command.
-This output was parsed and changed into HTML by the library using find and replace operations.
-As one can expect, starting a new process and doing a lot of string operations every time outputs had to be diffed resulted in very slow loading times for the feedback table.
-The library was replaced with a pure Ruby library (=diff-lcs=), and its outputs were built into HTML using Rails' efficient =Builder= class.
-This change of diffing method also fixed a number of bugs we were experiencing along the way.
-
-Even this was not enough to handle the most extreme of exercises though.
-Diffing hundreds of lines hundreds of times still takes a long time, even if done in-process while optimized by a JIT.
-The resulting feedback tables also contained so much HTML that the browsers on our development machines (which are pretty powerful machines) noticeably slowed down when loading and rendering them.
-To handle these cases, we needed to do less work and needed to output less HTML.
-We decided to only diff line-by-line (instead of character-by-character) in most of these cases and to not diff at all in the most extreme cases, reducing the amount of HTML required to render them as well.
-This was also motivated by usability.
-If there are lots of small differences between a very long generated and expected output, the diff view in the feedback table could also become visually overwhelming for students.
-
-*** Development
+*** Development process
 :PROPERTIES:
 :CREATED: [2023-11-23 Thu 17:13]
 :END:
@@ -851,7 +875,7 @@ The way we release Dodona has seen a few changes over the years.
 We've gone from a few large releases with bugfix point-releases between them, to lots of smaller releases, to in the end a /release/ per pull request.
 Since we are the only deployment of Dodona, releasing every pull request immediately after merging makes getting feedback from our users a very quick process.
 
-*** Deployment
+*** Deployment process
 :PROPERTIES:
 :CREATED: [2023-11-23 Thu 17:13]
 :END:
