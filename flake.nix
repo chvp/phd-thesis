@@ -157,17 +157,17 @@
                 trap "rm \"''${builddir}\" -rf; exit 0" SIGINT SIGTERM
                 if [ -e book.pdf ]
                 then
-                    time=$(stat -c %Y book.pdf)
+                  time=$(stat -c %Y book.pdf)
                 else
-                    time=$(date "+%s")
-                    build "''${builddir}"
+                  time=$(date "+%s")
+                  build "''${builddir}" || ${pkgs.libnotify}/bin/notify-send "Build failed"
                 fi
                 while true
                 do
                   while [ "$time" -lt "$(stat -c %Y book.org)" ]
                   do
                     time=$(date "+%s")
-                    build "''${builddir}"
+                    build "''${builddir}" || ${pkgs.libnotify}/bin/notify-send "Build failed"
                   done
                   time=$(date "+%s")
                   echo "Waiting for change..."
