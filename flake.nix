@@ -5,7 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     devshell = {
       url = "github:numtide/devshell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
@@ -26,7 +29,8 @@
         };
         full-texlive = pkgs.texlive.combine { inherit (pkgs.texlive) scheme-full; inherit ugent2016; };
         build-diffed = pkgs.writeShellScriptBin "build-diffed" ''
-          PATH=$PATH:${pkgs.python3.withPackages (ps: [ ps.pygments ]).bin}
+          export OSFONTDIR=./fonts/
+          PATH=$PATH:${pkgs.python3.withPackages (ps: [ ps.pygments ])}/bin
           set -E
           atexit() {
             git worktree remove -f .sent
@@ -106,6 +110,12 @@
             full-texlive
             pkgs.nixpkgs-fmt
             (pkgs.python3.withPackages (ps: [ ps.pygments ]))
+          ];
+          env = [
+            {
+              name = "OSFONTDIR";
+              value = "./fonts";
+            }
           ];
           commands = [
             {
