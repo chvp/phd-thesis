@@ -1103,7 +1103,7 @@ Another feature that teachers wanted that we had not built into a judge previous
 :CREATED:  [2024-01-05 Fri 14:06]
 :END:
 
-The API for the R judge was designed to follow the visual structure of the feedback table as closely as possible, as can be seen in the sample evaluation code in Listing\nbsp{}[[lst:technicalrsample]].
+The API for the R judge was designed to follow the visual structure of the feedback table as closely as possible, as can be seen in the sample evaluation code in listing\nbsp{}[[lst:technicalrsample]].
 Tabs are represented by different evaluation files.
 In addition to the =testEqual= function demonstrated in listing\nbsp{}[[lst:technicalrsample]] there are some other functions to specifically support the requested functionality.
 =testImage= will set up some the R environment so that generated plots (or other images) are sent to the feedback table (in a base 64 encoded string) instead of the filesystem.
@@ -1235,7 +1235,7 @@ Like the communication with Dodona, this test plan is a JSON document.
 The one unfortunate drawback of working with JSON is that it is a very verbose language and has an unforgiving syntax.
 In section\nbsp{}[[DSL]] we will look further at the steps we took to mitigate this issue.
 
-A test plan of the example exercise can be seen in listing\nbsp{}[[lst:technicaltestedtestplan]]
+A test plan of the example exercise can be seen in listing\nbsp{}[[lst:technicaltestedtestplan]].
 
 #+CAPTION: Basic structure of a test plan.
 #+CAPTION: The structure of Dodona's feedback table is followed closely.
@@ -1446,7 +1446,7 @@ The main addition of the DSL is an abstract programming language, made to look s
 Note that this is not a full programming language, but only supports language constructs as far as they are needed by TESTed.
 Values are interpreted as basic types, but can be explicitly cast to one of the more advanced types.
 
-The DSL version of the example exercise can be seen in listing\nbsp{}[[lst:technicaltesteddsl]]
+The DSL version of the example exercise can be seen in listing\nbsp{}[[lst:technicaltesteddsl]].
 
 #+CAPTION: DSL version of the example exercise.
 #+CAPTION: This version also demonstrates the use of an assignment.
