@@ -55,10 +55,6 @@ Dodona zelf:
 - Bij development staat nu dat we code review doen, maar ik zou hier ook schrijven dat we onze PRs als documentatie gebruiken en we een uitgebreide beschrijving en screenshots toevoegen
 - Dit mag van mij gerust een stuk technischer
 
-Pyodide:
-
-- papyros user feedback: kunnen we daar concreter zijn? Gestelde vragen toevoegen (evt als appendix?) concrete antwoorden? Aan hoeveel mensen hebben we feedback gevraagd, etc
-
 TESTed
 
 - Ik begrijp dat je dit niet in detail wil toevoegen als deel van je thesis, maar nu blijft het allemaal een beetje abstract. Ik denk dat een externe hier niet veel van zal begrijpen. Misschien dat een running voorbeeld toevoegen kan helpen?
@@ -1076,19 +1072,6 @@ For code completion this has the added benefit of also showing the documentation
 
 Usability was further improved by adding the =FriendlyTraceback= library.
 =FriendlyTraceback= is a Python library that changes error messages in Python to be clearer to beginners, by explicitly answering questions such as where and why an error occurred.
-
-*** User feedback
-:PROPERTIES:
-:CREATED: [2023-11-27 Mon 17:28]
-:END:
-
-To collect some qualitative data about how teachers see Papyros, we sent out a questionnaire.
-The first part of this questionnaire described Papyros, why we developed it and what the goal of the questionnaire is.
-Then we asked about the context in which the teacher operates and what their programming lectures usually look like.
-Finally, we asked about their opinion on Papyros and the impact they imagined the tool could have on their teaching practice.
-
-The teachers were all positive about Papyros and were looking forward to using it in their lessons.
-They also gave some interesting ideas about future additions to Papyros such as working with local files and adding a REPL, as well as reporting some bugs that occurred in their specific environments.
 
 ** R judge
 :PROPERTIES:
