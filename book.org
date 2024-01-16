@@ -72,10 +72,6 @@ Dodona zelf:
 - Bij development staat nu dat we code review doen, maar ik zou hier ook schrijven dat we onze PRs als documentatie gebruiken en we een uitgebreide beschrijving en screenshots toevoegen
 - Dit mag van mij gerust een stuk technischer
 
-TESTed
-
-- Ik begrijp dat je dit niet in detail wil toevoegen als deel van je thesis, maar nu blijft het allemaal een beetje abstract. Ik denk dat een externe hier niet veel van zal begrijpen. Misschien dat een running voorbeeld toevoegen kan helpen?
-
 *** TODO Write [[#chap:intro]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
@@ -1218,7 +1214,9 @@ TESTed generally works using the following steps:
 1. Evaluate the results, either with programming language-specific evaluation, programmed evaluation, or generic evaluation.
 1. Send the evaluation results to Dodona.
 
-In the following sections I will expand on these steps.
+In the following sections I will expand on these steps using an example exercise to demonstrate what I am talking about in practice.
+In this exercise, students need to rotate a list.
+For example, in Python, ~rotate([0, 1, 2, 3, 4], 2)~ should return ~[3, 4, 0, 1, 2]~.
 
 *** Test plan 
 :PROPERTIES:
@@ -1236,6 +1234,46 @@ The exit status code can only be checked in this testcase as well.
 Like the communication with Dodona, this test plan is a JSON document.
 The one unfortunate drawback of working with JSON is that it is a very verbose language and has an unforgiving syntax.
 In section\nbsp{}[[DSL]] we will look further at the steps we took to mitigate this issue.
+
+A test plan of the example exercise can be seen in listing\nbsp{}[[lst:technicaltestedtestplan]]
+
+#+CAPTION: Basic structure of a test plan.
+#+CAPTION: The structure of Dodona's feedback table is followed closely.
+#+CAPTION: The function arguments have been left out, they are explained in [[Data serialization]].
+#+NAME: lst:technicaltestedtestplan
+#+ATTR_LATEX: :float t
+#+BEGIN_SRC js
+{
+  "tabs": [
+    {
+      "name": "Feedback",
+      "contexts": [
+        {
+          "testcases": [
+            {
+              "input": {
+                "type": "function",
+                "name": "rotate",
+                "arguments": [
+                  ...
+                ]
+              },
+              "output": {
+                "result": {
+                  "value": {
+                    ...
+                  }
+                }
+              }
+            },
+            ...
+          ]
+        }
+      ]
+    }
+  ]
+}
+#+END_SRC
 
 *** Data serialization
 :PROPERTIES:
@@ -1267,6 +1305,26 @@ Like the name says, =any= signifies that the expected type is unknown, and the s
 =custom= requires the name of the type to be given.
 This can be used to, for example, create variable with a class that the student had to implement as its type.
 
+The encoded expected return value of our example exercise can be seen in listing\nbsp{}[[lst:technicaltestedtypes]].
+
+#+CAPTION: A list encoded using TESTed's data serialization format.
+#+CAPTION: The corresponding Python list would be ~[3, 4, 0, 1, 2]~.
+#+NAME: lst:technicaltestedtypes
+#+ATTR_LATEX: :float t
+#+BEGIN_SRC js
+{
+  "type": "sequence",
+  "data": [
+    { "type": "integer", "data": 3 },
+    { "type": "integer", "data": 4 },
+    { "type": "integer", "data": 0 },
+    { "type": "integer", "data": 1 },
+    { "type": "integer", "data": 2 }
+  ]
+}
+#+END_SRC
+
+
 *** Statements
 :PROPERTIES:
 :CREATED:  [2024-01-03 Wed 17:09]
@@ -1275,6 +1333,32 @@ This can be used to, for example, create variable with a class that the student 
 There is more complexity hidden in the idea of creating a variable of a custom type.
 It implies that we need to be able to create variables, instead of just capturing the result of function calls or other expressions.
 To support this, specific structures were added to the test plan JSON schema.
+Listing\nbsp{}[[lst:technicaltestedassignment]] shows what it would look like if we wanted to assign the function argument of our example exercise to a variable.
+
+#+CAPTION: A TESTed testcase containing a statement.
+#+CAPTION: The corresponding Python statement would be ~numbers01 = [0, 1, 2, 3, 4]~.
+#+NAME: lst:technicaltestedassignment
+#+ATTR_LATEX: :float t
+#+BEGIN_SRC js
+"testcases": [
+  {
+    "input": {
+      "type": "sequence",
+      "variable": "numbers01",
+      "expression": {
+        "type": "sequence",
+        "data": [
+          { "type": "integer", "data": 0 },
+          { "type": "integer", "data": 1 },
+          { "type": "integer", "data": 2 },
+          { "type": "integer", "data": 3 },
+          { "type": "integer", "data": 4 }
+        ],
+      }
+    }
+  }
+]
+#+END_SRC
 
 *** Checking programming language support
 :PROPERTIES:
@@ -1285,6 +1369,8 @@ We also need to make sure that the programming language being executed is suppor
 The two things that are checked are whether a programming language supports all the types that are used and whether the language has all the necessary language constructs.
 For example, if the test plan uses a =tuple=, but the language doesn't support it, it's obviously not possible to evaluate a submission in that language.
 The same is true for overloaded functions: if it is necessary that a function can be called with a string and with a number, a language like C will not be able to support this.
+Collections also art yet supported for C, since the way arrays and their lengths work in C is quite different from other languages.
+Our example exercise will not work in C for this reason.
 
 *** Execution
 :PROPERTIES:
@@ -1313,7 +1399,7 @@ TESTed can however only evaluate the results as far as it is programmed to do so
 There are two other ways the results can be evaluated: programmed evaluation and programming-language specific evaluation.
 With programmed evaluation, the results are passed to code written by a teacher (which is executed in a new process).
 This code will then check the results, and generate appropriate feedback.
-Programming-language specific evaluation is executed immediately after the test code in that process.
+Programming-language specific evaluation is executed immediately after the test code in the process of the test code.
 This can be used to evaluate programming-language specific concepts, for example the correct use of pointers in C.
 
 *** Linting
@@ -1359,6 +1445,29 @@ YAML's concise nature also contributes to the read- and writability of its test 
 The main addition of the DSL is an abstract programming language, made to look somewhat like Python 3.
 Note that this is not a full programming language, but only supports language constructs as far as they are needed by TESTed.
 Values are interpreted as basic types, but can be explicitly cast to one of the more advanced types.
+
+The DSL version of the example exercise can be seen in listing\nbsp{}[[lst:technicaltesteddsl]]
+
+#+CAPTION: DSL version of the example exercise.
+#+CAPTION: This version also demonstrates the use of an assignment.
+#+NAME: lst:technicaltesteddsl
+#+ATTR_LATEX: :float t
+#+BEGIN_SRC yaml
+  - tab: "Feedback"
+    contexts:
+      - testcases:
+          - statement: "numbers01 = [0, 1, 2, 3, 4]"
+          - expression: "rotate(numbers01, 2)"
+            return: "[3, 4, 0, 1, 2]"
+          - expression: "rotate(numbers01, 1)"
+            return: "[4, 0, 1, 2, 3]"
+      - testcases:
+          - statement: "numbers02 = [0, 1, 2, 3, 4, 5]"
+          - expression: "rotate(numbers02, 2)"
+            return: "[4, 5, 0, 1, 2, 3]"
+          - expression: "rotate(numbers02, 1)"
+            return: "[5, 0, 1, 2, 3, 4]"
+#+END_SRC
 
 * Pass/fail prediction
 :PROPERTIES:
