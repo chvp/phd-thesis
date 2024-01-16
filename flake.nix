@@ -26,6 +26,7 @@
         };
         full-texlive = pkgs.texlive.combine { inherit (pkgs.texlive) scheme-full; inherit ugent2016; };
         build-diffed = pkgs.writeShellScriptBin "build-diffed" ''
+          PATH=$PATH:${pkgs.python3.withPackages (ps: [ ps.pygments ]).bin}
           set -E
           atexit() {
             git worktree remove -f .sent
@@ -41,8 +42,8 @@
           popd
           mkdir build
           ${full-texlive}/bin/latexdiff --math-markup=whole -t CFONT sent.tex book.tex > diff.tex
-          ${full-texlive}/bin/latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory=build book.tex
-          ${full-texlive}/bin/latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory=build diff.tex
+          ${full-texlive}/bin/latexmk -f -pdf -lualatex -shell-escape -interaction=nonstopmode -output-directory=build book.tex
+          ${full-texlive}/bin/latexmk -f -pdf -lualatex -shell-escape -interaction=nonstopmode -output-directory=build diff.tex
           mv build/book.pdf build/diff.pdf .
         '';
         ugent2016 = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
