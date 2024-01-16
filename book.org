@@ -24,6 +24,7 @@
 #+LATEX_HEADER: \addtokomafont{caption}{\small}
 #+OPTIONS: ':t
 #+OPTIONS: H:4
+#+OPTIONS: toc:3
 #+cite_export: csl citation-style.csl
 #+bibliography: bibliography.bib
 
