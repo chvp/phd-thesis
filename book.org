@@ -59,10 +59,6 @@ TESTed
 
 - Ik begrijp dat je dit niet in detail wil toevoegen als deel van je thesis, maar nu blijft het allemaal een beetje abstract. Ik denk dat een externe hier niet veel van zal begrijpen. Misschien dat een running voorbeeld toevoegen kan helpen?
 
-algemeen: 
-
-- moeten er geen links naar github worden toegevoegd bij de relevante secties?
-
 *** TODO Write [[#chap:intro]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
@@ -775,10 +771,11 @@ I will also discuss two judges that I was involved with the development of.
 The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
 The TESTed judge came forth out of a prototype I built in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two master's theses I supervised\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
 
-** Dodona
+** Dodona[fn:: https://github.com/dodona-edu/dodona]
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:techdodona
+:ALT_TITLE: Dodona
 :END:
 
 Dodona is developed as a modern web application.
@@ -901,7 +898,7 @@ After we identified this issue, the Python tutor was moved to its own server.
 This did not fix the Tutor itself becoming overwhelmed however, which meant that students that depended on the Tutor were sometimes unable to use it.
 This of course happened more during periods where the Tutor was being used a lot, such as evaluations and exams.
 One can imagine that the experience for students who are already quite stressed out about the exam they are taking when the Tutor suddenly failed was not very good.
-In the meantime, we had started to experiment with running Python code client-side in the browser (see section\nbsp{}[[Papyros]] for more info).
+In the meantime, we had started to experiment with running Python code client-side in the browser (see section\nbsp{}[[#sec:papyros]] for more info).
 Because these experiments were successful, we migrated the Python Tutor from its own server to being run by students in their own browser using Pyodide.
 This means that the only student that can be impacted by the Python Tutor failing for a testcase is the student themselves (and because the Tutor is being run on a device that is under a far less heavy load, the Python Tutor fails much less often).
 
@@ -917,10 +914,11 @@ This is one of the main ways we discover bugs that got through our tests, since 
 We also get notified when there are long-running requests, since we consider our users having to wait a long time to see the page they requested a bug in itself.
 These notifications were an important driver to optimize some pages or to make certain operations asynchronous.
 
-** Papyros
+** Papyros[fn:: https://github.com/dodona-edu/papyros]
 :PROPERTIES:
 :CREATED: [2023-11-23 Thu 17:29]
 :CUSTOM_ID: sec:papyros
+:ALT_TITLE: Papyros
 :END:
 
 One of the main feedback items we got when introducing Dodona to secondary education teachers was that Dodona did not have a simple way for students to run and test their code themselves.
@@ -1073,10 +1071,11 @@ For code completion this has the added benefit of also showing the documentation
 Usability was further improved by adding the =FriendlyTraceback= library.
 =FriendlyTraceback= is a Python library that changes error messages in Python to be clearer to beginners, by explicitly answering questions such as where and why an error occurred.
 
-** R judge
+** R judge[fn:: https://github.com/dodona-edu/judge-r]
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:techr
+:ALT_TITLE: R judge
 :END:
 
 Because Dodona had proven itself as a useful tool for teaching Python and Java to students, colleagues teaching statistics started asking if we could build R support into Dodona.
@@ -1161,10 +1160,11 @@ The judge is also programmed very defensively.
 Every time execution is handed off to student code (or even teacher code), appropriate error handlers and output redirections are installed.
 This prevents the student and teacher code from e.g. writing to standard output (and thus messing up the JSON expected by Dodona).
 
-** TESTed
+** TESTed[fn:: https://github.com/dodona-edu/universal-judge]
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:techtested
+:ALT_TITLE: TESTed
 :END:
 
 My master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] presented a method for estimating the computational complexity of solutions for programming exercises.
