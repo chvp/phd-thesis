@@ -104,6 +104,7 @@
           packages = [
             full-texlive
             pkgs.nixpkgs-fmt
+            (pkgs.python3.withPackages (ps: [ ps.pygments ]))
           ];
           commands = [
             {
@@ -139,7 +140,7 @@
                     builddir=$(mktemp -d --tmpdir=/tmp)
                 fi
                 ${emacs}/bin/emacs -batch -load build.el
-                ${full-texlive}/bin/latexmk -f -pdf -lualatex -interaction=nonstopmode -output-directory="''${builddir}" book.tex
+                ${full-texlive}/bin/latexmk -f -pdf -lualatex -shell-escape -interaction=nonstopmode -output-directory="''${builddir}" book.tex
                 mv "''${builddir}"/book.pdf .
                 if ! [ $# -eq 1 ]
                 then

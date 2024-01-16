@@ -5,7 +5,23 @@
 #+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
-#+LATEX_HEADER: \usepackage{listings}
+#+LATEX_HEADER: \usepackage{shellesc, luacode}
+#+LATEX_HEADER: \begin{luacode*}
+#+LATEX_HEADER:   function parseargv()
+#+LATEX_HEADER:     local rep = {}
+#+LATEX_HEADER:     for k, x in pairs(arg) do
+#+LATEX_HEADER:         local kw, vw = string.match(x, "([^=]+)=?([^=]*)")
+#+LATEX_HEADER:         rep[kw] = vw
+#+LATEX_HEADER:     end
+#+LATEX_HEADER:     return rep
+#+LATEX_HEADER:   end
+#+LATEX_HEADER:   local arguments = parseargv()
+#+LATEX_HEADER:   local outputdir = arguments["-output-directory"]
+#+LATEX_HEADER:   if outputdir ~= nil then
+#+LATEX_HEADER:     tex.print([[\PassOptionsToPackage{outputdir={]]..outputdir..[[}}{minted}]])
+#+LATEX_HEADER:   end
+#+LATEX_HEADER: \end{luacode*}
+#+LATEX_HEADER: \usepackage[newfloat]{minted}
 #+LATEX_HEADER: \usepackage{color}
 #+LATEX_HEADER: \usepackage{url}
 #+LATEX_HEADER: \usepackage[type=report]{ugent2016-title}
@@ -1093,7 +1109,7 @@ Another feature that teachers wanted that we had not built into a judge previous
 
 The API for the R judge was designed to follow the visual structure of the feedback table as closely as possible, as can be seen in the sample evaluation code in Listing\nbsp{}[[lst:technicalrsample]].
 Tabs are represented by different evaluation files.
-In addition to the =testEqual= function demonstrated in Listing\nbsp{}[[lst:technicalrsample]] there are some other functions to specifically support the requested functionality.
+In addition to the =testEqual= function demonstrated in listing\nbsp{}[[lst:technicalrsample]] there are some other functions to specifically support the requested functionality.
 =testImage= will set up some the R environment so that generated plots (or other images) are sent to the feedback table (in a base 64 encoded string) instead of the filesystem.
 It will also by default make the test fail if no image was generated (but does not do any verification of the image contents).
 An example of what the feedback table looks like when an image is generated can be seen in Figure\nbsp{}[[fig:technicalrplot]].
