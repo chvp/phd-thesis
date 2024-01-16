@@ -45,7 +45,7 @@
           mv book.tex ../sent.tex
           popd
           mkdir build
-          ${full-texlive}/bin/latexdiff --math-markup=whole -t CFONT sent.tex book.tex > diff.tex
+          ${full-texlive}/bin/latexdiff --math-markup=whole -t CFONT -c 'VERBATIMENV=(?:(?:comment)|(?:minted)|(?:luacode[*]?))' sent.tex book.tex | sed "s/%DIF > $//" > diff.tex
           ${full-texlive}/bin/latexmk -f -pdf -lualatex -shell-escape -interaction=nonstopmode -output-directory=build book.tex
           ${full-texlive}/bin/latexmk -f -pdf -lualatex -shell-escape -interaction=nonstopmode -output-directory=build diff.tex
           mv build/book.pdf build/diff.pdf .
