@@ -30,7 +30,7 @@
         full-texlive = pkgs.texlive.combine { inherit (pkgs.texlive) scheme-full; inherit ugent2016; };
         build-diffed = pkgs.writeShellScriptBin "build-diffed" ''
           export OSFONTDIR=./fonts/
-          PATH=$PATH:${pkgs.python3.withPackages (ps: [ ps.pygments ])}/bin
+          PATH=$PATH:${pkgs.python3.withPackages (ps: [ ps.pygments ])}/bin:${pkgs.inkscape}/bin
           set -E
           atexit() {
             git worktree remove -f .sent
@@ -108,6 +108,7 @@
           name = "PhD thesis";
           packages = [
             full-texlive
+            pkgs.inkscape
             pkgs.nixpkgs-fmt
             (pkgs.python3.withPackages (ps: [ ps.pygments ]))
           ];

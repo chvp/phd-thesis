@@ -19,18 +19,20 @@
 #+LATEX_HEADER:   local outputdir = arguments["-output-directory"]
 #+LATEX_HEADER:   if outputdir ~= nil then
 #+LATEX_HEADER:     tex.print([[\PassOptionsToPackage{outputdir={]]..outputdir..[[}}{minted}]])
+#+LATEX_HEADER:     tex.print([[\PassOptionsToPackage{inkscapepath={]]..outputdir..[[}}{svg}]])
 #+LATEX_HEADER:   end
 #+LATEX_HEADER: \end{luacode*}
 #+LATEX_HEADER: \usepackage[newfloat]{minted}
 #+LATEX_HEADER: \usepackage{color}
 #+LATEX_HEADER: \usepackage{url}
+#+LATEX_HEADER: \usepackage{svg}
 #+LATEX_HEADER: \usepackage[type=report]{ugent2016-title}
 #+LATEX_HEADER: \usepackage[final]{microtype}
 #+LATEX_HEADER: \usepackage[defaultlines=2,all]{nowidow}
 #+LATEX_HEADER: \usepackage[dutch,AUTO]{polyglossia}
 #+LATEX_HEADER: \academicyear{2023–2024}
 #+LATEX_HEADER: \subtitle{Learn to code with a data-driven platform}
-#+LATEX_HEADER: \titletext{A dissertation submitted to Ghent University in partial fulfilment of the requirements for the degree of Doctor of Computer Science.}
+#+LATEX_HEADER: \titletext{A dissertation submitted to Ghent University in partial fulfilment of\\ the requirements for the degree of Doctor of Computer Science.}
 #+LATEX_HEADER: \promotors{%
 #+LATEX_HEADER: Supervisors:\\
 #+LATEX_HEADER: Prof.\ Dr.\ Peter Dawyndt\\
@@ -41,6 +43,7 @@
 #+OPTIONS: ':t
 #+OPTIONS: H:4
 #+OPTIONS: toc:3
+#+OPTIONS: broken-links:mark
 #+cite_export: csl citation-style.csl
 #+bibliography: bibliography.bib
 
@@ -59,30 +62,12 @@ Because of this the `\frontmatter` statement needs to be part of the `org-latex-
 :CREATED: [2023-11-20 Mon 17:17]
 :END:
 
-*** TODO Feedback Bart
-:PROPERTIES:
-:CREATED:  [2024-01-09 Tue 17:28]
-:END:
-
-Dodona zelf:
-
-- Beginnen met figuur met alle servers op en dat als kapstok gebruiken
-- Betere/meer sectietitels
-- Dingen die ontbreken: dependabot, release notes, naos, mestra, deployen via action + capistrano, statistieken over aantal commits, contributors, releases
-- Bij development staat nu dat we code review doen, maar ik zou hier ook schrijven dat we onze PRs als documentatie gebruiken en we een uitgebreide beschrijving en screenshots toevoegen
-- Dit mag van mij gerust een stuk technischer
-
 *** TODO Write [[#chap:intro]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
 
 Include history of automated assessment
-
-*** TODO Write [[#sec:whatdolos]]
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 17:24]
-:END:
 
 *** TODO Write [[#subsec:useothers]], and [[#sec:usesecondary]]
 :PROPERTIES:
@@ -425,15 +410,6 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 #+CAPTION: Manual assessment of a submission: a teacher (Miss Honey) is giving feedback on the source code by adding inline annotations and is grading the submission by filling up the scoring rubric that was set up for the programming assignment "The Feynman ciphers".
 #+NAME: fig:whatannotations
 [[./images/whatannotations.png]]
-
-** Dolos
-:PROPERTIES:
-:CREATED: [2023-11-24 Fri 14:03]
-:CUSTOM_ID: sec:whatdolos
-:END:
-
-Dolos is a tool for measuring the similarity of code (the most common use-case of which is plagiarism detection).
-Dolos is not (yet) integrated into Dodona, but it is an important element of the educational practice around Dodona.
 
 * Use
 :PROPERTIES:
@@ -791,17 +767,29 @@ The TESTed judge came forth out of a prototype I built in my master's thesis\nbs
 :ALT_TITLE: Dodona
 :END:
 
-Dodona is developed as a modern web application.
-In this section I will go over the inner workings of Dodona as a web application and how it evaluates student code.
-I will also discuss how we adhere to modern standards of software development, both in development and deployment.
+To ensure that Dodona is robust to sudden increases in workload and when serving hundreds of concurrent users, it has a multi-tier service architecture that delegates different parts of the application to different servers, as can be seen on figure\nbsp{}[[fig:technicaldodonaservers]].
+More specifically, the web server, database (MySQL) and caching system (Memcached) each run on their own machine.
+In addition, a scalable pool of interchangeable worker servers are available to automatically assess incoming student submissions.
+In this section, I will highlight the workings of a few of these components.
+
+#+CAPTION: Diagram of all the servers involved with running and developing Dodona.
+#+CAPTION: Every server also has an implicit connection with Phocus (the monitoring server), since metrics are collected on every server such as load, CPU usage, disk usage, ...
+#+CAPTION: The Pandora server is grayed out because it is not used anymore (see section\nbsp{}[[Python Tutor]] for more info).
+#+NAME: fig:technicaldodonaservers
+[[./diagrams/technicaldodonaservers.svg]]
 
 *** The Dodona web application
 :PROPERTIES:
 :CREATED: [2023-11-23 Thu 17:12]
 :END:
 
+The user-facing part of Dodona runs on the main web server, also called Dodona (see figure\nbsp{}[[fig:technicaldodonaservers]]).
 Dodona is a Ruby-on-Rails web application, following the Rails-standard way of organizing functionality in models, views and controllers.
-Web components are used where complex logic in the front-end is required.
+The way we handle complex logic in the frontend has seen a number of changes along the years.
+The changes were mostly done because of increasing complexity and to eliminate jQuery.
+When Dodona was started, there were only a few places where JavaScript was used.
+Dodona also used the Rails-standard way of serving dynamically generated JavaScript to replace parts of pages (e.g. for pagination or search).
+With the introduction of more complex features like evaluations, we switch to using lightweight web components where this made sense.
 
 **** Security and performance
 :PROPERTIES:
@@ -841,7 +829,7 @@ If there are lots of small differences between a very long generated and expecte
 :CREATED:  [2024-01-10 Wed 14:01]
 :END:
 
-Student code is run in background jobs.
+Student code is run in background jobs by our worker servers (Salmoneus, Sisyphus, Tantalus, Tityos and Ixion, as can be seen in figure\nbsp{}[[fig:technicaldodonaservers]]).
 For proper virtualization we use Docker containers\nbsp{}[cite:@pevelerComparingJailedSandboxes2019] that use OS-level containerization technologies and define runtime environments in which all data and executable software (e.g., scripts, compilers, interpreters, linters, database systems) are provided and executed.
 These resources are typically pre-installed in the image of the container.
 Prior to launching the actual assessment, the container is extended with the submission, the judge and the resources included in the assessment configuration (Figure\nbsp{}[[fig:technicaloutline]]).
@@ -879,41 +867,64 @@ After all, minimal configurations reduce the time and effort teachers and instru
 Sharing of data files and multimedia content among the programming assignments in a repository also implements the inheritance mechanism for /bundle packages/ as hinted by\nbsp{}[cite/t:@verhoeffProgrammingTaskPackages2008].
 Another form of inheritance is specifying default assessment configurations at the directory level, which takes advantage of the hierarchical grouping of learning activities in a repository to share common settings.
 
-*** Development process
+*** Python Tutor
 :PROPERTIES:
-:CREATED: [2023-11-23 Thu 17:13]
+:CREATED:  [2024-01-17 Wed 13:23]
 :END:
-
-Development of Dodona is done on GitHub.
-All new features and bug fixes are added to the main branch through pull requests.
-These pull requests are reviewed by (at least) two others on the Dodona team before they are merged.
-The extensive test suite also runs automatically for every pull request, and developers are encouraged to add new tests for each feature or bug fix.
-We've also made it very easy to deploy to our testing and staging environments so that reviewers can test changes without having to spin up their local development instance of Dodona.
-
-The way we release Dodona has seen a few changes over the years.
-We've gone from a few large releases with bugfix point-releases between them, to lots of smaller releases, to in the end a /release/ per pull request.
-Since we are the only deployment of Dodona, releasing every pull request immediately after merging makes getting feedback from our users a very quick process.
-
-*** Deployment process
-:PROPERTIES:
-:CREATED: [2023-11-23 Thu 17:13]
-:END:
-
-To ensure that the system is robust to sudden increases in workload and when serving hundreds of concurrent users, Dodona has a multi-tier service architecture that delegates different parts of the application to different servers.
-More specifically, the web server, database (MySQL) and caching system (Memcached) each run on their own machine.
-In addition, a scalable pool of interchangeable worker servers are available to automatically assess incoming student submissions.
 
 The deployment of the Python Tutor also saw a number of changes over the years.
 The Python Tutor itself is written in Python, so could not be part of Dodona itself.
 It started out as a Docker container on the same server as the main Dodona web application.
 Because it is used mainly by students who want to figure out their mistakes, the service responsible for running student code could become overwhelmed and in extreme cases even make the entire server unresponsive.
-After we identified this issue, the Python tutor was moved to its own server.
+After we identified this issue, the Python tutor was moved to its own server (Pandora in figure\nbsp{}[[fig:technicaldodonaservers]]).
 This did not fix the Tutor itself becoming overwhelmed however, which meant that students that depended on the Tutor were sometimes unable to use it.
 This of course happened more during periods where the Tutor was being used a lot, such as evaluations and exams.
 One can imagine that the experience for students who are already quite stressed out about the exam they are taking when the Tutor suddenly failed was not very good.
 In the meantime, we had started to experiment with running Python code client-side in the browser (see section\nbsp{}[[#sec:papyros]] for more info).
 Because these experiments were successful, we migrated the Python Tutor from its own server to being run by students in their own browser using Pyodide.
 This means that the only student that can be impacted by the Python Tutor failing for a testcase is the student themselves (and because the Tutor is being run on a device that is under a far less heavy load, the Python Tutor fails much less often).
+
+*** Development process
+:PROPERTIES:
+:CREATED: [2023-11-23 Thu 17:13]
+:END:
+
+Development of Dodona is done on GitHub.
+Over the years, Dodona has seen over 16\thinsp{}000 commits by 26 contributors, and there have been 339 releases.
+All new features and bug fixes are added to the main branch through pull requests, of which there have been almost 3\thinsp{}800.
+These pull requests are reviewed by (at least) two others on the Dodona team before they are merged.
+We also treat pull requests as a form of documentation by writing an extensive PR description and adding screenshots for all visual changes or additions.
+The extensive test suite also runs automatically for every pull request, and developers are encouraged to add new tests for each feature or bug fix.
+We've also made it very easy to deploy to our testing (Mestra) and staging (Naos) environments so that reviewers can test changes without having to spin up their local development instance of Dodona.
+These are the two unconnected servers seen in figure\nbsp{}[[fig:technicaldodonaservers]].
+Mestra runs a Dodona instance much like the instance developers use locally.
+There is no production data present and in fact, the database is wiped and reseeded on every deploy.
+Naos is much closer to the production setup.
+It runs on a pseudonymized version of the production database, and has all the judges configured.
+
+We also make sure that our dependencies are always up-to-date using Dependabot.
+By updating our dependencies regularly, we make sure that we are not met by surprises when there is an important security update.
+Since Dodona is a website accessible over the public web, it would be a problem if we could not quickly apply a security update.
+
+The way we release Dodona has seen a few changes over the years.
+We've gone from a few large releases with bugfix point-releases between them, to lots of smaller releases, to in the end a /release/ per pull request.
+Since we are the only deployment of Dodona, releasing every pull request immediately after merging makes getting feedback from our users a very quick process.
+When we did versioned releases we also wrote release notes at that point.
+Because we don't have versioned releases any more, we now bundle the changes into release notes for every month.
+They are mostly autogenerated from the merged PRs, but bigger features are given more context and explanation.
+
+
+*** Deployment process
+:PROPERTIES:
+:CREATED: [2023-11-23 Thu 17:13]
+:END:
+
+After a pull request is merged, it is automatically deployed by a GitHub action.
+This action first runs all the tests again, deploys to the staging server and then deploys to the production servers.
+Since Naos has a copy of the production database, the deploy would be stopped if there are any migrations that fail in production.
+This way we can be sure the actual production database is never in an inconsistent migration state.
+The actual deployment is done by Capistrano[fn:: https://capistranorb.com/].
+Capistrano allows us to roll back any deploys and makes clever use of symlinking to make sure that deploys happen without any service interruption.
 
 Backups of the database are automatically saved every day and kept for 12 months, although the frequency which they are kept with decreases over time.
 The backups are taken by dumping a replica database.
