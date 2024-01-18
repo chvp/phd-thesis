@@ -767,14 +767,14 @@ The TESTed judge came forth out of a prototype I built in my master's thesis\nbs
 :ALT_TITLE: Dodona
 :END:
 
-To ensure that Dodona is robust to sudden increases in workload and when serving hundreds of concurrent users, it has a multi-tier service architecture that delegates different parts of the application to different servers, as can be seen on figure\nbsp{}[[fig:technicaldodonaservers]].
+To ensure that Dodona is robust to sudden increases in workload and when serving hundreds of concurrent users, it has a multi-tier service architecture that delegates different parts of the application to different servers, as can be seen on Figure\nbsp{}[[fig:technicaldodonaservers]].
 More specifically, the web server, database (MySQL) and caching system (Memcached) each run on their own machine.
 In addition, a scalable pool of interchangeable worker servers are available to automatically assess incoming student submissions.
 In this section, I will highlight a few of these components.
 
 #+CAPTION: Diagram of all the servers involved with running and developing Dodona.
 #+CAPTION: Every server also has an implicit connection with Phocus (the monitoring server), since metrics are collected on every server such as load, CPU usage, disk usage, ...
-#+CAPTION: The Pandora server is grayed out because it is not used anymore (see section\nbsp{}[[Python Tutor]] for more info).
+#+CAPTION: The Pandora server is grayed out because it is not used anymore (see Section\nbsp{}[[Python Tutor]] for more info).
 #+NAME: fig:technicaldodonaservers
 [[./diagrams/technicaldodonaservers.svg]]
 
@@ -783,7 +783,7 @@ In this section, I will highlight a few of these components.
 :CREATED: [2023-11-23 Thu 17:12]
 :END:
 
-The user-facing part of Dodona runs on the main web server, also called Dodona (see figure\nbsp{}[[fig:technicaldodonaservers]]).
+The user-facing part of Dodona runs on the main web server, also called Dodona (see Figure\nbsp{}[[fig:technicaldodonaservers]]).
 Dodona is a Ruby-on-Rails web application, following the Rails-standard way of organizing functionality in models, views and controllers.
 The way we handle complex logic in the frontend has seen a number of changes along the years.
 These changes were mostly done because of increasing complexity and to eliminate jQuery.
@@ -830,7 +830,7 @@ If there are lots of small differences between a very long generated and expecte
 :CUSTOM_ID: subsec:techdodonajudging
 :END:
 
-Student code is run in background jobs by our worker servers (Salmoneus, Sisyphus, Tantalus, Tityos and Ixion, as can be seen in figure\nbsp{}[[fig:technicaldodonaservers]]).
+Student code is run in background jobs by our worker servers (Salmoneus, Sisyphus, Tantalus, Tityos and Ixion, as can be seen in Figure\nbsp{}[[fig:technicaldodonaservers]]).
 To divide the work over these servers we make use of a job queue, based on =delayed_job=[fn:: https://github.com/collectiveidea/delayed_job].
 Each worker server has 6 job runners, which regularly poll the job queue when idle.
 
@@ -880,11 +880,11 @@ The deployment of the Python Tutor also saw a number of changes over the years.
 The Python Tutor itself is written in Python, so could not be part of Dodona itself.
 It started out as a Docker container on the same server as the main Dodona web application.
 Because it is used mainly by students who want to figure out their mistakes, the service responsible for running student code could become overwhelmed and in extreme cases even make the entire server unresponsive.
-After we identified this issue, the Python tutor was moved to its own server (Pandora in figure\nbsp{}[[fig:technicaldodonaservers]]).
+After we identified this issue, the Python tutor was moved to its own server (Pandora in Figure\nbsp{}[[fig:technicaldodonaservers]]).
 This did not fix the Tutor itself becoming overwhelmed however, which meant that students that depended on the Tutor were sometimes unable to use it.
 This of course happened more during periods where the Tutor was being used a lot, such as evaluations and exams.
 One can imagine that the experience for students who are already quite stressed out about the exam they are taking when the Tutor suddenly failed was not very good.
-In the meantime, we had started to experiment with running Python code client-side in the browser (see section\nbsp{}[[#sec:papyros]] for more info).
+In the meantime, we had started to experiment with running Python code client-side in the browser (see Section\nbsp{}[[#sec:papyros]] for more info).
 Because these experiments were successful, we migrated the Python Tutor from its own server to being run by students in their own browser using Pyodide.
 This means that the only student that can be impacted by the Python Tutor failing for a testcase is the student themselves (and because the Tutor is being run on a device that is under a far less heavy load, the Python Tutor fails much less often).
 
@@ -900,7 +900,7 @@ These pull requests are reviewed by (at least) two others on the Dodona team bef
 We also treat pull requests as a form of documentation by writing an extensive PR description and adding screenshots for all visual changes or additions.
 The extensive test suite also runs automatically for every pull request, and developers are encouraged to add new tests for each feature or bug fix.
 We've also made it very easy to deploy to our testing (Mestra) and staging (Naos) environments so that reviewers can test changes without having to spin up their local development instance of Dodona.
-These are the two unconnected servers seen in figure\nbsp{}[[fig:technicaldodonaservers]].
+These are the two unconnected servers seen in Figure\nbsp{}[[fig:technicaldodonaservers]].
 Mestra runs a Dodona instance much like the instance developers use locally.
 There is no production data present and in fact, the database is wiped and reseeded on every deploy.
 Naos is much closer to the production setup.
@@ -1117,9 +1117,9 @@ Another feature that teachers wanted that we had not built into a judge previous
 :CREATED:  [2024-01-05 Fri 14:06]
 :END:
 
-The API for the R judge was designed to follow the visual structure of the feedback table as closely as possible, as can be seen in the sample evaluation code in listing\nbsp{}[[lst:technicalrsample]].
+The API for the R judge was designed to follow the visual structure of the feedback table as closely as possible, as can be seen in the sample evaluation code in Listing\nbsp{}[[lst:technicalrsample]].
 Tabs are represented by different evaluation files.
-In addition to the =testEqual= function demonstrated in listing\nbsp{}[[lst:technicalrsample]] there are some other functions to specifically support the requested functionality.
+In addition to the =testEqual= function demonstrated in Listing\nbsp{}[[lst:technicalrsample]] there are some other functions to specifically support the requested functionality.
 =testImage= will set up some the R environment so that generated plots (or other images) are sent to the feedback table (in a base 64 encoded string) instead of the filesystem.
 It will also by default make the test fail if no image was generated (but does not do any verification of the image contents).
 An example of what the feedback table looks like when an image is generated can be seen in Figure\nbsp{}[[fig:technicalrplot]].
@@ -1247,9 +1247,9 @@ The exit status code can only be checked in this testcase as well.
 
 Like the communication with Dodona, this test plan is a JSON document.
 The one unfortunate drawback of working with JSON is that it is a very verbose language and has an unforgiving syntax.
-In section\nbsp{}[[DSL]] we will look further at the steps we took to mitigate this issue.
+In Section\nbsp{}[[DSL]] we will look further at the steps we took to mitigate this issue.
 
-A test plan of the example exercise can be seen in listing\nbsp{}[[lst:technicaltestedtestplan]].
+A test plan of the example exercise can be seen in Listing\nbsp{}[[lst:technicaltestedtestplan]].
 
 #+CAPTION: Basic structure of a test plan.
 #+CAPTION: The structure of Dodona's feedback table is followed closely.
@@ -1319,7 +1319,7 @@ Like the name says, =any= signifies that the expected type is unknown, and the s
 =custom= requires the name of the type to be given.
 This can be used to, for example, create variable with a class that the student had to implement as its type.
 
-The encoded expected return value of our example exercise can be seen in listing\nbsp{}[[lst:technicaltestedtypes]].
+The encoded expected return value of our example exercise can be seen in Listing\nbsp{}[[lst:technicaltestedtypes]].
 
 #+CAPTION: A list encoded using TESTed's data serialization format.
 #+CAPTION: The corresponding Python list would be ~[3, 4, 0, 1, 2]~.
@@ -1431,7 +1431,7 @@ For each supported programming language, both the linter to be used and how its 
 :CREATED:  [2023-12-11 Mon 17:22]
 :END:
 
-As mentioned in section\nbsp{}[[Test plan]], JSON is not the best format.
+As mentioned in Section\nbsp{}[[Test plan]], JSON is not the best format.
 It is very verbose and error-prone when writing (trailing commas are not allowed, all object keys are strings and need to be written as such, etc.).
 This aspect of usability was not the initial focus of TESTed, since most Dodona power users already use code to generate their evaluation files.
 Because code is very good at outputting an exact and verbose format like JSON, this avoids its main drawback.
@@ -1460,7 +1460,7 @@ The main addition of the DSL is an abstract programming language, made to look s
 Note that this is not a full programming language, but only supports language constructs as far as they are needed by TESTed.
 Values are interpreted as basic types, but can be explicitly cast to one of the more advanced types.
 
-The DSL version of the example exercise can be seen in listing\nbsp{}[[lst:technicaltesteddsl]].
+The DSL version of the example exercise can be seen in Listing\nbsp{}[[lst:technicaltesteddsl]].
 
 #+CAPTION: DSL version of the example exercise.
 #+CAPTION: This version also demonstrates the use of an assignment.
@@ -1645,7 +1645,7 @@ A snapshot of a course edition measures student performance only from informatio
 As a result, the snapshot does not take into account submissions after its timestamp.
 Note that the last snapshot taken at the deadline of the final exam takes into account all submissions during the course edition.
 The learning behaviour of a student is expressed as a set of features extracted from the raw submission data.
-We identified different types of features (see appendix\nbsp{}[[Feature types]]) that indirectly quantify certain behavioural aspects of students practising their programming skills.
+We identified different types of features (see Appendix\nbsp{}[[Feature types]]) that indirectly quantify certain behavioural aspects of students practising their programming skills.
 When and how long do students work on their exercises?
 Can students correctly solve an exercise and how much feedback do they need to accomplish this?
 What kinds of mistakes do students make while solving programming exercises?
@@ -1663,7 +1663,7 @@ These features of the snapshot can be used to predict whether a student will fin
 The snapshot also contains a binary value with the actual outcome that is used as a label during training and testing of classification algorithms.
 Students that did not take part in the final examination, automatically fail the course.
 
-Since course B has no hard deadlines, we left out deadline-related features from its snapshots (=first_dl=, =last_dl= and =nr_dl=; see appendix\nbsp{}[[Feature types]]).
+Since course B has no hard deadlines, we left out deadline-related features from its snapshots (=first_dl=, =last_dl= and =nr_dl=; see Appendix\nbsp{}[[Feature types]]).
 To investigate the impact of deadline-related features, we also made predictions for course A that ignore these features.
 
 *** Classification algorithms
@@ -1779,7 +1779,7 @@ The models, however, were built using the same set of feature types.
 Because course B does not work with hard deadlines, deadline-related feature types could not be computed for its snapshots.
 This missing data and associated features had no impact on the performance of the predictions.
 Deliberately dropping the same feature types for course A also had no significant effect on the performance of predictions, illustrating that the training phase is where classification algorithms decide themselves how the individual features will contribute to the predictions.
-This frees us from having to determine the importance of features beforehand, allows us to add new features that might contribute to predictions even if they correlate with other features, and makes it possible to investigate afterwards how important individual features are for a given classifier (see section\nbsp{}[[Interpretability]]).
+This frees us from having to determine the importance of features beforehand, allows us to add new features that might contribute to predictions even if they correlate with other features, and makes it possible to investigate afterwards how important individual features are for a given classifier (see Section\nbsp{}[[Interpretability]]).
 
 *** Early detection
 :PROPERTIES:
