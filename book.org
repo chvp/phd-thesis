@@ -69,11 +69,6 @@ Because of this the `\frontmatter` statement needs to be part of the `org-latex-
 
 Include history of automated assessment
 
-*** TODO Write something about the job queue at the start of [[#subsec:techdodonajudging]]
-:PROPERTIES:
-:CREATED:  [2024-01-18 Thu 10:47]
-:END:
-
 *** TODO Write [[#subsec:useothers]], and [[#sec:usesecondary]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:25]
@@ -836,6 +831,9 @@ If there are lots of small differences between a very long generated and expecte
 :END:
 
 Student code is run in background jobs by our worker servers (Salmoneus, Sisyphus, Tantalus, Tityos and Ixion, as can be seen in figure\nbsp{}[[fig:technicaldodonaservers]]).
+To divide the work over these servers we make use of a job queue, based on =delayed_job=[fn:: https://github.com/collectiveidea/delayed_job].
+Each worker server has 6 job runners, which regularly poll the job queue when idle.
+
 For proper virtualization we use Docker containers\nbsp{}[cite:@pevelerComparingJailedSandboxes2019] that use OS-level containerization technologies and define runtime environments in which all data and executable software (e.g., scripts, compilers, interpreters, linters, database systems) are provided and executed.
 These resources are typically pre-installed in the image of the container.
 Prior to launching the actual assessment, the container is extended with the submission, the judge and the resources included in the assessment configuration (Figure\nbsp{}[[fig:technicaloutline]]).
