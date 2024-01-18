@@ -69,6 +69,11 @@ Because of this the `\frontmatter` statement needs to be part of the `org-latex-
 
 Include history of automated assessment
 
+*** TODO Write something about the job queue at the start of [[#subsec:techdodonajudging]]
+:PROPERTIES:
+:CREATED:  [2024-01-18 Thu 10:47]
+:END:
+
 *** TODO Write [[#subsec:useothers]], and [[#sec:usesecondary]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:25]
@@ -827,6 +832,7 @@ If there are lots of small differences between a very long generated and expecte
 *** Judging submissions
 :PROPERTIES:
 :CREATED:  [2024-01-10 Wed 14:01]
+:CUSTOM_ID: subsec:techdodonajudging
 :END:
 
 Student code is run in background jobs by our worker servers (Salmoneus, Sisyphus, Tantalus, Tityos and Ixion, as can be seen in figure\nbsp{}[[fig:technicaldodonaservers]]).
