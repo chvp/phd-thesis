@@ -2,7 +2,7 @@
 #+AUTHOR: Charlotte Van Petegem
 #+LANGUAGE: en-gb
 #+LATEX_CLASS: book
-#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip]
+#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip,usegeometry]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{shellesc, luacode}
@@ -49,7 +49,7 @@
 
 #+BEGIN_COMMENT
 There should be a `#+LATEX: \frontmatter` here, but I want to still be able to export to HTML, have the TOC show up in itself, change its heading and have the TOC be part of the frontmatter.
-Because of this the `\frontmatter` statement needs to be part of the `org-latex-toc-command` (which is set in the =.dir-locals.el= file).
+Because of this the `\frontmatter` statement needs to be part of the `org-latex-toc-command` (which is set in the =.dir-locals.el=/=build.el= file).
 #+END_COMMENT
 
 * To-dos
