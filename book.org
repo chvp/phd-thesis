@@ -63,6 +63,7 @@ Because of this the `\frontmatter` statement needs to be part of the `org-latex-
 * To-dos
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:14]
+:UNNUMBERED: t
 :END:
 
 ** High priority
@@ -76,13 +77,6 @@ Because of this the `\frontmatter` statement needs to be part of the `org-latex-
 :END:
 
 Include history of automated assessment
-
-*** TODO Write [[#subsec:useothers]], and [[#sec:usesecondary]]
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 17:25]
-:END:
-
-This will have to be a lot shorter than the FWE section, since I'm far less knowledgeable about the way they run their courses.
 
 *** DOING Finish chapter [[#chap:feedback]]
 :PROPERTIES:
@@ -414,10 +408,15 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 #+NAME: fig:whatannotations
 [[./images/whatannotations.png]]
 
-* Use
+* Dodona in educational practice
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:48]
 :CUSTOM_ID: chap:use
+:END:
+
+** Facts and figures
+:PROPERTIES:
+:CREATED:  [2024-01-22 Mon 18:15]
 :END:
 
 Dodona's design decisions have allowed it to spread to more than {{{num_schools}}} schools, colleges and universities, mainly in Flanders (Belgium) and the Netherlands.
@@ -436,6 +435,11 @@ In total, {{{num_users}}} students have submitted more than {{{num_submissions}}
 #+NAME: fig:useadoption2
 [[./images/useadoption2.png]]
 
+** User study
+:PROPERTIES:
+:CREATED:  [2024-01-22 Mon 18:16]
+:END:
+
 A qualitative user experience study of Dodona was performed in 2018.
 271 tertiary education students responded to a questionnaire that contained the following three questions:
 #+ATTR_LATEX: :environment enumerate*
@@ -447,13 +451,7 @@ Students praised its user-friendliness, beautiful interface, immediate feedback 
 Negative points were related to differences between the students’ local execution environments and the environment in which Dodona runs the tests, and the strictness with which the tests are evaluated.
 Other negative feedback was mostly related to individual courses the students were taking instead of the platform itself.
 
-** Tertiary education
-:PROPERTIES:
-:CREATED: [2023-10-23 Mon 08:48]
-:CUSTOM_ID: sec:useuni
-:END:
-
-*** Ghent University's Faculty of Sciences
+** Case study
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:48]
 :CUSTOM_ID: subsec:usefwe
@@ -463,7 +461,7 @@ Since the academic year 2011--2012 we have organized an introductory Python cour
 Initially the course was offered twice a year in the first and second term, but from academic year 2014--2015 onwards it was only offered in the first term.
 The course is taken by a mix of undergraduate, graduate, and postgraduate students enrolled in various study programmes (mainly formal and natural sciences, but not computer science), with 442 students enrolled for the 2021--2022 edition[fn:: https://dodona.be/courses/773/].
 
-**** Course structure
+*** Course structure
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 11:47]
 :CUSTOM_ID: subsubsec:usecourse
@@ -500,7 +498,7 @@ They can also work on their assignments and submit solutions outside lab session
 In addition to the mandatory assignments, students can further elaborate on their programming skills by tackling additional programming exercises they select from a pool of over 900 exercises linked to the ten programming topics.
 Submissions for these additional exercises are not taken into account in the final grade.
 
-**** Assessment, feedback and grading
+*** Assessment, feedback and grading
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 11:47]
 :CUSTOM_ID: subsubsec:useassessment
@@ -556,7 +554,7 @@ A solution for a mandatory assignment is considered correct if it passes all uni
 Evaluating mandatory assignments therefore doesn't require any human intervention, except for writing unit tests when designing the assignments, and is performed entirely by our Python judge.
 In our experience, most students traditionally perform much better on mandatory assignments compared to test and exam assignments\nbsp{}[cite:@glassFewerStudentsAre2022], given the possibilities for collaboration on mandatory assignments.
 
-**** Open and collaborative learning environment
+*** Open and collaborative learning environment
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 11:59]
 :CUSTOM_ID: subsubsec:useopen
@@ -618,7 +616,7 @@ When taking over code fragments from the Internet, students have to add a proper
 After each test and exam, we again use MOSS/Dolos to detect and inspect highly similar code snippets among submitted solutions and to find convincing evidence they result from exchange of code or other forms of interpersonal communication (Figure\nbsp{}[[fig:usefweplagiarism]]).
 If we catalogue cases as plagiarism beyond reasonable doubt, the examination board is informed to take further action\nbsp{}[cite:@maertensDolosLanguageagnosticPlagiarism2022].
 
-**** Workload for running a course edition
+*** Workload for running a course edition
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 13:46]
 :CUSTOM_ID: subsubsec:useworkload
@@ -683,7 +681,7 @@ We have drastically cut the time we initially spent on mandatory assignments by 
 |-------------------------------------+----------------------------|
 | Total                               |              1\thinsp{}290 |
 
-**** Learning analytics and educational data mining
+*** Learning analytics and educational data mining
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 14:04]
 :CUSTOM_ID: subsubsec:uselearninganalytics
@@ -738,18 +736,6 @@ Using historical data from previous course editions, we can also make highly acc
 This can already be done after a few weeks into the course, so remedial actions for at-risk students can be started well in time.
 The approach is privacy-friendly as we only need to process metadata on student submissions for programming assignments and results from automated and manual assessment extracted from Dodona.
 Given that cohort sizes are large enough, historical data from a single course edition are already enough to make accurate predictions.
-
-*** Other tertiary education uses
-:PROPERTIES:
-:CREATED: [2023-10-23 Mon 08:48]
-:CUSTOM_ID: subsec:useothers
-:END:
-
-** Secondary education
-:PROPERTIES:
-:CREATED: [2023-10-23 Mon 08:49]
-:CUSTOM_ID: sec:usesecondary
-:END:
 
 * Technical description
 :PROPERTIES:
