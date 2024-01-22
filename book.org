@@ -442,7 +442,7 @@ In total, {{{num_users}}} students have submitted more than {{{num_submissions}}
 [[./images/useadoption2.png]]
 
 A qualitative user experience study of Dodona was performed in 2018.
-271 higher education students responded to a questionnaire that contained the following three questions:
+271 tertiary education students responded to a questionnaire that contained the following three questions:
 #+ATTR_LATEX: :environment enumerate*
 #+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{ }}, itemjoin*={{ }}]
 - What are the things you value while working with Dodona?
@@ -466,7 +466,7 @@ Other negative feedback was mostly related to individual courses the students we
 
 Since the academic year 2011--2012 we have organized an introductory Python course at Ghent University (Belgium) with a strong focus on active and online learning.
 Initially the course was offered twice a year in the first and second term, but from academic year 2014--2015 onwards it was only offered in the first term.
-The course is taken by a mix of undergraduate, graduate, and postgraduate students enrolled in various study programmes (mainly formal and natural sciences, but not computer science), with 442 students enrolled for the 2021--2022 edition[fn:: https://dodona.be/courses/773].
+The course is taken by a mix of undergraduate, graduate, and postgraduate students enrolled in various study programmes (mainly formal and natural sciences, but not computer science), with 442 students enrolled for the 2021--2022 edition[fn:: https://dodona.be/courses/773/].
 
 **** Course structure
 :PROPERTIES:
