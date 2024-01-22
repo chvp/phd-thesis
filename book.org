@@ -84,11 +84,6 @@ Include history of automated assessment
 
 This will have to be a lot shorter than the FWE section, since I'm far less knowledgeable about the way they run their courses.
 
-**** TODO Hogescholen, lerarenopleidingen contacteren en getuigenis vragen
-:PROPERTIES:
-:CREATED: [2023-11-30 Thu 10:39]
-:END:
-
 *** DOING Finish chapter [[#chap:feedback]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
