@@ -825,7 +825,8 @@ Since judge and exercise authors can determine a lot of the content that eventua
 The increase in teachers that added exercises to Dodona also meant that the variety in feedback given grew, sometimes resulting in a huge volume of testcases and long output.
 
 Optimization work was needed to cope with this volume of feedback.
-For example, when Dodona was first written, the library used for creating diffs of the generated and expected results (=diffy=[fn:: https://github.com/samg/diffy]) actually shelled out to the GNU =diff= command.
+For example, one of the biggest optimizations was in how expected and generated feedback are diffed and how these diffs are rendered.
+When Dodona was first written, the library used for creating diffs of the generated and expected results (=diffy=[fn:: https://github.com/samg/diffy]) actually shelled out to the GNU =diff= command.
 This output was parsed and transformed into HTML by the library using find and replace operations.
 As one can expect, starting a new process and doing a lot of string operations every time outputs had to be diffed resulted in very slow loading times for the feedback table.
 The library was replaced with a pure Ruby library (=diff-lcs=[fn:: https://github.com/halostatue/diff-lcs]), and its outputs were built into HTML using Rails' efficient =Builder= class.
@@ -1965,7 +1966,7 @@ Having this new framework at hand immediately raises some follow-up research que
 
 In 2022, we collaborated with researchers from Jyväskylä University (JYU) in Finland on replicating our study in their context.
 There are however, some notable differences to the study performed at Ghent University.
-In their study, self-reported data was added to the model to see of this enhances its predictions.
+In their study, self-reported data was added to the model to test whether this enhances its predictions.
 Also, the focus was shifted from pass/fail prediction to dropout prediction.
 This happened because of the different way the course at JYU is taught.
 By performing well enough in all weekly exercises and a project, students can already receive a passing grade.
