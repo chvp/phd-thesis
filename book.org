@@ -52,6 +52,10 @@ There should be a `#+LATEX: \frontmatter` here, but I want to still be able to e
 Because of this the `\frontmatter` statement needs to be part of the `org-latex-toc-command` (which is set in the =.dir-locals.el=/=build.el= file).
 #+END_COMMENT
 
+#+MACRO: num_users 65 thousand
+#+MACRO: num_exercises 16 thousand
+#+MACRO: num_submissions 17 million
+
 * To-dos
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:14]
@@ -113,11 +117,6 @@ Make sure to mention that the content is based on certain articles (if applicabl
 *** TODO Write [[Summaries]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:23]
-:END:
-
-*** TODO Update statistics in [[#chap:use]]
-:PROPERTIES:
-:CREATED:  [2024-01-22 Mon 12:51]
 :END:
 
 *** TODO Redo screenshots/visualizations
@@ -426,8 +425,8 @@ Dodona's design decisions have allowed it to spread to more than 1\thinsp{}000 s
 The renewed interest in embedding computational thinking in formal education has undoubtedly been an important stimulus for such a wide uptake\nbsp{}[cite:@wingComputationalThinking2006].
 All other educational institutions use the instance of Dodona hosted at Ghent University, which is free to use for educational purposes.
 
-Dodona currently hosts a collection of 15 thousand learning activities that are freely available to all teachers, allowing them to create their own learning paths tailored to their teaching practice.
-In total, 61 thousand students have submitted more than 15 million solutions to Dodona in the seven years that it has been running (Figures\nbsp{}[[fig:useadoption1]] & [[fig:useadoption2]]).
+Dodona currently hosts a collection of {{{num_exercises}}} learning activities that are freely available to all teachers, allowing them to create their own learning paths tailored to their teaching practice.
+In total, {{{num_users}}} students have submitted more than {{{num_submissions}}} solutions to Dodona in the seven years that it has been running (Figures\nbsp{}[[fig:useadoption1]] & [[fig:useadoption2]]).
 
 #+CAPTION: Overview of the number of submitted solutions by academic year.
 #+NAME: fig:useadoption1
@@ -481,7 +480,7 @@ Students who fail the course during the first exam in January can take a resit e
 #+CAPTION: There is also a resit exam with three assignments in August/September if they failed the first exam in January.
 #+CAPTION: *Bottom*: Heatmap from Dodona learning analytics page showing distribution per day of all 331\thinsp{}734 solutions submitted during the 2021--2022 edition of the course (442 students).
 #+CAPTION: The darker the colour, the more solutions were submitted that day.
-#+CAPTION: A light gray square means no solutions were submitted that day.
+#+CAPTION: A light grey square means no solutions were submitted that day.
 #+CAPTION: Weekly lab sessions for different groups on Monday afternoon, Friday morning and Friday afternoon, where we can see darker squares.
 #+CAPTION: Weekly deadlines for mandatory assignments on Tuesdays at 22:00.
 #+CAPTION: Three exam sessions for different groups in January.
@@ -649,7 +648,7 @@ We estimate that it takes about 10 person-hours on average to create a new assig
 Generating a test suite usually takes 30 to 60 minutes for assignments that can rely on basic test and feedback generation features that are built into the judge.
 The configuration for automated assessment might take 2 to 3 hours for assignments that require more elaborate test generation or that need to extend the judge with custom components for dedicated forms of assessment (e.g.\nbsp{}assessing non-deterministic behaviour) or feedback generation (e.g.\nbsp{}generating visual feedback).
 [cite/t:@keuningSystematicLiteratureReview2018] found that publications rarely describe how difficult and time-consuming it is to add assignments to automated assessment platforms, or even if this is possible at all.
-The ease of extending Dodona with new programming assignments is reflected by more than 10 thousand assignments that have been added to the platform so far.
+The ease of extending Dodona with new programming assignments is reflected by more than {{{num_exercises}}} assignments that have been added to the platform so far.
 Our experience is that configuring support for automated assessment only takes a fraction of the total time for designing and implementing assignments for our programming course, and in absolute numbers stays far away from the one person-week reported for adding assignments to Bridge\nbsp{}[cite:@bonarBridgeIntelligentTutoring1988].
 Because the automated assessment infrastructure of Dodona provides common resources and functionality through a Docker container and a judge, the assignment-specific configuration usually remains lightweight.
 Only around 5% of the assignments need extensions on top of the built-in test and feedback generation features of the judge.
@@ -779,8 +778,10 @@ In this section, I will highlight a few of these components.
 
 #+CAPTION: Diagram of all the servers involved with running and developing Dodona.
 #+CAPTION: The role of each server in the deployment is listed below its name.
-#+CAPTION: Every server also has an implicit connection with Phocus (the monitoring server), since metrics are collected on every server such as load, CPU usage, disk usage, ...
-#+CAPTION: The Pandora server is grayed out because it is not used anymore (see Section\nbsp{}[[Python Tutor]] for more info).
+#+CAPTION: Servers are connected if they communicate.
+#+CAPTION: The direction of the connection signifies which server initiates the connection.
+#+CAPTION: Every server also has an implicit connection with Phocus (the monitoring server), since metrics such as load, CPU usage, disk usage, etc. are collected and sent to Phocus on every server.
+#+CAPTION: The Pandora server is greyed out because it is not used anymore (see Section\nbsp{}[[Python Tutor]] for more info).
 #+NAME: fig:technicaldodonaservers
 [[./diagrams/technicaldodonaservers.svg]]
 
@@ -789,7 +790,7 @@ In this section, I will highlight a few of these components.
 :CREATED: [2023-11-23 Thu 17:12]
 :END:
 
-The user-facing part of Dodona runs on the main web server, also called Dodona (see Figure\nbsp{}[[fig:technicaldodonaservers]]).
+The user-facing part of Dodona runs on the main web server, which also called Dodona (see Figure\nbsp{}[[fig:technicaldodonaservers]]).
 Dodona is a Ruby-on-Rails web application that follows the Rails-standard way of organizing functionality in models, views and controllers.
 
 The way we handle complex logic in the frontend has seen a number of changes along the years.
@@ -807,6 +808,7 @@ And lastly, all JavaScript was rewritten to TypeScript.
 Another important aspect of running a public web application is its security.
 Dodona needs to operate in a challenging environment where students simultaneously submit untrusted code to be executed on its servers ("remote code execution as a service") and expect automatically generated feedback, ideally within a few seconds.
 Many design decisions are therefore aimed at maintaining and improving the reliability and security of its systems.
+
 Since Dodona grew from being used to teach mostly by people we knew personally to being used in secondary schools all over Flanders, we went from being able to fully trust exercise authors to having this trust reduced (as it is impossible for a team of our size to vet all the people we give teacher's rights in Dodona).
 This meant that our threat model and therefore the security measures we had to take also changed over the years.
 Once Dodona was opened up to more and more teachers, we gradually locked down what teachers could do with e.g. their exercise descriptions.
@@ -822,7 +824,7 @@ Optimization work was needed to cope with this volume of feedback.
 For example, when Dodona was first written, the library used for creating diffs of the generated and expected results (=diffy=[fn:: https://github.com/samg/diffy]) actually shelled out to the GNU =diff= command.
 This output was parsed and transformed into HTML by the library using find and replace operations.
 As one can expect, starting a new process and doing a lot of string operations every time outputs had to be diffed resulted in very slow loading times for the feedback table.
-The library was replaced with a pure Ruby library (=diff-lcs=), and its outputs were built into HTML using Rails' efficient =Builder= class.
+The library was replaced with a pure Ruby library (=diff-lcs=[fn:: https://github.com/halostatue/diff-lcs]), and its outputs were built into HTML using Rails' efficient =Builder= class.
 This change of diffing method also fixed a number of bugs we were experiencing along the way.
 
 Even this was not enough to handle the most extreme of exercises though.
