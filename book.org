@@ -2,7 +2,7 @@
 #+AUTHOR: Charlotte Van Petegem
 #+LANGUAGE: en-gb
 #+LATEX_CLASS: book
-#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip,DIV=11,BCOR=15mm]
+#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip,DIV=10,BCOR=10mm]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{shellesc, luacode}
@@ -113,6 +113,11 @@ Make sure to mention that the content is based on certain articles (if applicabl
 *** TODO Write [[Summaries]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:23]
+:END:
+
+*** TODO Update statistics in [[#chap:use]]
+:PROPERTIES:
+:CREATED:  [2024-01-22 Mon 12:51]
 :END:
 
 *** TODO Redo screenshots/visualizations
@@ -238,7 +243,7 @@ However, learning analytics, reports and exports usually only take into account 
 Because of the importance of deadlines and to avoid discussions with students about missed deadlines, series deadlines are not only announced on the course page.
 The student's home page highlights upcoming deadlines for individual courses and across all courses.
 While working on a programming assignment, students will also see a clear warning starting from ten minutes before a deadline.
-Courses also provide an iCalendar link that students can use to publish course deadlines in their personal calendar application.
+Courses also provide an iCalendar link\nbsp{}[cite:@stenersonInternetCalendaringScheduling1998] that students can use to publish course deadlines in their personal calendar application.
 
 Because Dodona logs all student submissions and their metadata, including feedback and grades from automated and manual assessment, we use that data to integrate reports and learning analytics in the course page\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
 We also provide export wizards that enable the extraction of raw and aggregated data in CSV format for downstream processing and educational data mining\nbsp{}[cite:@romeroEducationalDataMining2010; @bakerStateEducationalData2009].
@@ -256,7 +261,7 @@ This support for *decentralized authentication* allows users to benefit from sin
 
 Dodona automatically creates user accounts upon successful authentication and uses the association with external identity providers to assign an institution to users.
 By default, newly created users are assigned a student role.
-Teachers and instructors who wish to create content (courses, learning activities and judges), must first request teacher rights using a streamlined form.
+Teachers and instructors who wish to create content (courses, learning activities and judges), must first request teacher rights using a streamlined form[fn:: https://dodona.be/rights_requests/new/].
 
 ** Automated assessment
 :PROPERTIES:
@@ -317,7 +322,7 @@ The latter is part of the configuration of learning activities, with the option 
 Dodona automatically stores metadata about all learning activities such as content type, natural language, programming language and repository to increase their findability in our large collection.
 Learning activities may also be tagged with additional labels as part of their configuration.
 
-Any repository containing learning activities must have a predefined directory structure.
+Any repository containing learning activities must have a predefined directory structure[[fn:: https://docs.dodona.be/en/references/exercise-directory-structure/].
 Directories that contain a learning activity also have their own internal directory structure that includes a *description* in HTML or Markdown.
 Descriptions may reference data files and multimedia content included in the repository, and such content can be shared across all learning activities in the repository.
 Embedded images are automatically encapsulated in a responsive lightbox to improve readability.
@@ -419,7 +424,7 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 
 Dodona's design decisions have allowed it to spread to more than 1\thinsp{}000 schools, colleges and universities, mainly in Flanders (Belgium) and the Netherlands.
 The renewed interest in embedding computational thinking in formal education has undoubtedly been an important stimulus for such a wide uptake\nbsp{}[cite:@wingComputationalThinking2006].
-All other educational institutions use the version of Dodona hosted at Ghent University, which is free to use for educational purposes.
+All other educational institutions use the instance of Dodona hosted at Ghent University, which is free to use for educational purposes.
 
 Dodona currently hosts a collection of 15 thousand learning activities that are freely available to all teachers, allowing them to create their own learning paths tailored to their teaching practice.
 In total, 61 thousand students have submitted more than 15 million solutions to Dodona in the seven years that it has been running (Figures\nbsp{}[[fig:useadoption1]] & [[fig:useadoption2]]).
@@ -458,7 +463,7 @@ Other negative feedback was mostly related to individual courses the students we
 
 Since the academic year 2011--2012 we have organized an introductory Python course at Ghent University (Belgium) with a strong focus on active and online learning.
 Initially the course was offered twice a year in the first and second term, but from academic year 2014--2015 onwards it was only offered in the first term.
-The course is taken by a mix of undergraduate, graduate, and postgraduate students enrolled in various study programmes (mainly formal and natural sciences, but not computer science), with 442 students enrolled for the 2021--2022 edition.
+The course is taken by a mix of undergraduate, graduate, and postgraduate students enrolled in various study programmes (mainly formal and natural sciences, but not computer science), with 442 students enrolled for the 2021--2022 edition[fn:: https://dodona.be/courses/773].
 
 **** Course structure
 :PROPERTIES:
@@ -494,7 +499,7 @@ Along the same lines, the first assignment for each topic is an ISBN-themed prog
 As soon as students feel they have enough understanding of the topic, they can start working on the five remaining mandatory assignments.
 Students can work on their programming assignments during weekly computer labs, where they can collaborate in small groups and ask help from teaching assistants.
 They can also work on their assignments and submit solutions outside lab sessions.
-In addition to the mandatory assignments, students can further elaborate on their programming skills by tackling additional programming exercises they select from a pool of over 850 exercises linked to the ten programming topics.
+In addition to the mandatory assignments, students can further elaborate on their programming skills by tackling additional programming exercises they select from a pool of over 900 exercises linked to the ten programming topics.
 Submissions for these additional exercises are not taken into account in the final grade.
 
 **** Assessment, feedback and grading
@@ -607,7 +612,7 @@ The entire group of students is only addressed once about plagiarism, without go
 Every three or four years we see a persistent cluster of students exchanging code for mandatory assignments over multiple weeks.
 If this is the case, we individually address these students to point them again on their responsibilities, again differentiating between students that share their solution and students that receive solutions from others.
 
-Tests and exams, on the other hand, are taken on-campus under human surveillance and allow no communication with fellow students or other persons.
+Tests and exams, on the other hand, are taken on-campus under human surveillance and allow no communication with fellow students or other persons (and more recently, also no generative AI).
 Students can work on their personal computers and get exactly two hours to solve two programming assignments during a test, and three hours and thirty minutes to solve three programming assignments during an exam.
 Tests and exams are "open book/open Internet", so any hard copy and digital resources can be consulted while solving test or exam assignments.
 Students are instructed that they can only be passive users of the Internet: all information available on the Internet at the start of a test or exam can be consulted, but no new information can be added.
@@ -636,7 +641,7 @@ After each test and exam, exercises are published and students receive manual re
 But in contrast to mandatory exercises we do not publish sample solutions for test and exam exercises, so that these exercises can be reused during the next edition of the course.
 When students ask for sample solutions of test or exam exercises, we explain that we want to give the next generation of students the same learning opportunities they had.
 
-So far, we have created more than 850 programming assignments for this introductory Python course alone.
+So far, we have created more than 900 programming assignments for this introductory Python course alone.
 All these assignments are publicly shared on Dodona as open educational resources\nbsp{}[cite:@hylenOpenEducationalResources2021; @tuomiOpenEducationalResources2013; @wileyOpenEducationalResources2014; @downesModelsSustainableOpen2007; @caswellOpenEducationalResources2008].
 They are used in many other courses on Dodona (on average 10.8 courses per assignment) and by many students (on average 503.7 students and 4801.5 submitted solutions per assignment).
 We estimate that it takes about 10 person-hours on average to create a new assignment for a test or an exam: 2 hours for ideation, 30 minutes for implementing and tweaking a sample solution that meets the educational goals of the assignment and can be used to generate a test suite for automated assessment, 4 hours for describing the assignment (including background research), 30 minutes for translating the description from Dutch into English, one hour to configure support for automated assessment, and another 2 hours for reviewing the result by some extra pair of eyes.
@@ -716,7 +721,7 @@ Such "deadline hugging" patterns are also a good breeding ground for students to
 #+NAME: fig:usefweanalyticscorrect
 [[./images/usefweanalyticscorrect.png]]
 
-Using educational data mining techniques on historical data exported from several editions of the course, we further investigated what aspects of practising programming skills promote or inhibit learning, or have no or minor effect on the learning process\nbsp{}[cite:@vanpetegemPassFailPrediction2022].
+Using educational data mining techniques on historical data exported from several editions of the course, we further investigated what aspects of practising programming skills promote or inhibit learning, or have no or minor effect on the learning process\nbsp{}(Chapter [[#chap:passfail]]).
 It won't come as a surprise that midterm test scores are good predictors for a student's final grade, because tests and exams are both summative assessments that are organized and graded in the same way.
 However, we found that organizing a final exam end-of-term is still a catalyst of learning, even for courses with a strong focus of active learning during weeks of educational activities.
 
@@ -754,7 +759,7 @@ Given that cohort sizes are large enough, historical data from a single course e
 :CUSTOM_ID: chap:technical
 :END:
 
-Dodona and all software related to it comprises a lot of code.
+Dodona and its ecosystem comprise a lot of code.
 This chapter discusses the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor, Papyros (\url{https://papyros.dodona.be}), that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
 I will also discuss two judges that I was involved with the development of.
 The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
@@ -773,6 +778,7 @@ In addition, a scalable pool of interchangeable worker servers are available to 
 In this section, I will highlight a few of these components.
 
 #+CAPTION: Diagram of all the servers involved with running and developing Dodona.
+#+CAPTION: The role of each server in the deployment is listed below its name.
 #+CAPTION: Every server also has an implicit connection with Phocus (the monitoring server), since metrics are collected on every server such as load, CPU usage, disk usage, ...
 #+CAPTION: The Pandora server is grayed out because it is not used anymore (see Section\nbsp{}[[Python Tutor]] for more info).
 #+NAME: fig:technicaldodonaservers
@@ -784,18 +790,21 @@ In this section, I will highlight a few of these components.
 :END:
 
 The user-facing part of Dodona runs on the main web server, also called Dodona (see Figure\nbsp{}[[fig:technicaldodonaservers]]).
-Dodona is a Ruby-on-Rails web application, following the Rails-standard way of organizing functionality in models, views and controllers.
+Dodona is a Ruby-on-Rails web application that follows the Rails-standard way of organizing functionality in models, views and controllers.
+
 The way we handle complex logic in the frontend has seen a number of changes along the years.
-These changes were mostly done because of increasing complexity and to eliminate jQuery.
 When Dodona was started, there were only a few places where JavaScript was used.
 Dodona also used the Rails-standard way of serving dynamically generated JavaScript to replace parts of pages (e.g. for pagination or search).
-With the introduction of more complex features like evaluations, we switch to using lightweight web components where this made sense.
+With the introduction of more complex features like evaluations, we switched to using lightweight web components where this made sense.
+We also eliminated jQuery, because more and more of its functionality was implemented natively by browsers.
+And lastly, all JavaScript was rewritten to TypeScript.
 
 **** Security and performance
 :PROPERTIES:
 :CREATED:  [2024-01-10 Wed 14:23]
 :END:
 
+Another important aspect of running a public web application is its security.
 Dodona needs to operate in a challenging environment where students simultaneously submit untrusted code to be executed on its servers ("remote code execution as a service") and expect automatically generated feedback, ideally within a few seconds.
 Many design decisions are therefore aimed at maintaining and improving the reliability and security of its systems.
 Since Dodona grew from being used to teach mostly by people we knew personally to being used in secondary schools all over Flanders, we went from being able to fully trust exercise authors to having this trust reduced (as it is impossible for a team of our size to vet all the people we give teacher's rights in Dodona).
@@ -806,12 +815,12 @@ For user content where this creative freedom is not as necessary (e.g. series or
 
 One of the most important components of Dodona is the feedback table.
 It has, therefore, seen a lot of security, optimization and UI work over the years.
-Since teachers can determine a lot of the content that eventually ends up in the feedback table, the same sanitization that is used for series and course descriptions is used for the messages that are added to the feedback table (since these can contain Markdown and arbitrary HTML as well).
+Since judge and exercise authors can determine a lot of the content that eventually ends up in the feedback table, the same sanitization that is used for series and course descriptions is used for the messages that are added to the feedback table (since these can contain Markdown and arbitrary HTML as well).
 The increase in teachers that added exercises to Dodona also meant that the variety in feedback given grew, sometimes resulting in a huge volume of testcases and long output.
-Optimization work was needed to cope with this volume of feedback.
 
-When Dodona was first written, the library used creating diffs of the generated and expected results actually shelled out to the GNU =diff= command.
-This output was parsed and changed into HTML by the library using find and replace operations.
+Optimization work was needed to cope with this volume of feedback.
+For example, when Dodona was first written, the library used for creating diffs of the generated and expected results (=diffy=[fn:: https://github.com/samg/diffy]) actually shelled out to the GNU =diff= command.
+This output was parsed and transformed into HTML by the library using find and replace operations.
 As one can expect, starting a new process and doing a lot of string operations every time outputs had to be diffed resulted in very slow loading times for the feedback table.
 The library was replaced with a pure Ruby library (=diff-lcs=), and its outputs were built into HTML using Rails' efficient =Builder= class.
 This change of diffing method also fixed a number of bugs we were experiencing along the way.
@@ -830,7 +839,7 @@ If there are lots of small differences between a very long generated and expecte
 :CUSTOM_ID: subsec:techdodonajudging
 :END:
 
-Student code is run in background jobs by our worker servers (Salmoneus, Sisyphus, Tantalus, Tityos and Ixion, as can be seen in Figure\nbsp{}[[fig:technicaldodonaservers]]).
+Student submissions are automatically assessed in background jobs by our worker servers (Salmoneus, Sisyphus, Tantalus, Tityos and Ixion; Figure\nbsp{}[[fig:technicaldodonaservers]]).
 To divide the work over these servers we make use of a job queue, based on =delayed_job=[fn:: https://github.com/collectiveidea/delayed_job].
 Each worker server has 6 job runners, which regularly poll the job queue when idle.
 
@@ -854,8 +863,8 @@ The judge must be robust enough to provide feedback on all possible submissions 
 Following the principles of software reuse, the judge is ideally also a generic framework that can be used to assess submissions for multiple assignments.
 This is enabled by the submission metadata that is passed when calling the judge, which includes the path to the source code of the submission, the path to the assessment resources of the assignment and other metadata such as programming language, natural language, time limit and memory limit.
 
-Rather than providing a fixed set of judges, Dodona adopts a minimalistic interface that allows third parties to create new judges: automatic assessment is bootstrapped by launching the judge's run executable that can fetch the JSON formatted submission metadata from standard input and must generate JSON formatted feedback on standard output.
-The feedback has a standardized hierarchical structure that is specified in a JSON schema.
+Rather than providing a fixed set of judges, Dodona adopts a minimalistic interface that allows third parties to create new judges: automatic assessment is bootstrapped by launching the judge's =run= executable that can fetch the JSON formatted submission metadata from standard input and must generate JSON formatted feedback on standard output.
+The feedback has a standardized hierarchical structure that is specified in a JSON schema[fn:: https://github.com/dodona-edu/dodona/tree/main/public/schemas].
 At the lowest level, /tests/ are a form of structured feedback expressed as a pair of generated and expected results.
 They typically test some behaviour of the submitted code against expected behaviour.
 Tests can have a brief description and snippets of unstructured feedback called messages.
@@ -896,7 +905,7 @@ This means that the only student that can be impacted by the Python Tutor failin
 Development of Dodona is done on GitHub.
 Over the years, Dodona has seen over 16\thinsp{}000 commits by 26 contributors, and there have been 339 releases.
 All new features and bug fixes are added to the main branch through pull requests, of which there have been almost 3\thinsp{}800.
-These pull requests are reviewed by (at least) two others on the Dodona team before they are merged.
+These pull requests are reviewed by (at least) two other developers of the Dodona team before they are merged.
 We also treat pull requests as a form of documentation by writing an extensive PR description and adding screenshots for all visual changes or additions.
 The extensive test suite also runs automatically for every pull request, and developers are encouraged to add new tests for each feature or bug fix.
 We've also made it very easy to deploy to our testing (Mestra) and staging (Naos) environments so that reviewers can test changes without having to spin up their local development instance of Dodona.
@@ -906,14 +915,14 @@ There is no production data present and in fact, the database is wiped and resee
 Naos is much closer to the production setup.
 It runs on a pseudonymized version of the production database, and has all the judges configured.
 
-We also make sure that our dependencies are always up-to-date using Dependabot.
-By updating our dependencies regularly, we make sure that we are not met by surprises when there is an important security update.
-Since Dodona is a website accessible over the public web, it would be a problem if we could not quickly apply a security update.
+We also make sure that our dependencies are always up-to-date using Dependabot[fn:: https://docs.github.com/en/code-security/dependabot/working-with-dependabot].
+By updating our dependencies regularly, we make sure that we are not met by incompatibilities that take a long time to integrate when there is an important security update.
+Since Dodona is accessible over the public web, it would be problematic if we could not quickly apply security updates.
 
 The way we release Dodona has seen a few changes over the years.
-We've gone from a few large releases with bugfix point-releases between them, to lots of smaller releases, to in the end a /release/ per pull request.
-Since we are the only deployment of Dodona, releasing every pull request immediately after merging makes getting feedback from our users a very quick process.
-When we did versioned releases we also wrote release notes at that point.
+We've gone from a few large releases with bugfix point-releases between them, to lots of smaller releases, to now a /release/ per pull request.
+Since ours is the only instance of Dodona, releasing every pull request immediately after merging makes getting feedback from our users a very quick process.
+When we did versioned releases we also wrote release notes at the time of release.
 Because we don't have versioned releases any more, we now bundle the changes into release notes for every month.
 They are mostly autogenerated from the merged PRs, but bigger features are given more context and explanation.
 
@@ -933,8 +942,8 @@ Backups of the database are automatically saved every day and kept for 12 months
 The backups are taken by dumping a replica database.
 The replica database is used because dumping the main database write-locks it while it is being dumped, which would result in Dodona being unusable for a significant amount of time.
 
-We also have an extensive monitoring and alerting system in place.
-This gives us some light analytics about Dodona usage, but can also tell us if there are problems with one of our servers.
+We also have an extensive monitoring and alerting system in place, based on Grafana.
+This gives us some superficial analytics about Dodona usage, but can also tell us if there are problems with one of our servers.
 The analytics are also calculated using the replica database to avoid putting unnecessary load on our main production database.
 The web server and worker servers also send notifications when an error occurs in their runtime.
 This is one of the main ways we discover bugs that got through our tests, since our users don't regularly report bugs themselves.
@@ -959,11 +968,11 @@ Students might also be working on devices that they don't own (PCs in the school
 There are a few reasons why we could not initially offer a simple online IDE.
 Even though we can use a lot of the infrastructure very graciously offered by Ghent University, these resources are not limitless.
 The extra (interactive) evaluation of student code was something we did not have the resources for, nor did we have any architectural components in place to easily integrate this into Dodona.
-The main goal of this work was thus to provide a client-side Python execution environment we could then include in Dodona.
+The main goal of Papyros was thus to provide a client-side Python execution environment we could then include in Dodona.
 Note that we don't want to replace the entire execution model with client-side execution, as the client is an untrusted execution environment where debugging tools could be used to manipulate the results.
 Because the main idea is integration in Dodona, we primarily wanted users to be able to execute entire programs, and not necessarily offer a REPL at first.
 
-Given that the target audience for this tool is secondary education students, we identified a number of secondary requirements:
+Given that the target audience for Papyros is secondary education students, we identified a number of secondary requirements:
 - The editor of our online IDE should have syntax highlighting.
   Recent literature\nbsp{}[cite:@hannebauerDoesSyntaxHighlighting2018] has shown that this does not necessarily have an impact on students' learning, but as the authors point out, it was the prevailing wisdom for a long time that it does help.
 - It should also include linting.
@@ -1120,7 +1129,7 @@ Another feature that teachers wanted that we had not built into a judge previous
 The API for the R judge was designed to follow the visual structure of the feedback table as closely as possible, as can be seen in the sample evaluation code in Listing\nbsp{}[[lst:technicalrsample]].
 Tabs are represented by different evaluation files.
 In addition to the =testEqual= function demonstrated in Listing\nbsp{}[[lst:technicalrsample]] there are some other functions to specifically support the requested functionality.
-=testImage= will set up some the R environment so that generated plots (or other images) are sent to the feedback table (in a base 64 encoded string) instead of the filesystem.
+=testImage= will set up some handlers in the R environment so that generated plots (or other images) are sent to the feedback table (in a base 64 encoded string) instead of the filesystem.
 It will also by default make the test fail if no image was generated (but does not do any verification of the image contents).
 An example of what the feedback table looks like when an image is generated can be seen in Figure\nbsp{}[[fig:technicalrplot]].
 =testDF= has some extra functionality for testing the equality of data frames, where it is possible to ignore row and column order.
@@ -1139,7 +1148,7 @@ If some code needs to be executed in the student's environment before the studen
 #+CAPTION: Sample evaluation code for a simple R exercise.
 #+CAPTION: The feedback table will contain one context with two testcases in it.
 #+CAPTION: The first testcase checks whether some t-test was performed correctly, and does this by performing two equality checks.
-#+CAPTION: The second testcase checks that the \(p\) value calculated by the t-test is correct.
+#+CAPTION: The second testcase checks that the \(p\)-value calculated by the t-test is correct.
 #+CAPTION: The =preExec= is executed in the student's environment and here fixes a random seed for the student's execution.
 #+NAME: lst:technicalrsample
 #+ATTR_LATEX: :float t
@@ -2104,19 +2113,67 @@ Graders only need to write out a detailed and clear message once and can then re
 
 Given that we now have a system for re-using feedback given earlier, we can ask ourselves if we can do this in a smarter way.
 Instead of teachers having to search for the annotation they want to use, what if we could predict which annotation they want to use?
-This is exactly what we will explore in this section.
+This is exactly what we will explore in this section, which is based on an article that is currently under review.
 
-The general idea of the method we explored was to find patterns in the syntax trees of submissions that received a certain annotation.
-When a teacher wants to add an annotation, we can then find the annotation that matches the best by calculating a score for each annotation's pattern set.
-To validate this method we used two testing sets that both use actual students submissions from an exam; one using messages given by PyLint and one with real-world data of saved annotations and their uses extracted from Dodona.
+*** Introduction
+:PROPERTIES:
+:CREATED:  [2024-01-19 Fri 15:47]
+:END:
 
-We will first give an overview of the algorithm we use to find patterns and then go over how to match these patterns given a syntax tree.
-We will also explain some practical issues that we had to consider during implementation.
-Then, we discuss what we did to rank annotations and then move on to discussing the results for the two datasets.
+Feedback is a very important element in student learning\nbsp{}[cite:@hattiePowerFeedback2007; @blackAssessmentClassroomLearning1998].
+In programming education, many steps have been taken to automate feedback using automated assessment systems\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @ala-mutkaSurveyAutomatedAssessment2005].
+These automated assessment systems provide feedback on correctness, and can provide some feedback on style and best practices by using linters but are not able to provide the same high-level feedback on program design that a seasoned programmer can give.
+In many educational practices, automated assessment is therefore supplemented with manual feedback, especially when grading evaluations or exams.
+This requires a large time investment from teachers.
+
+
+Others have therefore tried to improve the process of giving feedback using AI.
+[cite/t:@vittoriniAIBasedSystemFormative2021] automated grading using natural language processing, and found that students who used this system during the semester were more likely to pass the course at the end of the semester.
+Others have used AI to enable students to conduct peer and self-evaluation\nbsp{}[cite:@leeSupportingStudentsGeneration2023].
+[cite/t:@berniusMachineLearningBased2022] introduced a framework based on clustering text segments to reduce the grading overhead.
+
+Data mining techniques for extracting frequently occurring patterns from data that can be represented as trees were already developed in the early 2000s\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005; @asaiEfficientSubstructureDiscovery2004].
+Since program code can be represented as an abstract syntax tree, more recent work looked into how these algorithms could be used to efficiently find frequent patterns in source code\nbsp{}[cite:@phamMiningPatternsSource2019].
+In an educational context, these techniques could then be used to for example find patterns common to solutions that failed a given exercise\nbsp{}[cite:@mensGoodBadUgly2021].
+Other work looked into generating unit tests from mined patterns\nbsp{}[cite:@lienard2023extracting].
+
+Dodona is the automated assessment system developed at Ghent University\nbsp{}[cite:@vanpetegemDodonaLearnCode2023].
+It has a built-in module for giving manual feedback on and grading student submissions.
+The process of giving feedback on a programming assignment in Dodona is very similar to a code review, where mistakes or suggestions for improvements are annotated at the relevant line(s).
+There is however a very important difference with a traditional code review: the teacher gives feedback on many implementations of the same problem.
+Since students often make the same mistakes as other students, it follows that the same feedback is often given by a teacher on many solutions.
+In Dodona, we have already tried to anticipate this need by allowing teachers to save certain annotations, which can then later be re-used by simply searching for them.
+This gives us the data we’re using in this study: code submissions, where those submissions have been annotated on specific lines with remarks that are shared over those submissions.
+This is also the terminology we will use: an annotation is a specific instance of a remark on a line of code, a remark is the text that can be reused over multiple annotations.
+
+In the following sections we present a machine learning method for suggesting re-use of previously given feedback.
+We start with an in-depth explanation of the design of the method, and then presents and discusses the experimental results we obtained when testing the method on student submissions.
 
 *** Methodology
 :PROPERTIES:
 :CREATED: [2024-01-08 Mon 13:18]
+:END:
+
+The general methodology used by our method is explained visually in Figure [[fig:feedbackmethodoverview]].
+We start by using tree-sitter to generate ASTs for every submission.
+For each annotation, we then extract a limited context from the AST around the line where it was placed.
+We then collect all the subtrees for each remark.
+Every remark’s forest of subtrees is given to the TreeminerD algorithm which gives us a collection of patterns for each remark.
+Each pattern is then weighted according to its length and how often it occurs in the entire collection of patterns (for all remarks).
+The result of these operations is our trained model.
+A prediction can be made when a teacher selects a line in a given student's submission.
+This is done by again extracting the limited context around that line.
+We then compute a similarity score for each remark, using its weighted patterns.
+This similarity score is used to rank the remarks and this ranking is shown to the teacher.
+We will now give a more detailed explanation of these steps.
+
+#+CAPTION: Overview of our machine learning method for predicting feedback re-use.
+#+NAME: fig:feedbackmethodoverview
+[[./diagrams/feedbackmethodoverview.svg]]
+
+**** Extracting a subtree around a line
+:PROPERTIES:
+:CREATED:  [2024-01-19 Fri 15:44]
 :END:
 
 **** TreeminerD
@@ -2124,29 +2181,17 @@ Then, we discuss what we did to rank annotations and then move on to discussing 
 :CREATED: [2023-11-20 Mon 13:33]
 :END:
 
-To efficiently mine forests for frequent patterns there are two main options: FREQT\nbsp{}[cite:@asaiEfficientSubstructureDiscovery2004] and Treeminer\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005].
-These two algorithms are in essence the same, and were developed independently and simultaneously.
-They have been used before to mine patterns in source code\nbsp{}[cite:@phamMiningPatternsSource2019], for example to find differing patterns in code written by passing and failing students\nbsp{}[cite:@mensGoodBadUgly2021].
-In this work we opted to use the Treeminer algorithm, and more precise the TreeminerD variation on this algorithm.
-This variation gives only the distinct frequent patterns in a forest instead of all occurrences of all frequent patterns in a forest.
-This can be done much more efficiently, and in this work we don't use the extra information that the unmodified Treeminer algorithm gives us.
-
-**** Matching patterns to trees
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 13:33]
-:END:
-
-**** Practical considerations
+**** Assigning weights to patterns
 :PROPERTIES:
 :CREATED: [2023-11-22 Wed 14:39]
 :END:
 
-**** Ranking annotations
+**** Determining similarity
 :PROPERTIES:
 :CREATED: [2023-11-22 Wed 14:47]
 :END:
 
-*** Validation and results
+*** Results and discussion
 :PROPERTIES:
 :CREATED: [2024-01-08 Mon 13:18]
 :END:
@@ -2160,7 +2205,7 @@ This can be done much more efficiently, and in this work we don't use the extra 
 :CREATED: [2023-11-20 Mon 13:33]
 :END:
 
-*** Conclusion
+*** Conclusions and future work
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:33]
 :END:
