@@ -910,7 +910,7 @@ This means that the only student that can be impacted by the Python Tutor failin
 
 Development of Dodona is done on GitHub.
 Over the years, Dodona has seen over {{{num_commits}}} commits by {{{num_contributors}}} contributors, and there have been {{{num_releases}}} releases.
-All new features and bug fixes are added to the main branch through pull requests, of which there have been almost {{{num_prs}}}.
+All new features and bug fixes are added to the =main= branch through pull requests, of which there have been almost {{{num_prs}}}.
 These pull requests are reviewed by (at least) two other developers of the Dodona team before they are merged.
 We also treat pull requests as a form of documentation by writing an extensive PR description and adding screenshots for all visual changes or additions.
 The extensive test suite also runs automatically for every pull request, and developers are encouraged to add new tests for each feature or bug fix.
