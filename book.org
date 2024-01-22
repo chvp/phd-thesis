@@ -44,6 +44,14 @@
 #+OPTIONS: H:4
 #+OPTIONS: toc:3
 #+OPTIONS: broken-links:mark
+#+MACRO: num_commits 16 thousand
+#+MACRO: num_prs 3\thinsp{}800
+#+MACRO: num_contributors 26
+#+MACRO: num_exercises 16 thousand
+#+MACRO: num_releases 339
+#+MACRO: num_schools one thousand
+#+MACRO: num_submissions 17 million
+#+MACRO: num_users 65 thousand
 #+cite_export: csl citation-style.csl
 #+bibliography: bibliography.bib
 
@@ -51,11 +59,6 @@
 There should be a `#+LATEX: \frontmatter` here, but I want to still be able to export to HTML, have the TOC show up in itself, change its heading and have the TOC be part of the frontmatter.
 Because of this the `\frontmatter` statement needs to be part of the `org-latex-toc-command` (which is set in the =.dir-locals.el=/=build.el= file).
 #+END_COMMENT
-
-#+MACRO: num_users 65 thousand
-#+MACRO: num_exercises 16 thousand
-#+MACRO: num_schools one thousand
-#+MACRO: num_submissions 17 million
 
 * To-dos
 :PROPERTIES:
@@ -906,8 +909,8 @@ This means that the only student that can be impacted by the Python Tutor failin
 :END:
 
 Development of Dodona is done on GitHub.
-Over the years, Dodona has seen over 16\thinsp{}000 commits by 26 contributors, and there have been 339 releases.
-All new features and bug fixes are added to the main branch through pull requests, of which there have been almost 3\thinsp{}800.
+Over the years, Dodona has seen over {{{num_commits}}} commits by {{{num_contributors}}} contributors, and there have been {{{num_releases}}} releases.
+All new features and bug fixes are added to the main branch through pull requests, of which there have been almost {{{num_prs}}}.
 These pull requests are reviewed by (at least) two other developers of the Dodona team before they are merged.
 We also treat pull requests as a form of documentation by writing an extensive PR description and adding screenshots for all visual changes or additions.
 The extensive test suite also runs automatically for every pull request, and developers are encouraged to add new tests for each feature or bug fix.
