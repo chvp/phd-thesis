@@ -54,6 +54,7 @@ Because of this the `\frontmatter` statement needs to be part of the `org-latex-
 
 #+MACRO: num_users 65 thousand
 #+MACRO: num_exercises 16 thousand
+#+MACRO: num_schools one thousand
 #+MACRO: num_submissions 17 million
 
 * To-dos
@@ -421,7 +422,7 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 :CUSTOM_ID: chap:use
 :END:
 
-Dodona's design decisions have allowed it to spread to more than 1\thinsp{}000 schools, colleges and universities, mainly in Flanders (Belgium) and the Netherlands.
+Dodona's design decisions have allowed it to spread to more than {{{num_schools}}} schools, colleges and universities, mainly in Flanders (Belgium) and the Netherlands.
 The renewed interest in embedding computational thinking in formal education has undoubtedly been an important stimulus for such a wide uptake\nbsp{}[cite:@wingComputationalThinking2006].
 All other educational institutions use the instance of Dodona hosted at Ghent University, which is free to use for educational purposes.
 
