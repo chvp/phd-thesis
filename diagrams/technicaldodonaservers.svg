@@ -1507,7 +1507,8 @@
      stroke-miterlimit="10"
      d="M 227.961508 167.169577 L 227.997935 187.402331 L 714.302156 187.402331 L 714.281341 173.62241 "
      transform="matrix(0.750639, 0, 0, 0.750639, 0.37532, 0.37532)"
-     id="path530" />
+     id="path530"
+     style="stroke-width:1.00980632;stroke-dasharray:1.00980628,1.00980628;stroke-dashoffset:0" />
   <path
      fill-rule="nonzero"
      fill="rgb(0%, 0%, 0%)"
