@@ -2026,7 +2026,7 @@ Having this new framework at hand immediately raises some follow-up research que
 :CUSTOM_ID: sec:passfailfinland
 :END:
 
-In 2022, we collaborated with researchers from Jyväskylä University (JYU) in Finland on replicating our study in their context.
+In 2022, we collaborated with researchers from Jyväskylä University (JYU) in Finland on replicating our study in their context\nbsp{}[cite:@zhidkikhReproducingPredictiveLearning2024].
 There are however, some notable differences to the study performed at Ghent University.
 In their study, self-reported data was added to the model to test whether this enhances its predictions.
 Also, the focus was shifted from pass/fail prediction to dropout prediction.
