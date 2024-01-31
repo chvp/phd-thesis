@@ -1480,7 +1480,7 @@ The DSL version of the example exercise can be seen in Listing\nbsp{}[[lst:techn
             return: "[5, 0, 1, 2, 3, 4]"
 #+END_SRC
 
-* Pass/fail prediction
+* Pass/fail prediction in programming courses
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:50]
 :CUSTOM_ID: chap:passfail
@@ -1496,10 +1496,12 @@ A lot of educational opportunities are missed by keeping assessment separate fro
 Educational technology can bridge this divide by providing real-time data and feedback to help students learn better, teachers teach better, and education systems become more effective\nbsp{}[cite:@oecdOECDDigitalEducation2021].
 Earlier research demonstrated that the adoption of interactive platforms may lead to better learning outcomes\nbsp{}[cite:@khalifaWebbasedLearningEffects2002] and allows collecting rich data on student behaviour throughout the learning process in non-evasive ways.
 Effectively using such data to extract knowledge and further improve the underlying processes, which is called educational data mining\nbsp{}[cite:@bakerStateEducationalData2009], is increasingly explored as a way to enhance learning and educational processes\nbsp{}[cite:@duttSystematicReviewEducational2017].
+
 About one third of the students enrolled in introductory programming courses fail\nbsp{}[cite:@watsonFailureRatesIntroductory2014; @bennedsenFailureRatesIntroductory2007].
 Such high failure rates are problematic in light of low enrolment numbers and high industrial demand for software engineering and data science profiles\nbsp{}[cite:@watsonFailureRatesIntroductory2014].
 To remedy this situation, it is important to have detection systems for monitoring at-risk students, understand why they are failing, and develop preventive strategies.
 Ideally, detection happens early on in the learning process to leave room for timely feedback and interventions that can help students increase their chances of passing a course.
+
 Previous approaches for predicting performance on examinations either take into account prior knowledge such as educational history and socio-economic background of students or require extensive tracking of student behaviour.
 Extensive behaviour tracking may directly impact the learning process itself.
 [cite/t:@rountreeInteractingFactorsThat2004] used decision trees to find that the chance of failure strongly correlates with a combination of academic background, mathematical background, age, year of study, and expectation of a grade other than "A".
@@ -1509,6 +1511,7 @@ They were able to predict success with 60% accuracy.
 [cite/t:@asifAnalyzingUndergraduateStudents2017] combine examination results from the last two years in high school and the first two years in higher education to predict student performance in the remaining two years of their academic study program.
 They used data from one cohort to train models and from another cohort to test that the accuracy of their predictions is about 80%.
 This evaluates their models in a similar scenario in which they could be applied in practice.
+
 A downside of the previous studies is that collecting uniform and complete data on student enrolment, educational history and socio-economic background is impractical for use in educational practice.
 Data collection is time-consuming and the data itself can be considered privacy-sensitive.
 Usability of predictive models therefore not only depends on their accuracy, but also on their dependency on findable, accessible, interoperable and reusable data\nbsp{}[cite:@wilkinsonFAIRGuidingPrinciples2016].
@@ -1579,6 +1582,7 @@ Table\nbsp{}[[tab:passfailcoursestatistics]] summarizes some statistics on the c
 #+CAPTION: A series is a collection of exercises typically handled in one week/lab session.
 #+CAPTION: The number of attempts is the average number of solutions submitted by a student per exercise they worked on (i.e. for which the student submitted at least one solution in the course edition).
 #+NAME: tab:passfailcoursestatistics
+|--------+------------+----------+--------+-----------+-----------+-----------------+----------+-----------|
 | course |   academic | students | series | exercises | mandatory | submitted       | attempts | pass rate |
 |        |       year |          |        |           | exercises | solutions       |          |           |
 |--------+------------+----------+--------+-----------+-----------+-----------------+----------+-----------|
@@ -1613,14 +1617,14 @@ We opted to use two different courses that are structured quite differently to m
 :CUSTOM_ID: subsec:passfaillearningenvironment
 :END:
 
-Both courses use the same in-house online learning environment.
-This online learning environment promotes active learning through problem-solving\nbsp{}[cite:@princeDoesActiveLearning2004].
-Each course edition has its own module, with a learning path that groups exercises in separate series (Figure\nbsp{}[[fig:passfailstudentcourse]]).
+Both courses use Dodona as their online learning environment.
+Dodona promotes active learning through problem-solving\nbsp{}[cite:@princeDoesActiveLearning2004].
+Each course edition has its own Dodona course, with a learning path that groups exercises in separate series (Figure\nbsp{}[[fig:passfailstudentcourse]]).
 Course A has one series per covered programming topic (10 series in total) and course B has one series per lab session (20 series in total).
 A submission deadline is set for each series.
-The learning environment is also used to take tests and exams, within series that are only accessible for participating students.
+Dodona is also used to take tests and exams, within series that are only accessible for participating students.
 
-#+CAPTION: Student view of a module in the online learning environment from which we collected our data, showing two series of six exercises in the learning path of course A.
+#+CAPTION: Student view of a course in Dodona, showing two series of six exercises in the learning path of course A.
 #+CAPTION: Each series has its own deadline.
 #+CAPTION: The status column shows a global status for each exercise based on the last solution submitted.
 #+CAPTION: The class progress column visualizes global status for each exercise for all students subscribed in the course.
@@ -1653,7 +1657,7 @@ One of the effects of active learning, triggered by exercises with deadlines and
 :CUSTOM_ID: subsec:passfaildata
 :END:
 
-We exported data from the learning environment on all solutions submitted by students during each course edition included in the study.
+We exported data from Dodona on all solutions submitted by students during each course edition included in the study.
 Each solution has a submission timestamp with precision down to the second and is linked to a course edition, series in the learning path, exercise and student.
 We did not use the actual source code submitted by students, but did use the status describing the global assessment made by the learning environment: correct, wrong, compilation error, runtime error, time limit exceeded, memory limit exceeded, or output limit exceeded.
 
@@ -1855,7 +1859,7 @@ This interpretability was a considerable factor in our choice of the classificat
 Since we identified logistic regression as the best-performing classifier, we will have a closer look at feature contributions in its models.
 These models are explained by the feature weights in the logistic regression equation, so we will express the importance of a feature as its actual weight in the model.
 We use a temperature scale when plotting importances: white for zero importance, a red gradient for positive importance values and a blue gradient for negative importance values.
-A feature importance w can be interpreted as follows for logistic regression models: an increase of the feature value by one standard deviation increases the odds of passing the course by a factor of \(e^w\) when all other feature values remain the same\nbsp{}[cite:@molnarInterpretableMachineLearning2019].
+A feature importance \(w\) can be interpreted as follows for logistic regression models: an increase of the feature value by one standard deviation increases the odds of passing the course by a factor of \(e^w\) when all other feature values remain the same\nbsp{}[cite:@molnarInterpretableMachineLearning2019].
 The absolute value of the importance determines the impact the feature has on predictions.
 Features with zero importance have no impact because \(e^0 = 1\).
 Features represented with a light colour have a weak impact and features represented with a dark colour have a strong impact.
@@ -1866,7 +1870,7 @@ Features with a positive importance (red colour) will increase the odds with inc
 To simulate that we want to make predictions for each course edition included in this study, we trained logistic regression models with data from the remaining two editions of the same course.
 A label "edition 18--19" therefore means that we want to make predictions for the 2018--2019 edition of a course with a model built from the 2016--2017 and 2017--2018 editions of the course.
 However, in this case we are not interested in the predictions themselves, but in the importance of the features in the models.
-The importance of all features for each course edition can be found in the supplementary material.
+The importance of all features for each course edition can be found in Appendix\nbsp{}[[Feature importances]].
 We will restrict our discussion by highlighting the importance of a selection of feature types for the two courses.
 
 For course A, we look into the evaluation scores (Figure\nbsp{}[[fig:passfailfeaturesAevaluation]]) and the feature types =correct_after_15m= (Figure\nbsp{}[[fig:passfailfeaturesAcorrect]]) and =wrong= (Figure\nbsp{}[[fig:passfailfeaturesAwrong]]).
@@ -1883,8 +1887,8 @@ They have zero impact on predictions for earlier snapshots, as the information i
 [[./images/passfailfeaturesAevaluation.png]]
 
 The second feature type we want to highlight is =correct_after_15m=: the number of exercises in a series where the first correct submission was made within fifteen minutes after the first submission (Figure\nbsp{}[[fig:passfailfeaturesAcorrect]]).
-Note that we can't directly measure how long students work on an exercise, as they may write, run and test their solutions on their local machine before their first submission to the learning platform.
-Rather, this feature type measures how long it takes students to find and remedy errors in their code (debugging), after they start getting automatic feedback from the learning platform.
+Note that we can't directly measure how long students work on an exercise, as they may write, run and test their solutions on their local machine before their first submission to Dodona.
+Rather, this feature type measures how long it takes students to find and remedy errors in their code (debugging), after they start getting automatic feedback from Dodona.
 
 For exercise series in the first unit of course A (series 1--5), we generally see that the features have a positive impact (red).
 This means that students will more likely pass the course if they are able to quickly remedy errors in their solutions for these exercises.
@@ -1976,19 +1980,19 @@ The reasons for these differences depend on the content of the course, which req
 #+NAME: fig:passfailfeaturesBwrong
 [[./images/passfailfeaturesBwrong.png]]
 
-** Replication at Jyväskylä University
+** Replication study at Jyväskylä University in Finland
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:50]
 :CUSTOM_ID: sec:passfailfinland
 :END:
 
-In 2022, we collaborated with researchers from Jyväskylä University (JYU) in Finland on replicating our study in their context\nbsp{}[cite:@zhidkikhReproducingPredictiveLearning2024].
+After our original study, we collaborated with researchers from Jyväskylä University (JYU) in Finland on replicating the study in their introductory programming course\nbsp{}[cite:@zhidkikhReproducingPredictiveLearning2024].
 There are however, some notable differences to the study performed at Ghent University.
-In their study, self-reported data was added to the model to test whether this enhances its predictions.
-Also, the focus was shifted from pass/fail prediction to dropout prediction.
+In the new study, self-reported data was added to the model to test whether this enhances its predictions.
+Also, the focus shifted from pass/fail prediction to dropout prediction.
 This happened because of the different way the course at JYU is taught.
 By performing well enough in all weekly exercises and a project, students can already receive a passing grade.
-This is impossible in the courses studied at Ghent University, where most of the final marks are earned at the exam at the end of the semester.
+This is impossible in the courses at Ghent University, where most of the final marks are earned at the exam at the end of the semester.
 
 Another important difference in the two studies is the data that was available to feed into the machine learning model.
 Dodona keeps rich data about the evaluation results of a student's submission.
@@ -2013,7 +2017,7 @@ In addition to this, the dropout analysis was done for three datasets:
 The results obtained in the study at JYU are very similar to the results obtained at Ghent University.
 Again, logistic regression was found to yield the best and most stable results.
 Even though no data about midterm evaluations or examinations was used (since this data was not available) a similar jump in accuracy around the midterm of the course was also observed.
-The jump in accuracy here can be explained through the fact that the midterm is when most students drop out.
+The jump in accuracy can be explained here by the fact that the period around the middle of the term is when most students drop out.
 It was also observed that the first weeks of the course play an important role in reducing dropout.
 
 The addition of the self-reported data to the snapshots resulted in a statistically significant improvement of predictions in the first four weeks of the course.
@@ -2021,8 +2025,8 @@ For the remaining weeks, the change in predication performance was not statistic
 This again points to the conclusion that the first few weeks of a CS1 course play a significant role in student success.
 The models trained only on self-reported data performed significantly worse than the other models.
 
-The replication done at JYU showed that our devised method can be used in significantly different contexts.
-Of course sometimes adaptations have to be made given differences in course structure and learning environment used, but these adaptations do not result in worse prediction results.
+The replication done at JYU showed that our prediction strategy can be used in significantly different educational contexts.
+Of course adaptations to the method have to be made sometimes given differences in course structure and learning environment used, but these adaptations do not result in different prediction results.
 
 ** Conclusions and future work
 :PROPERTIES:
@@ -2034,7 +2038,7 @@ In this chapter, we presented a classification framework for predicting if stude
 The framework already yields high-accuracy predictions early on in the semester and is privacy-friendly because it only works with metadata from programming challenges solved by students while working on their programming skills.
 Being able to identify at-risk students early on in the semester opens windows for remedial actions to improve the overall success rate of students.
 
-We validated the framework by building separate classifiers for two courses because of differences in course structure, but using the same set of features for training models.
+We validated the framework by building separate classifiers for three courses because of differences in course structure, institute and learning platform, but using similar sets of features for training models.
 The results showed that submission metadata from previous student cohorts can be used to make predictions about the current cohort of students, even if course editions use different sets of exercises, or the courses are structured differently.
 Making predictions requires aligning snapshots between successive editions of a course, where students have the same expected progress at corresponding snapshots.
 Historical metadata from a single course edition suffices if group sizes are large enough.
@@ -2042,7 +2046,7 @@ Different classification algorithms can be plugged into the framework, but logis
 
 Apart from their application to make pass/fail predictions, an interesting side effect of classification models that map indirect measurements of learning behaviour onto mastery of programming skills is that they allow us to interpret what behavioural aspects contribute to learning to code.
 Visualization of feature importance turned out to be a useful instrument for linking individual feature types with student behaviour that promotes or inhibits learning.
-We applied this interpretability to some important feature types that popped up for the two courses included in this study.
+We applied this interpretability to some important feature types that popped up for the three courses included in this study.
 
 Our study has several strengths and promising implications for future practice and research.
 First, we were able to predict success based on historical metadata from earlier cohorts, and we are already able to do that early on in the semester.
