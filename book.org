@@ -95,14 +95,14 @@ Remaining text should probably be written in the form of an article, so we can t
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
 
-** Medium priority
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 17:17]
-:END:
-
 *** TODO Write [[Summaries]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:23]
+:END:
+
+** Medium priority
+:PROPERTIES:
+:CREATED: [2023-11-20 Mon 17:17]
 :END:
 
 *** TODO Redo screenshots/visualizations
@@ -738,9 +738,9 @@ Given that cohort sizes are large enough, historical data from a single course e
 
 Dodona and its ecosystem comprise a lot of code.
 This chapter discusses the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor, Papyros (\url{https://papyros.dodona.be}), that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
-I will also discuss two judges that I was involved with the development of.
+We will also discuss two judges that we were involved with the development of.
 The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
-The TESTed judge came forth out of a prototype I built in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two master's theses I helped supervise\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
+The TESTed judge came forth out of a prototype we built in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two master's theses\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
 
 ** Dodona[fn:: https://github.com/dodona-edu/dodona]
 :PROPERTIES:
@@ -752,7 +752,7 @@ The TESTed judge came forth out of a prototype I built in my master's thesis\nbs
 To ensure that Dodona is robust to sudden increases in workload and when serving hundreds of concurrent users, it has a multi-tier service architecture that delegates different parts of the application to different servers, as can be seen on Figure\nbsp{}[[fig:technicaldodonaservers]].
 More specifically, the web server, database (MySQL) and caching system (Memcached) each run on their own machine.
 In addition, a scalable pool of interchangeable worker servers are available to automatically assess incoming student submissions.
-In this section, I will highlight a few of these components.
+In this section, we will highlight a few of these components.
 
 #+CAPTION: Diagram of all the servers involved with running and developing Dodona.
 #+CAPTION: The role of each server in the deployment is listed below its name.
@@ -1096,7 +1096,7 @@ Usability was further improved by adding the =FriendlyTraceback= library.
 :END:
 
 Because Dodona had proven itself as a useful tool for teaching Python and Java to students, colleagues teaching statistics started asking if we could build R support into Dodona.
-Since the judge system of Dodona makes this fairly easy, I started working on an R judge soon after.
+Since the judge system of Dodona makes this fairly easy, we started working on an R judge soon after.
 By now, more than 1\thinsp{}250 R exercises have been added, and almost 1 million submissions have been made to an R exercise.
 
 Because R is mostly used for statistics, there are a few extra features that come to mind that are not typically handled by judges, such as handling of data frames and outputting visual graphs (or even evaluating that a graph was built correctly).
@@ -1186,9 +1186,9 @@ This prevents the student and teacher code from e.g. writing to standard output 
 
 My master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] presented a method for estimating the computational complexity of solutions for programming exercises.
 One of the goals was to make it work over many programming languages.
-To do this, I wrote a framework based on Jupyter kernels[fn:: https://jupyter.org] where the interaction with each programming language was abstracted away behind a common interface.
-We realized this framework could be useful in itself, but it was only developed as far as I needed for my master's thesis.
-It did however serve as a proof of concept for TESTed, which I will present in this section.
+To do this, we wrote a framework based on Jupyter kernels[fn:: https://jupyter.org] where the interaction with each programming language was abstracted away behind a common interface.
+We realized this framework could be useful in itself, but it was only developed as far as we needed for the thesis.
+It did however serve as a proof of concept for TESTed, which we will present in this section.
 
 TESTed was developed to solve two major drawbacks with the current judge system of Dodona.
 - When creating the same exercise in multiple programming languages, the exercise description and test cases need to be redone for every programming language.
@@ -1218,7 +1218,7 @@ TESTed generally works using the following steps:
 1. Evaluate the results, either with programming language-specific evaluation, programmed evaluation, or generic evaluation.
 1. Send the evaluation results to Dodona.
 
-In the following sections I will expand on these steps using an example exercise to demonstrate what I am talking about in practice.
+In the following sections we will expand on these steps using an example exercise to demonstrate them in practice.
 In this exercise, students need to rotate a list.
 For example, in Python, ~rotate([0, 1, 2, 3, 4], 2)~ should return ~[3, 4, 0, 1, 2]~.
 
@@ -2073,7 +2073,7 @@ Having this new framework at hand immediately raises some follow-up research que
 :END:
 
 This chapter will discuss the history of manual feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of evaluation and features within Dodona.
-I will then expand on what we did to further reduce the time spent adding manual feedback using data mining techniques.
+We will then expand on what we did to further reduce the time spent adding manual feedback using data mining techniques.
 
 ** Assessment on paper
 :PROPERTIES:
