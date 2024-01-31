@@ -66,56 +66,39 @@ Because of this the `\frontmatter` statement needs to be part of the `org-latex-
 :UNNUMBERED: t
 :END:
 
-** High priority
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 17:17]
-:END:
-
-*** TODO Write [[#chap:intro]]
+** TODO Write [[#chap:intro]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
 
 Include history of automated assessment
 
-*** DOING Finish chapter [[#chap:feedback]]
+** DOING Finish chapter [[#chap:feedback]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
 
-Remaining text should probably be written in the form of an article, so we can try and publish it.
-
-**** TODO Add some screenshots to grading chapter, make sure there isn't too much overlap with\nbsp{}[[Manual assessment]]
+*** TODO Add some screenshots to grading chapter, make sure there isn't too much overlap with\nbsp{}[[Manual assessment]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 18:00]
 :END:
 
-*** TODO Write [[#chap:discussion]]
+** TODO Write [[#chap:discussion]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
 
-*** TODO Write [[Summaries]]
+** TODO Write [[Summaries]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:23]
 :END:
 
-** Medium priority
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 17:17]
-:END:
-
-*** TODO Redo screenshots/visualizations
+** TODO Redo screenshots/visualizations
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:19]
 :END:
 
 I might even wait with this explicitly to do this closer to the deadline, to incorporate possible UI changes that might be done in the near future.
-
-*** TODO Expand on the structure of the feedback table in Section\nbsp{}[[Automated assessment]] (maybe move some content from Figure\nbsp{}[[fig:whatfeedback]]'s caption?).
-:PROPERTIES:
-:CREATED: [2023-11-21 Tue 16:15]
-:END:
 
 #+LATEX: \begin{dutch}
 * Dankwoord
