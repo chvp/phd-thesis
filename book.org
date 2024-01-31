@@ -993,7 +993,7 @@ Since the project is focused on scientific research, it has wide support for ext
 Because Pyodide can be treated as a regular library, it can be run in a web worker, making sure that the page stays responsive while the user's code is being executed.
 
 We chose to continue this work with Pyodide given its active development, support for recent Python versions and its ability to be executed on a separate thread.
-We also looked into integrating other platforms such as Repl.it, but none of them were free or integrable.
+We also looked into integrating other platforms such as Repl.it, but none of them were free or did not provide a suitable nterface for integration.
 
 *** Implementation
 :PROPERTIES:
@@ -2340,7 +2340,7 @@ for digit in number:
 - =correct_after_2h= :: number of exercises where first correct submission by student was made within two hours after first submission
 - =correct_after_24h= :: number of exercises where first correct submission by student was made within twenty-four hours after first submission
 
-* References
+* Bibliography
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:59]
 :CUSTOM_ID: chap:bibliography
