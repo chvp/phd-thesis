@@ -2,7 +2,7 @@
 #+AUTHOR: Charlotte Van Petegem
 #+LANGUAGE: en-gb
 #+LATEX_CLASS: book
-#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip,BCOR=10mm,10pt]
+#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip,BCOR=10mm,DIV=10]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{shellesc, luacode}
@@ -707,6 +707,7 @@ Such "deadline hugging" patterns are also a good breeding ground for students to
 [[./images/usefweanalyticsstatuses.png]]
 
 #+CAPTION: Progression over time of the percentage of students that correctly solved each assignment.
+#+CAPTION: The visualisation starts two weeks before the deadline, which is on the 19th of October.
 #+NAME: fig:usefweanalyticscorrect
 [[./images/usefweanalyticscorrect.png]]
 
@@ -740,7 +741,8 @@ Dodona and its ecosystem comprise a lot of code.
 This chapter discusses the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor, Papyros (\url{https://papyros.dodona.be}), that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
 We will also discuss two judges that we were involved with the development of.
 The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
-The TESTed judge came forth out of a prototype we built in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two master's theses\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
+The TESTed judge was first prototyped in a master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two other master's theses\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
+In this chapter we assume the reader is familiar with Dodona's features and how they are used, as detailed in Chapters\nbsp{}[[#chap:what]]\nbsp{}and\nbsp{}[[#chap:use]].
 
 ** Dodona[fn:: https://github.com/dodona-edu/dodona]
 :PROPERTIES:
@@ -749,7 +751,7 @@ The TESTed judge came forth out of a prototype we built in my master's thesis\nb
 :ALT_TITLE: Dodona
 :END:
 
-To ensure that Dodona is robust to sudden increases in workload and when serving hundreds of concurrent users, it has a multi-tier service architecture that delegates different parts of the application to different servers, as can be seen on Figure\nbsp{}[[fig:technicaldodonaservers]].
+To ensure that Dodona is robust against sudden increases in workload and when serving hundreds of concurrent users, it has a multi-tier service architecture that delegates different parts of the application to different servers, as can be seen on Figure\nbsp{}[[fig:technicaldodonaservers]].
 More specifically, the web server, database (MySQL) and caching system (Memcached) each run on their own machine.
 In addition, a scalable pool of interchangeable worker servers are available to automatically assess incoming student submissions.
 In this section, we will highlight a few of these components.
@@ -795,7 +797,8 @@ For user content where this creative freedom is not as necessary (e.g. series or
 
 One of the most important components of Dodona is the feedback table.
 It has, therefore, seen a lot of security, optimization and UI work over the years.
-Since judge and exercise authors can determine a lot of the content that eventually ends up in the feedback table, the same sanitization that is used for series and course descriptions is used for the messages that are added to the feedback table (since these can contain Markdown and arbitrary HTML as well).
+Judge and exercise authors (and even students, through their submissions) can determine a lot of the content that eventually ends up in the feedback table.
+Therefore, the same sanitization that is used for series and course descriptions is used for the messages that are added to the feedback table (since these can contain Markdown and arbitrary HTML as well).
 The increase in teachers that added exercises to Dodona also meant that the variety in feedback given grew, sometimes resulting in a huge volume of testcases and long output.
 
 Optimization work was needed to cope with this volume of feedback.
@@ -867,7 +870,7 @@ Another form of inheritance is specifying default assessment configurations at t
 :END:
 
 The deployment of the Python Tutor also saw a number of changes over the years.
-The Python Tutor itself is written in Python, so could not be part of Dodona itself.
+The Python Tutor itself is written in Python by [cite/t:@guoOnlinePythonTutor2013], so could not be part of Dodona itself.
 It started out as a Docker container on the same server as the main Dodona web application.
 Because it is used mainly by students who want to figure out their mistakes, the service responsible for running student code could become overwhelmed and in extreme cases even make the entire server unresponsive.
 After we identified this issue, the Python tutor was moved to its own server (Pandora in Figure\nbsp{}[[fig:technicaldodonaservers]]).
@@ -877,6 +880,7 @@ One can imagine that the experience for students who are already quite stressed 
 In the meantime, we had started to experiment with running Python code client-side in the browser (see Section\nbsp{}[[#sec:papyros]] for more info).
 Because these experiments were successful, we migrated the Python Tutor from its own server to being run by students in their own browser using Pyodide.
 This means that the only student that can be impacted by the Python Tutor failing for a testcase is the student themselves (and because the Tutor is being run on a device that is under a far less heavy load, the Python Tutor fails much less often).
+In practice, we got no questions or complaints about the Python Tutor's performance after these changes, even during exams where 460 students were submitting simultaneously.
 
 *** Development process
 :PROPERTIES:
@@ -886,9 +890,9 @@ This means that the only student that can be impacted by the Python Tutor failin
 Development of Dodona is done on GitHub.
 Over the years, Dodona has seen over {{{num_commits}}} commits by {{{num_contributors}}} contributors, and there have been {{{num_releases}}} releases.
 All new features and bug fixes are added to the =main= branch through pull requests, of which there have been about {{{num_prs}}}.
-These pull requests are reviewed by (at least) two other developers of the Dodona team before they are merged.
-We also treat pull requests as a form of documentation by writing an extensive PR description and adding screenshots for all visual changes or additions.
-The extensive test suite also runs automatically for every pull request, and developers are encouraged to add new tests for each feature or bug fix.
+These pull requests are reviewed by (at least) two developers of the Dodona team before they are merged.
+We also treat pull requests as a form of internal documentation by writing an extensive PR description and adding screenshots for all visual changes or additions.
+The extensive test suite also runs automatically for every pull request (using GitHub Actions), and developers are encouraged to add new tests for each feature or bug fix.
 We've also made it very easy to deploy to our testing (Mestra) and staging (Naos) environments so that reviewers can test changes without having to spin up their local development instance of Dodona.
 These are the two unconnected servers seen in Figure\nbsp{}[[fig:technicaldodonaservers]].
 Mestra runs a Dodona instance much like the instance developers use locally.
@@ -919,7 +923,8 @@ This way we can be sure the actual production database is never in an inconsiste
 The actual deployment is done by Capistrano[fn:: https://capistranorb.com/].
 Capistrano allows us to roll back any deploys and makes clever use of symlinking to make sure that deploys happen without any service interruption.
 
-Backups of the database are automatically saved every day and kept for 12 months, although the frequency which they are kept with decreases over time.
+Backups of the database are automatically saved every day and kept for 12 months.
+The backups are rotated according to a grandfather-father-son scheme\nbsp{}[cite:@jessen2010overview].
 The backups are taken by dumping a replica database.
 The replica database is used because dumping the main database write-locks it while it is being dumped, which would result in Dodona being unusable for a significant amount of time.
 
@@ -938,10 +943,11 @@ These notifications were an important driver to optimize some pages or to make c
 :ALT_TITLE: Papyros
 :END:
 
-One of the main feedback items we got when introducing Dodona to secondary education teachers was that Dodona did not have a simple way for students to run and test their code themselves.
+Papyros is a stand-alone basic online IDE we developed, primarily focused on secondary education.
+Recurring feedback we got from secondary education teachers when introducing Dodona to them was that Dodona did not have a simple way for students to run and test their code themselves.
 Testing their code in this case also means manually typing a response to an input prompt when an =input= statement is run by the interpreter.
 In the educational practice that Dodona was born out of, this was an explicit design goal.
-We wanted to guide students to use an IDE locally instead of programming in Dodona directly, since if they needed to program later in life, they would not have Dodona available to program in.
+We wanted to guide students to use an IDE locally instead of programming in Dodona directly, since if they needed to program later in life, they would not have Dodona available as their programming environment.
 This same goal is not present in secondary education.
 In that context, the challenge of programming is already big enough, without complicating things by installing a real IDE with a lot of buttons and menus that students will never use.
 Students might also be working on devices that they don't own (PCs in the school), where installing an IDE might not even be possible.
@@ -950,7 +956,8 @@ There are a few reasons why we could not initially offer a simple online IDE.
 Even though we can use a lot of the infrastructure very graciously offered by Ghent University, these resources are not limitless.
 The extra (interactive) evaluation of student code was something we did not have the resources for, nor did we have any architectural components in place to easily integrate this into Dodona.
 The main goal of Papyros was thus to provide a client-side Python execution environment we could then include in Dodona.
-Note that we don't want to replace the entire execution model with client-side execution, as the client is an untrusted execution environment where debugging tools could be used to manipulate the results.
+We focused on Python because it is the most widely used programming language in secondary education, at least in Flanders.
+Note that we don't want to replace Dodona's entire execution model with client-side execution, as the client is an untrusted execution environment where debugging tools could be used to manipulate the results.
 Because the main idea is integration in Dodona, we primarily wanted users to be able to execute entire programs, and not necessarily offer a REPL at first.
 
 Given that the target audience for Papyros is secondary education students, we identified a number of secondary requirements:
@@ -971,22 +978,23 @@ Python can not be executed directly by a browser, since only JavaScript and WebA
 We investigated a number of solutions for running Python code in the browser.
 
 The first of these is Brython[fn:: https://brython.info].
-Brython works by transpiling Python code to JavaScript, where the transpilation itself is also implemented in JavaScript.
-The project itself is conceptualized as a way to develop web applications in Python, and not to run arbitrary Python code in the browser, so a lot of its tooling is not directly applicable to our use case, especially concerning interactive input prompts.
+Brython works by transpiling Python code to JavaScript, where the transpilation is implemented in JavaScript.
+The project is conceptualized as a way to develop web applications in Python, and not to run arbitrary Python code in the browser, so a lot of its tooling is not directly applicable to our use case, especially concerning interactive input prompts.
 It also runs on the main thread of the browser, so executing a student's code would freeze the browser until it is done running.
 
-Another solution we looked at is Skulpt[fn:: https://skulpt.org].
+Another solution we looked into is Skulpt[fn:: https://skulpt.org].
 It also transpiles Python code to JavaScript, and supports Python 2 and Python 3.7.
 After loading Skulpt, a global object is added to the page where Python code can be executed through JavaScript.
 
-The final option we looked at was Pyodide[fn:: https://pyodide.org/en/stable].
-Pyodide was developed by Mozilla as part of their Iodide project, aiming to make scientific research shareable and reproducible via the browser.
-Pyodide is a port of the Python interpreter to WebAssembly, allowing code to be executed by the browser.
+The final option we looked into was Pyodide[fn:: https://pyodide.org/en/stable].
+Pyodide was initially developed by Mozilla as part of their Iodide project, aiming to make scientific research shareable and reproducible via the browser.
+It is now a stand-alone project.
+Pyodide is a port of the Python interpreter to WebAssembly, allowing it to be executed by the browser.
 Since the project is focused on scientific research, it has wide support for external libraries such as NumPy.
-Because Pyodide can be treated as a regular library, it can be run in a web worker, making sure that the page stays responsive while the user's code is being executed.
+Because Pyodide can be treated as a regular JavaScript library, it can be run in a web worker, making sure that the page stays responsive while the user's code is being executed.
 
-We chose to continue this work with Pyodide given its active development, support for recent Python versions and its ability to be executed on a separate thread.
-We also looked into integrating other platforms such as Repl.it, but none of them were free or did not provide a suitable nterface for integration.
+We also looked into integrating other platforms such as Repl.it, but none of them were free or did not provide a suitable interface for integration.
+We chose to base Papyros on Pyodide given its active development, support for recent Python versions and its ability to be executed on a separate thread.
 
 *** Implementation
 :PROPERTIES:
@@ -1005,13 +1013,13 @@ The most important choice in the user interface was the choice of the editor.
 There were three main options:
 #+ATTR_LATEX: :environment enumerate*
 #+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{, }}, itemjoin*={{, and }}]
-- Ace
-- Monaco
-- CodeMirror.
+- Ace[fn:: https://ace.c9.io/]
+- Monaco[fn:: https://microsoft.github.io/monaco-editor/]
+- CodeMirror[fn:: https://codemirror.net/].
 
 Ace was the editor used by Dodona at the time.
 It supports syntax highlighting and has some built-in linting.
-However, it is not very extensible, it doesn't support mobile devices well, and it's not in active development any more.
+However, it is not very extensible, it doesn't support mobile devices well, and it's no longer actively developed.
 
 Monaco is the editor extracted from Visual Studio Code and often used by people building full-fledged web IDE's.
 It also has syntax highlighting and linting and is much more extensible.
@@ -1026,7 +1034,7 @@ Given the clear advantages, we decided to use CodeMirror for Papyros.
 The two other main components of Papyros are the output window and the input window.
 The output window is a simple read-only textarea.
 The input window is a text area that has two modes: interactive mode and batch input.
-In interactive mode, the user is expected to write the input needed by the program they wrote the moment they ask for it (similar to running their program on the command line and answering the prompts when they appear).
+In interactive mode, the user is expected to write the input needed by their program the moment it asks for it (similar to running their program on the command line and answering the prompts when they appear).
 In batch mode, the user can prefill all the input required by their program.
 The full user interface can be seen in Figure\nbsp{}[[fig:technicalpapyros]].
 
@@ -1069,9 +1077,10 @@ In that case, a service worker could respond to network requests with data it ha
 So, putting this together, the web worker tells the main thread that it needs input and then fires off a synchronous HTTP request to some non-existent endpoint.
 The service worker intercepts this request, and responds to the request once it receives some input from the main thread.
 
-The functionality for performing synchronous communication with the main thread from a web worker was parcelled off into its own library (=sync-message=).
+The functionality for performing synchronous communication with the main thread from a web worker was parcelled off into its own library (=sync-message=[fn:: https://github.com/alexmojaki/sync-message]).
 This library could then decide which of these two methods to use, depending on the available environment.
-Another package, =python_runner=, bundles all required modifications to the Python environment in Pyodide.
+Another package, =python_runner=[fn:: https://github.com/alexmojaki/python_runner], bundles all required modifications to the Python environment in Pyodide.
+This work was done in collaboration with Alex Hall.
 
 **** Extensions
 :PROPERTIES:
@@ -1096,10 +1105,10 @@ Usability was further improved by adding the =FriendlyTraceback= library.
 :END:
 
 Because Dodona had proven itself as a useful tool for teaching Python and Java to students, colleagues teaching statistics started asking if we could build R support into Dodona.
-Since the judge system of Dodona makes this fairly easy, we started working on an R judge soon after.
+We started working on an R judge soon after.
 By now, more than 1\thinsp{}250 R exercises have been added, and almost 1 million submissions have been made to an R exercise.
 
-Because R is mostly used for statistics, there are a few extra features that come to mind that are not typically handled by judges, such as handling of data frames and outputting visual graphs (or even evaluating that a graph was built correctly).
+Because R is the /lingua franca/ of statistics, there are a few extra features that come to mind that are not typically handled by judges, such as handling of data frames and outputting visual graphs (or even evaluating that a graph was built correctly).
 Another feature that teachers wanted that we had not built into a judge previously was support for inspecting the student's source code, e.g. for making sure that certain functions were or were not used.
 
 *** Exercise API
@@ -1184,23 +1193,24 @@ This prevents the student and teacher code from e.g. writing to standard output 
 :ALT_TITLE: TESTed
 :END:
 
-My master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] presented a method for estimating the computational complexity of solutions for programming exercises.
-One of the goals was to make it work over many programming languages.
-To do this, we wrote a framework based on Jupyter kernels[fn:: https://jupyter.org] where the interaction with each programming language was abstracted away behind a common interface.
-We realized this framework could be useful in itself, but it was only developed as far as we needed for the thesis.
-It did however serve as a proof of concept for TESTed, which we will present in this section.
-
-TESTed was developed to solve two major drawbacks with the current judge system of Dodona.
+TESTEed is a universal judge for Dodona.
+TESTed was developed to solve two major drawbacks with the current judge system of Dodona:
 - When creating the same exercise in multiple programming languages, the exercise description and test cases need to be redone for every programming language.
   This is especially relevant for very simple exercises that students almost always start with, and for exercises in algorithms courses, where the programming language a student solves an exercise in is of lesser importance than the way they solve it.
-  Mistakes in exercises also have to be fixed in all versions of the exercise when having to duplicate the exercises.
+  Mistakes in exercises also have to be fixed in all instances of the exercise when there are multiple instances of the exercise.
 - The judges themselves have to be created from scratch every time.
   Most judges offer the same basic concepts and features, most of which are independent of programming language (communication with Dodona, checking correctness, I/O, ...).
 
-The goal of TESTed was to implement a judge so that exercises only have to be created once to be available in all programming languages TESTed supports.
+The goal of TESTed was to implement a judge so that programming exercises only have to be created once to be available in all programming languages TESTed supports.
 An exercise should also not have to be changed when support for a new programming language is added.
 As a secondary goal, we also wanted to make it as easy as possible to create new exercises.
-Teachers who have not used Dodona before should be able to create a basic new exercise without too many issues.
+Teachers who have not used Dodona before should be able to create a new basic exercise without too many issues.
+
+We first developed it as a proof of concept in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018], which presented a method for estimating the computational complexity of solutions for programming exercises.
+One of the goals was to make this method work over many programming languages.
+To do this, we wrote a framework based on Jupyter kernels[fn:: https://jupyter.org] where the interaction with each programming language was abstracted away behind a common interface.
+We realized this framework could be useful in itself, but it was only developed as far as we needed for the thesis.
+Further work then developed this proof of concept into the full judge we will present in the following sections.
 
 *** Overview
 :PROPERTIES:
@@ -1214,7 +1224,6 @@ TESTed generally works using the following steps:
 1. Optionally compile the test code, either in batch mode or per context.
    This step is skipped if evaluation a submission written in an interpreted language.
 1. Execute the test code.
-   Each context is executed in its own process.
 1. Evaluate the results, either with programming language-specific evaluation, programmed evaluation, or generic evaluation.
 1. Send the evaluation results to Dodona.
 
@@ -1235,15 +1244,16 @@ This is a special testcase per context that executes the main function (or the e
 The only possible inputs for this testcase are text for the standard input stream, command-line arguments and files in the working directory.
 The exit status code can only be checked in this testcase as well.
 
-Like the communication with Dodona, this test plan is a JSON document.
-The one unfortunate drawback of working with JSON is that it is a very verbose language and has an unforgiving syntax.
-In Section\nbsp{}[[DSL]] we will look further at the steps we took to mitigate this issue.
+Like the communication with Dodona, this test plan is a JSON document under the hood.
+In the following sections, we will use the JSON representation of the test plan to discuss how TESTed works.
+Exercise authors use the DSL to write their tests, which we will discuss in Section\nbsp{}[[DSL]].
+This DSL is converted by TESTed to the JSON test plan before execution.
 
 A test plan of the example exercise can be seen in Listing\nbsp{}[[lst:technicaltestedtestplan]].
 
 #+CAPTION: Basic structure of a test plan.
 #+CAPTION: The structure of Dodona's feedback table is followed closely.
-#+CAPTION: The function arguments have been left out, they are explained in [[Data serialization]].
+#+CAPTION: The function arguments have been left out, as they are explained in [[Data serialization]].
 #+NAME: lst:technicaltestedtestplan
 #+ATTR_LATEX: :float t
 #+BEGIN_SRC js
@@ -1287,10 +1297,10 @@ A test plan of the example exercise can be seen in Listing\nbsp{}[[lst:technical
 As part of the test plan, we also need a way to generically describe values and their types.
 This is what we will call the /serialization format/.
 The serialization format should be able to represent all the basic data types we want to support in the programming language independent part of the test plan.
-These data types are the basic primitives like integers, reals (floating point numbers), booleans, and strings, but also more complex collection types like arrays (or lists), sets and mapping types (maps, dictionaries, and objects).
+These data types are basic primitives like integers, reals (floating point numbers), booleans, and strings, but also more complex collection types like arrays (or lists), sets and mapping types (maps, dictionaries, and objects).
 Note that the serialization format is also used on the side of the programming language, to receive (function) arguments and send back execution results.
 
-Of course, a number of data serialization formats already exist, like =MessagePack=, =ProtoBuf=, ...
+Of course, a number of data serialization formats already exist, like =MessagePack=[fn:: https://msgpack.org/], =ProtoBuf=[fn:: https://protobuf.dev/], ...
 Binary formats were excluded from the start, because they can't easily be embedded in our JSON test plan, but more importantly, they can neither be written nor read by humans.
 Other formats did not support all the types we wanted to support and could not be extended to do so.
 Because of our goal in supporting many programming languages, the format also had to be either widely implemented or be easily implementable.
@@ -1299,15 +1309,13 @@ We opted to make the serialization format in JSON as well.
 Values are represented by objects containing the encoded value and the accompanying type.
 Note that this is a recursive format: the values in a collection are also serialized according to this specification.
 
-The types that values can have are split in three categories.
+The types of values are split in three categories.
 The first category are the basic types listed above.
-The second category are the extended types.
+The second category are the advanced types.
 These are specialized versions of the basic types, for example to specify the number of bits that a number should be, or whether a collection should be a tuple or a list.
 The final category of types can only be used to specify an expected type.
-In addition to the other categories, =any= and =custom= can be specified.
+In addition to the other categories, =any= can be specified.
 Like the name says, =any= signifies that the expected type is unknown, and the student can therefore return any type.
-=custom= requires the name of the type to be given.
-This can be used to, for example, create variable with a class that the student had to implement as its type.
 
 The encoded expected return value of our example exercise can be seen in Listing\nbsp{}[[lst:technicaltestedtypes]].
 
@@ -1369,11 +1377,11 @@ Listing\nbsp{}[[lst:technicaltestedassignment]] shows what it would look like if
 :CREATED:  [2024-01-04 Thu 09:16]
 :END:
 
-We also need to make sure that the programming language being executed is supported by the given test plan.
+We also need to make sure that the programming language of the submission under test is supported by the test plan of its exercise.
 The two things that are checked are whether a programming language supports all the types that are used and whether the language has all the necessary language constructs.
 For example, if the test plan uses a =tuple=, but the language doesn't support it, it's obviously not possible to evaluate a submission in that language.
 The same is true for overloaded functions: if it is necessary that a function can be called with a string and with a number, a language like C will not be able to support this.
-Collections also art yet supported for C, since the way arrays and their lengths work in C is quite different from other languages.
+Collections also are not yet supported for C, since the way arrays and their lengths work in C is quite different from other languages.
 Our example exercise will not work in C for this reason.
 
 *** Execution
@@ -1390,7 +1398,7 @@ Because the serialization format is based on JSON and JSON is a widely used form
 For some languages, the code needs to be compiled as well.
 All test code is usually compiled into one executable, since this only results in one call to the compiler (which is usually a pretty slow process).
 There is one big drawback to this way of compiling code: if there is a compilation error (for example because a student has not yet implemented all requested functions) the compilation will fail for all contexts.
-Because of this, TESTed will fall back to separate compilation for each context if a compilation error occurs.
+Because of this, TESTed will fall back to separate compilations for each context if a compilation error occurs.
 Subsequently, the test code is executed and its results collected.
 
 *** Evaluation
@@ -1398,10 +1406,11 @@ Subsequently, the test code is executed and its results collected.
 :CREATED:  [2024-01-04 Thu 10:45]
 :END:
 
-The collected results are evaluated, usually by TESTed itself.
-TESTed can however only evaluate the results as far as it is programmed to do so.
+The generated output is usually evaluated by TESTed itself.
+TESTed can however only evaluate the output as far as it is programmed to do so.
 There are two other ways the results can be evaluated: programmed evaluation and programming-language specific evaluation.
-With programmed evaluation, the results are passed to code written by a teacher (which is executed in a new process).
+With programmed evaluation, the results are passed to code written by a teacher.
+For efficiency's sake, this code has to be written in Python (which means TESTed does not need to launch a new process for the evaluation).
 This code will then check the results, and generate appropriate feedback.
 Programming-language specific evaluation is executed immediately after the test code in the process of the test code.
 This can be used to evaluate programming-language specific concepts, for example the correct use of pointers in C.
@@ -1411,7 +1420,7 @@ This can be used to evaluate programming-language specific concepts, for example
 :CREATED:  [2024-01-04 Thu 10:47]
 :END:
 
-Next to correctness, style is also an important element of programming.
+Next to correctness, style is also an important aspect of source code.
 In a lot of contexts, linters are used to perform basic style checks.
 Linting was also implemented in TESTed.
 For each supported programming language, both the linter to be used and how its output should be interpreted are specified.
@@ -1421,9 +1430,9 @@ For each supported programming language, both the linter to be used and how its 
 :CREATED:  [2023-12-11 Mon 17:22]
 :END:
 
-As mentioned in Section\nbsp{}[[Test plan]], JSON is not the best format.
+As mentioned in Section\nbsp{}[[Test plan]], exercise authors are not expected to write their test plans in JSON.
 It is very verbose and error-prone when writing (trailing commas are not allowed, all object keys are strings and need to be written as such, etc.).
-This aspect of usability was not the initial focus of TESTed, since most Dodona power users already use code to generate their evaluation files.
+This aspect of usability was not the initial focus of TESTed, since most Dodona power users already use code to generate their test plans.
 Because code is very good at outputting an exact and verbose format like JSON, this avoids its main drawback.
 However, we wanted teachers in secondary education to be able to work with TESTed, and they mostly do not have enough experience with programming themselves to generate a test plan.
 To solve this problem we wanted to integrate a domain-specific language (DSL) to describe TESTed test plans.
@@ -1437,10 +1446,6 @@ Parsing it as part of TESTed would require a lot of implementation work, and IDE
 The format itself is also quite error-prone when writing.
 Because of these reasons, we discarded PEML and started working on our own DSL.
 
-The idea is not to supplant the JSON test plans, but to allow a JSON test plan to be transparently generated from a file written in the DSL.
-We also don't necessarily want the DSL to offer all the features of the JSON test plan.
-The DSL is meant for teachers creating basic exercises; they don't necessarily need all the advanced features of TESTed, and if they do, they can always still switch to the JSON format.
-Keeping the JSON test plan would also allow for different DSLs tuned for different types of exercises in the future.
 Our own DSL is based on YAML[fn:: https://yaml.org].
 YAML is a superset of JSON and describes itself as "a human-friendly data serialization language for all programming languages".
 The DSL structure is quite similar to the actual test plan, though it does limit the amount of repetition required for common operations.
@@ -1448,8 +1453,7 @@ YAML's concise nature also contributes to the read- and writability of its test 
 
 The main addition of the DSL is an abstract programming language, made to look somewhat like Python 3.
 Note that this is not a full programming language, but only supports language constructs as far as they are needed by TESTed.
-Values are interpreted as basic types, but can be explicitly cast to one of the more advanced types.
-
+Values are interpreted as basic types, but can be cast explicitly to one of the more advanced types.
 The DSL version of the example exercise can be seen in Listing\nbsp{}[[lst:technicaltesteddsl]].
 
 #+CAPTION: DSL version of the example exercise.
@@ -1576,7 +1580,6 @@ Table\nbsp{}[[tab:passfailcoursestatistics]] summarizes some statistics on the c
 #+CAPTION: The courses are taken by different student cohorts at different faculties and differ in structure, lecturers and teaching assistants.
 #+CAPTION: The number of tries is the average number of solutions submitted by a student per exercise they worked on (i.e. for which the student submitted at least one solution in the course edition).
 #+NAME: tab:passfailcoursestatistics
-|---+------------+----------+-------+-----------------+-------+-----------|
 |   |       year | students | # ex. | solutions       | tries | pass rate |
 |---+------------+----------+-------+-----------------+-------+-----------|
 | A | 2016--2017 |      322 |    60 | 167\thinsp{}675 |  9.56 |    60.86% |
