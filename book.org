@@ -302,7 +302,7 @@ The latter is part of the configuration of learning activities, with the option 
 Dodona automatically stores metadata about all learning activities such as content type, natural language, programming language and repository to increase their findability in our large collection.
 Learning activities may also be tagged with additional labels as part of their configuration.
 
-Any repository containing learning activities must have a predefined directory structure[[fn:: https://docs.dodona.be/en/references/exercise-directory-structure/].
+Any repository containing learning activities must have a predefined directory structure[fn:: https://docs.dodona.be/en/references/exercise-directory-structure/].
 Directories that contain a learning activity also have their own internal directory structure that includes a *description* in HTML or Markdown.
 Descriptions may reference data files and multimedia content included in the repository, and such content can be shared across all learning activities in the repository.
 Embedded images are automatically encapsulated in a responsive lightbox to improve readability.
@@ -711,7 +711,7 @@ Such "deadline hugging" patterns are also a good breeding ground for students to
 #+NAME: fig:usefweanalyticscorrect
 [[./images/usefweanalyticscorrect.png]]
 
-Using educational data mining techniques on historical data exported from several editions of the course, we further investigated what aspects of practising programming skills promote or inhibit learning, or have no or minor effect on the learning process\nbsp{}(Chapter [[#chap:passfail]]).
+Using educational data mining techniques on historical data exported from several editions of the course, we further investigated what aspects of practising programming skills promote or inhibit learning, or have no or minor effect on the learning process\nbsp{}(see Chapter [[#chap:passfail]]).
 It won't come as a surprise that midterm test scores are good predictors for a student's final grade, because tests and exams are both summative assessments that are organized and graded in the same way.
 However, we found that organizing a final exam end-of-term is still a catalyst of learning, even for courses with a strong focus of active learning during weeks of educational activities.
 
@@ -726,7 +726,7 @@ Learning to code requires mastering two major competences:
 
 These findings neatly align with the claim of [cite/t:@edwardsSeparationSyntaxProblem2018] that problem-solving is a higher-order learning task in Bloom's Taxonomy (analysis and synthesis) than language syntax (knowledge, comprehension, and application).
 
-Using historical data from previous course editions, we can also make highly accurate predictions about what students will pass or fail the current course edition\nbsp{}[cite:@vanpetegemPassFailPrediction2022].
+Using historical data from previous course editions, we can also make highly accurate predictions about what students will pass or fail the current course edition\nbsp{}(see Chapter [[#chap:passfail]]).
 This can already be done after a few weeks into the course, so remedial actions for at-risk students can be started well in time.
 The approach is privacy-friendly as we only need to process metadata on student submissions for programming assignments and results from automated and manual assessment extracted from Dodona.
 Given that cohort sizes are large enough, historical data from a single course edition are already enough to make accurate predictions.
