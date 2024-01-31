@@ -2,7 +2,7 @@
 #+AUTHOR: Charlotte Van Petegem
 #+LANGUAGE: en-gb
 #+LATEX_CLASS: book
-#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip,BCOR=10mm,DIV=10]
+#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip,BCOR=10mm,DIV=10,numbers=noendperiod]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{shellesc, luacode}
