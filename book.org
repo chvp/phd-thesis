@@ -1976,50 +1976,6 @@ The reasons for these differences depend on the content of the course, which req
 #+NAME: fig:passfailfeaturesBwrong
 [[./images/passfailfeaturesBwrong.png]]
 
-** Conclusions and future work
-:PROPERTIES:
-:CREATED: [2023-10-23 Mon 17:30]
-:CUSTOM_ID: sec:passfailconclusions
-:END:
-
-In this chapter, we presented a classification framework for predicting if students will likely pass or fail introductory programming courses.
-The framework already yields high-accuracy predictions early on in the semester and is privacy-friendly because it only works with metadata from programming challenges solved by students while working on their programming skills.
-Being able to identify at-risk students early on in the semester opens windows for remedial actions to improve the overall success rate of students.
-
-We validated the framework by building separate classifiers for two courses because of differences in course structure, but using the same set of features for training models.
-The results showed that submission metadata from previous student cohorts can be used to make predictions about the current cohort of students, even if course editions use different sets of exercises, or the courses are structured differently.
-Making predictions requires aligning snapshots between successive editions of a course, where students have the same expected progress at corresponding snapshots.
-Historical metadata from a single course edition suffices if group sizes are large enough.
-Different classification algorithms can be plugged into the framework, but logistic regression resulted in the best-performing classifiers.
-
-Apart from their application to make pass/fail predictions, an interesting side effect of classification models that map indirect measurements of learning behaviour onto mastery of programming skills is that they allow us to interpret what behavioural aspects contribute to learning to code.
-Visualization of feature importance turned out to be a useful instrument for linking individual feature types with student behaviour that promotes or inhibits learning.
-We applied this interpretability to some important feature types that popped up for the two courses included in this study.
-
-Our study has several strengths and promising implications for future practice and research.
-First, we were able to predict success based on historical metadata from earlier cohorts, and we are already able to do that early on in the semester.
-In addition to that, the accuracy of our predictions is similar to those of earlier efforts\nbsp{}[cite:@asifAnalyzingUndergraduateStudents2017; @vihavainenPredictingStudentsPerformance2013; @kovacicPredictingStudentSuccess2012] while we are not using prior academic history or interfering with the students’ usual learning workflows.
-However, there are also some limitations and work for the future.
-While our visualizations of the features (Figures\nbsp{}[[fig:passfailfeaturesAevaluation]]\nbsp{}through\nbsp{}[[fig:passfailfeaturesBwrong]]) are helpful to indicate which features are important at which stage of the course in view of increasing versus decreasing the odds of passing the course, they may not be oversimplified and need to be carefully interpreted and placed into context.
-This is where the expertise and experience of teachers comes in.
-These visualizations can be interpreted by teachers and further contextualized towards the specific course objectives.
-For example, teachers know the content and goals of every series of exercises, and they can use the information presented in our visualizations in order to investigate why certain series of exercises are more or less important in view of passing the course.
-In addition, they may use the information to further redesign their course
-
-We can thus conclude that the proposed framework achieves the objectives set for accuracy, early prediction and interpretability.
-Having this new framework at hand immediately raises some follow-up research questions that urge for further exploration:
-#+ATTR_LATEX: :environment enumerate*
-#+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{ }}, itemjoin*={{ }}]
-- Do we inform students about their odds of passing a course?
-  How and when do we inform students about their performance in an educationally responsible way?
-  What learning analytics do we use to present predictions to students, and do we only show results or also explain how the data led to the results?
-  How do students react to the announcement of their chance at passing the course?
-  How do we ensure that students are not demotivated?
-- What actions could teachers take upon early insights which students will likely fail the course?
-  What recommendations could they make to increase the odds that more students will pass the course?
-  How could interpretations of important behavioural features be translated into learning analytics that give teachers more insight into how students learn to code?
-- Can we combine student progress (what programming skills does a student already have and at what level of mastery), student preferences (which skills does a student want to improve on), and intrinsic properties of programming exercises (what skills are needed to solve an exercise and how difficult is it) into dynamic learning paths that recommend exercises to optimize the learning effect for individual students?
-
 ** Replication at Jyväskylä University
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:50]
@@ -2067,6 +2023,50 @@ The models trained only on self-reported data performed significantly worse than
 
 The replication done at JYU showed that our devised method can be used in significantly different contexts.
 Of course sometimes adaptations have to be made given differences in course structure and learning environment used, but these adaptations do not result in worse prediction results.
+
+** Conclusions and future work
+:PROPERTIES:
+:CREATED: [2023-10-23 Mon 17:30]
+:CUSTOM_ID: sec:passfailconclusions
+:END:
+
+In this chapter, we presented a classification framework for predicting if students will likely pass or fail introductory programming courses.
+The framework already yields high-accuracy predictions early on in the semester and is privacy-friendly because it only works with metadata from programming challenges solved by students while working on their programming skills.
+Being able to identify at-risk students early on in the semester opens windows for remedial actions to improve the overall success rate of students.
+
+We validated the framework by building separate classifiers for two courses because of differences in course structure, but using the same set of features for training models.
+The results showed that submission metadata from previous student cohorts can be used to make predictions about the current cohort of students, even if course editions use different sets of exercises, or the courses are structured differently.
+Making predictions requires aligning snapshots between successive editions of a course, where students have the same expected progress at corresponding snapshots.
+Historical metadata from a single course edition suffices if group sizes are large enough.
+Different classification algorithms can be plugged into the framework, but logistic regression resulted in the best-performing classifiers.
+
+Apart from their application to make pass/fail predictions, an interesting side effect of classification models that map indirect measurements of learning behaviour onto mastery of programming skills is that they allow us to interpret what behavioural aspects contribute to learning to code.
+Visualization of feature importance turned out to be a useful instrument for linking individual feature types with student behaviour that promotes or inhibits learning.
+We applied this interpretability to some important feature types that popped up for the two courses included in this study.
+
+Our study has several strengths and promising implications for future practice and research.
+First, we were able to predict success based on historical metadata from earlier cohorts, and we are already able to do that early on in the semester.
+In addition to that, the accuracy of our predictions is similar to those of earlier efforts\nbsp{}[cite:@asifAnalyzingUndergraduateStudents2017; @vihavainenPredictingStudentsPerformance2013; @kovacicPredictingStudentSuccess2012] while we are not using prior academic history or interfering with the students’ usual learning workflows.
+However, there are also some limitations and work for the future.
+While our visualizations of the features (Figures\nbsp{}[[fig:passfailfeaturesAevaluation]]\nbsp{}through\nbsp{}[[fig:passfailfeaturesBwrong]]) are helpful to indicate which features are important at which stage of the course in view of increasing versus decreasing the odds of passing the course, they may not be oversimplified and need to be carefully interpreted and placed into context.
+This is where the expertise and experience of teachers comes in.
+These visualizations can be interpreted by teachers and further contextualized towards the specific course objectives.
+For example, teachers know the content and goals of every series of exercises, and they can use the information presented in our visualizations in order to investigate why certain series of exercises are more or less important in view of passing the course.
+In addition, they may use the information to further redesign their course
+
+We can thus conclude that the proposed framework achieves the objectives set for accuracy, early prediction and interpretability.
+Having this new framework at hand immediately raises some follow-up research questions that urge for further exploration:
+#+ATTR_LATEX: :environment enumerate*
+#+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{ }}, itemjoin*={{ }}]
+- Do we inform students about their odds of passing a course?
+  How and when do we inform students about their performance in an educationally responsible way?
+  What learning analytics do we use to present predictions to students, and do we only show results or also explain how the data led to the results?
+  How do students react to the announcement of their chance at passing the course?
+  How do we ensure that students are not demotivated?
+- What actions could teachers take upon early insights which students will likely fail the course?
+  What recommendations could they make to increase the odds that more students will pass the course?
+  How could interpretations of important behavioural features be translated into learning analytics that give teachers more insight into how students learn to code?
+- Can we combine student progress (what programming skills does a student already have and at what level of mastery), student preferences (which skills does a student want to improve on), and intrinsic properties of programming exercises (what skills are needed to solve an exercise and how difficult is it) into dynamic learning paths that recommend exercises to optimize the learning effect for individual students?
 
 * Manual feedback
 :PROPERTIES:
