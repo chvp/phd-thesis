@@ -184,6 +184,8 @@ Automated assessment was introduced into programming education in the early 1960
 [cite/t:@cheangAutomatedGradingProgramming2003] identified the labor-intensive nature of assessing programming assignments as the main reason why students are given few such assignments when ideally they should be given many more.
 While almost all platforms support automated assessment of code submitted by students, contemporary platforms usually offer additional features such as gamification in the FPGE platform\nbsp{}[cite:@paivaManagingGamifiedProgramming2022], integration of full-fledged editors in iWeb-TD\nbsp{}[cite:@fonsecaWebbasedPlatformMethodology2023], exercise recommendations in PLearn\nbsp{}[cite:@vasyliukDesignImplementationUkrainianLanguage2023], automatic grading with JavAssess\nbsp{}[cite:@insaAutomaticAssessmentJava2018], assessment of test suites using test coverage measures in Web-CAT\nbsp{}[cite:@edwardsWebCATAutomaticallyGrading2008] and automatic hint generation in GradeIT\nbsp{}[cite:@pariharAutomaticGradingFeedback2017].
 
+Increasing interactivity in learning has long been considered important, and furthermore, something that can be achieved through the addition of web-based components to a course\nbsp{}[cite:@vanpetegemPowerfulLearningInteractive2004].
+
 * What is Dodona?
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:47]
