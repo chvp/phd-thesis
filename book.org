@@ -1579,9 +1579,9 @@ Table\nbsp{}[[tab:passfailcoursestatistics]] summarizes some statistics on the c
 #+CAPTION: A series is a collection of exercises typically handled in one week/lab session.
 #+CAPTION: The number of attempts is the average number of solutions submitted by a student per exercise they worked on (i.e. for which the student submitted at least one solution in the course edition).
 #+NAME: tab:passfailcoursestatistics
-| course |  academic | students | series | exercises | mandatory | submitted       | attempts | pass rate |
-|        |      year |          |        |           | exercises | solutions       |          |           |
-|--------+-----------+----------+--------+-----------+-----------+-----------------+----------+-----------|
+| course |   academic | students | series | exercises | mandatory | submitted       | attempts | pass rate |
+|        |       year |          |        |           | exercises | solutions       |          |           |
+|--------+------------+----------+--------+-----------+-----------+-----------------+----------+-----------|
 | A      | 2016--2017 |      322 |     10 |        60 | yes       | 167\thinsp{}675 |     9.56 |    60.86% |
 | A      | 2017--2018 |      249 |     10 |        60 | yes       | 125\thinsp{}920 |     9.19 |    61.44% |
 | A      | 2018--2019 |      307 |     10 |        60 | yes       | 176\thinsp{}535 |    10.29 |    65.14% |
@@ -2227,7 +2227,7 @@ The general methodology used by our method is explained visually in Figure [[fig
 We start by using tree-sitter to generate ASTs for every submission.
 For each annotation, we then extract a limited context from the AST around the line where it was placed.
 We then collect all the subtrees for each remark.
-Every remark’s forest of subtrees is given to the TreeminerD algorithm which gives us a collection of patterns for each remark.
+Every remark’s forest of subtrees is given to the =TreeminerD= algorithm\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005] which gives us a collection of patterns for each remark.
 Each pattern is then weighted according to its length and how often it occurs in the entire collection of patterns (for all remarks).
 The result of these operations is our trained model.
 A prediction can be made when a teacher selects a line in a given student's submission.
@@ -2235,8 +2235,14 @@ This is done by again extracting the limited context around that line.
 We then compute a similarity score for each remark, using its weighted patterns.
 This similarity score is used to rank the remarks and this ranking is shown to the teacher.
 We will now give a more detailed explanation of these steps.
+Note that in every step, we also have to consider its (impact on) speed.
+Since the model will be used while grading (and the training data for the model is continuously generated during grading) we can’t afford to train the model for multiple minutes.
 
 #+CAPTION: Overview of our machine learning method for predicting feedback re-use.
+#+CAPTION: Code is converted to its Abstract Syntax Tree form.
+#+CAPTION: Per remark, the context of each annotation is extracted and mined for patterns using the =TreeminerD= algorithm.
+#+CAPTION: These patterns are then weighted, after which they make up our model.
+#+CAPTION: When a teacher wants to place an annotation on a line, remarks are ranked based on the similarity determined for that line.
 #+NAME: fig:feedbackmethodoverview
 [[./diagrams/feedbackmethodoverview.svg]]
 
@@ -2245,7 +2251,26 @@ We will now give a more detailed explanation of these steps.
 :CREATED:  [2024-01-19 Fri 15:44]
 :END:
 
-**** TreeminerD
+Currently, the context around a line is extracted by taking all the AST nodes that are solely on that line.
+For example the subtree extracted for the code on line 3 in Listing\nbsp{}[[lst:feedbacksubtreesample]] can be seen on Figure\nbsp{}[[fig:feedbacksubtree]].
+Note that the context we extract here is very limited.
+Previous iterations considered all the nodes that contained the relevant line (e.g. the function node for a line in a function), but these contexts turned out to be too large to process in an acceptable time frame.
+
+#+CAPTION: Sample code that simply reads a number from standard input and prints its digits.
+#+NAME: lst:feedbacksubtreesample
+#+ATTR_LATEX: :float t
+#+BEGIN_SRC python
+number = input()
+print(f'{number} has the following digits:')
+for digit in number:
+  print(digit)
+#+END_SRC
+
+#+CAPTION: AST subtree corresponding to line 3 in Listing\nbsp{}[[lst:feedbacksubtreesample]]
+#+NAME: fig:feedbacksubtree
+[[./diagrams/feedbacksubtree.svg]]
+
+**** =TreeminerD=
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:33]
 :END:
@@ -2321,4 +2346,3 @@ We will now give a more detailed explanation of these steps.
 #+LATEX: {\setlength{\emergencystretch}{2em}
 #+print_bibliography: 
 #+LATEX: }
-

@@ -6,6 +6,7 @@
                               ("\\subsection{%s}" . "\\subsection*{%s}")
                               ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
          (org-latex-src-block-backend . minted)
+         (org-latex-minted-options . (("linenos" . "true")))
          (org-latex-prefer-user-labels . t)
          (org-latex-pdf-process . ("latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"))
          (org-html-prefer-user-labels . t)
