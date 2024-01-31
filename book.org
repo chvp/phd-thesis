@@ -1571,22 +1571,20 @@ They have separate lecturers and teaching assistants, and are taken by students 
 The courses have their own structure, but each edition of a course follows the same structure.
 Table\nbsp{}[[tab:passfailcoursestatistics]] summarizes some statistics on the course editions included in this study.
 
-#+ATTR_LATEX: :float sideways
+#+ATTR_LATEX: :float t
 #+CAPTION: Statistics for course editions included in this study.
 #+CAPTION: The courses are taken by different student cohorts at different faculties and differ in structure, lecturers and teaching assistants.
-#+CAPTION: A series is a collection of exercises typically handled in one week/lab session.
-#+CAPTION: The number of attempts is the average number of solutions submitted by a student per exercise they worked on (i.e. for which the student submitted at least one solution in the course edition).
+#+CAPTION: The number of tries is the average number of solutions submitted by a student per exercise they worked on (i.e. for which the student submitted at least one solution in the course edition).
 #+NAME: tab:passfailcoursestatistics
-|--------+------------+----------+--------+-----------+-----------+-----------------+----------+-----------|
-| course |   academic | students | series | exercises | mandatory | submitted       | attempts | pass rate |
-|        |       year |          |        |           | exercises | solutions       |          |           |
-|--------+------------+----------+--------+-----------+-----------+-----------------+----------+-----------|
-| A      | 2016--2017 |      322 |     10 |        60 | yes       | 167\thinsp{}675 |     9.56 |    60.86% |
-| A      | 2017--2018 |      249 |     10 |        60 | yes       | 125\thinsp{}920 |     9.19 |    61.44% |
-| A      | 2018--2019 |      307 |     10 |        60 | yes       | 176\thinsp{}535 |    10.29 |    65.14% |
-| B      | 2016--2017 |      372 |     20 |       138 | no        | 371\thinsp{}891 |     9.10 |    56.72% |
-| B      | 2017--2018 |      393 |     20 |       187 | no        | 407\thinsp{}696 |     7.31 |    60.81% |
-| B      | 2018--2019 |      437 |     20 |       201 | no        | 421\thinsp{}461 |     6.26 |    62.47% |
+|---+------------+----------+-------+-----------------+-------+-----------|
+|   |       year | students | # ex. | solutions       | tries | pass rate |
+|---+------------+----------+-------+-----------------+-------+-----------|
+| A | 2016--2017 |      322 |    60 | 167\thinsp{}675 |  9.56 |    60.86% |
+| A | 2017--2018 |      249 |    60 | 125\thinsp{}920 |  9.19 |    61.44% |
+| A | 2018--2019 |      307 |    60 | 176\thinsp{}535 | 10.29 |    65.14% |
+| B | 2016--2017 |      372 |   138 | 371\thinsp{}891 |  9.10 |    56.72% |
+| B | 2017--2018 |      393 |   187 | 407\thinsp{}696 |  7.31 |    60.81% |
+| B | 2018--2019 |      437 |   201 | 421\thinsp{}461 |  6.26 |    62.47% |
 
 Course A is subdivided into two successive instructional units that each cover five programming topics -- one topic per week -- followed by an evaluation about all topics covered in the unit.
 Students must solve six programming exercises on each topic before a deadline one week later.
