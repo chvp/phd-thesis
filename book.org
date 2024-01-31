@@ -1247,8 +1247,7 @@ The exit status code can only be checked in this testcase as well.
 Like the communication with Dodona, this test plan is a JSON document under the hood.
 In the following sections, we will use the JSON representation of the test plan to discuss how TESTed works.
 Exercise authors use the DSL to write their tests, which we will discuss in Section\nbsp{}[[DSL]].
-This DSL is converted by TESTed to the JSON test plan before execution.
-
+This DSL is internally converted by TESTed to a JSON test plan before execution.
 A test plan of the example exercise can be seen in Listing\nbsp{}[[lst:technicaltestedtestplan]].
 
 #+CAPTION: Basic structure of a test plan.
