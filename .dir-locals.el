@@ -5,6 +5,7 @@
                               ("\\section{%s}" . "\\addsec{%s}")
                               ("\\subsection{%s}" . "\\subsection*{%s}")
                               ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+         (org-latex-caption-above . nil)
          (org-latex-src-block-backend . minted)
          (org-latex-minted-options . (("linenos" . "true")))
          (org-latex-prefer-user-labels . t)
