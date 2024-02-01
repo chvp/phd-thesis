@@ -60,14 +60,15 @@
 #+LATEX: \frontmatter
 #+TOC: headlines 2
 
-#+LATEX: \begin{dutch}
 
-* Todo's
+* To-dos
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:14]
 :CUSTOM_ID: chap:todos
 :UNNUMBERED: t
 :END:
+
+#+LATEX: \begin{dutch}
 
 In volgorde van prioriteit:
 - [[#chap:intro]] schrijven.
@@ -79,12 +80,16 @@ In volgorde van prioriteit:
 - Screenshots en visualisaties hermaken.
   Ik wacht hiermee tot naderbij de deadline, om eventuele UI-veranderingen mee te hebben.
 
+#+LATEX: \end{dutch}
+
 * Dankwoord
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 09:25]
 :CUSTOM_ID: chap:ack
 :UNNUMBERED: t
 :END:
+
+#+LATEX: \begin{dutch}
 
 #+LATEX: \end{dutch}
 
@@ -101,12 +106,13 @@ In volgorde van prioriteit:
 :CUSTOM_ID: sec:summen
 :END:
 
-#+LATEX: \begin{dutch}
 ** Nederlandstalige samenvatting
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 17:54]
 :CUSTOM_ID: sec:summnl
 :END:
+
+#+LATEX: \begin{dutch}
 
 #+LATEX: \end{dutch}
 
