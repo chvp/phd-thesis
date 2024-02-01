@@ -932,7 +932,7 @@ The backups are rotated according to a grandfather-father-son scheme\nbsp{}[cite
 The backups are taken by dumping a replica database.
 The replica database is used because dumping the main database write-locks it while it is being dumped, which would result in Dodona being unusable for a significant amount of time.
 
-We also have an extensive monitoring and alerting system in place, based on Grafana.
+We also have an extensive monitoring and alerting system in place, based on Grafana[fn:: https://grafana.com/].
 This gives us some superficial analytics about Dodona usage, but can also tell us if there are problems with one of our servers.
 The analytics are also calculated using the replica database to avoid putting unnecessary load on our main production database.
 The web server and worker servers also send notifications when an error occurs in their runtime.
