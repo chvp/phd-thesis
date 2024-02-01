@@ -562,9 +562,11 @@ If this is the case, we individually address these students to point them again 
 
 Tests and exams, on the other hand, are taken on-campus under human surveillance and allow no communication with fellow students or other persons (and more recently, also no generative AI).
 Students can work on their personal computers and get exactly two hours to solve two programming assignments during a test, and three hours and thirty minutes to solve three programming assignments during an exam.
+
 Tests and exams are "open book/open Internet", so any hard copy and digital resources can be consulted while solving test or exam assignments.
 Students are instructed that they can only be passive users of the Internet: all information available on the Internet at the start of a test or exam can be consulted, but no new information can be added.
 When taking over code fragments from the Internet, students have to add a proper citation as a comment in their submitted source code.
+
 After each test and exam, we again use MOSS/Dolos to detect and inspect highly similar code snippets among submitted solutions and to find convincing evidence they result from exchange of code or other forms of interpersonal communication (Figure\nbsp{}[[fig:usefweplagiarism]]).
 If we catalogue cases as plagiarism beyond reasonable doubt, the examination board is informed to take further action\nbsp{}[cite:@maertensDolosLanguageagnosticPlagiarism2022].
 
@@ -1719,7 +1721,6 @@ We discuss the results in terms of accuracy, potential for early detection, and 
 #+NAME: fig:passfailsgdresults
 [[./images/passfailsgdresults.png]]
 
-
 #+CAPTION: Performance of logistic regression classifiers for pass/fail predictions in a longitudinal sequence of snapshots from courses A (all features and reduced set of features) and B, measured by balanced accuracy and F_1-score.
 #+CAPTION: Dots represent performance of a single prediction, with 12 predictions for each group of corresponding snapshots (columns).
 #+CAPTION: Solid line connects averages of the performances for each group of corresponding snapshots.
@@ -2153,7 +2154,6 @@ In programming education, many steps have been taken to automate feedback using 
 These automated assessment systems provide feedback on correctness, and can provide some feedback on style and best practices by using linters but are not able to provide the same high-level feedback on program design that a seasoned programmer can give.
 In many educational practices, automated assessment is therefore supplemented with manual feedback, especially when grading evaluations or exams.
 This requires a large time investment from teachers.
-
 
 Others have therefore tried to improve the process of giving feedback using AI.
 [cite/t:@vittoriniAIBasedSystemFormative2021] automated grading using natural language processing, and found that students who used this system during the semester were more likely to pass the course at the end of the semester.
