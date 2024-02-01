@@ -78,7 +78,7 @@ Include history of automated assessment
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
 
-*** TODO Add some screenshots to grading chapter, make sure there isn't too much overlap with\nbsp{}[[Manual assessment]]
+*** TODO Add some screenshots to grading chapter, make sure there isn't too much overlap with\nbsp{}[[#subsec:whateval]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 18:00]
 :END:
@@ -88,7 +88,7 @@ Include history of automated assessment
 :CREATED: [2023-11-20 Mon 17:20]
 :END:
 
-** TODO Write [[Summaries]]
+** TODO Write [[#chap:summ]]
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:23]
 :END:
@@ -241,7 +241,7 @@ This is also reflected by the fact that a diverse range of metrics for measuring
 
 To cope with such a diversity in software testing alternatives, Dodona is centred around a generic infrastructure for *programming assignments that support automated assessment*.
 Assessment of a student submission for an assignment comprises three loosely coupled components: containers, judges and assignment-specific assessment configurations.
-More information on this underlying mechanism can be found in Chapter\nbsp{}[[Technical description]].
+More information on this underlying mechanism can be found in Chapter\nbsp{}[[#chap:technical]].
 
 Where automatic assessment and feedback generation is outsourced to the judge linked to an assignment, Dodona itself takes up the responsibility for rendering the feedback.
 This frees judge developers from putting effort in feedback rendering and gives a coherent look-and-feel even for students that solve programming assignments assessed by different judges.
@@ -744,7 +744,7 @@ In this section, we will highlight a few of these components.
 #+CAPTION: Servers are connected if they communicate.
 #+CAPTION: The direction of the connection signifies which server initiates the connection.
 #+CAPTION: Every server also has an implicit connection with Phocus (the monitoring server), since metrics such as load, CPU usage, disk usage, etc. are collected and sent to Phocus on every server.
-#+CAPTION: The Pandora server is greyed out because it is not used anymore (see Section\nbsp{}[[Python Tutor]] for more info).
+#+CAPTION: The Pandora server is greyed out because it is not used anymore (see Section\nbsp{}[[#subsec:techdodonatutor]] for more info).
 #+NAME: fig:technicaldodonaservers
 [[./diagrams/technicaldodonaservers.svg]]
 
@@ -850,6 +850,7 @@ Another form of inheritance is specifying default assessment configurations at t
 *** Python Tutor
 :PROPERTIES:
 :CREATED:  [2024-01-17 Wed 13:23]
+:CUSTOM_ID: subsec:techdodonatutor
 :END:
 
 The deployment of the Python Tutor also saw a number of changes over the years.
@@ -1217,6 +1218,7 @@ For example, in Python, ~rotate([0, 1, 2, 3, 4], 2)~ should return ~[3, 4, 0, 1,
 *** Test plan 
 :PROPERTIES:
 :CREATED: [2024-01-02 Tue 10:23]
+:CUSTOM_ID: subsec:techtestedtestplan
 :END:
 
 One of the most important elements that is needed to perform these steps is the test plan.
@@ -1229,13 +1231,13 @@ The exit status code can only be checked in this testcase as well.
 
 Like the communication with Dodona, this test plan is a JSON document under the hood.
 In the following sections, we will use the JSON representation of the test plan to discuss how TESTed works.
-Exercise authors use the DSL to write their tests, which we will discuss in Section\nbsp{}[[DSL]].
+Exercise authors use the DSL to write their tests, which we will discuss in Section\nbsp{}[[#subsec:techtesteddsl]].
 This DSL is internally converted by TESTed to a JSON test plan before execution.
 A test plan of the example exercise can be seen in Listing\nbsp{}[[lst:technicaltestedtestplan]].
 
 #+CAPTION: Basic structure of a test plan.
 #+CAPTION: The structure of Dodona's feedback table is followed closely.
-#+CAPTION: The function arguments have been left out, as they are explained in [[Data serialization]].
+#+CAPTION: The function arguments have been left out, as they are explained in [[#subsec:techtestedserialization]].
 #+NAME: lst:technicaltestedtestplan
 #+ATTR_LATEX: :float t
 #+BEGIN_SRC js
@@ -1274,6 +1276,7 @@ A test plan of the example exercise can be seen in Listing\nbsp{}[[lst:technical
 *** Data serialization
 :PROPERTIES:
 :CREATED: [2024-01-02 Tue 10:50]
+:CUSTOM_ID: subsec:techtestedserialization
 :END:
 
 As part of the test plan, we also need a way to generically describe values and their types.
@@ -1410,9 +1413,10 @@ For each supported programming language, both the linter to be used and how its 
 *** DSL
 :PROPERTIES:
 :CREATED:  [2023-12-11 Mon 17:22]
+:CUSTOM_ID: subsec:techtesteddsl
 :END:
 
-As mentioned in Section\nbsp{}[[Test plan]], exercise authors are not expected to write their test plans in JSON.
+As mentioned in Section\nbsp{}[[#subsec:techtestedtestplan]], exercise authors are not expected to write their test plans in JSON.
 It is very verbose and error-prone when writing (trailing commas are not allowed, all object keys are strings and need to be written as such, etc.).
 This aspect of usability was not the initial focus of TESTed, since most Dodona power users already use code to generate their test plans.
 Because code is very good at outputting an exact and verbose format like JSON, this avoids its main drawback.
@@ -1804,7 +1808,7 @@ The models, however, were built using the same set of feature types.
 Because course B does not work with hard deadlines, deadline-related feature types could not be computed for its snapshots.
 This missing data and associated features had no impact on the performance of the predictions.
 Deliberately dropping the same feature types for course A also had no significant effect on the performance of predictions, illustrating that the training phase is where classification algorithms decide themselves how the individual features will contribute to the predictions.
-This frees us from having to determine the importance of features beforehand, allows us to add new features that might contribute to predictions even if they correlate with other features, and makes it possible to investigate afterwards how important individual features are for a given classifier (see Section\nbsp{}[[Interpretability]]).
+This frees us from having to determine the importance of features beforehand, allows us to add new features that might contribute to predictions even if they correlate with other features, and makes it possible to investigate afterwards how important individual features are for a given classifier (see Section\nbsp{}[[#subsec:passfailinterpretability]]).
 
 Even though the structure of the courses is quite different, our method achieves high accuracy results for both courses.
 The results for course A with reduced features also still gives accurate results.
