@@ -66,39 +66,15 @@
 :UNNUMBERED: t
 :END:
 
-** TODO Write [[#chap:intro]]
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 17:20]
-:END:
-
-Include history of automated assessment
-
-** DOING Finish chapter [[#chap:feedback]]
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 17:20]
-:END:
-
-*** TODO Add some screenshots to grading chapter, make sure there isn't too much overlap with\nbsp{}[[#subsec:whateval]]
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 18:00]
-:END:
-
-** TODO Write [[#chap:discussion]]
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 17:20]
-:END:
-
-** TODO Write [[#chap:summ]]
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 17:23]
-:END:
-
-** TODO Redo screenshots/visualizations
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 17:19]
-:END:
-
-I might even wait with this explicitly to do this closer to the deadline, to incorporate possible UI changes that might be done in the near future.
+- Write [[#chap:intro]].
+- Write [[#chap:discussion]].
+- Finish chapter [[#chap:feedback]].
+  - Add some screenshots to the start.
+  - Make sure there isn't too much overlap with\nbsp{}[[#subsec:whateval]].
+  - Incorporate full text from https://docs.google.com/document/d/1K0PCDdmNRigJWH1Bd6u9Nh8P39YJqdCjHnKJ7hpe4pA/edit in [[#sec:feedbackprediction]] after this has received feedback.
+- Write [[#chap:summ]].
+- Redo screenshots/visualizations.
+  I might even wait with this explicitly to do this closer to the deadline, to incorporate possible UI changes that might be done in the near future.
 
 #+LATEX: \begin{dutch}
 * Dankwoord
@@ -2160,11 +2136,12 @@ Graders only need to write out a detailed and clear message once and can then re
 ** Feedback prediction
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:04]
+:CUSTOM_ID: sec:feedbackprediction
 :END:
 
 Given that we now have a system for re-using feedback given earlier, we can ask ourselves if we can do this in a smarter way.
 Instead of teachers having to search for the annotation they want to use, what if we could predict which annotation they want to use?
-This is exactly what we will explore in this section, which is based on an article that is currently under review.
+This is exactly what we will explore in this section, which is based on an article that is currently being prepared for submission.
 
 *** Introduction
 :PROPERTIES:
