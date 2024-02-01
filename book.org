@@ -2225,7 +2225,7 @@ for digit in number:
   print(digit)
 #+END_SRC
 
-#+CAPTION: AST subtree corresponding to line 3 in Listing\nbsp{}[[lst:feedbacksubtreesample]]
+#+CAPTION: AST subtree corresponding to line 3 in Listing\nbsp{}[[lst:feedbacksubtreesample]].
 #+NAME: fig:feedbacksubtree
 [[./diagrams/feedbacksubtree.svg]]
 
