@@ -17,7 +17,9 @@
       org-latex-caption-above nil
       org-latex-src-block-backend 'minted
       org-latex-minted-options '(("linenos" . "true"))
-      org-latex-prefer-user-labels t)
+      org-latex-prefer-user-labels t
+      org-latex-subtitle-format "\\subtitle{%s}"
+      org-latex-subtitle-separate t)
 
 (add-to-list
  'org-export-smart-quotes-alist

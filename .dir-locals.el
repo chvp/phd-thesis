@@ -8,6 +8,8 @@
          (org-latex-caption-above . nil)
          (org-latex-src-block-backend . minted)
          (org-latex-minted-options . (("linenos" . "true")))
+         (org-latex-subtitle-format . "\\subtitle{%s}")
+         (org-latex-subtitle-separate . t)
          (org-latex-prefer-user-labels . t)
          (org-latex-pdf-process . ("latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"))
          (org-html-prefer-user-labels . t)

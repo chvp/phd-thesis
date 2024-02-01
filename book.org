@@ -1,4 +1,5 @@
 #+TITLE: Dodona
+#+SUBTITLE: Improving automated assessment in programming education through educational data mining
 #+AUTHOR: Charlotte Van Petegem
 #+LANGUAGE: en-gb
 #+LATEX_CLASS: book
@@ -31,7 +32,6 @@
 #+LATEX_HEADER: \usepackage[defaultlines=2,all]{nowidow}
 #+LATEX_HEADER: \usepackage[dutch,AUTO]{polyglossia}
 #+LATEX_HEADER: \academicyear{2023–2024}
-#+LATEX_HEADER: \subtitle{Improving automated assessment in programming education through educational data mining}
 #+LATEX_HEADER: \titletext{A dissertation submitted to Ghent University in partial fulfilment of\\ the requirements for the degree of Doctor of Computer Science.}
 #+LATEX_HEADER: \promotors{%
 #+LATEX_HEADER: Supervisors:\\
@@ -60,24 +60,25 @@
 #+LATEX: \frontmatter
 #+TOC: headlines 2
 
-* To-dos
+#+LATEX: \begin{dutch}
+
+* Todo's
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:14]
 :CUSTOM_ID: chap:todos
 :UNNUMBERED: t
 :END:
 
-In order of priority:
-- Write [[#chap:intro]].
-- Write [[#chap:discussion]].
-- Finish chapter [[#chap:feedback]].
-  - Add some screenshots to the start.
-  - Make sure there isn't too much overlap with\nbsp{}[[#subsec:whateval]].
-- Write [[#chap:summ]].
-- Redo screenshots/visualizations.
-  I might even wait with this explicitly to do this closer to the deadline, to incorporate possible UI changes that might be done in the near future.
+In volgorde van prioriteit:
+- [[#chap:intro]] schrijven.
+- [[#chap:discussion]] schrijven.
+- [[#chap:feedback]] afmaken.
+  - Screenshots toevoegen in de eerste paar secties.
+  - Zorgen dat er niet te veel overlap is met\nbsp{}[[#subsec:whateval]].
+- [[#chap:summ]] schrijven.
+- Screenshots en visualisaties hermaken.
+  Ik wacht hiermee tot naderbij de deadline, om eventuele UI-veranderingen mee te hebben.
 
-#+LATEX: \begin{dutch}
 * Dankwoord
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 09:25]
