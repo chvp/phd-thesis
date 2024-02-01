@@ -67,6 +67,7 @@
 :UNNUMBERED: t
 :END:
 
+In order of priority:
 - Write [[#chap:intro]].
 - Write [[#chap:discussion]].
 - Finish chapter [[#chap:feedback]].
@@ -116,10 +117,10 @@
 :CUSTOM_ID: chap:intro
 :END:
 
-Ever since programming has been taught, programming teachers have sought to automate and optimize their teaching.
-Due to the ever-increasing digitalization of society, this teaching has to happen for larger and larger groups, and these groups will include students for whom programming is not necessarily their main subject.
+Ever since programming has been taught, its teachers have sought to automate and optimize their teaching.
 This has led to the development of myriad automated assessment tools, of which we will give an overview in this introduction.
-Then we will discuss learning analytics and educational data mining, and how these tools can help us to cope with the growing class sizes.
+Due to the ever-increasing digitalization of society, this teaching has to happen for larger and larger groups, and these groups will include students for whom programming is not necessarily their main subject.
+We will thus also discuss learning analytics and educational data mining, and how these tools can help us to cope with the growing class sizes.
 Finally, we will give a brief overview of the remaining chapters of this dissertation.
 
 ** A history of automated assessment in programming education
