@@ -118,6 +118,14 @@
 
 Ever since programming has been taught, programming teachers have sought to automate and optimize their teaching.
 Due to the ever-increasing digitalization of society, this teaching has to happen for larger and larger groups, and these groups will include students for whom programming is not necessarily their main subject.
+This has led to the development of myriad automated assessment tools, of which we will give an overview in this introduction.
+Then we will discuss learning analytics and educational data mining, and how these tools can help us to cope with the growing class sizes.
+Finally, we will give a brief overview of the remaining chapters of this dissertation.
+
+** A history of automated assessment in programming education
+:PROPERTIES:
+:CREATED:  [2024-02-01 Thu 10:46]
+:END:
 
 Learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
 Because of its potential to provide feedback loops that are scalable and responsive enough for an active learning environment, automated source code assessment has become a driving force in programming courses.
@@ -127,6 +135,30 @@ Automated assessment was introduced into programming education in the early 1960
 While almost all platforms support automated assessment of code submitted by students, contemporary platforms usually offer additional features such as gamification in the FPGE platform\nbsp{}[cite:@paivaManagingGamifiedProgramming2022], integration of full-fledged editors in iWeb-TD\nbsp{}[cite:@fonsecaWebbasedPlatformMethodology2023], exercise recommendations in PLearn\nbsp{}[cite:@vasyliukDesignImplementationUkrainianLanguage2023], automatic grading with JavAssess\nbsp{}[cite:@insaAutomaticAssessmentJava2018], assessment of test suites using test coverage measures in Web-CAT\nbsp{}[cite:@edwardsWebCATAutomaticallyGrading2008] and automatic hint generation in GradeIT\nbsp{}[cite:@pariharAutomaticGradingFeedback2017].
 
 Increasing interactivity in learning has long been considered important, and furthermore, something that can be achieved through the addition of web-based components to a course\nbsp{}[cite:@vanpetegemPowerfulLearningInteractive2004].
+
+** Learning analytics and educational data mining
+:PROPERTIES:
+:CREATED:  [2024-02-01 Thu 10:47]
+:END:
+
+** Structure of this dissertation
+:PROPERTIES:
+:CREATED:  [2024-02-01 Thu 10:18]
+:END:
+
+Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona itself.
+In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented, etc.
+Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, student's opinions of the platform and an extensive case study on how Dodona's features are used to optimize teaching.
+Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
+This includes discussion of the technical challenges related to developing a platform like Dodona, how the Dodona team adheres to modern standards of software development, etc.
+
+Chapter\nbsp{}[[#chap:passfail]] talks about a study we did, where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
+It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their educational context, with data from their educational platform.
+
+In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
+We then finish the chapter with some recent work on a machine learning method we developed to predict what feedback teachers will give when manually assessing student submissions.
+
+Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on the previous chapters and some possibilities for future work.
 
 * What is Dodona?
 :PROPERTIES:
