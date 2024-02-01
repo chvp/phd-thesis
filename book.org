@@ -2334,6 +2334,7 @@ The weights are calculated by the following formula: \[weight(pattern) = \frac{l
 **** Matching patterns to subtrees
 :PROPERTIES:
 :CREATED:  [2024-02-01 Thu 14:25]
+:CUSTOM_ID: subsubsec:feedbackpredictionmatching
 :END:
 
 To know whether a given pattern matches a given subtree, we iterate over all nodes in the subtree.
