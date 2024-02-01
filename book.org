@@ -2,7 +2,7 @@
 #+AUTHOR: Charlotte Van Petegem
 #+LANGUAGE: en-gb
 #+LATEX_CLASS: book
-#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,BCOR=10mm,DIV=10,numbers=noendperiod]
+#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,numbers=noendperiod,parskip=half,BCOR=10mm,DIV=10]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{shellesc, luacode}
@@ -637,6 +637,7 @@ We estimate that it takes about 10 person-hours on average to create a new assig
 Generating a test suite usually takes 30 to 60 minutes for assignments that can rely on basic test and feedback generation features that are built into the judge.
 The configuration for automated assessment might take 2 to 3 hours for assignments that require more elaborate test generation or that need to extend the judge with custom components for dedicated forms of assessment (e.g.\nbsp{}assessing non-deterministic behaviour) or feedback generation (e.g.\nbsp{}generating visual feedback).
 [cite/t:@keuningSystematicLiteratureReview2018] found that publications rarely describe how difficult and time-consuming it is to add assignments to automated assessment platforms, or even if this is possible at all.
+
 The ease of extending Dodona with new programming assignments is reflected by more than {{{num_exercises}}} assignments that have been added to the platform so far.
 Our experience is that configuring support for automated assessment only takes a fraction of the total time for designing and implementing assignments for our programming course, and in absolute numbers stays far away from the one person-week reported for adding assignments to Bridge\nbsp{}[cite:@bonarBridgeIntelligentTutoring1988].
 Because the automated assessment infrastructure of Dodona provides common resources and functionality through a Docker container and a judge, the assignment-specific configuration usually remains lightweight.
