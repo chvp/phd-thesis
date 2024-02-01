@@ -40,9 +40,11 @@
 #+LATEX_HEADER: Prof.\ Dr.\ Bram De Wever
 #+LATEX_HEADER: }
 #+LATEX_HEADER: \addtokomafont{caption}{\small}
+#+LATEX_HEADER: \setuptoc{toc}{numbered}
+#+LATEX_HEADER: \addto\captionsenglish{\renewcommand{\contentsname}{Table of Contents}}
 #+OPTIONS: ':t
 #+OPTIONS: H:4
-#+OPTIONS: toc:3
+#+OPTIONS: toc:nil
 #+OPTIONS: broken-links:mark
 #+MACRO: num_commits 16 thousand
 #+MACRO: num_prs 3\thinsp{}800
@@ -55,10 +57,8 @@
 #+cite_export: csl citation-style.csl
 #+bibliography: bibliography.bib
 
-#+BEGIN_COMMENT
-There should be a `#+LATEX: \frontmatter` here, but I want to still be able to export to HTML, have the TOC show up in itself, change its heading and have the TOC be part of the frontmatter.
-Because of this the `\frontmatter` statement needs to be part of the `org-latex-toc-command` (which is set in the =.dir-locals.el=/=build.el= file).
-#+END_COMMENT
+#+LATEX: \frontmatter
+#+TOC: headlines 2
 
 * To-dos
 :PROPERTIES:

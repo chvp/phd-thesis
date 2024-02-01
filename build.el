@@ -17,8 +17,7 @@
       org-latex-caption-above nil
       org-latex-src-block-backend 'minted
       org-latex-minted-options '(("linenos" . "true"))
-      org-latex-prefer-user-labels t
-      org-latex-toc-command "\\frontmatter\n\\addchap{Table of Contents}\n\\label{chap:toc}\n\\listoftoc*{toc}\n\n")
+      org-latex-prefer-user-labels t)
 
 (add-to-list
  'org-export-smart-quotes-alist
