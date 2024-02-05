@@ -2218,36 +2218,52 @@ This is exactly what we will explore in this section, which is based on an artic
 :CUSTOM_ID: subsec:feedbackpredictionintro
 :END:
 
-Feedback is a very important element in student learning\nbsp{}[cite:@hattiePowerFeedback2007; @blackAssessmentClassroomLearning1998].
+Feedback is a key factor in student learning\nbsp{}[cite:@hattiePowerFeedback2007; @blackAssessmentClassroomLearning1998].
 In programming education, many steps have been taken to automate feedback using automated assessment systems\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @ala-mutkaSurveyAutomatedAssessment2005].
 These automated assessment systems provide feedback on correctness, and can provide some feedback on style and best practices by using linters.
 They are, however, generally not able to provide the same high-level feedback on program design that a seasoned programmer can give.
-In many educational practices, automated assessment is therefore supplemented with manual feedback, especially when grading evaluations or exams.
-This requires a large time investment from teachers.
+In many educational practices, automated assessment is therefore supplemented with manual feedback, especially when grading evaluations or exams\nbsp{}[cite:@debuseEducatorsPerceptionsAutomated2008].
+This requires a large time investment from teachers\nbsp{}[cite:@tuckFeedbackgivingSocialPractice2012].
 
-Others have therefore tried to improve the process of giving feedback using AI.
+Consequently, numerous researchers have explored the enhancement of feedback mechanisms through AI.
 [cite/t:@vittoriniAIBasedSystemFormative2021] automated grading using natural language processing, and found that students who used this system during the semester were more likely to pass the course at the end of the semester.
-Others have used AI to enable students to conduct peer and self-evaluation\nbsp{}[cite:@leeSupportingStudentsGeneration2023].
-[cite/t:@berniusMachineLearningBased2022] introduced a framework based on clustering text segments to reduce the grading overhead.
+[cite/t:@leeSupportingStudentsGeneration2023] has used supervised learning with ensemble learning to enable students to conduct peer and self-evaluation.
+Furthermore, [cite/t:@berniusMachineLearningBased2022] introduced a framework based on clustering text segments in textual exercises to reduce the grading workload.
 
-In this section we present an approach based on pattern mining.
-Data mining techniques for extracting frequently occurring patterns from data that can be represented as trees were already developed in the early 2000s\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005; @asaiEfficientSubstructureDiscovery2004].
-Since program code can be represented as an abstract syntax tree, more recent work looked into how these algorithms could be used to efficiently find frequent patterns in source code\nbsp{}[cite:@phamMiningPatternsSource2019].
+In this section we present an approach to predict what feedback a grader will give based on pattern mining.
+Pattern mining is a data mining technique for extracting frequently occurring patterns from data that can be represented as trees.
+It was already developed in the early 2000s\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005; @asaiEfficientSubstructureDiscovery2004].
+Program code can be represented as an abstract syntax tree (AST), where nodes of the tree represent the language constructs used in the program.
+More recent work used this fact to look into how these algorithms could be used to efficiently find frequent patterns in source code\nbsp{}[cite:@phamMiningPatternsSource2019].
 In an educational context, these techniques could then be used to, for example, find patterns common to solutions that failed a given exercise\nbsp{}[cite:@mensGoodBadUgly2021].
 Other work looked into generating unit tests from mined patterns\nbsp{}[cite:@lienard2023extracting].
 
 The context of our work is in our own assessment system, called Dodona, developed at Ghent University\nbsp{}[cite:@vanpetegemDodonaLearnCode2023].
 It has a built-in module for giving manual feedback on and (manually) assigning scores to student submissions.
+In 2023, 3\thinsp{}663\thinsp{}749 submissions were made on our platform, of which 44\thinsp{}012 were manually assessed.
+During those assessments, 22\thinsp{}888 annotations were added.
 The process of giving feedback on a programming assignment in Dodona is very similar to a code review, where mistakes or suggestions for improvements are annotated at the relevant line(s).
 
-There is however a very important difference with a traditional code review: the teacher gives feedback on many implementations of the same problem.
-Since students often make the same mistakes as other students, it follows that the same feedback is often given by a teacher on many solutions.
-In Dodona, we have already tried to anticipate this need by allowing teachers to save certain annotations, which can then later be re-used by simply searching for them.
-This gives us the data we're using in this study: code submissions, where those submissions have been annotated on specific lines with messages that are shared over those submissions.
-Note the terminology here: we consider an annotation to be a specific instance of a message placed on a line of code, and thus a message to be the text that can be reused over multiple annotations.
+However, there exists a crucial distinction between traditional code reviews and those in an educational context: instructors often provide feedback on numerous solutions to the same assignment.
+Given that students frequently commit similar errors, it logically follows that instructors repeatedly deliver the same feedback across multiple student submissions.
+In response to this repetitive nature of feedback, Dodona has implemented a feature enabling instructors to save and later retrieve specific annotations.
+This functionality facilitates the reuse of feedback by allowing teachers to search for previously saved annotations.
+By using this functionality, we have generated data that we can use in this study: code submissions, where those submissions have been annotated on specific lines with messages that are shared over those submissions. 
 
-In this section we present a machine learning method for suggesting re-use of previously given feedback.
-The section starts with an in-depth explanation of the design of the method, and then presents and discusses the experimental results we obtained when testing our method on student submissions.
+Note that there are two concepts here, whose distinction is important.
+On the one hand, we have /annotations/.
+Annotations are a specific instance of a message left by a grader: it consists of its text, and is also linked to a specific line of a specific submission.
+On the other hand we have /messages/.
+This is the text that can be reused by graders when adding an annotation.
+
+In this section we give an answer to the following research question: Can we, in the context of grading code written by students during an evaluation, use previously given feedback to predict what feedback a grader will give on a particular line?
+
+We present a machine learning method for suggesting re-use of previously given feedback.
+The manuscript starts with an in-depth explanation of the design of the method.
+We then present and discuss the experimental results we obtained when testing our method on student submissions.
+Two datasets are used to evaluate our method, based on real (Python) code written by students for exams.
+With the first dataset we predict automated PyLint messages.
+For the second dataset we use actual annotations left by graders during the grading of an exam.
 
 *** Methodology
 :PROPERTIES:
@@ -2256,22 +2272,26 @@ The section starts with an in-depth explanation of the design of the method, and
 :END:
 
 The general methodology used by our method is explained visually in Figure\nbsp{}[[fig:feedbackmethodoverview]].
-We start by using tree-sitter to generate ASTs for every submission.
-For each annotation, we then extract a limited context from the AST around the line where it was placed.
-We then collect all the subtrees for each message.
-Every message's forest of subtrees is given to the =TreeminerD= algorithm\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005] which gives us a collection of patterns for each message.
-Each pattern is then weighted according to its length and how often it occurs in the entire collection of patterns (for all messages).
+We start by using the tree-sitter library\nbsp{}[cite:@brunsfeldTreesitterTreesitterV02024] to generate ASTs for each submission.
+For every annotation, a constrained AST context surrounding the annotated line is extracted.
+Subsequently, we then aggregate all the subtrees for each occurrence of a message.
+Every message's collection of subtrees is processed by the =TreeminerD= algorithm, yielding a set of frequently occuring patterns specific for that message.
+We assign weights to these patterns based on their length and their frequency across the entire dataset of patterns for all messages.
 The result of these operations is our trained model.
-A prediction can be made when a teacher selects a line in a given student's submission.
-This is done by again extracting the limited context around that line.
-We then compute a similarity score for each message, using its weighted patterns.
+
+The model can now be used to suggest matching patterns and thus messages for a given code fragment.
+In practice, the instructor first selects a line of code in a given student's submission.
+Next, the AST of the selected line and its surrounding context is generated.
+For all messages, each of its patterns is matched to the line, and a similarity score is calculated (given the weights determined earlier).
 This similarity score is used to rank the messages and this ranking is shown to the teacher.
-We will now give a more detailed explanation of these steps.
-Note that in every step, we also have to consider its (impact on) speed.
-Since the model will be used while grading (and the training data for the model is continuously generated during grading) we can't afford to train the model for multiple minutes.
+
+A detailed explanation of this process follows, with a particular emphasis on operational efficiency.
+Speed is a paramount concern throughout the model's lifecycle, from training to deployment in real-time grading contexts.
+Given the continuous generation of training data during the grading process, the model's training duration must be optimized to prevent significant delays, ensuring that the model remains practical for live grading situations.
 
 #+CAPTION: Overview of our machine learning method for predicting feedback re-use.
 #+CAPTION: Code is converted to its Abstract Syntax Tree form.
+#+CAPTION: Annotations for the same message have been given the same colour.
 #+CAPTION: Per message, the context of each annotation is extracted and mined for patterns using the =TreeminerD= algorithm.
 #+CAPTION: These patterns are then weighted, after which they make up our model.
 #+CAPTION: When a teacher wants to place an annotation on a line, messages are ranked based on the similarity determined for that line.
@@ -2285,7 +2305,7 @@ Since the model will be used while grading (and the training data for the model 
 :END:
 
 Currently, the context around a line is extracted by taking all the AST nodes that are solely on that line.
-For example the subtree extracted for the code on line 3 in Listing\nbsp{}[[lst:feedbacksubtreesample]] can be seen on Figure\nbsp{}[[fig:feedbacksubtree]].
+For example, the subtree extracted for the code on line 3 in Listing\nbsp{}[[lst:feedbacksubtreesample]] can be seen on Figure\nbsp{}[[fig:feedbacksubtree]].
 Note that the context we extract here is very limited.
 Previous iterations considered all the nodes that contained the relevant line (e.g. the function node for a line in a function), but these contexts turned out to be too large to process in an acceptable time frame.
 
@@ -2309,18 +2329,27 @@ for digit in number:
 :CUSTOM_ID: subsubsec:feedbackpredictiontreeminer
 :END:
 
-We use the =TreeminerD= algorithm to find patterns in the AST subtrees for each message.
+=Treeminer=\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005] is an algorithm for discovering frequently occurring subtrees in datasets of rooted, ordered and labelled trees.
+It does this by starting with a list of frequently occurring nodes, and then iteratively expanding the frequently occurring patterns.
+
+In the base =Treeminer= algorithm, frequently occurring means that the amount of times the pattern occurs in all trees divided by the amount of trees is larger than some predefined threshold.
+This is the =minimum support= parameter.
+
+Patterns are embedded subtrees.
+This means that nodes can be skipped, but the ancestor-descendant relationships are kept.
+The left-to-right ordering of nodes is also preserved.
+
 =TreeminerD= is a more efficient version of the base =Treeminer= algorithm.
-It achieves this efficiency by not counting the amount of occurrences of a frequent pattern.
+It achieves this efficiency by not counting the amount of occurrences of a frequent pattern within one tree.
 Since we are not interested in this information for our method, it was an obvious choice to use the =TreeminerD= version.
 
-=TreeminerD= also has an important /minimum support/ parameter.
-This signifies the percentage of trees in the forest that a pattern needs to be present in before it is considered frequent.
-We set the /minimum support/ parameter to 0.8 in our implementation.
+We use our own Python implementation of the =TreeminerD= algorithm, in this case to find patterns in the AST subtrees for each message.
+We set the =minimum support= parameter to 0.8 in our implementation.
 This value was experimentally determined.
 
 As an example, one message in our real-world dataset was placed 92 times on 47 submissions by students.
 For this message =TreeminerD= finds 105\thinsp{}718 patterns.
+
 
 **** Assigning weights to patterns
 :PROPERTIES:
@@ -2332,7 +2361,7 @@ Due to the iterative nature of =TreeminerD= a lot of patterns are (embedded) sub
 We don't do any post-processing to remove these patterns since they might be relevant for code we have not seen yet, but we do assign weights to them.
 Weights are assigned using two criteria.
 
-The first criterion is the size of the pattern, since a pattern with twenty nodes is a lot more specific than a pattern with only one node.
+The first criterion is the size of the pattern (i.e., the number of nodes in the pattern), since a pattern with twenty nodes is a lot more specific than a pattern with only one node.
 The second criterion is the amount of times a pattern occurs across all messages.
 If all messages contain a specific pattern, it can not be reliably used to determine which message should be predicted and will therefore be assigned a smaller weight.
 The weights are calculated by the following formula: \[weight(pattern) = \frac{len(pattern)}{\#occurences(pattern)}\]
@@ -2407,15 +2436,21 @@ The messages are sorted using this score.
 :END:
 
 We used two datasets to evaluate our method.
-Both are based on real (Python) code written by students for exams.
+Both are based on real (Python) code written by students for (different) exams.
 To test our method, we split the datasets in half and used the first half to train and the second half to test.
+During the test phase, we iterate over the places where annotations were added in the source data.
+These are the lines we give to our model.
+We look at whether the correct message is ranked first, or if it is ranked in the first five suggestions.
+This gives us a good idea on how useful this would be in practice: if a message is ranked farther than fifth, we would expect the grader to need to search for it.
 
 In the first dataset, we run PyLint on those student submissions, and use PyLint's annotations as our training data and test data.
+Note that in this dataset, we don't make the distinction between the different assignments students had to solve, since the way Pylint annotates them does not differ between assignments.
 In the second dataset, we use actual annotations left by graders on student code in Dodona.
+Here we train and test per assignment, since the set of messages that were used is also different for each assignment.
 We differentiate between these two datasets, because we expect PyLint to be more consistent in when it places an annotation and also where it places that annotation.
 Most linting messages are detected through explicit pattern matching in the AST, so we expect our implicit pattern matching to perform rather well.
-Real-world data is more difficult, since graders are humans, and might miss a problem in one student's code that they annotated in another student's code, or they might not place the annotation for a certain message in a consistent location.
-The pattern matching performed by graders is also a lot more implicit than PyLint's pattern matching.
+Real-world data is more difficult, since graders are humans, and might miss an issue in one student's code that they annotated in another student's code, or they might not place the annotation for a certain message in a consistent location.
+The method by which graders place an annotation is also a lot more implicit than PyLint's pattern matching.
 
 **** PyLint
 :PROPERTIES:
@@ -2438,6 +2473,11 @@ The differences in performance can be explained through the content of the messa
 For example, the message "too many branches" performs rather poorly.
 This can be explained through the fact that we prune too much context for the pattern that PyLint used to be picked up by =TreeminerD=.
 There are also annotations that can not be predicted at all, because no patterns are found.
+
+Other messages, like "consider using with", perform very well.
+For these messages, =TreeminerD= does have enough context to pick up the underlying patterns.
+The amount of times the message occurs in the training set also has an impact.
+Messages which only have a few annotations are generally predicted worse than those with a lot of annotations.
 
 #+CAPTION: Detailed view of predictions for a few PyLint messages.
 #+CAPTION: Each bar is a message, and the amount of occurrences in the training set and in the test set (respectively) is denoted in brackets after the name.
@@ -2497,12 +2537,13 @@ These figures show that while some build-up is required, once a critical mass of
 :CUSTOM_ID: subsec:feedbackpredictionconclusion
 :END:
 
-In this manuscript we presented a prediction method to help when giving feedback during grading by re-using messages.
-Improving re-use of messages can be both a time-saver, and improve the consistency with which feedback is given.
+We presented a prediction method to help when giving feedback during grading by re-using messages.
+Improving re-use of messages can be both a time-saver, and improve consistency with which feedback is given.
 
 The framework already has promising results.
 We validated the framework by predicting both automated linting messages to establish a baseline and by using real-world data.
 The method performs about the same for real-world data as it does for PyLint's linting messages.
+We can thus answer our research question and say that yes, we can use previously given feedback to predict what feedback a grader will give on a particular line.
 
 Of course, alternative methods could also be considered.
 One cannot overlook the rise of Large Language Models (LLMs) and the way they could contribute to this problem.
@@ -2515,6 +2556,7 @@ Messages that don't lend themselves well to being predicted need further investi
 The context used could also be extended (although the important caveat here is that the method also needs to still maintain its speed).
 Right now the model is also reactive: we propose a group of most likely messages when a grader wants to add an annotation on a line.
 By introducing a confidence score we could check beforehand if we have a confident match for each line and then immediately propose this to the grader.
+Whether a grader accepts this suggestion could then also be used as an input into the model.
 We could also look into applying some of the techniques for source code pattern mining proposed by\nbsp{}[cite/t:@phamMiningPatternsSource2019] to make further speed improvements.
 Another important aspect that was explicitly left out of scope in this manuscript was building it into a learning platform and doing user testing.
 
