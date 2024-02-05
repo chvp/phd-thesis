@@ -2208,7 +2208,7 @@ Graders only need to write out a detailed and clear message once and can then re
 :CUSTOM_ID: sec:feedbackprediction
 :END:
 
-Given that we now have a system for re-using feedback given earlier, we can ask ourselves if we can do this in a smarter way.
+Given that we now have a system for re-using earlier feedback, we can ask ourselves if we can do this in a smarter way.
 Instead of teachers having to search for the annotation they want to use, what if we could predict which annotation they want to use?
 This is exactly what we will explore in this section, which is based on an article that is currently being prepared for submission.
 
