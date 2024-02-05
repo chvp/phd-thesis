@@ -404,7 +404,7 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 :CUSTOM_ID: chap:use
 :END:
 
-This chapter will discuss the use of Dodona.
+This chapter discusses the use of Dodona.
 We start by mentioning some facts and figures, and discussing a user study we performed.
 We then explain how Dodona can be used on the basis of a case study.
 The chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023].
@@ -1263,7 +1263,7 @@ The exit status code can only be checked in this testcase as well.
 
 Like the communication with Dodona, this test plan is a JSON document under the hood.
 In the following sections, we will use the JSON representation of the test plan to discuss how TESTed works.
-Exercise authors use the DSL to write their tests, which we will discuss in Section\nbsp{}[[#subsec:techtesteddsl]].
+Exercise authors use the DSL to write their tests, which we discuss in Section\nbsp{}[[#subsec:techtesteddsl]].
 This DSL is internally converted by TESTed to a JSON test plan before execution.
 A test plan of the example exercise can be seen in Listing\nbsp{}[[lst:technicaltestedtestplan]].
 
@@ -2097,7 +2097,7 @@ Having this new framework at hand immediately raises some follow-up research que
 :CUSTOM_ID: chap:feedback
 :END:
 
-This chapter will discuss the history of manual feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of evaluation and features within Dodona.
+This chapter discusses the history of manual feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of evaluation and features within Dodona.
 We will then expand on some further experiments using data mining techniques we did to try to further reduce the time spent adding manual feedback.
 
 ** Assessment on paper
