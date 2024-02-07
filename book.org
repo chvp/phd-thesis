@@ -3,7 +3,7 @@
 #+AUTHOR: Charlotte Van Petegem
 #+LANGUAGE: en-gb
 #+LATEX_CLASS: book
-#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,numbers=noendperiod,BCOR=10mm,DIV=10]
+#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip=half-,numbers=noendperiod,BCOR=10mm,DIV=10]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{shellesc, luacode}
@@ -138,7 +138,7 @@ Finally, we will give a brief overview of the remaining chapters of this dissert
 
 Increasing interactivity in learning has long been considered important, and furthermore, something that can be achieved through the addition of (web-based) IT components to a course\nbsp{}[cite:@vanpetegemPowerfulLearningInteractive2004].
 This isn't any different when learning to program: learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
-[cite/t:@cheangAutomatedGradingProgramming2003] identified the labor-intensive nature of assessing programming assignments as the main reason why students are given few such assignments when ideally they should be given many more.
+[cite/t:@cheangAutomatedGradingProgramming2003] identified the labor-intensive nature of assessing programming assignments as the main reason why students are given few such assignments when in an ideal world they should be given many more.
 Automated assessment allows students to receive immediate and personalized feedback on each submitted solution without the need for human intervention.
 Because of its potential to provide feedback loops that are scalable and responsive enough for an active learning environment, automated source code assessment has become a driving force in programming courses.
 
@@ -148,8 +148,7 @@ Because of its potential to provide feedback loops that are scalable and respons
 :END:
 
 Automated assessment was introduced into programming education in the late 1950s\nbsp{}[cite:@hollingsworthAutomaticGradersProgramming1960].
-In this first system, programs were submitted in assembly on punch cards.
-(For the reader who is not familiar with punch cards, an example of one can be seen in Figure\nbsp{}[[fig:introductionpunchard]]).
+In this first system, programs were submitted in assembly on punch cards[fn:: For the reader who is not familiar with punch cards, an example of one can be seen in Figure\nbsp{}[[fig:introductionpunchard]].].
 In the early days of computing, the time of tutors was not the only valuable resource that needed to be shared between students; the actual compute time was also a shared and limited resource.
 Their system made more efficient use of both.
 [cite/t:@hollingsworthAutomaticGradersProgramming1960] already notes that the class sizes were a main motivator to introduce their auto-grader.
@@ -172,9 +171,9 @@ In more modern terminology, Naur's "formally correct" would be called "free of s
 
 [cite/t:@forsytheAutomaticGradingPrograms1965] note another issue when using automatic graders: students could use the feedback they get to hard-code the expected response in their programs.
 This is again an issue that modern graders (or the teachers creating exercises) still need to consider.
-[cite/t:@forsytheAutomaticGradingPrograms1965] solve this issue by randomizing the inputs to the student's program.
+Forsythe & Wirth solve this issue by randomizing the inputs to the student's program.
 While not explicitly explained by them, we can assume that to check the correctness of a student's answer, they calculate the expected answer themselves as well.
-Note that\nbsp{}[cite/t:@forsytheAutomaticGradingPrograms1965] were still writing a grading program for each different exercise.
+Note that in this system, they were still writing a grading program for each different exercise.
 
 [cite/t:@hextAutomaticGradingScheme1969] introduce a new innovation: their system could be used for exercises in several different programming languages.
 They are also the first to implement a history of student's attempts in the assessment tool itself, and mention explicitly that enough data should be recorded in this history so that it can be used to calculate a mark for a student.
@@ -182,19 +181,49 @@ They are also the first to implement a history of student's attempts in the asse
 Other grader programs were in use at the time, but these did not necessarily bring any new innovations or ideas to the table\nbsp{}[cite:@braden1965introductory; @berryGraderPrograms1966; @temperlyGradingProcedurePL1968].
 
 The systems described above share an important limitation, which is inherent to the time at which they were built.
-Computers were big and heavy, and had operators who did not necessarily know whose program they were running or what those programs were.
-(Engelbart's Mother of All Demos, widely considered the birth of the idea of the personal computer, only happened in 1968.)
+Computers were big and heavy, and had operators who did not necessarily know whose program they were running or what those programs were.[fn:: The Mother of All Demos by [cite/t:@engelbart1968research], widely considered the birth of the /idea/ of the personal computer, only happened after these systems were already running.]
 So, it should not come as a surprise that the feedback these systems gave was slow to return to the students.
 
-*** Using scripts and tools
+*** Tool- and script-based assessment
 :PROPERTIES:
 :CREATED:  [2024-02-06 Tue 17:29]
 :END:
 
-We now take a leap forward in time to the 1980s.
+We now take a leap forward in time.
 The way people use computers has changed significantly, and the way assessment systems are implemented changed accordingly.
+Note that while the previous section was complete (as far as we could find), this section is decidedly not so.
+At this point, the explosion of automated assessment systems/automated grading systems for programming education had already set in.
+To describe all platforms would take a full dissertation in and of itself.
+So from now on, we will pick and choose systems that brought new and interesting ideas that stood the test of time[fn:: The ideas, not the platforms. As far as we know none of the platforms described in this section are still in use.].
 
-*** Onto the web
+ACSES, by [cite/t:@nievergeltACSESAutomatedComputer1976], was envisioned as a full course for learning computer programming.
+They even designed it as a full replacement for a course: it was the first system that integrated both instructional texts and exercises.
+Students following this course would not need personal instruction[fn:: In the modern day, this would probably be considered a MOOC (except that it obviously wasn't an online course).].
+
+Another good example of this generation of grading systems is the system by [cite/t:@isaacson1989automating].
+They describe the functioning of a UNIX shell script, that automatically e-mails students if their code did not compile, or if they had incorrect outputs.
+It also had a configurable output file size limit and time limit.
+Student programs would be stopped if they exceeded these limits.
+Like all assessment systems up to this point, they only focus on whether the output of the student's program is correct, and not on the code style.
+
+[cite/t:@reekTRYSystemHow1989] takes a different approach.
+He identifies several issues with gathering students' source files, and then compiling and executing them in the teacher's environment.
+Students could write destructive code that destroys the teacher's files, or even write a clever program that alters their grades (and covers its tracks while doing so).
+His TRY system therefore has the avoidance of teachers testing their students' programs as an explicit goal.
+Another goal was avoiding giving the inputs that the program was tested on to students.
+These goals were mostly achieved using the UNIX =setuid= mechanism[fn:: Note that students were thus using the same machine as the instructor, i.e., they were using a true multi-user system, as in common use at the time.].
+Every attempt was also recorded in a log file in the teacher's directory.
+Generality of programming language was achieved through intermediate build and test scripts that had to be provided by the teacher.
+
+This is also the first study we could find that pays explicit attention to how expected and generated output is compared.
+In addition to the basic character-by-character comparison, it is also supported to define the interface for a function that students have to call with their outputs.
+The instructor can then link an implementation of this function in the build script.
+
+Even later, automated assessment systems were built with graphical user interfaces.
+A good example of this is ASSYST\nbsp{}[cite:@jacksonGradingStudentPrograms1997].
+ASSYST also added evaluation on other metrics, such as runtime or cyclomatic complexity (as suggested by\nbsp{}[cite:@hungAutomaticProgrammingAssessment1993]).
+
+*** Moving to the web
 :PROPERTIES:
 :CREATED:  [2024-02-06 Tue 17:29]
 :END:
@@ -2630,6 +2659,10 @@ Another important aspect that was explicitly left out of scope in this manuscrip
 :CREATED: [2023-10-23 Mon 08:51]
 :CUSTOM_ID: chap:discussion
 :END:
+
+Dodona is a pretty good piece of software.
+People use it, and like to use it, for some reason.
+We should probably try make sure that this is still the case in the future.
 
 #+LATEX: \appendix
 * Pass/fail prediction feature types
