@@ -3,7 +3,7 @@
 #+AUTHOR: Charlotte Van Petegem
 #+LANGUAGE: en-gb
 #+LATEX_CLASS: book
-#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,numbers=noendperiod,parskip=half,BCOR=10mm,10pt]
+#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,numbers=noendperiod,BCOR=10mm,DIV=10]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{shellesc, luacode}
@@ -125,25 +125,90 @@ In volgorde van prioriteit:
 :END:
 
 Ever since programming has been taught, its teachers have sought to automate and optimize their teaching.
-This has led to the development of myriad automated assessment tools, of which we will give an overview in this introduction.
-Due to the ever-increasing digitalization of society, this teaching has to happen for larger and larger groups, and these groups will include students for whom programming is not necessarily their main subject.
-We will thus also discuss learning analytics and educational data mining, and how these tools can help us to cope with the growing class sizes.
+Due to the ever-increasing digitalization of society, programming is also being taught to ever more and ever larger groups, and these groups more and more often include students for whom programming is not necessarily their main subject.
+This has led to the development of myriad automated assessment tools\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005], of which we will give a historical overview in this introduction.
+We will also discuss learning analytics and educational data mining, and how these tools can help us to cope with the growing class sizes.
 Finally, we will give a brief overview of the remaining chapters of this dissertation.
 
-** A history of automated assessment in programming education
+** Automated assessment in programming education
 :PROPERTIES:
 :CREATED:  [2024-02-01 Thu 10:46]
 :CUSTOM_ID: sec:introhistory
 :END:
 
-Learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
-Because of its potential to provide feedback loops that are scalable and responsive enough for an active learning environment, automated source code assessment has become a driving force in programming courses.
-This has resulted in a proliferation of educational programming platforms\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005].
-Automated assessment was introduced into programming education in the early 1960s\nbsp{}[cite:@hollingsworthAutomaticGradersProgramming1960] and allows students to receive immediate and personalized feedback on each submitted solution without the need for human intervention.
+Increasing interactivity in learning has long been considered important, and furthermore, something that can be achieved through the addition of (web-based) IT components to a course\nbsp{}[cite:@vanpetegemPowerfulLearningInteractive2004].
+This isn't any different when learning to program: learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
 [cite/t:@cheangAutomatedGradingProgramming2003] identified the labor-intensive nature of assessing programming assignments as the main reason why students are given few such assignments when ideally they should be given many more.
+Automated assessment allows students to receive immediate and personalized feedback on each submitted solution without the need for human intervention.
+Because of its potential to provide feedback loops that are scalable and responsive enough for an active learning environment, automated source code assessment has become a driving force in programming courses.
+
+*** Humble beginnings
+:PROPERTIES:
+:CREATED:  [2024-02-06 Tue 15:30]
+:END:
+
+Automated assessment was introduced into programming education in the late 1950s\nbsp{}[cite:@hollingsworthAutomaticGradersProgramming1960].
+In this first system, programs were submitted in assembly on punch cards.
+(For the reader who is not familiar with punch cards, an example of one can be seen in Figure\nbsp{}[[fig:introductionpunchard]]).
+In the early days of computing, the time of tutors was not the only valuable resource that needed to be shared between students; the actual compute time was also a shared and limited resource.
+Their system made more efficient use of both.
+[cite/t:@hollingsworthAutomaticGradersProgramming1960] already notes that the class sizes were a main motivator to introduce their auto-grader.
+At the time of publication, they had tested about 3\thinsp{}000 student submissions which, given a grading run took about 30 to 60 seconds, represents about a day and a half of computation time.
+
+They also immediately identified some limitations, which are common problems that modern graders still need to consider.
+These limitations include handling faults in the student code, making sure students can't modify the grader, and having to define an interface through which the student code is run.
+
+#+CAPTION: Example of a punch card.
+#+CAPTION: Picture by Arnold Reinhold, released under the CC BY-SA 4.0 license via WikiMedia Commons.
+#+NAME: fig:introductionpunchard
+[[./images/introductionpunchcard.jpg]]
+
+In the next ten years, significant advances were already made.
+Students could submit code written in a text-based programming language instead of assembly, and the actual testing was done by running their code using modified compilers and operating systems.
+
+[cite/t:@naurAutomaticGradingStudents1964] was the first to explicitly note the difference between the formal correctness, and the efficiency and completeness of the programs being tested.
+The distinction between formal correctness and completeness that he makes can be somewhat confusing from a modern standpoint: we would only consider a program or algorithm formally correct if it is complete (i.e. gives the correct response in all cases).
+In more modern terminology, Naur's "formally correct" would be called "free of syntax errors".
+
+[cite/t:@forsytheAutomaticGradingPrograms1965] note another issue when using automatic graders: students could use the feedback they get to hard-code the expected response in their programs.
+This is again an issue that modern graders (or the teachers creating exercises) still need to consider.
+[cite/t:@forsytheAutomaticGradingPrograms1965] solve this issue by randomizing the inputs to the student's program.
+While not explicitly explained by them, we can assume that to check the correctness of a student's answer, they calculate the expected answer themselves as well.
+Note that\nbsp{}[cite/t:@forsytheAutomaticGradingPrograms1965] were still writing a grading program for each different exercise.
+
+[cite/t:@hextAutomaticGradingScheme1969] introduce a new innovation: their system could be used for exercises in several different programming languages.
+They are also the first to implement a history of student's attempts in the assessment tool itself, and mention explicitly that enough data should be recorded in this history so that it can be used to calculate a mark for a student.
+
+Other grader programs were in use at the time, but these did not necessarily bring any new innovations or ideas to the table\nbsp{}[cite:@braden1965introductory; @berryGraderPrograms1966; @temperlyGradingProcedurePL1968].
+
+The systems described above share an important limitation, which is inherent to the time at which they were built.
+Computers were big and heavy, and had operators who did not necessarily know whose program they were running or what those programs were.
+(Engelbart's Mother of All Demos, widely considered the birth of the idea of the personal computer, only happened in 1968.)
+So, it should not come as a surprise that the feedback these systems gave was slow to return to the students.
+
+*** Using scripts and tools
+:PROPERTIES:
+:CREATED:  [2024-02-06 Tue 17:29]
+:END:
+
+We now take a leap forward in time to the 1980s.
+The way people use computers has changed significantly, and the way assessment systems are implemented changed accordingly.
+
+*** Onto the web
+:PROPERTIES:
+:CREATED:  [2024-02-06 Tue 17:29]
+:END:
+
+*** Adding features
+:PROPERTIES:
+:CREATED:  [2024-02-06 Tue 15:31]
+:END:
+
+At this point in history, the idea of an automated assessment system is no longer new.
+But still, more and more new platforms were being written.
+
 While almost all platforms support automated assessment of code submitted by students, contemporary platforms usually offer additional features such as gamification in the FPGE platform\nbsp{}[cite:@paivaManagingGamifiedProgramming2022], integration of full-fledged editors in iWeb-TD\nbsp{}[cite:@fonsecaWebbasedPlatformMethodology2023], exercise recommendations in PLearn\nbsp{}[cite:@vasyliukDesignImplementationUkrainianLanguage2023], automatic grading with JavAssess\nbsp{}[cite:@insaAutomaticAssessmentJava2018], assessment of test suites using test coverage measures in Web-CAT\nbsp{}[cite:@edwardsWebCATAutomaticallyGrading2008] and automatic hint generation in GradeIT\nbsp{}[cite:@pariharAutomaticGradingFeedback2017].
 
-Increasing interactivity in learning has long been considered important, and furthermore, something that can be achieved through the addition of web-based components to a course\nbsp{}[cite:@vanpetegemPowerfulLearningInteractive2004].
 
 ** Learning analytics and educational data mining
 :PROPERTIES:
@@ -163,7 +228,7 @@ Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by p
 Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
 This includes discussion of the technical challenges related to developing a platform like Dodona, how the Dodona team adheres to modern standards of software development, etc.
 
-Chapter\nbsp{}[[#chap:passfail]] talks about a study we did, where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
+Chapter\nbsp{}[[#chap:passfail]] talks about a study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
 It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their educational context, with data from their educational platform.
 
 In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
