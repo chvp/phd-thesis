@@ -6,7 +6,7 @@
 #+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip=half-,numbers=noendperiod,BCOR=10mm,DIV=10]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
-#+LATEX_HEADER: \usepackage{shellesc, luacode}
+#+LATEX_HEADER: \usepackage{luacode}
 #+LATEX_HEADER: \begin{luacode*}
 #+LATEX_HEADER:   function parseargv()
 #+LATEX_HEADER:     local rep = {}
@@ -194,11 +194,16 @@ The way people use computers has changed significantly, and the way assessment s
 Note that while the previous section was complete (as far as we could find), this section is decidedly not so.
 At this point, the explosion of automated assessment systems/automated grading systems for programming education had already set in.
 To describe all platforms would take a full dissertation in and of itself.
-So from now on, we will pick and choose systems that brought new and interesting ideas that stood the test of time.[fn:: The ideas, not the platforms. As far as we know none of the platforms described in this section are still in use.]
+So from now on, we will pick and choose systems that brought new and interesting ideas that stood the test of time.[fn::
+The ideas, not the platforms.
+As far as we know none of the platforms described in this section are still in use.
+]
 
 ACSES, by [cite/t:@nievergeltACSESAutomatedComputer1976], was envisioned as a full course for learning computer programming.
 They even designed it as a full replacement for a course: it was the first system that integrated both instructional texts and exercises.
-Students following this course would not need personal instruction.[fn:: In the modern day, this would probably be considered a MOOC (except that it obviously wasn't an online course).]
+Students following this course would not need personal instruction.[fn::
+In the modern day, this would probably be considered a MOOC (except that it obviously wasn't an online course).
+]
 
 Another good example of this generation of grading systems is the system by [cite/t:@isaacson1989automating].
 They describe the functioning of a UNIX shell script, that automatically e-mails students if their code did not compile, or if they had incorrect outputs.
@@ -208,10 +213,16 @@ Like all assessment systems up to this point, they only focus on whether the out
 
 [cite/t:@reekTRYSystemHow1989] takes a different approach.
 He identifies several issues with gathering students' source files, and then compiling and executing them in the teacher's environment.
-Students could write destructive code that destroys the teacher's files, or even write a clever program that alters their grades (and covers its tracks while doing so).
+Students could write destructive code that destroys the teacher's files, or even write a clever program that alters their grades (and covers its tracks while doing so).[fn::
+Note that this issue is not new.
+As we talked about before, this was already mentioned as a possibility by\nbsp{}[cite/t:@hollingsworthAutomaticGradersProgramming1960].
+This was, however, the first paper that tried to solve this problem.
+]
 His TRY system therefore has the avoidance of teachers testing their students' programs as an explicit goal.
 Another goal was avoiding giving the inputs that the program was tested on to students.
-These goals were mostly achieved using the UNIX =setuid= mechanism.[fn:: Note that students were thus using the same machine as the instructor, i.e., they were using a true multi-user system, as in common use at the time.]
+These goals were mostly achieved using the UNIX =setuid= mechanism.[fn::
+Students were thus using the same machine as the instructor, i.e., they were using a true multi-user system, as in common use at the time.
+]
 Every attempt was also recorded in a log file in the teacher's directory.
 Generality of programming language was achieved through intermediate build and test scripts that had to be provided by the teacher.
 
@@ -228,6 +239,16 @@ ASSYST also added evaluation on other metrics, such as runtime or cyclomatic com
 :CREATED:  [2024-02-06 Tue 17:29]
 :END:
 
+After Tim Berners-Lee invented the web in 1989\nbsp{}[cite:@berners-leeWorldWideWeb1992], automated assessment systems also started moving to the web.
+Especially with the rise of Web 2.0\nbsp{}[cite:@oreillyWhatWebDesign2007], allowing increased interactivity, this became more and more common.
+Systems like the one by\nbsp{}[cite/t:@reekTRYSystemHow1989] also became impossible to use because of the rise of the personal computer.[fn::
+Mainly because the multi-user system was used less and less, but also because the primary way people interacted with a computer was no longer through the command line, but through graphical interfaces.
+]
+
+Perhaps the most famous example of this is Web-CAT\nbsp{}[cite:@shah2003web].
+In addition to being one of the first web-based automated assessment platforms, it also asked the students to write their own tests.
+The coverage that these tests achieved was part of the testing done by the platform.
+
 *** Adding features
 :PROPERTIES:
 :CREATED:  [2024-02-06 Tue 15:31]
@@ -236,7 +257,7 @@ ASSYST also added evaluation on other metrics, such as runtime or cyclomatic com
 At this point in history, the idea of an automated assessment system is no longer new.
 But still, more and more new platforms were being written.
 
-While almost all platforms support automated assessment of code submitted by students, contemporary platforms usually offer additional features such as gamification in the FPGE platform\nbsp{}[cite:@paivaManagingGamifiedProgramming2022], integration of full-fledged editors in iWeb-TD\nbsp{}[cite:@fonsecaWebbasedPlatformMethodology2023], exercise recommendations in PLearn\nbsp{}[cite:@vasyliukDesignImplementationUkrainianLanguage2023], automatic grading with JavAssess\nbsp{}[cite:@insaAutomaticAssessmentJava2018], assessment of test suites using test coverage measures in Web-CAT\nbsp{}[cite:@edwardsWebCATAutomaticallyGrading2008] and automatic hint generation in GradeIT\nbsp{}[cite:@pariharAutomaticGradingFeedback2017].
+While almost all platforms support automated assessment of code submitted by students, contemporary platforms usually offer additional features such as gamification in the FPGE platform\nbsp{}[cite:@paivaManagingGamifiedProgramming2022], integration of full-fledged editors in iWeb-TD\nbsp{}[cite:@fonsecaWebbasedPlatformMethodology2023], exercise recommendations in PLearn\nbsp{}[cite:@vasyliukDesignImplementationUkrainianLanguage2023], automatic grading with JavAssess\nbsp{}[cite:@insaAutomaticAssessmentJava2018], and automatic hint generation in GradeIT\nbsp{}[cite:@pariharAutomaticGradingFeedback2017].
 
 
 ** Learning analytics and educational data mining
@@ -2663,6 +2684,14 @@ Another important aspect that was explicitly left out of scope in this manuscrip
 Dodona is a pretty good piece of software.
 People use it, and like to use it, for some reason.
 We should probably try make sure that this is still the case in the future.
+
+- Successful platform
+  - Lots of users
+  - Interesting data for scientific research
+- Challenges
+  - Sustainability
+  - Generative AI
+  - ...
 
 #+LATEX: \appendix
 * Pass/fail prediction feature types
