@@ -202,7 +202,7 @@ As far as we know none of the platforms described in this section are still in u
 ACSES, by [cite/t:@nievergeltACSESAutomatedComputer1976], was envisioned as a full course for learning computer programming.
 They even designed it as a full replacement for a course: it was the first system that integrated both instructional texts and exercises.
 Students following this course would not need personal instruction.[fn::
-In the modern day, this would probably be considered a MOOC (except that it obviously wasn't an online course).
+In the modern day, this would probably be considered a MOOC (except that it obviously wasn't an online course; TCP/IP wouldn't be standardized until 1982).
 ]
 
 Another good example of this generation of grading systems is the system by [cite/t:@isaacson1989automating].
@@ -216,7 +216,7 @@ He identifies several issues with gathering students' source files, and then com
 Students could write destructive code that destroys the teacher's files, or even write a clever program that alters their grades (and covers its tracks while doing so).[fn::
 Note that this issue is not new.
 As we talked about before, this was already mentioned as a possibility by\nbsp{}[cite/t:@hollingsworthAutomaticGradersProgramming1960].
-This was, however, the first paper that tried to solve this problem.
+This was, however, the first system that tried to solve this problem.
 ]
 His TRY system therefore has the avoidance of teachers testing their students' programs as an explicit goal.
 Another goal was avoiding giving the inputs that the program was tested on to students.
@@ -245,7 +245,13 @@ Systems like the one by\nbsp{}[cite/t:@reekTRYSystemHow1989] also became impossi
 Mainly because the multi-user system was used less and less, but also because the primary way people interacted with a computer was no longer through the command line, but through graphical interfaces.
 ]
 
-Perhaps the most famous example of this is Web-CAT\nbsp{}[cite:@shah2003web].
+[cite/t:@higginsCourseMarkerCBASystem2003] developed CourseMarker, which is a more general assessment system (not exclusively developed for programming assessment).
+This was initially not yet a web-based platform, but it did communicate over the network using Java's Remote Method Invocation mechanism.[fn::
+The system it was designed to replace, Ceilidh, did have a basic web submission interface\nbsp{}[cite:@hughesCeilidhCollaborativeWriting1998].
+]
+Designing a web client was also mentioned as future work in the paper announcing CourseMarker.
+
+Perhaps the most famous example of the first web-based platforms is Web-CAT\nbsp{}[cite:@shah2003web].
 In addition to being one of the first web-based automated assessment platforms, it also asked the students to write their own tests.
 The coverage that these tests achieved was part of the testing done by the platform.
 
