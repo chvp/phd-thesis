@@ -2506,7 +2506,7 @@ The full pseudocode for this algorithm can be seen in Listing\nbsp{}[[lst:feedba
 
 #+ATTR_LATEX: :float t
 #+CAPTION: Pseudocode for checking whether a pattern matches a subtree.
-#+CAPTION: Note that both pattern and subtree are stored in the string encoding described by\nbsp{}[cite/t:@zakiEfficientlyMiningFrequent2005].
+#+CAPTION: Note that both pattern and subtree are stored in the encoding described by\nbsp{}[cite/t:@zakiEfficientlyMiningFrequent2005].
 #+NAME: lst:feedbackmatchingpseudocode
 #+BEGIN_SRC python
 subtree_matches(subtree, pattern):
