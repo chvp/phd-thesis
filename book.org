@@ -286,15 +286,10 @@ Note that in this platform, it is not the student themself who is writing code.
 :END:
 
 At this point in history, the idea of a web-based automated assessment system for programming education is no longer new.
-But still, more and more new platforms were being written.[fn:: See also https://xkcd.com/927/.]
+But still, more and more new platforms were being written.[fn:: For a possible explanation, see https://xkcd.com/927/.]
 
-All of these platforms support automated assessment of code submitted by students, but try to differentiatie themselves through the features they offer.
-The FPGE platform by\nbsp{}[cite/t:@paivaManagingGamifiedProgramming2022] offers gamification features.
-iWeb-TD\nbsp{}[cite:@fonsecaWebbasedPlatformMethodology2023] integrates a full-fledged editor.
-PLearn\nbsp{}[cite:@vasyliukDesignImplementationUkrainianLanguage2023] recommends extra exercises to its users.
-JavAssess\nbsp{}[cite:@insaAutomaticAssessmentJava2018] tries to automate grading.
-And finally, GradeIT\nbsp{}[cite:@pariharAutomaticGradingFeedback2017] features automatic hint generation.
-
+All of these platforms support automated assessment of code submitted by students, but try to differentiate themselves through the features they offer.
+The FPGE platform by\nbsp{}[cite/t:@paivaManagingGamifiedProgramming2022] offers gamification, iWeb-TD\nbsp{}[cite:@fonsecaWebbasedPlatformMethodology2023] integrates a full-fledged editor, PLearn\nbsp{}[cite:@vasyliukDesignImplementationUkrainianLanguage2023] recommends extra exercises to its users, JavAssess\nbsp{}[cite:@insaAutomaticAssessmentJava2018] tries to automate grading, and GradeIT\nbsp{}[cite:@pariharAutomaticGradingFeedback2017] features automatic hint generation.
 
 ** Learning analytics and educational data mining
 :PROPERTIES:
@@ -322,7 +317,7 @@ It also briefly details a study we collaborated on with researchers from Jyväsk
 In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
 We then finish the chapter with some recent work on a machine learning method we developed to predict what feedback teachers will give when manually assessing student submissions.
 
-Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on the previous chapters and some possibilities for future work.
+Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on the current status of Dodona, the research related to it, and some possibilities for future work.
 
 * What is Dodona?
 :PROPERTIES:
