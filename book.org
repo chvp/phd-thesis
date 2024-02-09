@@ -181,7 +181,7 @@ They are also the first to implement a history of student's attempts in the asse
 Other grader programs were in use at the time, but these did not necessarily bring any new innovations or ideas to the table\nbsp{}[cite:@braden1965introductory; @berryGraderPrograms1966; @temperlyGradingProcedurePL1968].
 
 The systems described above share an important limitation, which is inherent to the time at which they were built.
-Computers were big and heavy, and had operators who did not necessarily know whose program they were running or what those programs were.[fn:: The Mother of All Demos by [cite/t:@engelbart1968research], widely considered the birth of the /idea/ of the personal computer, only happened after these systems were already running.]
+Computers were big and heavy, and had operators who did not necessarily know whose program they were running or what those programs were.[fn:: The Mother of All Demos by\nbsp{}[cite/t:@engelbart1968research], widely considered the birth of the /idea/ of the personal computer, only happened after these systems were already running.]
 So, it should not come as a surprise that the feedback these systems gave was slow to return to the students.
 
 *** Tool- and script-based assessment
@@ -199,13 +199,13 @@ The ideas, not the platforms.
 As far as we know none of the platforms described in this section are still in use.
 ]
 
-ACSES, by [cite/t:@nievergeltACSESAutomatedComputer1976], was envisioned as a full course for learning computer programming.
+ACSES, by\nbsp{}[cite/t:@nievergeltACSESAutomatedComputer1976], was envisioned as a full course for learning computer programming.
 They even designed it as a full replacement for a course: it was the first system that integrated both instructional texts and exercises.
 Students following this course would not need personal instruction.[fn::
 In the modern day, this would probably be considered a MOOC (except that it obviously wasn't an online course; TCP/IP wouldn't be standardized until 1982).
 ]
 
-Another good example of this generation of grading systems is the system by [cite/t:@isaacson1989automating].
+Another good example of this generation of grading systems is the system by\nbsp{}[cite/t:@isaacson1989automating].
 They describe the functioning of a UNIX shell script, that automatically e-mails students if their code did not compile, or if they had incorrect outputs.
 It also had a configurable output file size limit and time limit.
 Student programs would be stopped if they exceeded these limits.
@@ -213,17 +213,16 @@ Like all assessment systems up to this point, they only focus on whether the out
 
 [cite/t:@reekTRYSystemHow1989] takes a different approach.
 He identifies several issues with gathering students' source files, and then compiling and executing them in the teacher's environment.
-Students could write destructive code that destroys the teacher's files, or even write a clever program that alters their grades (and covers its tracks while doing so).[fn::
-Note that this issue is not new.
-As we talked about before, this was already mentioned as a possibility by\nbsp{}[cite/t:@hollingsworthAutomaticGradersProgramming1960].
+Students could write destructive code that destroys the teacher's files, or even write a clever program that alters their grades (and covers its tracks while doing so).
+Note that this is not a new issue.
+As we discussed before, this was already mentioned as a possibility by\nbsp{}[cite/t:@hollingsworthAutomaticGradersProgramming1960].
 This was, however, the first system that tried to solve this problem.
-]
 His TRY system therefore has the avoidance of teachers testing their students' programs as an explicit goal.
 Another goal was avoiding giving the inputs that the program was tested on to students.
 These goals were mostly achieved using the UNIX =setuid= mechanism.[fn::
-Students were thus using the same machine as the instructor, i.e., they were using a true multi-user system, as in common use at the time.
+Note that students were using a true multi-user system, as in common use at the time.
 ]
-Every attempt was also recorded in a log file in the teacher's directory.
+Every attempt was also recorded in a log file in the teacher's personal directory.
 Generality of programming language was achieved through intermediate build and test scripts that had to be provided by the teacher.
 
 This is also the first study we could find that pays explicit attention to how expected and generated output is compared.
@@ -232,7 +231,7 @@ The instructor can then link an implementation of this function in the build scr
 
 Even later, automated assessment systems were built with graphical user interfaces.
 A good example of this is ASSYST\nbsp{}[cite:@jacksonGradingStudentPrograms1997].
-ASSYST also added evaluation on other metrics, such as runtime or cyclomatic complexity (as suggested by\nbsp{}[cite:@hungAutomaticProgrammingAssessment1993]).
+ASSYST also added evaluation on other metrics, such as runtime or cyclomatic complexity as suggested by\nbsp{}[cite/t:@hungAutomaticProgrammingAssessment1993].
 
 *** Moving to the web
 :PROPERTIES:
@@ -241,8 +240,9 @@ ASSYST also added evaluation on other metrics, such as runtime or cyclomatic com
 
 After Tim Berners-Lee invented the web in 1989\nbsp{}[cite:@berners-leeWorldWideWeb1992], automated assessment systems also started moving to the web.
 Especially with the rise of Web 2.0\nbsp{}[cite:@oreillyWhatWebDesign2007], allowing increased interactivity, this became more and more common.
-Systems like the one by\nbsp{}[cite/t:@reekTRYSystemHow1989] also became impossible to use because of the rise of the personal computer.[fn::
-Mainly because the multi-user system was used less and less, but also because the primary way people interacted with a computer was no longer through the command line, but through graphical interfaces.
+Systems like the one by\nbsp{}[cite/t:@reekTRYSystemHow1989] also became impossible to use because of the rise of the personal computer.
+Mainly because the typical multi-user system was used less and less, but also because the primary way people interacted with a computer was no longer through the command line, but through graphical interfaces.[fn::
+Introductory programming courses are usually not the place where the basics of the command line are taught.
 ]
 
 [cite/t:@higginsCourseMarkerCBASystem2003] developed CourseMarker, which is a more general assessment system (not exclusively developed for programming assessment).
@@ -254,16 +254,46 @@ Designing a web client was also mentioned as future work in the paper announcing
 Perhaps the most famous example of the first web-based platforms is Web-CAT\nbsp{}[cite:@shah2003web].
 In addition to being one of the first web-based automated assessment platforms, it also asked the students to write their own tests.
 The coverage that these tests achieved was part of the testing done by the platform.
+Tests are written using standard unit testing frameworks\nbsp{}[cite:@edwardsExperiencesUsingTestdriven2007].
+
+This is also the time when we first start to see mentions of plagiarism and plagiarism detection in the context of automated assessment.[fn::
+Presumably because the internet made plagiarizing a lot easier.
+In one case at MIT over 30% of students were found to be plagiarizing\nbsp{}[cite:@wagner2000plagiarism].
+]
+[cite/t:@dalyPatternsPlagiarism2005] analysed plagiarizing behaviour by watermarking student submissions by adding whitespace at the end of lines.
+If students carelessly copied another student's submission, they would also copy the whitespace.
+[cite/t:@schleimerWinnowingLocalAlgorithms2003] also published MOSS around this time.
+
+Another important platform[fn:: Especially in our context, since we used this platform for a long time.] is SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008].
+SPOJ specifically notes the influence of online contest platforms (and in fact, is a platform that can be used to organize contests).
+Online contest platforms usually differ from the automated assessment platforms for education in the way they handle feedback.
+For online contests, the amount of feedback given to participants is often far less than the feedback given in education to students.[fn::
+Although, depending on the educational vision of the teacher, this happens in education as well.
+]
+
+The SPOJ paper also details the security measures they took when executing untrusted code.
+They use a patched Linux kernel's =rlimits=, the =chroot= mechanism, and traditional user isolation to prevent student code from malicious action.
+
+Another interesting idea was contributed by\nbsp{}[cite:@brusilovskyIndividualizedExercisesSelfassessment2005] in QuizPACK.
+They combined the idea of parametric exercises with automated assessment by executing source code.
+In QuizPACK, teachers provide a parameterized piece of code, where the value of a specific variable is the answer that a student needs to give.
+The piece of code is then evaluated, and the result is compared to the student's answer.
+Note that in this platform, it is not the student themself who is writing code.
 
 *** Adding features
 :PROPERTIES:
 :CREATED:  [2024-02-06 Tue 15:31]
 :END:
 
-At this point in history, the idea of an automated assessment system is no longer new.
-But still, more and more new platforms were being written.
+At this point in history, the idea of a web-based automated assessment system for programming education is no longer new.
+But still, more and more new platforms were being written.[fn:: See also https://xkcd.com/927/.]
 
-While almost all platforms support automated assessment of code submitted by students, contemporary platforms usually offer additional features such as gamification in the FPGE platform\nbsp{}[cite:@paivaManagingGamifiedProgramming2022], integration of full-fledged editors in iWeb-TD\nbsp{}[cite:@fonsecaWebbasedPlatformMethodology2023], exercise recommendations in PLearn\nbsp{}[cite:@vasyliukDesignImplementationUkrainianLanguage2023], automatic grading with JavAssess\nbsp{}[cite:@insaAutomaticAssessmentJava2018], and automatic hint generation in GradeIT\nbsp{}[cite:@pariharAutomaticGradingFeedback2017].
+All of these platforms support automated assessment of code submitted by students, but try to differentiatie themselves through the features they offer.
+The FPGE platform by\nbsp{}[cite/t:@paivaManagingGamifiedProgramming2022] offers gamification features.
+iWeb-TD\nbsp{}[cite:@fonsecaWebbasedPlatformMethodology2023] integrates a full-fledged editor.
+PLearn\nbsp{}[cite:@vasyliukDesignImplementationUkrainianLanguage2023] recommends extra exercises to its users.
+JavAssess\nbsp{}[cite:@insaAutomaticAssessmentJava2018] tries to automate grading.
+And finally, GradeIT\nbsp{}[cite:@pariharAutomaticGradingFeedback2017] features automatic hint generation.
 
 
 ** Learning analytics and educational data mining
@@ -271,6 +301,8 @@ While almost all platforms support automated assessment of code submitted by stu
 :CREATED:  [2024-02-01 Thu 10:47]
 :CUSTOM_ID: sec:introlaedm
 :END:
+
+Insert some history and explanation on LA and EDM here.
 
 ** Structure of this dissertation
 :PROPERTIES:
@@ -541,7 +573,7 @@ The renewed interest in embedding computational thinking in formal education has
 All other educational institutions use the instance of Dodona hosted at Ghent University, which is free to use for educational purposes.
 
 Dodona currently hosts a collection of {{{num_exercises}}} learning activities that are freely available to all teachers, allowing them to create their own learning paths tailored to their teaching practice.
-In total, {{{num_users}}} students have submitted more than {{{num_submissions}}} solutions to Dodona in the seven years that it has been running (Figures\nbsp{}[[fig:useadoption1]] & [[fig:useadoption2]]).
+In total, {{{num_users}}} students have submitted more than {{{num_submissions}}} solutions to Dodona in the seven years that it has been running (Figures\nbsp{}[[fig:useadoption1]]\nbsp{}&\nbsp{}[[fig:useadoption2]]).
 
 #+CAPTION: Overview of the number of submitted solutions by academic year.
 #+NAME: fig:useadoption1
@@ -839,7 +871,7 @@ Such "deadline hugging" patterns are also a good breeding ground for students to
 #+NAME: fig:usefweanalyticscorrect
 [[./images/usefweanalyticscorrect.png]]
 
-Using educational data mining techniques on historical data exported from several editions of the course, we further investigated what aspects of practising programming skills promote or inhibit learning, or have no or minor effect on the learning process\nbsp{}(see Chapter [[#chap:passfail]]).
+Using educational data mining techniques on historical data exported from several editions of the course, we further investigated what aspects of practising programming skills promote or inhibit learning, or have no or minor effect on the learning process\nbsp{}(see Chapter\nbsp{}[[#chap:passfail]]).
 It won't come as a surprise that midterm test scores are good predictors for a student's final grade, because tests and exams are both summative assessments that are organized and graded in the same way.
 However, we found that organizing a final exam end-of-term is still a catalyst of learning, even for courses with a strong focus of active learning during weeks of educational activities.
 
@@ -852,9 +884,9 @@ Learning to code requires mastering two major competences:
   It turns out that staying stuck longer on compilation errors (mistakes against the syntax of the programming language) inhibits learning, whereas taking progressively more time to get rid of logical errors (reflective of solving a problem with a wrong algorithm) as assignments get more complex actually promotes learning.
   After all, time spent in discovering solution strategies while thinking about logical errors can be reclaimed multifold when confronted with similar issues in later assignments\nbsp{}[cite:@glassFewerStudentsAre2022].
 
-These findings neatly align with the claim of [cite/t:@edwardsSeparationSyntaxProblem2018] that problem-solving is a higher-order learning task in Bloom's Taxonomy (analysis and synthesis) than language syntax (knowledge, comprehension, and application).
+These findings neatly align with the claim of\nbsp{}[cite/t:@edwardsSeparationSyntaxProblem2018] that problem-solving is a higher-order learning task in the Taxonomy by\nbsp{}[cite/t:@bloom1956handbook] (analysis and synthesis) than language syntax (knowledge, comprehension, and application).
 
-Using historical data from previous course editions, we can also make highly accurate predictions about what students will pass or fail the current course edition\nbsp{}(see Chapter [[#chap:passfail]]).
+Using historical data from previous course editions, we can also make highly accurate predictions about what students will pass or fail the current course edition\nbsp{}(see Chapter\nbsp{}[[#chap:passfail]]).
 This can already be done after a few weeks into the course, so remedial actions for at-risk students can be started well in time.
 The approach is privacy-friendly as we only need to process metadata on student submissions for programming assignments and results from automated and manual assessment extracted from Dodona.
 Given that cohort sizes are large enough, historical data from a single course edition are already enough to make accurate predictions.
@@ -1390,7 +1422,7 @@ A test plan of the example exercise can be seen in Listing\nbsp{}[[lst:technical
 
 #+CAPTION: Basic structure of a test plan.
 #+CAPTION: The structure of Dodona's feedback table is followed closely.
-#+CAPTION: The function arguments have been left out, as they are explained in [[#subsec:techtestedserialization]].
+#+CAPTION: The function arguments have been left out, as they are explained in Section\nbsp{}[[#subsec:techtestedserialization]].
 #+NAME: lst:technicaltestedtestplan
 #+ATTR_LATEX: :float t
 #+BEGIN_SRC js
@@ -1662,7 +1694,7 @@ Such background information definitely does not explain everything and lowers th
 A student can also not change their background, so these items are not actionable for any corrective intervention.
 
 It might be more convenient and acceptable if predictive models are restricted to data collected on student behaviour during the learning process of a single course.
-An example of such an approach comes from [cite/t:@vihavainenPredictingStudentsPerformance2013], using snapshots of source code written by students to capture their work attitude.
+An example of such an approach comes from\nbsp{}[cite/t:@vihavainenPredictingStudentsPerformance2013], using snapshots of source code written by students to capture their work attitude.
 Students are actively monitored while writing source code and a snapshot is taken automatically each time they edit a document.
 These snapshots undergo static and dynamic analysis to detect good practices and code smells, which are fed as features to a non-parametric Bayesian network classifier whose pass/fail predictions are 78% accurate by the end of the semester.
 In a follow-up study they applied the same data and classifier to accurately predict learning outcomes for the same student cohort in another course\nbsp{}[cite:@vihavainenUsingStudentsProgramming2013].
@@ -1836,7 +1868,7 @@ To investigate the impact of deadline-related features, we also made predictions
 :CUSTOM_ID: subsec:passfailclassification
 :END:
 
-We evaluated four classification algorithms to make pass/fail predictions from student behaviour: stochastic gradient descent\nbsp{}[cite:@fergusonInconsistentMaximumLikelihood1982], logistic regression [cite:@kleinbaumIntroductionLogisticRegression1994], support vector machines [cite:@cortesSupportVectorNetworks1995], and random forests [cite:@svetnikRandomForestClassification2003].
+We evaluated four classification algorithms to make pass/fail predictions from student behaviour: stochastic gradient descent\nbsp{}[cite:@fergusonInconsistentMaximumLikelihood1982], logistic regression\nbsp{}[cite:@kleinbaumIntroductionLogisticRegression1994], support vector machines\nbsp{}[cite:@cortesSupportVectorNetworks1995], and random forests\nbsp{}[cite:@svetnikRandomForestClassification2003].
 We used implementations of these algorithms from =scikit-learn=\nbsp{}[cite:@pedregosaScikitlearnMachineLearning2011] and optimized model parameters for each algorithm by cross-validated grid-search over a parameter grid.
 
 Readers unfamiliar with machine learning can think of these specific algorithms as black boxes, but we briefly explain the basic principles of classification for their understanding.
@@ -2095,7 +2127,7 @@ As a result, we can make a distinction between different kinds of errors in sour
 Compilation errors are mistakes against the syntax of the programming language, whereas logical errors result from solving a problem with a wrong algorithm.
 When comparing the importance of the number of compilation (Figure\nbsp{}[[fig:passfailfeaturesBcomp]]) and logical errors (Figure\nbsp{}[[fig:passfailfeaturesBwrong]]) students make while practising their coding skills, we see a clear difference.
 Making a lot of compilation errors has a negative impact on the odds for passing the course (blue colour dominates in Figure\nbsp{}[[fig:passfailfeaturesBcomp]]), whereas making a lot of logical errors makes a positive contribution (red colour dominates in Figure\nbsp{}[[fig:passfailfeaturesBwrong]]).
-This aligns with the claim of [cite/t:@edwardsSeparationSyntaxProblem2018] that problem-solving is a higher-order learning task in Bloom's Taxonomy (analysis and synthesis) than language syntax (knowledge, comprehension, and application).
+This aligns with the claim of\nbsp{}[cite/t:@edwardsSeparationSyntaxProblem2018] that problem-solving is a higher-order learning task in the Taxonomy by\nbsp{}[cite/t:@bloom1956handbook] (analysis and synthesis) than language syntax (knowledge, comprehension, and application).
 Students that get stuck longer in the mechanics of a programming language will more likely fail the course, whereas students that make a lot of logical errors and properly learn from them will more likely pass the course.
 So making mistakes is beneficial for learning, but it depends on what kind of mistakes.
 We also looked at the number of solutions with logical errors while interpreting feature types for course A.
@@ -2349,7 +2381,7 @@ This requires a large time investment from teachers\nbsp{}[cite:@tuckFeedbackgiv
 Consequently, numerous researchers have explored the enhancement of feedback mechanisms through AI.
 [cite/t:@vittoriniAIBasedSystemFormative2021] automated grading using natural language processing, and found that students who used this system during the semester were more likely to pass the course at the end of the semester.
 [cite/t:@leeSupportingStudentsGeneration2023] has used supervised learning with ensemble learning to enable students to conduct peer and self-evaluation.
-Furthermore, [cite/t:@berniusMachineLearningBased2022] introduced a framework based on clustering text segments in textual exercises to reduce the grading workload.
+Furthermore,\nbsp{}[cite/t:@berniusMachineLearningBased2022] introduced a framework based on clustering text segments in textual exercises to reduce the grading workload.
 
 In this section we present an approach to predict what feedback a grader will give based on pattern mining.
 Pattern mining is a data mining technique for extracting frequently occurring patterns from data that can be represented as trees.
