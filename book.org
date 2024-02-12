@@ -3,7 +3,7 @@
 #+AUTHOR: Charlotte Van Petegem
 #+LANGUAGE: en-gb
 #+LATEX_CLASS: book
-#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip=half-,numbers=noendperiod,BCOR=10mm,DIV=10]
+#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,numbers=noendperiod,BCOR=10mm,DIV=10]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{luacode}
@@ -2378,19 +2378,15 @@ Consequently, numerous researchers have explored the enhancement of feedback mec
 [cite/t:@leeSupportingStudentsGeneration2023] has used supervised learning with ensemble learning to enable students to conduct peer and self-evaluation.
 Furthermore,\nbsp{}[cite/t:@berniusMachineLearningBased2022] introduced a framework based on clustering text segments in textual exercises to reduce the grading workload.
 
-In this section we present an approach to predict what feedback a grader will give based on pattern mining.
-Pattern mining is a data mining technique for extracting frequently occurring patterns from data that can be represented as trees.
-It was already developed in the early 2000s\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005; @asaiEfficientSubstructureDiscovery2004].
-Program code can be represented as an abstract syntax tree (AST), where nodes of the tree represent the language constructs used in the program.
-More recent work used this fact to look into how these algorithms could be used to efficiently find frequent patterns in source code\nbsp{}[cite:@phamMiningPatternsSource2019].
-In an educational context, these techniques could then be used to, for example, find patterns common to solutions that failed a given exercise\nbsp{}[cite:@mensGoodBadUgly2021].
-Other work looked into generating unit tests from mined patterns\nbsp{}[cite:@lienard2023extracting].
-
 The context of our work is in our own assessment system, called Dodona, developed at Ghent University\nbsp{}[cite:@vanpetegemDodonaLearnCode2023].
-It has a built-in module for giving manual feedback on and (manually) assigning scores to student submissions.
+Dodona provides automated feedback on every submission, but also allows teachers to give manual feedback on student sumbmissions and assign scores to them, from within the platform.
 In 2023, 3\thinsp{}663\thinsp{}749 submissions were made on our platform, of which 44\thinsp{}012 were manually assessed.
 During those assessments, 22\thinsp{}888 annotations were added.
-The process of giving feedback on a programming assignment in Dodona is very similar to a code review, where mistakes or suggestions for improvements are annotated at the relevant line(s).
+The process of giving feedback on a programming assignment in Dodona is very similar to a code review, where mistakes or suggestions for improvements are annotated at the relevant line(s), as can be seen on Figure\nbsp{}[[fig:feedbackintroductionreview]].
+
+#+CAPTION: Manual assessment of a submission: a teacher gave feedback on the code by adding inline annotations and is grading the submission by filling up the scoring rubric.
+#+NAME: fig:feedbackintroductionreview
+[[./images/feedbackintroductionreview.png]]
 
 However, there exists a crucial distinction between traditional code reviews and those in an educational context: instructors often provide feedback on numerous solutions to the same assignment.
 Given that students frequently commit similar errors, it logically follows that instructors repeatedly deliver the same feedback across multiple student submissions.
@@ -2419,7 +2415,15 @@ For the second dataset we use actual annotations left by graders during the grad
 :CUSTOM_ID: subsec:feedbackpredictionmethodology
 :END:
 
-The general methodology used by our method is explained visually in Figure\nbsp{}[[fig:feedbackmethodoverview]].
+The approach we present to predict what feedback a grader will give on source code is based on pattern mining.
+Pattern mining is a data mining technique for extracting frequently occurring patterns from data that can be represented as trees.
+It was already developed in the early 2000s\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005; @asaiEfficientSubstructureDiscovery2004].
+Program code can be represented as an abstract syntax tree (AST), where nodes of the tree represent the language constructs used in the program.
+More recent work used this fact to look into how these pattern mining algorithms could be used to efficiently find frequent patterns in source code\nbsp{}[cite:@phamMiningPatternsSource2019].
+In an educational context, these techniques could then be used to, for example, find patterns common to solutions that failed a given exercise\nbsp{}[cite:@mensGoodBadUgly2021].
+Other work looked into generating unit tests from mined patterns\nbsp{}[cite:@lienard2023extracting].
+
+We start with a general overview of our method (explained visually in Figure\nbsp{}[[fig:feedbackmethodoverview]]).
 We start by using the tree-sitter library\nbsp{}[cite:@brunsfeldTreesitterTreesitterV02024] to generate ASTs for each submission.
 For every annotation, a constrained AST context surrounding the annotated line is extracted.
 Subsequently, we then aggregate all the subtrees for each occurrence of a message.
@@ -2483,9 +2487,7 @@ It does this by starting with a list of frequently occurring nodes, and then ite
 In the base =Treeminer= algorithm, frequently occurring means that the amount of times the pattern occurs in all trees divided by the amount of trees is larger than some predefined threshold.
 This is the =minimum support= parameter.
 
-Patterns are embedded subtrees.
-This means that nodes can be skipped, but the ancestor-descendant relationships are kept.
-The left-to-right ordering of nodes is also preserved.
+Patterns are embedded subtrees: the nodes in a pattern are a subset of the nodes of the tree, where the ancestor-descendant relationships are kept and the left-to-right ordering of nodes is also preserved.
 
 =TreeminerD= is a more efficient version of the base =Treeminer= algorithm.
 It achieves this efficiency by not counting the amount of occurrences of a frequent pattern within one tree.
