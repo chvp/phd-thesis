@@ -219,9 +219,8 @@ As we discussed before, this was already mentioned as a possibility by\nbsp{}[ci
 This was, however, the first system that tried to solve this problem.
 His TRY system therefore has the avoidance of teachers testing their students' programs as an explicit goal.
 Another goal was avoiding giving the inputs that the program was tested on to students.
-These goals were mostly achieved using the UNIX =setuid= mechanism.[fn::
+These goals were mostly achieved using the UNIX =setuid= mechanism.
 Note that students were using a true multi-user system, as in common use at the time.
-]
 Every attempt was also recorded in a log file in the teacher's personal directory.
 Generality of programming language was achieved through intermediate build and test scripts that had to be provided by the teacher.
 
@@ -241,14 +240,11 @@ ASSYST also added evaluation on other metrics, such as runtime or cyclomatic com
 After Tim Berners-Lee invented the web in 1989\nbsp{}[cite:@berners-leeWorldWideWeb1992], automated assessment systems also started moving to the web.
 Especially with the rise of Web 2.0\nbsp{}[cite:@oreillyWhatWebDesign2007], allowing increased interactivity, this became more and more common.
 Systems like the one by\nbsp{}[cite/t:@reekTRYSystemHow1989] also became impossible to use because of the rise of the personal computer.
-Mainly because the typical multi-user system was used less and less, but also because the primary way people interacted with a computer was no longer through the command line, but through graphical interfaces.[fn::
-Introductory programming courses are usually not the place where the basics of the command line are taught.
-]
+Mainly because the typical multi-user system was used less and less, but also because the primary way people interacted with a computer was no longer through the command line, but through graphical interfaces.
 
 [cite/t:@higginsCourseMarkerCBASystem2003] developed CourseMarker, which is a more general assessment system (not exclusively developed for programming assessment).
-This was initially not yet a web-based platform, but it did communicate over the network using Java's Remote Method Invocation mechanism.[fn::
+This was initially not yet a web-based platform, but it did communicate over the network using Java's Remote Method Invocation mechanism.
 The system it was designed to replace, Ceilidh, did have a basic web submission interface\nbsp{}[cite:@hughesCeilidhCollaborativeWriting1998].
-]
 Designing a web client was also mentioned as future work in the paper announcing CourseMarker.
 
 Perhaps the most famous example of the first web-based platforms is Web-CAT\nbsp{}[cite:@shah2003web].
@@ -256,10 +252,8 @@ In addition to being one of the first web-based automated assessment platforms, 
 The coverage that these tests achieved was part of the testing done by the platform.
 Tests are written using standard unit testing frameworks\nbsp{}[cite:@edwardsExperiencesUsingTestdriven2007].
 
-This is also the time when we first start to see mentions of plagiarism and plagiarism detection in the context of automated assessment.[fn::
-Presumably because the internet made plagiarizing a lot easier.
+This is also the time when we first start to see mentions of plagiarism and plagiarism detection in the context of automated assessment, presumably because the internet made plagiarizing a lot easier.
 In one case at MIT over 30% of students were found to be plagiarizing\nbsp{}[cite:@wagner2000plagiarism].
-]
 [cite/t:@dalyPatternsPlagiarism2005] analysed plagiarizing behaviour by watermarking student submissions by adding whitespace at the end of lines.
 If students carelessly copied another student's submission, they would also copy the whitespace.
 [cite/t:@schleimerWinnowingLocalAlgorithms2003] also published MOSS around this time.
@@ -267,9 +261,8 @@ If students carelessly copied another student's submission, they would also copy
 Another important platform[fn:: Especially in our context, since we used this platform for a long time.] is SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008].
 SPOJ specifically notes the influence of online contest platforms (and in fact, is a platform that can be used to organize contests).
 Online contest platforms usually differ from the automated assessment platforms for education in the way they handle feedback.
-For online contests, the amount of feedback given to participants is often far less than the feedback given in education to students.[fn::
+For online contests, the amount of feedback given to participants is often far less than the feedback given in education to students.
 Although, depending on the educational vision of the teacher, this happens in education as well.
-]
 
 The SPOJ paper also details the security measures they took when executing untrusted code.
 They use a patched Linux kernel's =rlimits=, the =chroot= mechanism, and traditional user isolation to prevent student code from malicious action.
@@ -297,7 +290,7 @@ The FPGE platform by\nbsp{}[cite/t:@paivaManagingGamifiedProgramming2022] offers
 :CUSTOM_ID: sec:introlaedm
 :END:
 
-Insert some history and explanation on LA and EDM here.
+Learning analytis and educational data mining stand at the intersection of computer science, data analytics and education.
 
 ** Structure of this dissertation
 :PROPERTIES:
