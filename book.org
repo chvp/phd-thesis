@@ -371,7 +371,7 @@ Courses also provide an iCalendar link\nbsp{}[cite:@stenersonInternetCalendaring
 Because Dodona logs all student submissions and their metadata, including feedback and grades from automated and manual assessment, we use that data to integrate reports and learning analytics in the course page\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
 We also provide export wizards that enable the extraction of raw and aggregated data in CSV format for downstream processing and educational data mining\nbsp{}[cite:@romeroEducationalDataMining2010; @bakerStateEducationalData2009].
 This allows teachers to better understand student behaviour, progress and knowledge, and might give deeper insight into the underlying factors that contribute to student actions\nbsp{}[cite:@ihantolaReviewRecentSystems2010].
-Understanding, knowledge and insights that can be used to make informed decisions about courses and their pedagogy, increase student engagement, and identify at-risk students\nbsp{}[cite:@vanpetegemPassFailPrediction2022].
+Understanding, knowledge and insights that can be used to make informed decisions about courses and their pedagogy, increase student engagement, and identify at-risk students\nbsp{}(see\nbsp{}Chapter\nbsp{}[[#chap:passfail]]).
 
 ** User management
 :PROPERTIES:
