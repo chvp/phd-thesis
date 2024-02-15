@@ -94,6 +94,97 @@ In volgorde van prioriteit:
 
 #+LATEX: \begin{dutch}
 
+Familie:
+Mama.
+Papa.
+Hannelore, Tomas, Seppe.
+Robbe, Esther.
+Kero Kero.
+
+Promotoren en jury.
+
+Werk:
+Rien.
+Simon.
+Niko.
+Alexis.
+Asmus.
+Carol.
+Dieter.
+Steven.
+Louise.
+Robbert.
+Tom.
+Jonathan.
+Heidi.
+Felix.
+Toon.
+Pieter.
+Tibo.
+Mustapha.
+Nico & Joyce.
+Benjamin.
+Oliver.
+Roy.
+
+Mede-lesgevers:
+Annick.
+Henri.
+Adnan.
+Niko.
+Felix.
+Louise.
+Toon.
+Lotte.
+Yentl.
+Felipe.
+Silvija.
+Antoine.
+Oliver.
+Dieter.
+Ellen.
+Tibo.
+
+Zeus:
+Jasper.
+Klimcrew (Tom "gewoon doorstappen" Naessens, Felix, Ruben, Arthur, Titouan).
+
+Rode Kruis:
+Luc.
+Wim.
+Sarah.
+Henk.
+Jonas.
+Rien.
+Jietse.
+
+Anje De Baets van de resto.
+
+D&D:
+Bart.
+Kenneth.
+Maxiem.
+Arne.
+
+Muziek:
+Jan Swerts.
+Eliza McLamb.
+Katy Kirby.
+Marika Hackman.
+Boygenius: Phoebe Bridgers, Lucy Dacus, Julien Baker.
+Pinegrove.
+Charlotte Cardin.
+Tate McRae.
+Spinvis.
+SOPHIE.
+ANOHNI.
+
+#+BEGIN_RIGHT
+{{{author}}}
+
+{{{date}}}
+#+END_RIGHT
+
 #+LATEX: \end{dutch}
 
 * Summaries
