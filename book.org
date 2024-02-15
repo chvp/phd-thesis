@@ -324,7 +324,7 @@ Again, a number of machine learning techniques are compared, to determine which 
 :CUSTOM_ID: sec:introstructure
 :END:
 
-Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona itself.
+Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona[fn:: https://dodona.be/] itself.
 In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
 Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform and an extensive case study on how Dodona's features are used to optimize teaching.
 Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
