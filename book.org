@@ -50,10 +50,10 @@
 #+MACRO: num_prs 3\thinsp{}800
 #+MACRO: num_contributors 26
 #+MACRO: num_exercises 16 thousand
-#+MACRO: num_releases 339
-#+MACRO: num_schools one thousand
+#+MACRO: num_releases 340
+#+MACRO: num_schools 1\thinsp{}700
 #+MACRO: num_submissions 17 million
-#+MACRO: num_users 65 thousand
+#+MACRO: num_users 66\thinsp{}500
 #+cite_export: csl citation-style.csl
 #+bibliography: bibliography.bib
 
