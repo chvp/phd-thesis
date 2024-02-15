@@ -85,7 +85,7 @@ In volgorde van prioriteit:
 
 #+LATEX: \end{dutch}
 
-* Dankwoord
+* Dankwoord :noexport:
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 09:25]
 :CUSTOM_ID: chap:ack
