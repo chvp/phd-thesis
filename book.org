@@ -71,7 +71,6 @@
 #+LATEX: \begin{dutch}
 
 In volgorde van prioriteit:
-- [[#chap:intro]] schrijven.
 - [[#chap:discussion]] schrijven.
 - [[#chap:feedback]] afmaken.
   - Screenshots toevoegen in de eerste paar secties.
