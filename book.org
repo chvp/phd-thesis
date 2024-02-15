@@ -2,6 +2,7 @@
 #+SUBTITLE: Improving automated assessment in programming education through educational data mining
 #+AUTHOR: Charlotte Van Petegem
 #+LANGUAGE: en-gb
+#+DATE: 2024-03-20
 #+LATEX_CLASS: book
 #+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip=half-,numbers=noendperiod,BCOR=10mm,DIV=10]
 #+LATEX_COMPILER: lualatex
@@ -2616,6 +2617,7 @@ In the first dataset, we run PyLint on those student submissions, and use PyLint
 Note that in this dataset, we don't make the distinction between the different assignments students had to solve, since the way Pylint annotates them does not differ between assignments.
 In the second dataset, we use actual annotations left by graders on student code in Dodona.
 Here we train and test per assignment, since the set of messages that were used is also different for each assignment.
+
 We differentiate between these two datasets, because we expect PyLint to be more consistent in when it places an annotation and also where it places that annotation.
 Most linting messages are detected through explicit pattern matching in the AST, so we expect our implicit pattern matching to perform rather well.
 Real-world data is more difficult, since graders are humans, and might miss an issue in one student's code that they annotated in another student's code, or they might not place the annotation for a certain message in a consistent location.
@@ -2734,10 +2736,6 @@ Another important aspect that was explicitly left out of scope in this manuscrip
 :CREATED: [2023-10-23 Mon 08:51]
 :CUSTOM_ID: chap:discussion
 :END:
-
-Dodona is a pretty good piece of software.
-People use it, and like to use it, for some reason.
-We should probably try make sure that this is still the case in the future.
 
 - Successful platform
   - Lots of users
