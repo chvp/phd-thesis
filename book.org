@@ -125,9 +125,9 @@ In volgorde van prioriteit:
 :END:
 
 Ever since programming has been taught, its teachers have sought to automate and optimize their teaching.
-Due to the ever-increasing digitalization of society, programming is also being taught to ever more and ever larger groups, and these groups more and more often include students for whom programming is not necessarily their main subject.
+Due to the ever-increasing digitalization of society, programming is also being taught to ever more and ever larger groups, and these groups often include students for whom programming is not necessarily their main subject.
 This has led to the development of myriad automated assessment tools\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005], of which we will give a historical overview in this introduction.
-We will also discuss learning analytics and educational data mining, and how these tools can help us to cope with the growing class sizes.
+We will also discuss learning analytics and educational data mining, and how these techniques can help us to cope with the growing class sizes.
 Finally, we will give a brief overview of the remaining chapters of this dissertation.
 
 ** Automated assessment in programming education
@@ -136,7 +136,7 @@ Finally, we will give a brief overview of the remaining chapters of this dissert
 :CUSTOM_ID: sec:introhistory
 :END:
 
-Increasing interactivity in learning has long been considered important, and furthermore, something that can be achieved through the addition of (web-based) IT components to a course\nbsp{}[cite:@vanpetegemPowerfulLearningInteractive2004].
+Increasing interactivity in learning has long been considered important, and also something that can be achieved through the addition of (web-based) IT components to a course\nbsp{}[cite:@vanpetegemPowerfulLearningInteractive2004].
 This isn't any different when learning to program: learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
 [cite/t:@cheangAutomatedGradingProgramming2003] identified the labor-intensive nature of assessing programming assignments as the main reason why students are given few such assignments when in an ideal world they should be given many more.
 Automated assessment allows students to receive immediate and personalized feedback on each submitted solution without the need for human intervention.
@@ -149,6 +149,7 @@ Because of its potential to provide feedback loops that are scalable and respons
 
 Automated assessment was introduced into programming education in the late 1950s\nbsp{}[cite:@hollingsworthAutomaticGradersProgramming1960].
 In this first system, programs were submitted in assembly on punch cards[fn:: For the reader who is not familiar with punch cards, an example of one can be seen in Figure\nbsp{}[[fig:introductionpunchard]].].
+The assessment was then performed by combining the student's punch cards with the autograder's punch cards.
 In the early days of computing, the time of tutors was not the only valuable resource that needed to be shared between students; the actual compute time was also a shared and limited resource.
 Their system made more efficient use of both.
 [cite/t:@hollingsworthAutomaticGradersProgramming1960] already notes that the class sizes were a main motivator to introduce their auto-grader.
@@ -170,7 +171,7 @@ The distinction between formal correctness and completeness that he makes can be
 In more modern terminology, Naur's "formally correct" would be called "free of syntax errors".
 
 [cite/t:@forsytheAutomaticGradingPrograms1965] note another issue when using automatic graders: students could use the feedback they get to hard-code the expected response in their programs.
-This is again an issue that modern graders (or the teachers creating exercises) still need to consider.
+This is again an issue that modern assessment platforms (or the teachers creating exercises) still need to consider.
 Forsythe & Wirth solve this issue by randomizing the inputs to the student's program.
 While not explicitly explained by them, we can assume that to check the correctness of a student's answer, they calculate the expected answer themselves as well.
 Note that in this system, they were still writing a grading program for each different exercise.
@@ -201,8 +202,9 @@ As far as we know none of the platforms described in this section are still in u
 
 ACSES, by\nbsp{}[cite/t:@nievergeltACSESAutomatedComputer1976], was envisioned as a full course for learning computer programming.
 They even designed it as a full replacement for a course: it was the first system that integrated both instructional texts and exercises.
-Students following this course would not need personal instruction.[fn::
-In the modern day, this would probably be considered a MOOC (except that it obviously wasn't an online course; TCP/IP wouldn't be standardized until 1982).
+Students following this course would not need personal instruction.
+In the modern day, this would probably be considered a MOOC.[fn::
+Except that it obviously wasn't an online course; TCP/IP wouldn't be standardized until 1982.
 ]
 
 Another good example of this generation of grading systems is the system by\nbsp{}[cite/t:@isaacson1989automating].
@@ -214,10 +216,9 @@ Like all assessment systems up to this point, they only focus on whether the out
 [cite/t:@reekTRYSystemHow1989] takes a different approach.
 He identifies several issues with gathering students' source files, and then compiling and executing them in the teacher's environment.
 Students could write destructive code that destroys the teacher's files, or even write a clever program that alters their grades (and covers its tracks while doing so).
-Note that this is not a new issue.
-As we discussed before, this was already mentioned as a possibility by\nbsp{}[cite/t:@hollingsworthAutomaticGradersProgramming1960].
+Note that this is not a new issue: as we discussed before, this was already mentioned as a possibility by\nbsp{}[cite/t:@hollingsworthAutomaticGradersProgramming1960].
 This was, however, the first system that tried to solve this problem.
-His TRY system therefore has the avoidance of teachers testing their students' programs as an explicit goal.
+His TRY system therefore has avoiding that teachers need to their students' programs themselves as an explicit goal.
 Another goal was avoiding giving the inputs that the program was tested on to students.
 These goals were mostly achieved using the UNIX =setuid= mechanism.
 Note that students were using a true multi-user system, as in common use at the time.
@@ -238,7 +239,7 @@ ASSYST also added evaluation on other metrics, such as runtime or cyclomatic com
 :END:
 
 After Tim Berners-Lee invented the web in 1989\nbsp{}[cite:@berners-leeWorldWideWeb1992], automated assessment systems also started moving to the web.
-Especially with the rise of Web 2.0\nbsp{}[cite:@oreillyWhatWebDesign2007], allowing increased interactivity, this became more and more common.
+Especially with the rise of Web 2.0\nbsp{}[cite:@oreillyWhatWebDesign2007] and its increased interactivity, this became more and more common.
 Systems like the one by\nbsp{}[cite/t:@reekTRYSystemHow1989] also became impossible to use because of the rise of the personal computer.
 Mainly because the typical multi-user system was used less and less, but also because the primary way people interacted with a computer was no longer through the command line, but through graphical interfaces.
 
@@ -254,7 +255,7 @@ Tests are written using standard unit testing frameworks\nbsp{}[cite:@edwardsExp
 
 This is also the time when we first start to see mentions of plagiarism and plagiarism detection in the context of automated assessment, presumably because the internet made plagiarizing a lot easier.
 In one case at MIT over 30% of students were found to be plagiarizing\nbsp{}[cite:@wagner2000plagiarism].
-[cite/t:@dalyPatternsPlagiarism2005] analysed plagiarizing behaviour by watermarking student submissions by adding whitespace at the end of lines.
+[cite/t:@dalyPatternsPlagiarism2005] analysed plagiarizing behaviour by watermarking student submissions, where the watermark consisted of added whitespace at the end of lines.
 If students carelessly copied another student's submission, they would also copy the whitespace.
 [cite/t:@schleimerWinnowingLocalAlgorithms2003] also published MOSS around this time.
 
@@ -271,7 +272,7 @@ Another interesting idea was contributed by\nbsp{}[cite:@brusilovskyIndividualiz
 They combined the idea of parametric exercises with automated assessment by executing source code.
 In QuizPACK, teachers provide a parameterized piece of code, where the value of a specific variable is the answer that a student needs to give.
 The piece of code is then evaluated, and the result is compared to the student's answer.
-Note that in this platform, it is not the student themself who is writing code.
+Note that in this platform, it is not the students themselves who are writing code.
 
 *** Adding features
 :PROPERTIES:
@@ -279,7 +280,7 @@ Note that in this platform, it is not the student themself who is writing code.
 :END:
 
 At this point in history, the idea of a web-based automated assessment system for programming education is no longer new.
-But still, more and more new platforms were being written.[fn:: For a possible explanation, see https://xkcd.com/927/.]
+But still, more and more new platforms are being written.[fn:: For a possible explanation, see https://xkcd.com/927/.]
 
 All of these platforms support automated assessment of code submitted by students, but try to differentiate themselves through the features they offer.
 The FPGE platform by\nbsp{}[cite/t:@paivaManagingGamifiedProgramming2022] offers gamification, iWeb-TD\nbsp{}[cite:@fonsecaWebbasedPlatformMethodology2023] integrates a full-fledged editor, PLearn\nbsp{}[cite:@vasyliukDesignImplementationUkrainianLanguage2023] recommends extra exercises to its users, JavAssess\nbsp{}[cite:@insaAutomaticAssessmentJava2018] tries to automate grading, and GradeIT\nbsp{}[cite:@pariharAutomaticGradingFeedback2017] features automatic hint generation.
@@ -290,14 +291,14 @@ The FPGE platform by\nbsp{}[cite/t:@paivaManagingGamifiedProgramming2022] offers
 :CUSTOM_ID: sec:introlaedm
 :END:
 
-Learning analytics and educational data mining stand at the intersection of computer science, data analytics and the social sciences, and focuses on understanding and improving learning.
+Learning analytics and educational data mining stand at the intersection of computer science, data analytics and the social sciences, and focus on understanding and improving learning.
 They are made possible by the increased availability of data about students who are learning, due to the increasing move of education to digital platforms\nbsp{}[cite:@romeroDataMiningCourse2008].
-They can also serve different actors in the educational landscape: they can help learners directly, help teachers to evaluate their own teaching, allow educational institutions to guide their decisions, or even allow governments to take on data-driven policies\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
+They can also serve different actors in the educational landscape: they can help learners directly, help teachers to evaluate their own teaching, allow developers of education platforms to know what to focus on, allow educational institutions to guide their decisions, and even allow governments to take on data-driven policies\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
 Learning analytics and educational data mining are overlapping fields, but in general, learning analytics is seen as focusing on the educational challenge, while educational data mining is more focused on the technical challenge\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].[fn::
 The analytics focusing on governments or educational institutions is called academic analytics.
 ]
 
-[cite/t:@chattiReferenceModelLearning2012] defined a reference model for learning analytics based on four dimensions:
+[cite/t:@chattiReferenceModelLearning2012] defined a reference model for learning analytics and educational data mining based on four dimensions:
 #+ATTR_LATEX: :environment enumerate*
 #+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{ }}, itemjoin*={{ }}]
 - What data is gathered and used?
@@ -306,11 +307,10 @@ The analytics focusing on governments or educational institutions is called acad
 - How is the data analysed?
 This gives an idea to researchers what to focus on when conceptualizing, executing, and publishing their research.
 
-An example of an Educational Data Mining study is\nbsp{}[cite/t:@daudPredictingStudentPerformance2017], where the students' background (including family income, family expenditures, gender, martial status, ...) is used to predict the student's learning outcome at the end of the semester.
+An example of educational data mining research is\nbsp{}[cite/t:@daudPredictingStudentPerformance2017], where the students' background (including family income, family expenditures, gender, martial status, ...) is used to predict the student's learning outcome at the end of the semester.
 Evaluating this study using the reference model by\nbsp{}[cite:@chattiReferenceModelLearning2012], we can see that the data used is very personal and hard to collect.
 As mentioned in the study, the primary target audience of the study are policymakers.
-The data is analysed to evaluate the influence of a student's background on their performance.
-The data is analysed using a number of machine learning techniques.
+The data is analysed to evaluate the influence of a student's background on their performance, and this is done by using a number of machine learning techniques (which are compared to one another).
 
 Another example of the research in this field is a study by\nbsp{}[cite/t:@akcapinarUsingLearningAnalytics2019].
 They focus on the concept of an early warning system, where student performance can be predicted early and appropriate action could be undertaken.
@@ -326,10 +326,10 @@ Again, a number of machine learning techniques are compared, to determine which 
 :END:
 
 Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona itself.
-In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented, etc.
-Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, student's opinions of the platform and an extensive case study on how Dodona's features are used to optimize teaching.
+In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
+Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform and an extensive case study on how Dodona's features are used to optimize teaching.
 Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
-This includes discussion of the technical challenges related to developing a platform like Dodona, how the Dodona team adheres to modern standards of software development, etc.
+This includes discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
 
 Chapter\nbsp{}[[#chap:passfail]] talks about a study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
 It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their educational context, with data from their educational platform.
@@ -337,7 +337,7 @@ It also briefly details a study we collaborated on with researchers from Jyväsk
 In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
 We then finish the chapter with some recent work on a machine learning method we developed to predict what feedback teachers will give when manually assessing student submissions.
 
-Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on the current status of Dodona, the research related to it, and some possibilities for future work.
+Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on the current status of Dodona, the research related to it, and Dodona's challenges for the future.
 
 * What is Dodona?
 :PROPERTIES:
