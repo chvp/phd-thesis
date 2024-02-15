@@ -918,13 +918,14 @@ The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesA
 The TESTed judge was first prototyped in a master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two other master's theses\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
 In this chapter we assume the reader is familiar with Dodona's features and how they are used, as detailed in Chapters\nbsp{}[[#chap:what]]\nbsp{}and\nbsp{}[[#chap:use]].
 
-** Dodona
+** Dodona[fn:: https://github.com/dodona-edu/dodona]
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:techdodona
+:ALT_TITLE: Dodona
 :END:
 
-To ensure that Dodona[fn:: https://github.com/dodona-edu/dodona] is robust against sudden increases in workload and when serving hundreds of concurrent users, it has a multi-tier service architecture that delegates different parts of the application to different servers, as can be seen on Figure\nbsp{}[[fig:technicaldodonaservers]].
+To ensure that Dodona is robust against sudden increases in workload and when serving hundreds of concurrent users, it has a multi-tier service architecture that delegates different parts of the application to different servers, as can be seen on Figure\nbsp{}[[fig:technicaldodonaservers]].
 More specifically, the web server, database (MySQL) and caching system (Memcached) each run on their own machine.
 In addition, a scalable pool of interchangeable worker servers are available to automatically assess incoming student submissions.
 In this section, we will highlight a few of these components.
@@ -1114,13 +1115,14 @@ This is one of the main ways we discover bugs that got through our tests, since 
 We also get notified when there are long-running requests, since we consider our users having to wait a long time to see the page they requested a bug in itself.
 These notifications were an important driver to optimize some pages or to make certain operations asynchronous.
 
-** Papyros
+** Papyros[fn:: https://github.com/dodona-edu/papyros]
 :PROPERTIES:
 :CREATED: [2023-11-23 Thu 17:29]
 :CUSTOM_ID: sec:papyros
+:ALT_TITLE: Papyros
 :END:
 
-Papyros[fn:: https://github.com/dodona-edu/papyros] is a stand-alone basic online IDE we developed, primarily focused on secondary education.
+Papyros is a stand-alone basic online IDE we developed, primarily focused on secondary education.
 Recurring feedback we got from secondary education teachers when introducing Dodona to them was that Dodona did not have a simple way for students to run and test their code themselves.
 Testing their code in this case also means manually typing a response to an input prompt when an =input= statement is run by the interpreter.
 In the educational practice that Dodona was born out of, this was an explicit design goal.
@@ -1279,14 +1281,15 @@ For code completion this has the added benefit of also showing the documentation
 Usability was further improved by adding the =FriendlyTraceback= library.
 =FriendlyTraceback= is a Python library that changes error messages in Python to be clearer to beginners, by explicitly answering questions such as where and why an error occurred.
 
-** R judge
+** R judge[fn:: https://github.com/dodona-edu/judge-r]
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:techr
+:ALT_TITLE: R judge
 :END:
 
 Because Dodona had proven itself as a useful tool for teaching Python and Java to students, colleagues teaching statistics started asking if we could build R support into Dodona.
-We started working on an R judge[fn:: https://github.com/dodona-edu/judge-r] soon after.
+We started working on an R judge soon after.
 By now, more than 1\thinsp{}250 R exercises have been added, and almost 1 million submissions have been made to an R exercise.
 
 Because R is the /lingua franca/ of statistics, there are a few extra features that come to mind that are not typically handled by judges, such as handling of data frames and outputting visual graphs (or even evaluating that a graph was built correctly).
@@ -1369,13 +1372,14 @@ The judge is also programmed very defensively.
 Every time execution is handed off to student code (or even teacher code), appropriate error handlers and output redirections are installed.
 This prevents the student and teacher code from e.g. writing to standard output (and thus messing up the JSON expected by Dodona).
 
-** TESTed
+** TESTed[fn:: https://github.com/dodona-edu/universal-judge]
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: sec:techtested
+:ALT_TITLE: TESTed
 :END:
 
-TESTed[fn:: https://github.com/dodona-edu/universal-judge] is a universal judge for Dodona.
+TESTEed is a universal judge for Dodona.
 TESTed was developed to solve two major drawbacks with the current judge system of Dodona:
 - When creating the same exercise in multiple programming languages, the exercise description and test cases need to be redone for every programming language.
   This is especially relevant for very simple exercises that students almost always start with, and for exercises in algorithms courses, where the programming language a student solves an exercise in is of lesser importance than the way they solve it.
@@ -1519,6 +1523,7 @@ The encoded expected return value of our example exercise can be seen in Listing
   ]
 }
 #+END_SRC
+
 
 *** Statements
 :PROPERTIES:
