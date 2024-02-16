@@ -75,7 +75,8 @@
 #+LATEX: \begin{dutch}
 
 In volgorde van prioriteit:
-- [[#chap:summ]] schrijven.
+- [[#chap:summen]] schrijven.
+- [[#chap:summen]] vertalen in [[#chap:summnl]].
 - Screenshots en visualisaties hermaken.
   Ik wacht hiermee tot naderbij de deadline, om eventuele UI-veranderingen mee te hebben.
 
@@ -184,23 +185,32 @@ ANOHNI.
 
 #+LATEX: \end{dutch}
 
-* Summaries
+* Summmary in English
 :PROPERTIES:
-:CREATED: [2023-10-23 Mon 17:56]
-:CUSTOM_ID: chap:summ
+:CREATED: [2023-10-23 Mon 17:54]
+:CUSTOM_ID: chap:summen
 :UNNUMBERED: t
 :END:
 
-** Summmary in English
-:PROPERTIES:
-:CREATED: [2023-10-23 Mon 17:54]
-:CUSTOM_ID: sec:summen
-:END:
+Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona[fn:: https://dodona.be/] itself.
+In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
+Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform and an extensive case study on how Dodona's features are used to optimize teaching.
+Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
+This includes discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
 
-** Nederlandstalige samenvatting
+Chapter\nbsp{}[[#chap:passfail]] talks about a study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
+It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their educational context, with data from their educational platform.
+
+In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
+We then finish the chapter with some recent work on a machine learning method we developed to predict what feedback teachers will give when manually assessing student submissions.
+
+Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on the current status of Dodona, the research related to it, and Dodona's challenges for the future.
+
+* Nederlandstalige samenvatting
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 17:54]
-:CUSTOM_ID: sec:summnl
+:CUSTOM_ID: chap:summnl
+:UNNUMBERED: t
 :END:
 
 #+LATEX: \begin{dutch}
