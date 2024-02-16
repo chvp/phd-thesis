@@ -2873,18 +2873,37 @@ Questions are sometimes asked on a specific line, but the question doesn't neces
 Sometimes the question also needs context that is hard to pass on to the LLM.
 For example, if the question is just "I don't know what's wrong.", a human might look at the failed test cases and be able to answer the "question" in that way.
 Passing on the failed test cases to the LLM is a harder problem to solve.
-The actual assignment also needs to be passed on, but depending on its size this might also present a problem given token limitations of some models.
+The actual assignment also needs to be passed on, but depending on its size this might also present a problem given token limitations/cost per token of some models.
+Another important aspect of this research would be figuring out how to evaluate the quality of the suggestions.
 
 ** Challenges for the future
 :PROPERTIES:
 :CREATED:  [2024-02-16 Fri 10:50]
 :END:
 
-- Sustainability of the project
-- Fairness/integrity of evaluations in general
-    - Improvements to submission process when in evaluation
-    - Generative AI
-    - Integration of similarity checking (Dolos)
+Even though Dodona is a successful project with some exciting possibilities for research that can still be done, the project also faces some challenges.
+
+The most important of these challenges is the sustainability of the project.
+Dodona was started in the spare time of some researchers.
+After a few years, there was somebody working on it full-time.
+However, the funding for a full-time developer was always, and still is, temporary.
+PhD students who can devote some of their time to it are attracted, grants are applied for (and sometimes received), but there is no stable source of funding.
+We have the advantage that we can kindly make use of Ghent University's data centre, resulting in very few operational costs.
+A full-time developer, which Dodona is big enough to need, is expensive though.
+This puts Dodona's future in a precarious situation, where we constantly have to be on the lookout for new funding opportunities.
+
+As much as generative AI can be an asset for Dodona, it is also a threat.
+Most exercises in Dodona can be solved by LLMs without issues.[fn:: Or at least with some nudging.]
+This has some troubling implications for Dodona.
+Students using ChatGPT or GitHub Copilot when making their exercises, might not learn as much as students who do the work fully on their own (just like students who plagiarize learn less, as seen in Chapter\nbsp{}[[#chap:passfail]]).
+Another aspect is the fairness and integrity of evaluations using Dodona.
+The case study in Chapter\nbsp{}[[#chap:use]] details the use of open-book/open-internet evaluations.
+If students can use generative AI during these evaluations, and knowing that LLMs can solve most exercises on Dodona, these evaluations will test the students' abilities less and less, if students can use LLMs.
+The way to solve these issues is not clear.
+It seems like LLMs are here to stay, and just like the calculator is a commonplace tool these days, the same could be true for LLMs in the future.
+Instead of banning the use of LLMs, teachers could integrate the use of them in their courses.
+On the other hand, when children first learn to count and add, they do not use calculators.
+The same might be necessary when learning to program: to learn the basics, students might need to do a lot of things themselves, to really get a feel for what they are doing.
 
 #+LATEX: \appendix
 * Pass/fail prediction feature types
