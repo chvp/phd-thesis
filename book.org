@@ -75,8 +75,6 @@
 #+LATEX: \begin{dutch}
 
 In volgorde van prioriteit:
-- [[#chap:feedback]] afmaken.
-  - Screenshots toevoegen in de eerste paar secties.
 - [[#chap:summ]] schrijven.
 - Screenshots en visualisaties hermaken.
   Ik wacht hiermee tot naderbij de deadline, om eventuele UI-veranderingen mee te hebben.
@@ -2402,6 +2400,7 @@ The first step of this was the functionality of adding comments to code.
 This work was started in the academic year 2019--2020, so the onset of the COVID-19 pandemic brought a lot of momentum to this work.
 Suddenly, the idea of printing student submissions became impossible, since the evaluations had to be taken by students in their own homes and the graders were working from home as well.
 Graders could now add comments to a student's code which would allow the student to view the feedback from their own home as well.
+An example of such a comment can be seen on Figure\nbsp{}[[fig:feedbackfirstcomment]]
 There were still a few drawbacks to this system for assessing and grading though:
 - Knowing which submissions to grade was not always trivial.
   For most students, the existing deadline system worked, since the solution they submitted right before the deadline was the submission taken into account when grading.
@@ -2439,6 +2438,10 @@ This is again more error-prone, since this involves manually looking up the corr
 It is also less transparent towards students.
 While rubrics were made for every exercise that had to be graded, every grader had their preferred way of aggregating and entering these scores.
 This means that even though the rubrics exist, students had no option of seeing the different marks they received for different rubrics.
+
+#+CAPTION: The first comment ever left on Dodona as part of a grading session.
+#+NAME: fig:feedbackfirstcomment
+[[./images/feedbackfirstcomment.png]]
 
 To address this concern, another feature was implemented in Dodona.
 We added rubrics and a user-friendly way of entering scores.
