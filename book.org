@@ -75,7 +75,6 @@
 #+LATEX: \begin{dutch}
 
 In volgorde van prioriteit:
-- [[#chap:discussion]] schrijven.
 - [[#chap:feedback]] afmaken.
   - Screenshots toevoegen in de eerste paar secties.
   - Zorgen dat er niet te veel overlap is met\nbsp{}[[#subsec:whateval]].
