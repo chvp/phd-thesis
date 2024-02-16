@@ -2773,25 +2773,25 @@ This means that the message for that annotation was not part of the test set, an
 Results of this test (for the same exercises as in Figure\nbsp{}[[fig:feedbackpredictionrealworldglobal]]) can be seen on Figures\nbsp{}[[fig:feedbackpredictionrealworldsimulation1]],\nbsp{}[[fig:feedbackpredictionrealworldsimulation2]],\nbsp{}[[fig:feedbackpredictionrealworldsimulation3]]\nbsp{}and\nbsp{}[[fig:feedbackpredictionrealworldsimulation4]].
 These figures show that while some build-up is required, once a critical mass of annotations is reached, the accuracy of the system jumps to its final state.
 
-#+CAPTION: Prediction results for the exercise "Afscheidswoordje" over time.
+#+CAPTION: Prediction results for the exercise "A last goodbye" over time.
 #+CAPTION: The amount of annotations for which the message has never been seen is marked separately.
 #+CAPTION: The chart on the right shows the messages that are in the training set.
 #+NAME: fig:feedbackpredictionrealworldsimulation1
 [[./images/feedbackpredictionrealworldsimulation1.png]]
 
-#+CAPTION: Prediction results for the exercise "Narcissuscodering" over time.
+#+CAPTION: Prediction results for the exercise "Narcissus cipher" over time.
 #+CAPTION: The amount of annotations for which the message has never been seen is marked separately.
 #+CAPTION: The chart on the right shows the messages that are in the training set.
 #+NAME: fig:feedbackpredictionrealworldsimulation2
 [[./images/feedbackpredictionrealworldsimulation2.png]]
 
-#+CAPTION: Prediction results for the exercise "Cocktailbar" over time.
+#+CAPTION: Prediction results for the exercise "Cocktail bar" over time.
 #+CAPTION: The amount of annotations for which the message has never been seen is marked separately.
 #+CAPTION: The chart on the right shows the messages that are in the training set.
 #+NAME: fig:feedbackpredictionrealworldsimulation3
 [[./images/feedbackpredictionrealworldsimulation3.png]]
 
-#+CAPTION: Prediction results for the exercise "Antropomorfe emoji" over time.
+#+CAPTION: Prediction results for the exercise "Anthropomorphic emoji" over time.
 #+CAPTION: The amount of annotations for which the message has never been seen is marked separately.
 #+CAPTION: The chart on the right shows the messages that are in the training set.
 #+NAME: fig:feedbackpredictionrealworldsimulation4
