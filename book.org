@@ -75,8 +75,6 @@
 #+LATEX: \begin{dutch}
 
 In volgorde van prioriteit:
-- [[#chap:summen]] schrijven.
-- [[#chap:summen]] vertalen in [[#chap:summnl]].
 - Screenshots en visualisaties hermaken.
   Ik wacht hiermee tot naderbij de deadline, om eventuele UI-veranderingen mee te hebben.
 
@@ -192,11 +190,22 @@ ANOHNI.
 :UNNUMBERED: t
 :END:
 
-Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona[fn:: https://dodona.be/] itself.
+Ever since programming has been taught, its teachers have sought to automate and optimize their teaching.
+Due to the ever-increasing digitalization of society, programming is also being taught to ever more and ever larger groups, and these groups often include students for whom programming is not necessarily their main subject.
+This has led to the development of myriad automated assessment tools\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005].
+One of those platforms is Dodona[fn:: https://dodona.be], which is the platform this dissertation is centred around.
+
+Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{},\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona itself.
 In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
-Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform and an extensive case study on how Dodona's features are used to optimize teaching.
+Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform, and an extensive case study on how Dodona's features are used to optimize teaching.
 Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
 This includes discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
+
+Chapters\nbsp{}[[#chap:passfail]]\nbsp{}and\nbsp{}[[#chap:feedback]] are a bit different.
+These chapters each detail a learning analytics/educational mining study we did, using the data that Dodona generates.
+Learning analytics and educational data mining stand at the intersection of computer science, data analytics, and the social sciences, and focus on understanding and improving learning.
+They are made possible by the increased availability of data about students who are learning, due to the increasing move of education to digital platforms\nbsp{}[cite:@romeroDataMiningCourse2008].
+They can also serve different actors in the educational landscape: they can help learners directly, help teachers to evaluate their own teaching, allow developers of education platforms to know what to focus on, allow educational institutions to guide their decisions, and even allow governments to take on data-driven policies\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
 
 Chapter\nbsp{}[[#chap:passfail]] talks about a study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
 It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their educational context, with data from their educational platform.
@@ -214,6 +223,32 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 :END:
 
 #+LATEX: \begin{dutch}
+
+Sinds het begin van het programmeeronderwijs, proberen de lesgevers die anderen het programmeren aanleren hun onderwijs te automatiseren en optimaliseren.
+Onze samenleving wordt ook steeds digitaler, waardoor programmeren wordt aangeleerd aan steeds grotere groepen.
+Deze groepen bevatten ook vaker studenten voor wie programmeren niet het hoofdonderwerp van hun studies is.
+Dit heeft geleid tot de ontwikkeling van zeer veel platformen voor de geautomatiseerde beoordeling van programmeeropdrachten\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005].
+Eén van deze platformen is Dodona[fn:: https://dodona.be], wat het platform is waar dit proefschrift over handelt.
+
+Hoofdstukken\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{}en\nbsp{}[[#chap:technical]] focussen op Dodona zelf.
+In Hoofdstuk\nbsp{}[[#chap:what]] geven we een overzicht van de gebruikersgerichte features van Dodona, van gebruikersbeheer tot hoe feedback getoond wordt.
+Hoofdstuk\nbsp{}[[#chap:use]] focust zich dan op hoe Dodona in de praktijk gebruikt wordt, door wat statistieken over het gebruiken te presenteren, de meningen van studenten over het platform te presenteren en door in een uitgebreide case study aan bod te laten komen hoe de features van Dodona gebruikt kunnen worden om het lesgeven te optimaliseren.
+Hoofdstuk\nbsp{}[[#chap:technical]] focust op het technische aspect van het ontwikkelen van Dodona en het gerelateerde ecosysteem van software.
+Dit bevat onder meer een bespreking van de technische uitdagingen gerelatteerd aand het ontwikkelen van een platform zoals Dodona en hoe het Dodona-team zich houdt aan de moderne standaarden van softwareontwikkeling.
+
+Hoofdstukken\nbsp{}[[#chap:passfail]]\nbsp{}en\nbsp{}[[#chap:feedback]] zijn anders.
+Deze hoofdstukken bespreken ieders een /learning analytics/educational data mining/ studie die we uitgevoerd hebben met de data die Dodona genereert.
+/Learning analytics/ en /educational data mining/ bevinden zich op het kruispunt tussen informatica, datawetenschap en de sociale wetenschappen, en focussen zich op het begrijpen en verbeteren van leren.
+Ze worden mogelijk gemaakt door de toegenomen beschikbaarheid van data over lerende studenten, op zijn beurt door de toegenomen beweging van onderwijs naar digitale platformen\nbsp{}[cite:@romeroDataMiningCourse2008].
+Ze kunnen ook dienen voor verschillende actoren in het onderwijsveld: ze kunnen de lerenden direct helpen, lesgevers helpen om hun eigen onderwijs te evalueren, ontwikkelaars van onderwijsplatformen laten weten waar ze zich om moeten focussen, de beslissingen van onderwijsinstellingen helpen gidsen, en zelfs overheden toelaten om op data gebaseerd beleid te voeren\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
+
+Hoofdstuk\nbsp{}[[#chap:passfail]] bespreekt een studie waarin we geprobeerd hebben te voorspellen of studenten al dan niet zouden slagen voor een vak op het einde van het semester, enkel en alleen gebaseerd op hun indiengedrag op Dodona.
+Daarnaast wordt er kort een samenwerking besproken met onderzoekers van de universiteit van Jyväskylä in Finland, waar we onze studie herhaald hebben in hun educationele context, met data van hun platform.
+
+In Hoofdstuk\nbsp{}[[#chap:feedback]] geven we eerst een overzich van hoe Dodona het manueel verbeteren in onze eigen educationele context veranderd heeft.
+We sluiten dan het hoofdstuk af met een recent door ons ontwikkelde /machine-learning/-methode om te voorspellen welke feedback lesgevers zullen geven tijden het manueel verbeteren van indieningen van studenten.
+
+We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de huidige status van Dodona, het onderzoek eraan gerelateerd en de uitdagingen waar Dodona in de toekomst voor staat.
 
 #+LATEX: \end{dutch}
 
@@ -392,7 +427,7 @@ The FPGE platform by\nbsp{}[cite/t:@paivaManagingGamifiedProgramming2022] offers
 :CUSTOM_ID: sec:introlaedm
 :END:
 
-Learning analytics and educational data mining stand at the intersection of computer science, data analytics and the social sciences, and focus on understanding and improving learning.
+Learning analytics and educational data mining stand at the intersection of computer science, data analytics, and the social sciences, and focus on understanding and improving learning.
 They are made possible by the increased availability of data about students who are learning, due to the increasing move of education to digital platforms\nbsp{}[cite:@romeroDataMiningCourse2008].
 They can also serve different actors in the educational landscape: they can help learners directly, help teachers to evaluate their own teaching, allow developers of education platforms to know what to focus on, allow educational institutions to guide their decisions, and even allow governments to take on data-driven policies\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
 Learning analytics and educational data mining are overlapping fields, but in general, learning analytics is seen as focusing on the educational challenge, while educational data mining is more focused on the technical challenge\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].[fn::
@@ -426,9 +461,9 @@ Again, a number of machine learning techniques are compared, to determine which 
 :CUSTOM_ID: sec:introstructure
 :END:
 
-Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona[fn:: https://dodona.be/] itself.
+Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]],\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona[fn:: https://dodona.be/] itself.
 In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
-Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform and an extensive case study on how Dodona's features are used to optimize teaching.
+Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform, and an extensive case study on how Dodona's features are used to optimize teaching.
 Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
 This includes discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
 
