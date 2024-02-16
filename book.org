@@ -77,7 +77,6 @@
 In volgorde van prioriteit:
 - [[#chap:feedback]] afmaken.
   - Screenshots toevoegen in de eerste paar secties.
-  - Zorgen dat er niet te veel overlap is met\nbsp{}[[#subsec:whateval]].
 - [[#chap:summ]] schrijven.
 - Screenshots en visualisaties hermaken.
   Ik wacht hiermee tot naderbij de deadline, om eventuele UI-veranderingen mee te hebben.
@@ -2831,7 +2830,7 @@ Another important aspect that was explicitly left out of scope in this chapter i
 :CUSTOM_ID: chap:discussion
 :END:
 
-It's safe to say that Dodona is a successful platform.
+It's safe to say that Dodona is a successful automated assessment platform.
 {{{num_users}}} users is quite a lot, and the fact that it is being actively used in every university in Flanders, a number of colleges, and a lot of secondary schools is a feat that not many other platforms like it have achieved.
 
 As we have tried to show in this dissertation, its development has also led to interesting opportunities for new research.
@@ -2894,7 +2893,7 @@ This puts Dodona's future in a precarious situation, where we constantly have to
 As much as generative AI can be an asset for Dodona, it is also a threat.
 Most exercises in Dodona can be solved by LLMs without issues.[fn:: Or at least with some nudging.]
 This has some troubling implications for Dodona.
-Students using ChatGPT or GitHub Copilot when making their exercises, might not learn as much as students who do the work fully on their own (just like students who plagiarize learn less, as seen in Chapter\nbsp{}[[#chap:passfail]]).
+Students using ChatGPT or GitHub Copilot when solving their exercises, might not learn as much as students who do the work fully on their own (just like students who plagiarize have a lower chance of passing their courses, as seen in Chapter\nbsp{}[[#chap:passfail]]).
 Another aspect is the fairness and integrity of evaluations using Dodona.
 The case study in Chapter\nbsp{}[[#chap:use]] details the use of open-book/open-internet evaluations.
 If students can use generative AI during these evaluations, and knowing that LLMs can solve most exercises on Dodona, these evaluations will test the students' abilities less and less, if students can use LLMs.
