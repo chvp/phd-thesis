@@ -402,7 +402,7 @@ The analytics focusing on governments or educational institutions is called acad
 - How is the data analysed?
 This gives an idea to researchers what to focus on when conceptualizing, executing, and publishing their research.
 
-An example of educational data mining research is\nbsp{}[cite/t:@daudPredictingStudentPerformance2017], where the students' background (including family income, family expenditures, gender, martial status, ...) is used to predict the student's learning outcome at the end of the semester.
+An example of educational data mining research is\nbsp{}[cite/t:@daudPredictingStudentPerformance2017], where the students' background (including family income, family expenditures, gender, martial status,\nbsp{}...) is used to predict the student's learning outcome at the end of the semester.
 Evaluating this study using the reference model by\nbsp{}[cite:@chattiReferenceModelLearning2012], we can see that the data used is very personal and hard to collect.
 As mentioned in the study, the primary target audience of the study are policymakers.
 The data is analysed to evaluate the influence of a student's background on their performance, and this is done by using a number of machine learning techniques (which are compared to one another).
@@ -1477,7 +1477,7 @@ TESTed was developed to solve two major drawbacks with the current judge system 
   This is especially relevant for very simple exercises that students almost always start with, and for exercises in algorithms courses, where the programming language a student solves an exercise in is of lesser importance than the way they solve it.
   Mistakes in exercises also have to be fixed in all instances of the exercise when there are multiple instances of the exercise.
 - The judges themselves have to be created from scratch every time.
-  Most judges offer the same basic concepts and features, most of which are independent of programming language (communication with Dodona, checking correctness, I/O, ...).
+  Most judges offer the same basic concepts and features, most of which are independent of programming language (communication with Dodona, checking correctness, I/O,\nbsp{}...).
 
 The goal of TESTed was to implement a judge so that programming exercises only have to be created once to be available in all programming languages TESTed supports.
 An exercise should also not have to be changed when support for a new programming language is added.
@@ -1580,7 +1580,7 @@ The serialization format should be able to represent all the basic data types we
 These data types are basic primitives like integers, reals (floating point numbers), booleans, and strings, but also more complex collection types like arrays (or lists), sets and mapping types (maps, dictionaries, and objects).
 Note that the serialization format is also used on the side of the programming language, to receive (function) arguments and send back execution results.
 
-Of course, a number of data serialization formats already exist, like =MessagePack=[fn:: https://msgpack.org/], =ProtoBuf=[fn:: https://protobuf.dev/], ...
+Of course, a number of data serialization formats already exist, like =MessagePack=[fn:: https://msgpack.org/], =ProtoBuf=[fn:: https://protobuf.dev/],\nbsp{}...
 Binary formats were excluded from the start, because they can't easily be embedded in our JSON test plan, but more importantly, they can neither be written nor read by humans.
 Other formats did not support all the types we wanted to support and could not be extended to do so.
 Because of our goal in supporting many programming languages, the format also had to be either widely implemented or be easily implementable.
