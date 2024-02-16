@@ -2360,7 +2360,7 @@ Having this new framework at hand immediately raises some follow-up research que
 :CUSTOM_ID: chap:feedback
 :END:
 
-This chapter discusses the history of manual feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of evaluation and features within Dodona.
+This chapter discusses the history of manual feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of evaluation and grading features within Dodona.
 We will then expand on some further experiments using data mining techniques we did to try to further reduce the time spent adding manual feedback.
 
 ** Assessment on paper
@@ -2824,7 +2824,7 @@ Right now the model is also reactive: we propose a group of most likely messages
 By introducing a confidence score we could check beforehand if we have a confident match for each line and then immediately propose this to the grader.
 Whether a grader accepts this suggestion could then also be used as an input into the model.
 We could also look into applying some of the techniques for source code pattern mining proposed by\nbsp{}[cite/t:@phamMiningPatternsSource2019] to make further speed improvements.
-Another important aspect that was explicitly left out of scope in this manuscript was building it into a learning platform and doing user testing.
+Another important aspect that was explicitly left out of scope in this chapter is building it into a learning platform and doing user testing.
 
 * Discussion and future work
 :PROPERTIES:
