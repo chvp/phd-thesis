@@ -2832,13 +2832,42 @@ Another important aspect that was explicitly left out of scope in this manuscrip
 :CUSTOM_ID: chap:discussion
 :END:
 
-- Successful platform
-  - Lots of users
-  - Interesting data for scientific research
-- Challenges
-  - Sustainability
-  - Generative AI
-  - ...
+It's safe to say that Dodona is a successful platform.
+{{{num_users}}} users is quite a lot, and the fact that it is being actively used in every university in Flanders, a number of colleges, and a lot of secondary schools is a feat that not many other platforms like it have achieved.
+
+As we have tried to show in this dissertation, its development has also led to interesting opportunities for new research.
+Dodona generates a lot of data by being used, and we have shown that educational data mining can be used on this data.
+It can even be used to develop new educational data mining techniques.
+The work is, however, never finished.
+There are still possibilities for interesting computer science and educational research.
+
+** Research opportunities
+:PROPERTIES:
+:CREATED:  [2024-02-16 Fri 10:50]
+:END:
+
+A big question, left open in this work, is what to do with the results we obtained in Chapter\nbsp{}[[#chap:passfail]].
+Teachers can use the results to figure out which aspects of their course students are struggling with, and take general measures to deal with this.
+But should we, and if so, /how/ should we communicate predictions to individual students?
+
+Chapter\nbsp{}[[#chap:feedback]] also suggests a number of improvements that could still be worked on.
+It gives us a framework for suggesting the feedback a teacher probably wants to give when selecting a line, but we could also try to come up with a confidence score and use that to suggest feedback before the teacher has even done that.
+Another interesting (more educational) line of research that this work suggests is building the method into an actual assessment platform, and looking at its effects on feedback consistency and quality, time saved by teachers,\nbsp{}...
+
+- Exercise recommendation
+- Skill estimation
+- Using generative AI to prepare possible answers to student questions
+
+** Challenges for the future
+:PROPERTIES:
+:CREATED:  [2024-02-16 Fri 10:50]
+:END:
+
+- Sustainability of the project
+- Fairness/integrity of evaluations in general
+    - Generative AI
+    - Integration of similarity checking (Dolos)
+- ...
 
 #+LATEX: \appendix
 * Pass/fail prediction feature types
