@@ -64,22 +64,6 @@
 #+LATEX: \frontmatter
 #+TOC: headlines 2
 
-
-* To-dos
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 17:14]
-:CUSTOM_ID: chap:todos
-:UNNUMBERED: t
-:END:
-
-#+LATEX: \begin{dutch}
-
-In volgorde van prioriteit:
-- Screenshots en visualisaties hermaken.
-  Ik wacht hiermee tot naderbij de deadline, om eventuele UI-veranderingen mee te hebben.
-
-#+LATEX: \end{dutch}
-
 * Dankwoord :noexport:
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 09:25]
@@ -1961,8 +1945,9 @@ There is no restriction on the number of solutions that can be submitted per exe
 All submitted solutions are stored, but only the last submission before the deadline is taken into account to determine the status (and grade) of an exercise for a student.
 One of the effects of active learning, triggered by exercises with deadlines and automated feedback, is that most learning happens during the semester as can be seen on the heatmap in Figure\nbsp{}[[fig:passfailheatmap]].
 
-#+CAPTION: Heatmap showing the distribution per day of all 176535 solutions submitted during the 2018--2019 edition of course A.
-#+CAPTION: The darker the colour, the more submissions were made on that day. A lighter blue means there are few submissions on that day.
+#+CAPTION: Heatmap showing the distribution per day of all 176\thinsp{}535 solutions submitted during the 2018--2019 edition of course A.
+#+CAPTION: The darker the colour, the more submissions were made on that day.
+#+CAPTION: A lighter red means there are few submissions on that day.
 #+CAPTION: A light grey square means that no submissions were made that day.
 #+CAPTION: Weekly lab sessions for different groups were organized on Monday afternoon, Friday morning and Friday afternoon.
 #+CAPTION: Weekly deadlines for mandatory exercises were on Tuesdays at 22:00.
