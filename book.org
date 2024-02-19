@@ -338,7 +338,7 @@ He identifies several issues with gathering students' source files, and then com
 Students could write destructive code that destroys the teacher's files, or even write a clever program that alters their grades (and covers its tracks while doing so).
 Note that this is not a new issue: as we discussed before, this was already mentioned as a possibility by\nbsp{}[cite/t:@hollingsworthAutomaticGradersProgramming1960].
 This was, however, the first system that tried to solve this problem.
-His TRY system therefore has avoiding that teachers need to their students' programs themselves as an explicit goal.
+His TRY system therefore has avoiding that teachers need to run their students' programs themselves as an explicit goal.
 Another goal was avoiding giving the inputs that the program was tested on to students.
 These goals were mostly achieved using the UNIX =setuid= mechanism.
 Note that students were using a true multi-user system, as in common use at the time.
@@ -428,7 +428,7 @@ The analytics focusing on governments or educational institutions is called acad
 This gives an idea to researchers what to focus on when conceptualizing, executing, and publishing their research.
 
 An example of educational data mining research is\nbsp{}[cite/t:@daudPredictingStudentPerformance2017], where the students' background (including family income, family expenditures, gender, martial status,\nbsp{}...) is used to predict the student's learning outcome at the end of the semester.
-Evaluating this study using the reference model by\nbsp{}[cite:@chattiReferenceModelLearning2012], we can see that the data used is very personal and hard to collect.
+Evaluating this study using the reference model by\nbsp{}[cite/t:@chattiReferenceModelLearning2012], we can see that the data used is very personal and hard to collect.
 As mentioned in the study, the primary target audience of the study are policymakers.
 The data is analysed to evaluate the influence of a student's background on their performance, and this is done by using a number of machine learning techniques (which are compared to one another).
 
@@ -451,7 +451,7 @@ Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by p
 Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
 This includes discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
 
-Chapter\nbsp{}[[#chap:passfail]] talks about a study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
+Chapter\nbsp{}[[#chap:passfail]] talks about an education data mining study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
 It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their educational context, with data from their educational platform.
 
 In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
