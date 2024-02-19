@@ -413,7 +413,7 @@ The FPGE platform by\nbsp{}[cite/t:@paivaManagingGamifiedProgramming2022] offers
 
 Learning analytics and educational data mining stand at the intersection of computer science, data analytics, and the social sciences, and focus on understanding and improving learning.
 They are made possible by the increased availability of data about students who are learning, due to the increasing move of education to digital platforms\nbsp{}[cite:@romeroDataMiningCourse2008].
-They can also serve different actors in the educational landscape: they can help learners directly, help teachers to evaluate their own teaching, allow developers of education platforms to know what to focus on, allow educational institutions to guide their decisions, and even allow governments to take on data-driven policies\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
+They can also serve different actors in the educational landscape: they can help learners directly, help teachers to evaluate their own teaching, allow developers of educational platforms to know what to focus on, allow educational institutions to guide their decisions, and even allow governments to take on data-driven policies\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
 Learning analytics and educational data mining are overlapping fields, but in general, learning analytics is seen as focusing on the educational challenge, while educational data mining is more focused on the technical challenge\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].[fn::
 The analytics focusing on governments or educational institutions is called academic analytics.
 ]
