@@ -466,7 +466,7 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 :END:
 
 In this chapter, we will give an overview of Dodona's most important features.
-The chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023].
+The chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023], published in SoftwareX.
 
 ** Classroom management
 :PROPERTIES:
@@ -695,7 +695,7 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 This chapter discusses the use of Dodona.
 We start by mentioning some facts and figures, and discussing a user study we performed.
 We then explain how Dodona can be used on the basis of a case study.
-The chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023].
+The chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023], published in SoftwareX.
 
 ** Facts and figures
 :PROPERTIES:
@@ -1793,7 +1793,7 @@ The DSL version of the example exercise can be seen in Listing\nbsp{}[[lst:techn
 :CUSTOM_ID: chap:passfail
 :END:
 
-This chapter is based on\nbsp{}[cite/t:@vanpetegemPassFailPrediction2022], and also briefly discusses the work performed in\nbsp{}[cite/t:@zhidkikhReproducingPredictiveLearning2024].
+This chapter is based on\nbsp{}[cite/t:@vanpetegemPassFailPrediction2022], published in the Journal of Educational Computing Research, and also briefly discusses the work performed in\nbsp{}[cite/t:@zhidkikhReproducingPredictiveLearning2024], published in the Journal of Learning Analytics.
 
 ** Introduction
 :PROPERTIES:
