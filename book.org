@@ -468,6 +468,19 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 In this chapter, we will give an overview of Dodona's most important features.
 The chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023], published in SoftwareX.
 
+** User management
+:PROPERTIES:
+:CREATED: [2023-10-24 Tue 09:44]
+:CUSTOM_ID: subsec:whatuser
+:END:
+
+Instead of providing its own authentication and authorization, Dodona delegates authentication to external identity providers (e.g.\nbsp{}educational and research institutions) through SAML\nbsp{}[cite:@farrellAssertionsProtocolOASIS2002], OAuth\nbsp{}[cite:@leibaOAuthWebAuthorization2012; @hardtOAuthAuthorizationFramework2012] and OpenID Connect\nbsp{}[cite:@sakimuraOpenidConnectCore2014].
+This support for *decentralized authentication* allows users to benefit from single sign-on when using their institutional account across multiple platforms and teachers to trust their students' identities when taking high-stakes tests and exams in Dodona.
+
+Dodona automatically creates user accounts upon successful authentication and uses the association with external identity providers to assign an institution to users.
+By default, newly created users are assigned a student role.
+Teachers and instructors who wish to create content (courses, learning activities and judges), must first request teacher rights using a streamlined form[fn:: https://dodona.be/rights_requests/new/].
+
 ** Classroom management
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 09:31]
@@ -519,19 +532,6 @@ Because Dodona logs all student submissions and their metadata, including feedba
 We also provide export wizards that enable the extraction of raw and aggregated data in CSV format for downstream processing and educational data mining\nbsp{}[cite:@romeroEducationalDataMining2010; @bakerStateEducationalData2009].
 This allows teachers to better understand student behaviour, progress and knowledge, and might give deeper insight into the underlying factors that contribute to student actions\nbsp{}[cite:@ihantolaReviewRecentSystems2010].
 Understanding, knowledge and insights that can be used to make informed decisions about courses and their pedagogy, increase student engagement, and identify at-risk students\nbsp{}(see\nbsp{}Chapter\nbsp{}[[#chap:passfail]]).
-
-** User management
-:PROPERTIES:
-:CREATED: [2023-10-24 Tue 09:44]
-:CUSTOM_ID: subsec:whatuser
-:END:
-
-Instead of providing its own authentication and authorization, Dodona delegates authentication to external identity providers (e.g.\nbsp{}educational and research institutions) through SAML\nbsp{}[cite:@farrellAssertionsProtocolOASIS2002], OAuth\nbsp{}[cite:@leibaOAuthWebAuthorization2012; @hardtOAuthAuthorizationFramework2012] and OpenID Connect\nbsp{}[cite:@sakimuraOpenidConnectCore2014].
-This support for *decentralized authentication* allows users to benefit from single sign-on when using their institutional account across multiple platforms and teachers to trust their students' identities when taking high-stakes tests and exams in Dodona.
-
-Dodona automatically creates user accounts upon successful authentication and uses the association with external identity providers to assign an institution to users.
-By default, newly created users are assigned a student role.
-Teachers and instructors who wish to create content (courses, learning activities and judges), must first request teacher rights using a streamlined form[fn:: https://dodona.be/rights_requests/new/].
 
 ** Automated assessment
 :PROPERTIES:
