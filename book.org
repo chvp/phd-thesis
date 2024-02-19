@@ -1,5 +1,5 @@
 #+TITLE: Dodona
-#+SUBTITLE: Improving automated assessment in programming education through educational data mining
+#+SUBTITLE: Improving programming education through automated assessment and educational data mining
 #+AUTHOR: Charlotte Van Petegem
 #+LANGUAGE: en-gb
 #+DATE: 2024-06-19
