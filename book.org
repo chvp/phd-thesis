@@ -377,7 +377,6 @@ The coverage that these tests achieved was part of the testing done by the platf
 Tests are written using standard unit testing frameworks\nbsp{}[cite:@edwardsExperiencesUsingTestdriven2007].
 An example of Web-CAT's submission screen can be seen in Figure\nbsp{}[[fig:introductionwebcatsubmission]].
 
-
 #+CAPTION: Example of Web-CAT's submission screen for students.
 #+CAPTION: Image taken from\nbsp{}[cite/t:@edwardsWebCATWebbasedCenter2006].
 #+NAME: fig:introductionwebcatsubmission
@@ -688,10 +687,16 @@ Such *code reviews* will be used as a building block for manual assessment.
 :END:
 
 Teachers can create an *evaluation* for a series to manually assess student submissions for its programming assignments after a specific period, typically following the deadline of some homework, an intermediate test or a final exam.
+An example of an evaluation overview can be seen on Figure\nbsp{}[[fig:whatevaluationoverview]]
 The evaluation embodies all programming assignments in the series and a group of students that submitted solutions for these assignments.
 Because a student may have submitted multiple solutions for the same assignment, the last submission before a given deadline is automatically selected for each student and each assignment in the evaluation.
 This automatic selection can be manually overruled afterwards.
 The evaluation deadline defaults to the deadline set for the associated series, if any, but an alternative deadline can be selected as well.
+
+#+CAPTION: Pseudonymized overview of an evaluation in Dodona.
+#+CAPTION: For each student, both the correctness of their submission and whether it has been graded yet is shown.
+#+NAME: fig:whatevaluationoverview
+[[./images/whatevaluationoverview.png]]
 
 Evaluations support *two-way navigation* through all selected submissions: per assignment and per student.
 For evaluations with multiple assignments, it is generally recommended to assess per assignment and not per student, as students can build a reputation throughout an assessment\nbsp{}[cite:@malouffBiasGradingMetaanalysis2016].
