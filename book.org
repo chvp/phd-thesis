@@ -269,7 +269,6 @@ Because of its potential to provide feedback loops that are scalable and respons
 
 Automated assessment was introduced into programming education in the late 1950s\nbsp{}[cite:@hollingsworthAutomaticGradersProgramming1960].
 In this first system, programs were submitted in assembly on punch cards.
-Figure\nbsp{}[[fig:introductionpunchcard]] shows an example of a punch card for readers who are not familiar with them.
 For the reader who is not familiar with punch cards, an example of one can be seen in Figure\nbsp{}[[fig:introductionpunchard]].
 The assessment was then performed by combining the student's punch cards with the autograder's punch cards.
 In the early days of computing, the time of tutors was not the only valuable resource that needed to be shared between students; the actual compute time was also a shared and limited resource.
