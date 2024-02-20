@@ -167,7 +167,7 @@ ANOHNI.
 
 #+LATEX: \end{dutch}
 
-* Summmary in English
+* Summary in English
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 17:54]
 :CUSTOM_ID: chap:summen
@@ -180,18 +180,18 @@ This has led to the development of myriad automated assessment tools\nbsp{}[cite
 One of those platforms is Dodona[fn:: https://dodona.be], which is the platform this dissertation is centred around.
 
 Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{},\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona itself.
-In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
+In Chapter\nbsp{}[[#chap:what]] we give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
 Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform, and an extensive case study on how Dodona's features are used to optimize teaching.
-Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
-This includes discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
+Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspects of developing Dodona and its related ecosystem of software tools.
+This includes a discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
 
 Chapters\nbsp{}[[#chap:passfail]]\nbsp{}and\nbsp{}[[#chap:feedback]] are a bit different.
-These chapters each detail a learning analytics/educational mining study we did, using the data that Dodona generates.
+These chapters each detail a learning analytics/educational mining study we did, using the data that Dodona collects about the learning process.
 Learning analytics and educational data mining stand at the intersection of computer science, data analytics, and the social sciences, and focus on understanding and improving learning.
 They are made possible by the increased availability of data about students who are learning, due to the increasing move of education to digital platforms\nbsp{}[cite:@romeroDataMiningCourse2008].
 They can also serve different actors in the educational landscape: they can help learners directly, help teachers to evaluate their own teaching, allow developers of education platforms to know what to focus on, allow educational institutions to guide their decisions, and even allow governments to take on data-driven policies\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
 
-Chapter\nbsp{}[[#chap:passfail]] talks about a study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
+Chapter\nbsp{}[[#chap:passfail]] discusses a study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
 It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their educational context, with data from their educational platform.
 
 In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
@@ -246,9 +246,9 @@ We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de 
 
 Ever since programming has been taught, its teachers have sought to automate and optimize their teaching.
 Due to the ever-increasing digitalization of society, programming is also being taught to ever more and ever larger groups, and these groups often include students for whom programming is not necessarily their main subject.
-This has led to the development of myriad automated assessment tools\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005], of which we will give a historical overview in this introduction.
-We will also discuss learning analytics and educational data mining, and how these techniques can help us to cope with the growing class sizes.
-Finally, we will give a brief overview of the remaining chapters of this dissertation.
+This has led to the development of myriad automated assessment tools\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005], of which we give a historical overview in this introduction.
+We also discuss learning analytics and educational data mining, and how these techniques can help us to cope with the growing class sizes.
+Finally, we give a brief overview of the remaining chapters of this dissertation.
 
 ** Automated assessment in programming education
 :PROPERTIES:
@@ -268,7 +268,9 @@ Because of its potential to provide feedback loops that are scalable and respons
 :END:
 
 Automated assessment was introduced into programming education in the late 1950s\nbsp{}[cite:@hollingsworthAutomaticGradersProgramming1960].
-In this first system, programs were submitted in assembly on punch cards[fn:: For the reader who is not familiar with punch cards, an example of one can be seen in Figure\nbsp{}[[fig:introductionpunchard]].].
+In this first system, programs were submitted in assembly on punch cards.
+Figure\nbsp{}[[fig:introductionpunchcard]] shows an example of a punch card for readers who are not familiar with them.
+For the reader who is not familiar with punch cards, an example of one can be seen in Figure\nbsp{}[[fig:introductionpunchard]].
 The assessment was then performed by combining the student's punch cards with the autograder's punch cards.
 In the early days of computing, the time of tutors was not the only valuable resource that needed to be shared between students; the actual compute time was also a shared and limited resource.
 Their system made more efficient use of both.
@@ -279,7 +281,7 @@ They also immediately identified some limitations, which are common problems tha
 These limitations include handling faults in the student code, making sure students can't modify the grader, and having to define an interface through which the student code is run.
 
 #+CAPTION: Example of a punch card.
-#+CAPTION: Picture by Arnold Reinhold, released under the CC BY-SA 4.0 license via WikiMedia Commons.
+#+CAPTION: Picture by Arnold Reinhold, released under the CC BY-SA 4.0 licence via WikiMedia Commons.
 #+NAME: fig:introductionpunchard
 [[./images/introductionpunchcard.jpg]]
 
@@ -294,15 +296,16 @@ In more modern terminology, Naur's "formally correct" would be called "free of s
 This is again an issue that modern assessment platforms (or the teachers creating exercises) still need to consider.
 Forsythe & Wirth solve this issue by randomizing the inputs to the student's program.
 While not explicitly explained by them, we can assume that to check the correctness of a student's answer, they calculate the expected answer themselves as well.
-Note that in this system, they were still writing a grading program for each different exercise.
+Note that in this system, they were still writing a grading program for each individual exercise.
 
-[cite/t:@hextAutomaticGradingScheme1969] introduce a new innovation: their system could be used for exercises in several different programming languages.
+[cite/t:@hextAutomaticGradingScheme1969] introduce a new innovation: their system could be used for exercises in multiple different programming languages.
 They are also the first to implement a history of student's attempts in the assessment tool itself, and mention explicitly that enough data should be recorded in this history so that it can be used to calculate a mark for a student.
 
 Other grader programs were in use at the time, but these did not necessarily bring any new innovations or ideas to the table\nbsp{}[cite:@braden1965introductory; @berryGraderPrograms1966; @temperlyGradingProcedurePL1968].
 
 The systems described above share an important limitation, which is inherent to the time at which they were built.
-Computers were big and heavy, and had operators who did not necessarily know whose program they were running or what those programs were.[fn:: The Mother of All Demos by\nbsp{}[cite/t:@engelbart1968research], widely considered the birth of the /idea/ of the personal computer, only happened after these systems were already running.]
+Computers were big and heavy, and had operators who did not necessarily know whose program they were running or what those programs were.
+The Mother of All Demos by\nbsp{}[cite/t:@engelbart1968research], widely considered the birth of the /idea/ of the personal computer, only happened after these systems were already running.
 So, it should not come as a surprise that the feedback these systems gave was slow to return to the students.
 
 *** Tool- and script-based assessment
@@ -328,7 +331,7 @@ Except that it obviously wasn't an online course; TCP/IP wouldn't be standardize
 ]
 
 Another good example of this generation of grading systems is the system by\nbsp{}[cite/t:@isaacson1989automating].
-They describe the functioning of a UNIX shell script, that automatically e-mails students if their code did not compile, or if they had incorrect outputs.
+They describe the functioning of a UNIX shell script that automatically e-mails students if their code did not compile, or if they had incorrect outputs.
 It also had a configurable output file size limit and time limit.
 Student programs would be stopped if they exceeded these limits.
 Like all assessment systems up to this point, they only focus on whether the output of the student's program is correct, and not on the code style.
@@ -361,7 +364,7 @@ ASSYST also added evaluation on other metrics, such as runtime or cyclomatic com
 After Tim Berners-Lee invented the web in 1989\nbsp{}[cite:@berners-leeWorldWideWeb1992], automated assessment systems also started moving to the web.
 Especially with the rise of Web 2.0\nbsp{}[cite:@oreillyWhatWebDesign2007] and its increased interactivity, this became more and more common.
 Systems like the one by\nbsp{}[cite/t:@reekTRYSystemHow1989] also became impossible to use because of the rise of the personal computer.
-Mainly because the typical multi-user system was used less and less, but also because the primary way people interacted with a computer was no longer through the command line, but through graphical interfaces.
+Mainly because the typical multi-user system was used less and less, but also because the primary way people interacted with a computer was no longer through the command line, but through graphical user interfaces.
 
 [cite/t:@higginsCourseMarkerCBASystem2003] developed CourseMarker, which is a more general assessment system (not exclusively developed for programming assessment).
 This was initially not yet a web-based platform, but it did communicate over the network using Java's Remote Method Invocation mechanism.
@@ -388,7 +391,7 @@ Although, depending on the educational vision of the teacher, this happens in ed
 The SPOJ paper also details the security measures they took when executing untrusted code.
 They use a patched Linux kernel's =rlimits=, the =chroot= mechanism, and traditional user isolation to prevent student code from malicious action.
 
-Another interesting idea was contributed by\nbsp{}[cite:@brusilovskyIndividualizedExercisesSelfassessment2005] in QuizPACK.
+Another interesting idea was contributed by\nbsp{}[cite/t:@brusilovskyIndividualizedExercisesSelfassessment2005] in QuizPACK.
 They combined the idea of parametric exercises with automated assessment by executing source code.
 In QuizPACK, teachers provide a parameterized piece of code, where the value of a specific variable is the answer that a student needs to give.
 The piece of code is then evaluated, and the result is compared to the student's answer.
@@ -400,7 +403,14 @@ Note that in this platform, it is not the students themselves who are writing co
 :END:
 
 At this point in history, the idea of a web-based automated assessment system for programming education is no longer new.
-But still, more and more new platforms are being written.[fn:: For a possible explanation, see https://xkcd.com/927/.]
+But still, more and more new platforms are being written.
+For a possible explanation, see Figure\nbsp{}[[fig:introductionxkcdstandards]].
+
+#+CAPTION: Comic on the proliferation of standards.
+#+CAPTION: Created by Randall Munroe, released under the CC BY-NC 2.5 licence.
+#+NAME: fig:introductionxkcdstandards
+[[./images/introductionxkcdstandards.png]]
+
 
 All of these platforms support automated assessment of code submitted by students, but try to differentiate themselves through the features they offer.
 The FPGE platform by\nbsp{}[cite/t:@paivaManagingGamifiedProgramming2022] offers gamification, iWeb-TD\nbsp{}[cite:@fonsecaWebbasedPlatformMethodology2023] integrates a full-fledged editor, PLearn\nbsp{}[cite:@vasyliukDesignImplementationUkrainianLanguage2023] recommends extra exercises to its users, JavAssess\nbsp{}[cite:@insaAutomaticAssessmentJava2018] tries to automate grading, and GradeIT\nbsp{}[cite:@pariharAutomaticGradingFeedback2017] features automatic hint generation.
@@ -449,7 +459,7 @@ Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]],\nbsp{}and\nbsp{}[[#chap:tech
 In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
 Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform, and an extensive case study on how Dodona's features are used to optimize teaching.
 Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
-This includes discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
+This includes a discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
 
 Chapter\nbsp{}[[#chap:passfail]] talks about an education data mining study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
 It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their educational context, with data from their educational platform.
