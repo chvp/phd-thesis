@@ -476,7 +476,7 @@ We then finish the chapter with some recent work on a machine learning method we
 
 Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on the current status of Dodona, the research related to it, and Dodona's challenges for the future.
 
-* What is Dodona?
+* Dodona
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:47]
 :CUSTOM_ID: chap:what
@@ -495,10 +495,20 @@ Instead of providing its own authentication and authorization, Dodona delegates 
 This support for *decentralized authentication* allows users to benefit from single sign-on when using their institutional account across multiple platforms and teachers to trust their students' identities when taking high-stakes tests and exams in Dodona.
 
 Dodona automatically creates user accounts upon successful authentication and uses the association with external identity providers to assign an institution to users.
+These institutions can have multiple sign-in methods.
+If a user uses more than one of those methods, these logins are linked to the same user.
+Institutions are also categorized internally in secundary education, higher education, and other (e.g. the Flemish government).
+
 By default, newly created users are assigned a student role.
 Teachers and instructors who wish to create content (courses, learning activities and judges), must first request teacher rights using a streamlined form[fn:: https://dodona.be/rights_requests/new/].
+The sign in page can be seen in Figure\nbsp{}[[fig:whatsignin]].
+After logging in, a user sees an overview of the courses they are registered with.
 
-** Classroom management
+#+CAPTION: Sign in page showing the different options for users to sign in.
+#+NAME: fig:whatsignin
+[[./images/whatsignin.png]]
+
+** Course management
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 09:31]
 :CUSTOM_ID: subsec:whatclassroom
