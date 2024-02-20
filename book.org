@@ -312,7 +312,7 @@ So, it should not come as a surprise that the feedback these systems gave was sl
 
 We now take a leap forward in time.
 The way people use computers has changed significantly, and the way assessment systems are implemented changed accordingly.
-Note that while the previous section was complete (as far as we could find), this section is decidedly not so.
+Note that while the previous section was complete (as far as we could find in published literature), this section is decidedly not so.
 At this point, the explosion of automated assessment systems/automated grading systems for programming education had already set in.
 To describe all platforms would take a full dissertation in and of itself.
 So from now on, we will pick and choose systems that brought new and interesting ideas that stood the test of time.[fn::
