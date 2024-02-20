@@ -474,14 +474,19 @@ We then finish the chapter with some recent work on a machine learning method we
 
 Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on the current status of Dodona, the research related to it, and Dodona's challenges for the future.
 
-* Dodona
+* What is Dodona?
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:47]
 :CUSTOM_ID: chap:what
 :END:
 
+Dodona is an online learning environment that recognizes the importance of active learning and just-in-time feedback in courses involving programming assignments.
+Dodona was started because our own educational needs outgrew SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008], the platform we were using before.
+In the following years, Dodona grew.
+It is now used in most higher education institutions in Flanders, and a large number of secondary education institutions as well.
 In this chapter, we will give an overview of Dodona's most important features.
-The chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023], published in SoftwareX.
+
+This chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023], published in SoftwareX.
 
 ** User management
 :PROPERTIES:
