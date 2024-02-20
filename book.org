@@ -572,22 +572,21 @@ We also provide export wizards that enable the extraction of raw and aggregated 
 This allows teachers to better understand student behaviour, progress and knowledge, and might give deeper insight into the underlying factors that contribute to student actions\nbsp{}[cite:@ihantolaReviewRecentSystems2010].
 Understanding, knowledge and insights that can be used to make informed decisions about courses and their pedagogy, increase student engagement, and identify at-risk students\nbsp{}(see\nbsp{}Chapter\nbsp{}[[#chap:passfail]]).
 
-** Automated assessment
+** Exercises
 :PROPERTIES:
-:CREATED: [2023-10-24 Tue 10:16]
-:CUSTOM_ID: subsec:whatassessment
+:CREATED:  [2024-02-20 Tue 14:32]
 :END:
 
-The range of approaches, techniques and tools for software testing that may underpin assessing the quality of software under test is incredibly diverse.
-Static testing directly analyses the syntax, structure and data flow of source code, whereas dynamic testing involves running the code with a given set of test cases\nbsp{}[cite:@oberkampfVerificationValidationScientific2010; @grahamFoundationsSoftwareTesting2021].
-Black-box testing uses test cases that examine functionality exposed to end-users without looking at the actual source code, whereas white-box testing hooks test cases onto the internal structure of the code to test specific paths within a single unit, between units during integration, or between subsystems\nbsp{}[cite:@nidhraBlackBoxWhite2012].
-So, broadly speaking, there are three levels of white-box testing: unit testing, integration testing and system testing\nbsp{}[cite:@wiegersCreatingSoftwareEngineering1996; @dooleySoftwareDevelopmentProfessional2011].
-Source code submitted by students can therefore be verified and validated against a multitude of criteria: functional completeness and correctness, architectural design, usability, performance and scalability in terms of speed, concurrency and memory footprint, security, readability (programming style), maintainability (test quality) and reliability\nbsp{}[cite:@staubitzPracticalProgrammingExercises2015].
-This is also reflected by the fact that a diverse range of metrics for measuring software quality have come forward, such as cohesion/coupling\nbsp{}[cite:@yourdonStructuredDesignFundamentals1979; @stevensStructuredDesign1999], cyclomatic complexity\nbsp{}[cite:@mccabeComplexityMeasure1976] or test coverage\nbsp{}[cite:@millerSystematicMistakeAnalysis1963].
-
-To cope with such a diversity in software testing alternatives, Dodona is centred around a generic infrastructure for *programming assignments that support automated assessment*.
-Assessment of a student submission for an assignment comprises three loosely coupled components: containers, judges and assignment-specific assessment configurations.
-More information on this underlying mechanism can be found in Chapter\nbsp{}[[#chap:technical]].
+There are two types of assignments in Dodona: reading activities and programming exercises.
+While reading activities only consist of descriptions, programming exercises need an additional *assessment configuration* that sets a programming language and a judge (for more information on judges, see Section\nbsp{}[[#subsec:whatjudges]]).
+The configuration may also set a Docker image, a time limit, a memory limit and grant Internet access to the container that is instantiated from the image, but these settings have proper default values.
+The configuration might also provide additional *assessment resources*: files made accessible to the judge during assessment.
+The specification of how these resources must be structured and how they are used during assessment is completely up to the judge developers.
+Finally, the configuration might also contain *boilerplate code*: a skeleton students can use to start the implementation that is provided in the code editor along with the description.
+Directories that contain a learning activity also have their own internal directory structure that includes a *description* in HTML or Markdown.
+Descriptions may reference data files and multimedia content included in the repository, and such content can be shared across all learning activities in the repository.
+Embedded images are automatically encapsulated in a responsive lightbox to improve readability.
+Mathematical formulas in descriptions are supported through MathJax\nbsp{}[cite:@cervoneMathJaxPlatformMathematics2012].
 
 Where automatic assessment and feedback generation is outsourced to the judge linked to an assignment, Dodona itself takes up the responsibility for rendering the feedback.
 This frees judge developers from putting effort in feedback rendering and gives a coherent look-and-feel even for students that solve programming assignments assessed by different judges.
@@ -607,14 +606,59 @@ Students typically report this as one of the most useful features of Dodona.
 #+NAME: fig:whatfeedback
 [[./images/whatfeedback.png]]
 
-** Content management
+** Judges
 :PROPERTIES:
-:CREATED: [2023-10-24 Tue 10:47]
-:CUSTOM_ID: subsec:whatcontent
+:CREATED:  [2024-02-20 Tue 15:28]
+:CUSTOM_ID: subsec:whatjudges
+:END:
+
+The range of approaches, techniques and tools for software testing that may underpin assessing the quality of software under test is incredibly diverse.
+Static testing directly analyses the syntax, structure and data flow of source code, whereas dynamic testing involves running the code with a given set of test cases\nbsp{}[cite:@oberkampfVerificationValidationScientific2010; @grahamFoundationsSoftwareTesting2021].
+Black-box testing uses test cases that examine functionality exposed to end-users without looking at the actual source code, whereas white-box testing hooks test cases onto the internal structure of the code to test specific paths within a single unit, between units during integration, or between subsystems\nbsp{}[cite:@nidhraBlackBoxWhite2012].
+So, broadly speaking, there are three levels of white-box testing: unit testing, integration testing and system testing\nbsp{}[cite:@wiegersCreatingSoftwareEngineering1996; @dooleySoftwareDevelopmentProfessional2011].
+Source code submitted by students can therefore be verified and validated against a multitude of criteria: functional completeness and correctness, architectural design, usability, performance and scalability in terms of speed, concurrency and memory footprint, security, readability (programming style), maintainability (test quality) and reliability\nbsp{}[cite:@staubitzPracticalProgrammingExercises2015].
+This is also reflected by the fact that a diverse range of metrics for measuring software quality have come forward, such as cohesion/coupling\nbsp{}[cite:@yourdonStructuredDesignFundamentals1979; @stevensStructuredDesign1999], cyclomatic complexity\nbsp{}[cite:@mccabeComplexityMeasure1976] or test coverage\nbsp{}[cite:@millerSystematicMistakeAnalysis1963].
+
+To cope with such a diversity in software testing alternatives, Dodona is centred around a generic infrastructure for *programming assignments that support automated assessment*.
+Assessment of a student submission for an assignment comprises three loosely coupled components: containers, judges and assignment-specific assessment configurations.
+Judges have a default Docker image that is used if the configuration of a programming assignment does not specify one explicitly.
+Dodona builds the available images from Dockerfiles specified in a separate git repository.
+More information on this underlying mechanism can be found in Chapter\nbsp{}[[#chap:technical]].
+An overview of the existing judges and the corresponding number of exercises and submissions in Dodona can be found in Table\nbsp{}[[tab:whatoverviewjudges]].
+
+#+CAPTION: Overview of the judges in Dodona, together with the corresponding number of exercises and submissions in Dodona.
+#+CAPTION: The TESTed judge is a special case in that it supports multiple programming languages.
+#+CAPTION: More information on it can be found in Section\nbsp{}[[#sec:techtested]].
+#+CAPTION: The number of exercises and submissions for the JavaScript judge is undercounted: most of its exercises were converted to TESTed exercises, which also moved the submissions to those exercises to TESTed.
+#+NAME: tab:whatoverviewjudges
+| Judge      |   # exercises |              # submissions |
+|------------+---------------+----------------------------|
+| <l>        |           <r> |                        <r> |
+| Bash       |           289 |            675\thinsp{}902 |
+| C          |            77 |             31\thinsp{}822 |
+| C#         |           256 |             44\thinsp{}294 |
+| Compilers  |             3 |                         38 |
+| HTML       |           187 |             24\thinsp{}947 |
+| Haskell    |            76 |             76\thinsp{}556 |
+| Java 8     |            93 |             90\thinsp{}084 |
+| Java 21    |           450 |            730\thinsp{}383 |
+| JavaScript |            36 |                         68 |
+| Markdown   |            14 |                        354 |
+| Prolog     |            54 |             37\thinsp{}609 |
+| Python     | 8\thinsp{}481 | 13\thinsp{}798\thinsp{}051 |
+| R          | 1\thinsp{}293 |            958\thinsp{}069 |
+| SQL        |           298 |            114\thinsp{}725 |
+| Scheme     |           277 |            125\thinsp{}138 |
+| TESTed     | 1\thinsp{}139 |            333\thinsp{}507 |
+| Turtle     |            17 |                        446 |
+
+** Repositories
+:PROPERTIES:
+:CREATED:  [2024-02-20 Tue 15:20]
 :END:
 
 Where courses are created and managed in Dodona itself, other content is managed in external git *repositories* (Figure\nbsp{}[[fig:whatrepositories]]).
-In this distributed content management model, a repository either contains a single judge or a collection of learning activities: reading activities and/or programming assignments.
+In this distributed content management model, a repository either contains a single judge or a collection of learning activities.
 Setting up a *webhook* for the repository guarantees that any changes pushed to its default branch are automatically and immediately synchronized with Dodona.
 This even works without the need to make repositories public, as they may contain information that should not be disclosed such as programming assignments that are under construction, contain model solutions, or will be used during tests or exams.
 Instead, a *Dodona service account* must be granted push/pull access to the repository.
@@ -630,20 +674,7 @@ After all, access to a repository is completely independent of access to its lea
 The latter is part of the configuration of learning activities, with the option to either share learning activities so that all teachers can include them in their courses or to restrict inclusion of learning activities to courses that are explicitly granted access.
 Dodona automatically stores metadata about all learning activities such as content type, natural language, programming language and repository to increase their findability in our large collection.
 Learning activities may also be tagged with additional labels as part of their configuration.
-
 Any repository containing learning activities must have a predefined directory structure[fn:: https://docs.dodona.be/en/references/exercise-directory-structure/].
-Directories that contain a learning activity also have their own internal directory structure that includes a *description* in HTML or Markdown.
-Descriptions may reference data files and multimedia content included in the repository, and such content can be shared across all learning activities in the repository.
-Embedded images are automatically encapsulated in a responsive lightbox to improve readability.
-Mathematical formulas in descriptions are supported through MathJax\nbsp{}[cite:@cervoneMathJaxPlatformMathematics2012].
-
-While reading activities only consist of descriptions, programming assignments need an additional *assessment configuration* that sets a programming language and a judge.
-The configuration may also set a Docker image, a time limit, a memory limit and grant Internet access to the container that is instantiated from the image, but these settings have proper default values.
-Judges, for example, have a default image that is used if the configuration of a programming assignment does not specify one explicitly.
-Dodona builds the available images from Dockerfiles specified in a separate git repository.
-The configuration might also provide additional *assessment resources*: files made accessible to the judge during assessment.
-The specification of how these resources must be structured and how they are used during assessment is completely up to the judge developers.
-Finally, the configuration might also contain *boilerplate code*: a skeleton students can use to start the implementation that is provided in the code editor along with the description.
 
 ** Internationalization and localization
 :PROPERTIES:
