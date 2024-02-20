@@ -375,6 +375,13 @@ Perhaps the most famous example of the first web-based platforms is Web-CAT\nbsp
 In addition to being one of the first web-based automated assessment platforms, it also asked the students to write their own tests.
 The coverage that these tests achieved was part of the testing done by the platform.
 Tests are written using standard unit testing frameworks\nbsp{}[cite:@edwardsExperiencesUsingTestdriven2007].
+An example of Web-CAT's submission screen can be seen in Figure\nbsp{}[[fig:introductionwebcatsubmission]].
+
+
+#+CAPTION: Example of Web-CAT's submission screen for students.
+#+CAPTION: Image taken from\nbsp{}[cite/t:@edwardsWebCATWebbasedCenter2006].
+#+NAME: fig:introductionwebcatsubmission
+[[./images/introductionwebcatsubmission.png]]
 
 This is also the time when we first start to see mentions of plagiarism and plagiarism detection in the context of automated assessment, presumably because the internet made plagiarizing a lot easier.
 In one case at MIT over 30% of students were found to be plagiarizing\nbsp{}[cite:@wagner2000plagiarism].
