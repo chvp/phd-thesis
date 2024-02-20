@@ -248,6 +248,7 @@ Ever since programming has been taught, its teachers have sought to automate and
 Due to the ever-increasing digitalization of society, programming is also being taught to ever more and ever larger groups, and these groups often include students for whom programming is not necessarily their main subject.
 This has led to the development of myriad automated assessment tools\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005], of which we give a historical overview in this introduction.
 We also discuss learning analytics and educational data mining, and how these techniques can help us to cope with the growing class sizes.
+We then give an overview of programming education in Flanders, including recent societal changes around this topic.
 Finally, we give a brief overview of the remaining chapters of this dissertation.
 
 ** Automated assessment in programming education
@@ -452,6 +453,11 @@ Their study uses data from a blended learning environment, where students can se
 Here, the primary target audience is the student.
 Although the related actions are not yet in scope of the study, the primary goal is to develop such an early warning system.
 Again, a number of machine learning techniques are compared, to determine which one gives the best results.
+
+** Programming education in Flanders
+:PROPERTIES:
+:CREATED:  [2024-02-20 Tue 17:16]
+:END:
 
 ** Structure of this dissertation
 :PROPERTIES:
