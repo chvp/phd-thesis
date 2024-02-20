@@ -466,7 +466,7 @@ Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by p
 Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
 This includes a discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
 
-Chapter\nbsp{}[[#chap:passfail]] talks about an education data mining study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
+Chapter\nbsp{}[[#chap:passfail]] discusses an educational data mining study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
 It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their educational context, with data from their educational platform.
 
 In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
@@ -700,7 +700,7 @@ Such *code reviews* will be used as a building block for manual assessment.
 :END:
 
 Teachers can create an *evaluation* for a series to manually assess student submissions for its programming assignments after a specific period, typically following the deadline of some homework, an intermediate test or a final exam.
-An example of an evaluation overview can be seen on Figure\nbsp{}[[fig:whatevaluationoverview]]
+An example of an evaluation overview can be seen on Figure\nbsp{}[[fig:whatevaluationoverview]].
 The evaluation embodies all programming assignments in the series and a group of students that submitted solutions for these assignments.
 Because a student may have submitted multiple solutions for the same assignment, the last submission before a given deadline is automatically selected for each student and each assignment in the evaluation.
 This automatic selection can be manually overruled afterwards.
