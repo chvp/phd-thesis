@@ -479,7 +479,7 @@ We then finish the chapter with some recent work on a machine learning method we
 
 Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on the current status of Dodona, the research related to it, and Dodona's challenges for the future.
 
-* What is Dodona?
+* A closer look at Dodona
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:47]
 :CUSTOM_ID: chap:what
@@ -1113,7 +1113,7 @@ This can already be done after a few weeks into the course, so remedial actions 
 The approach is privacy-friendly as we only need to process metadata on student submissions for programming assignments and results from automated and manual assessment extracted from Dodona.
 Given that cohort sizes are large enough, historical data from a single course edition are already enough to make accurate predictions.
 
-* Technical description
+* Under the hood: technical architecture and design
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:49]
 :CUSTOM_ID: chap:technical
@@ -2468,7 +2468,7 @@ Having this new framework at hand immediately raises some follow-up research que
   How could interpretations of important behavioural features be translated into learning analytics that give teachers more insight into how students learn to code?
 - Can we combine student progress (what programming skills does a student already have and at what level of mastery), student preferences (which skills does a student want to improve on), and intrinsic properties of programming exercises (what skills are needed to solve an exercise and how difficult is it) into dynamic learning paths that recommend exercises to optimize the learning effect for individual students?
 
-* Manual feedback
+* Automating manual feedback
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:51]
 :CUSTOM_ID: chap:feedback
