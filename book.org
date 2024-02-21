@@ -459,6 +459,36 @@ Again, a number of machine learning techniques are compared, to determine which 
 :CREATED:  [2024-02-20 Tue 17:16]
 :END:
 
+In Flanders, programming is taught in lots of ways, and at many levels.
+This includes secondary and higher education, but it is also something children can do in their free time, as a hobby.
+There are also trainings for the workforce, but these are not the focus of this dissertation.
+
+Programming education as a hobby for children is provided by organizations such as CoderDojo[fn:: https://coderdojobelgium.be/nl (in Dutch)] and CodeFever[fn:: https://www.codefever.be/nl (in Dutch)].
+CoderDojo is a non-profit organization that relies on volunteers to organize free sessions for children from 7 up to 18 years old.
+They use tools like Scratch\nbsp{}[cite:@maloneyScratchProgrammingLanguage2010], AppInventor\nbsp{}[cite:@patton2019app], and Code.org[fn:: https://code.org/] to teach children the basics of programming in a fun, gamified way.
+CodeFever is also a non-profit organization, but does ask for registration fees for enrolling in one of their courses.
+They focus on children aged 8 to 15, and primarily use Scratch to teach programming concepts.
+
+In secondary education, things changed in recent history.
+Before 2021, education related to computing was very much up to the individual school and teacher.
+While there were some schools where programming was taught, this was mostly a rare occurrence.
+In 2021, however, the Flemish parliament approved a new set of educational goals.
+In these educational goals, there was an explicit focus on digital competence, where for a number of educational programs, this explicitly included programming.
+Not much later though, one of the umbrella organizations for schools challenged the new educational goals in Belgium's constitutional court.
+They felt that the government was overreaching in the specificity of the educational goals.[fn::
+Traditionally, the educational goals were quite loose, allowing the umbrella organizations to add their own accents to the subjects being taught.
+]
+The constitutional court agreed, after which the government went back to the drawing board, and made a lot of the goals less detailed.
+Digital competence is still a part of the new educational goals, but what that should look like is now not explicitly listed.
+In practice, a number of educational programs include programming in the curriculum, usually as part of mathematics classes.
+The programming language used is Python most of the time, but other programming languages like Java are also taught.
+
+In higher education, programming has made its way into a lot of programs.
+Almost all students studying exact sciences or engineering have at least one programming course, but outside these domains programming is also taught (e.g. as part of a statistics course).
+Here we see the greatest diversity in the programming languages that are taught.
+Python, Java, and R are the most common languages for students for whom computer science is not the main subject.
+Computer science students get a wide plethora of languages, from Python and Java to Prolog, Haskell and Scheme.
+
 ** Structure of this dissertation
 :PROPERTIES:
 :CREATED:  [2024-02-01 Thu 10:18]
@@ -488,7 +518,7 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 Dodona is an online learning environment that recognizes the importance of active learning and just-in-time feedback in courses involving programming assignments.
 Dodona was started because our own educational needs outgrew SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008], the platform we were using before.
 In the following years, Dodona grew.
-It is now used in most higher education institutions in Flanders, and a large number of secondary education institutions as well.
+It is now used in most higher education institutions in Flanders, and many secondary education institutions as well.
 In this chapter, we will give an overview of Dodona's most important features.
 
 This chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023], published in SoftwareX.
