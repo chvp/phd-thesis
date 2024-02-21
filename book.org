@@ -412,8 +412,8 @@ At this point in history, the idea of a web-based automated assessment system fo
 But still, more and more new platforms are being written.
 For a possible explanation, see Figure\nbsp{}[[fig:introductionxkcdstandards]].
 
-#+CAPTION: Comic on the proliferation of standards.
-#+CAPTION: Created by Randall Munroe, released under the CC BY-NC 2.5 licence.
+#+CAPTION: Comic on the proliferation of standards, which is also applicable to the proliferation of automated assessment platforms.
+#+CAPTION: Created by Randall Munroe, released under the CC\nbsp{}BY-NC\nbsp{}2.5 licence via https://xkcd.com/927/.
 #+NAME: fig:introductionxkcdstandards
 [[./images/introductionxkcdstandards.png]]
 
