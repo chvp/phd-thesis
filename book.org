@@ -837,18 +837,14 @@ The final exam at the end of the term evaluates all topics covered in the entire
 Students who fail the course during the first exam in January can take a resit exam in August/September that gives them a second chance to pass the exam.
 
 #+CAPTION: *Top*: Structure of the Python course that runs each academic year across a 13-week term (September--December).
-#+CAPTION: Programming assignments from the same Dodona series are stacked vertically.
 #+CAPTION: Students submit solutions for ten series with six mandatory assignments, two tests with two assignments and an exam with three assignments.
 #+CAPTION: There is also a resit exam with three assignments in August/September if they failed the first exam in January.
 #+CAPTION: *Bottom*: Heatmap from Dodona learning analytics page showing distribution per day of all 331\thinsp{}734 solutions submitted during the 2021--2022 edition of the course (442 students).
 #+CAPTION: The darker the colour, the more solutions were submitted that day.
-#+CAPTION: A light grey square means no solutions were submitted that day.
 #+CAPTION: Weekly lab sessions for different groups on Monday afternoon, Friday morning and Friday afternoon, where we can see darker squares.
 #+CAPTION: Weekly deadlines for mandatory assignments on Tuesdays at 22:00.
 #+CAPTION: Three exam sessions for different groups in January.
-#+CAPTION: Low activity in exam periods, except for days when an exam was taken.
-#+CAPTION: The course is not taught in the second term, so this low-activity period was collapsed.
-#+CAPTION: Two more exam sessions for different groups in August/September, granting an extra chance to students who failed on their exam in January.
+#+CAPTION: Two more exam sessions for different groups in August/September.
 #+NAME: fig:usefwecoursestructure
 [[./images/usefwecoursestructure.png]]
 
