@@ -197,7 +197,7 @@ It also briefly details a study we collaborated on with researchers from Jyväsk
 In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
 We then finish the chapter with some recent work on a machine learning method we developed to predict what feedback teachers will give when manually assessing student submissions.
 
-Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on the current status of Dodona, the research related to it, and Dodona's challenges for the future.
+Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on Dodona's opportunities and challenges for the future.
 
 * Nederlandstalige samenvatting
 :PROPERTIES:
@@ -232,7 +232,7 @@ Daarnaast wordt er kort een samenwerking besproken met onderzoekers van de unive
 In Hoofdstuk\nbsp{}[[#chap:feedback]] geven we eerst een overzich van hoe Dodona het manueel verbeteren in onze eigen educationele context veranderd heeft.
 We sluiten dan het hoofdstuk af met een recent door ons ontwikkelde /machine-learning/-methode om te voorspellen welke feedback lesgevers zullen geven tijden het manueel verbeteren van indieningen van studenten.
 
-We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de huidige status van Dodona, het onderzoek eraan gerelateerd en de uitdagingen waar Dodona in de toekomst voor staat.
+We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de mogelijkhen en uitdagingen waar Dodona in de toekomst voor staat.
 
 #+LATEX: \end{dutch}
 
@@ -507,7 +507,7 @@ It also briefly details a study we collaborated on with researchers from Jyväsk
 In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
 We then finish the chapter with some recent work on a machine learning method we developed to predict what feedback teachers will give when manually assessing student submissions.
 
-Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on the current status of Dodona, the research related to it, and Dodona's challenges for the future.
+Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on Dodona's opportunities and challenges for the future.
 
 * A closer look at Dodona
 :PROPERTIES:
@@ -1190,7 +1190,8 @@ And lastly, all JavaScript was rewritten to TypeScript.
 
 Another important aspect of running a public web application is its security.
 Dodona needs to operate in a challenging environment where students simultaneously submit untrusted code to be executed on its servers ("remote code execution as a service") and expect automatically generated feedback, ideally within a few seconds.
-Many design decisions are therefore aimed at maintaining and improving the reliability and security of its systems.
+Many design decisions are therefore aimed at maintaining and improving the performance, reliability, and security of its systems.
+This includes using Cloudflare as a CDN and common protections such as a Content Security Policy or Cross Site Request Forgery protection, but is also reflected in the implementation of Dodona itself, as we will explain in this section.
 
 Since Dodona grew from being used to teach mostly by people we knew personally to being used in secondary schools all over Flanders, we went from being able to fully trust exercise authors to having this trust reduced (as it is impossible for a team of our size to vet all the people we give teacher's rights in Dodona).
 This meant that our threat model and therefore the security measures we had to take also changed over the years.
@@ -1273,8 +1274,11 @@ Another form of inheritance is specifying default assessment configurations at t
 :CUSTOM_ID: subsec:techdodonatutor
 :END:
 
+The Python Tutor\nbsp{}[cite:@guoOnlinePythonTutor2013] is a debugger built in to Dodona.
+It provides timeline debugging, where for each step in the timeline, each correspondig to a line being executed, all variables on the stack are visualized.
+
 The deployment of the Python Tutor also saw a number of changes over the years.
-The Python Tutor itself is written in Python by [cite/t:@guoOnlinePythonTutor2013], so could not be part of Dodona itself.
+The Python Tutor itself is written in Python, so could not be part of Dodona itself.
 It started out as a Docker container on the same server as the main Dodona web application.
 Because it is used mainly by students who want to figure out their mistakes, the service responsible for running student code could become overwhelmed and in extreme cases even make the entire server unresponsive.
 After we identified this issue, the Python tutor was moved to its own server (Pandora in Figure\nbsp{}[[fig:technicaldodonaservers]]).
@@ -1333,6 +1337,7 @@ Backups of the database are automatically saved every day and kept for 12 months
 The backups are rotated according to a grandfather-father-son scheme\nbsp{}[cite:@jessen2010overview].
 The backups are taken by dumping a replica database.
 The replica database is used because dumping the main database write-locks it while it is being dumped, which would result in Dodona being unusable for a significant amount of time.
+The backups are regularly tested by restoring them on Naos.
 
 We also have an extensive monitoring and alerting system in place, based on Grafana[fn:: https://grafana.com/].
 This gives us some superficial analytics about Dodona usage, but can also tell us if there are problems with one of our servers.
@@ -2497,7 +2502,7 @@ Having this new framework at hand immediately raises some follow-up research que
 This chapter discusses the history of manual feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of evaluation and grading features within Dodona.
 We will then expand on some further experiments using data mining techniques we did to try to further reduce the time spent adding manual feedback.
 
-** Assessment on paper
+** Phase 0: Assessment on paper
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:04]
 :CUSTOM_ID: sec:feedbackpaper
@@ -2515,7 +2520,7 @@ Students were then allowed to check their printed solutions to make sure that th
 This however means that the end of an evaluation takes a lot of time, since printing all these papers is a slow and badly parallelizable process (not the mention the environmental impact!).
 
 It also has some important drawbacks while grading.
-Even though Dodona was not yet in use at this point, SPOJ was used to generate automated feedback on correctness.
+SPOJ (and lated Dodona) was used to generate automated feedback on correctness.
 This automated feedback was not available when assessing a student's source code on paper.
 It therefore takes either more mental energy to work out whether the student's code would behave correctly with all inputs or it takes some hassle to look up a student's automated assessment results every time.
 Another important drawback is that students have a much harder time seeing their feedback.
@@ -2527,7 +2532,7 @@ For students who performed well, it might not be worth the hassle of going to as
 But maybe more importantly, a vicious cycle started to appear: because few students look at their feedback, graders did not spend much effort in writing out clear and useful feedback.
 Code that was too complex or plain wrong usually received little more than a strikethrough, instead of an explanation on why the student's method did not work.
 
-** Adding comments via Dodona
+** Phase 1: Adding comments via Dodona
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:32]
 :CUSTOM_ID: sec:feedbackcomments
@@ -2557,7 +2562,7 @@ If anything, they reported spending more time grading.
 Another observation however is that graders gave more feedback and felt that the feedback they gave was of higher quality than before.
 In the first trial of this system, the feedback was viewed by over 80% of students within 24 hours, which is something that we had never observed when grading on paper.
 
-** Evaluations
+** Phase 2: Evaluations
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:32]
 :CUSTOM_ID: sec:feedbackevaluations
@@ -2585,7 +2590,7 @@ To address this concern, another feature was implemented in Dodona.
 We added rubrics and a user-friendly way of entering scores.
 This means that students can view the scores they received for each rubric, and can do so right next to the feedback that was added manually.
 
-** Feedback re-use
+** Phase 3: Feedback re-use
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:39]
 :CUSTOM_ID: sec:feedbackreuse
@@ -2604,7 +2609,7 @@ When they later encounter a situation where they want to give that same feedback
 While originally conceptualized mainly for the benefit of graders, students can actually benefit from this feature as well.
 Graders only need to write out a detailed and clear message once and can then re-use that message over a lot of submissions instead of writing a shorter message each time.
 
-** Feedback prediction
+** Phase 4: Feedback prediction
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:04]
 :CUSTOM_ID: sec:feedbackprediction
@@ -2965,7 +2970,7 @@ Whether a grader accepts this suggestion could then also be used as an input int
 We could also look into applying some of the techniques for source code pattern mining proposed by\nbsp{}[cite/t:@phamMiningPatternsSource2019] to make further speed improvements.
 Another important aspect that was explicitly left out of scope in this chapter is building it into a learning platform and doing user testing.
 
-* Discussion and future work
+* Looking ahead: opportunities and challenges
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:51]
 :CUSTOM_ID: chap:discussion
