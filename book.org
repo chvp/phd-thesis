@@ -805,13 +805,7 @@ In total, {{{num_users}}} students have submitted more than {{{num_submissions}}
 #+NAME: fig:useadoption2
 [[./images/useadoption2.png]]
 
-** User study
-:PROPERTIES:
-:CREATED:  [2024-01-22 Mon 18:16]
-:CUSTOM_ID: sec:usestudy
-:END:
-
-A qualitative user experience study of Dodona was performed in 2018.
+In addition to the quantitative figures above, we also performed a qualitative user experience study of Dodona in 2018.
 271 tertiary education students responded to a questionnaire that contained the following three questions:
 #+ATTR_LATEX: :environment enumerate*
 #+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{ }}, itemjoin*={{ }}]
