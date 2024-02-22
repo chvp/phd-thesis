@@ -1173,7 +1173,12 @@ In this section, we will highlight a few of these components.
 :END:
 
 The user-facing part of Dodona runs on the main web server, which also called Dodona (see Figure\nbsp{}[[fig:technicaldodonaservers]]).
-Dodona is a Ruby-on-Rails web application that follows the Rails-standard way of organizing functionality in models, views and controllers.
+Dodona is a Ruby-on-Rails web application, currently running on Ruby 3.1 and Rails 7.1.
+We use Apache 2.4.52 to proxy our requests to the actual application.
+We follow the Rails-standard way of organizing functionality in models, views and controllers
+In Rails, requests are sent to the appropriate action in the appropriate controller by the router.
+In these actions, models are queried and/or edited, after which they are used to construct the data for a response.
+This data is then rendered by the corresponding view, which can be HTML, JSON, JavaScript, or even a CSV.
 
 The way we handle complex logic in the frontend has seen a number of changes along the years.
 When Dodona was started, there were only a few places where JavaScript was used.
@@ -1341,11 +1346,16 @@ The backups are regularly tested by restoring them on Naos.
 
 We also have an extensive monitoring and alerting system in place, based on Grafana[fn:: https://grafana.com/].
 This gives us some superficial analytics about Dodona usage, but can also tell us if there are problems with one of our servers.
+See Figure\nbsp{}[[fig:technicaldashboard]] for an example of the data this dashboard gives us.
 The analytics are also calculated using the replica database to avoid putting unnecessary load on our main production database.
 The web server and worker servers also send notifications when an error occurs in their runtime.
 This is one of the main ways we discover bugs that got through our tests, since our users don't regularly report bugs themselves.
 We also get notified when there are long-running requests, since we consider our users having to wait a long time to see the page they requested a bug in itself.
 These notifications were an important driver to optimize some pages or to make certain operations asynchronous.
+
+#+CAPTION: Grafana dashboard for Dodona, giving a quick overview of important metrics.
+#+NAME: fig:technicaldashboard
+[[./images/technicaldashboard.png]]
 
 ** Papyros
 :PROPERTIES:
@@ -1353,7 +1363,7 @@ These notifications were an important driver to optimize some pages or to make c
 :CUSTOM_ID: sec:papyros
 :END:
 
-Papyros[fn:: https://github.com/dodona-edu/papyros] is a stand-alone basic online IDE we developed, primarily focused on secondary education.
+Papyros[fn:: https://github.com/dodona-edu/papyros] is a stand-alone basic online IDE we developed, primarily focused on secondary education (see Figure\nbsp{}[[fig:technicalpapyros]] for a screenshot).
 Recurring feedback we got from secondary education teachers when introducing Dodona to them was that Dodona did not have a simple way for students to run and test their code themselves.
 Testing their code in this case also means manually typing a response to an input prompt when an =input= statement is run by the interpreter.
 In the educational practice that Dodona was born out of, this was an explicit design goal.
@@ -1361,6 +1371,13 @@ We wanted to guide students to use an IDE locally instead of programming in Dodo
 This same goal is not present in secondary education.
 In that context, the challenge of programming is already big enough, without complicating things by installing a real IDE with a lot of buttons and menus that students will never use.
 Students might also be working on devices that they don't own (PCs in the school), where installing an IDE might not even be possible.
+
+#+CAPTION: User interface of Papyros.
+#+CAPTION: The editor can be seen on the left, with the output window to the right of it.
+#+CAPTION: The input window is below the output window and is currently in batch mode.
+#+CAPTION: All empty text fields have placeholder text that explains how they can be used.
+#+NAME: fig:technicalpapyros
+[[./images/technicalpapyros.png]]
 
 There are a few reasons why we could not initially offer a simple online IDE.
 Even though we can use a lot of the infrastructure very graciously offered by Ghent University, these resources are not limitless.
@@ -1449,14 +1466,6 @@ The output window is a simple read-only textarea.
 The input window is a text area that has two modes: interactive mode and batch input.
 In interactive mode, the user is expected to write the input needed by their program the moment it asks for it (similar to running their program on the command line and answering the prompts when they appear).
 In batch mode, the user can prefill all the input required by their program.
-The full user interface can be seen in Figure\nbsp{}[[fig:technicalpapyros]].
-
-#+CAPTION: User interface of Papyros.
-#+CAPTION: The editor can be seen on the left, with the output window to the right of it.
-#+CAPTION: The input window is below the output window and is currently in batch mode.
-#+CAPTION: All empty text fields have placeholder text that explains how they can be used.
-#+NAME: fig:technicalpapyros
-[[./images/technicalpapyros.png]]
 
 **** Inner workings
 :PROPERTIES:
@@ -1511,6 +1520,11 @@ For code completion this has the added benefit of also showing the documentation
 
 Usability was further improved by adding the =FriendlyTraceback= library.
 =FriendlyTraceback= is a Python library that changes error messages in Python to be clearer to beginners, by explicitly answering questions such as where and why an error occurred.
+An example of what this looks like can be seen in Figure\nbsp{}[[fig:technicalpapyrostraceback]]
+
+#+CAPTION: Papyros execution where a student tried to add a type declaration to a variable, which =FriendlyTraceback= shows a fitting error message for.
+#+NAME: fig:technicalpapyrostraceback
+[[./images/technicalpapyrostraceback.png]]
 
 ** R judge
 :PROPERTIES:
