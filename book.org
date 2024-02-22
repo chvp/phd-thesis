@@ -1348,6 +1348,7 @@ We also have an extensive monitoring and alerting system in place, based on Graf
 This gives us some superficial analytics about Dodona usage, but can also tell us if there are problems with one of our servers.
 See Figure\nbsp{}[[fig:technicaldashboard]] for an example of the data this dashboard gives us.
 The analytics are also calculated using the replica database to avoid putting unnecessary load on our main production database.
+
 The web server and worker servers also send notifications when an error occurs in their runtime.
 This is one of the main ways we discover bugs that got through our tests, since our users don't regularly report bugs themselves.
 We also get notified when there are long-running requests, since we consider our users having to wait a long time to see the page they requested a bug in itself.
@@ -3023,6 +3024,10 @@ The research from Chapter\nbsp{}[[#chap:passfail]] could also be used to help so
 If we know a student has a higher chance of failing the course, we might want to recommend some easier exercises.
 The other way around, if a student has a higher chance of passing, we could suggest harder exercises, so they can keep up their good progress in their course.
 
+The use of LLMs in Dodona could also be an opportunity.
+As mentioned in Section\nbsp{}[[#subsec:feedbackpredictionconclusion]], a possibility for using LLMs could be to generate feedback while grading.
+Another option is to integrate an LLM as an AI tutor.
+This way, it could interactively help students while they are learning.
 The final possibility we will present here is to prepare suggestions for answers to student questions on Dodona.
 At first glance, LLMs should be quite good at this.
 If we use the LLM output as a suggestion for what the teacher could answer, this should be a big time-saver.
