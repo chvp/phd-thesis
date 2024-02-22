@@ -2523,29 +2523,38 @@ Having this new framework at hand immediately raises some follow-up research que
 This chapter discusses the history of manual feedback in the programming course taught at the Faculty of Sciences at Ghent University (as described in the case study in Section\nbsp{}[[#sec:usecasestudy]]) and how it informed the development of evaluation and grading features within Dodona.
 We will then expand on some further experiments using data mining techniques we did to try to further reduce the time spent adding manual feedback.
 
-** Phase 0: Assessment on paper
+** Phase 0: Paper-based assessment
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:04]
 :CUSTOM_ID: sec:feedbackpaper
 :END:
 
-Since the academic year 2015--2016 the programming course has started taking two open-book/open-internet evaluations in addition to the regular exam.
+Since the academic year 2015--2016 the programming course has started taking two open-book/open-internet evaluations in addition to the regular exam.[fn::
+Before this, sessions were organized where students had to explain the code they submitted for an exercise.
+This was found not to be a great system, since it's far easier to explain code than to write it.
+]
 The first is a midterm and the other happens at the end of the semester (but before the exam period).
 The organization of these evaluations has been a learning process for everyone involved.
 Although the basic idea has remained the same (solve two Python programming exercises in two hours, or three in 3.5 hours for the exam), almost every aspect surrounding this basic premise has changed.
 
-To be able to give feedback, student solutions were printed at the end of the evaluation.
-At first this happened by going around with a USB stick that students had to copy their solution to, later by using a submission platform developed at Ghent University (Indianio) that had support for printing to printers in the evaluation rooms.
-Printing support in Indianio was added specifically for this course, in fact.
+To be able to give feedback, student solutions were initially printed at the end of the evaluation.
+At first this happened by giving each student a USB stick on which they could find some initial files and which they had to copy their solution to.
+Later, this was replaced by a submission platform developed at Ghent University (Indianio) that had support for printing in the evaluation rooms.
+Indianio and its printing support was developed specifically to support courses in this format.
 Students were then allowed to check their printed solutions to make sure that the correct code was graded.
-This however means that the end of an evaluation takes a lot of time, since printing all these papers is a slow and badly parallelizable process (not the mention the environmental impact!).
+This however means that the end of an evaluation takes a lot of time, since printing all these papers is a slow and badly parallelizable process (not the mention the environmental impact!).[fn::
+The assignments themselves were also printed out and given to all students, which increased the amount of paper even more.
+]
 
 It also has some important drawbacks while grading.
 SPOJ (and lated Dodona) was used to generate automated feedback on correctness.
 This automated feedback was not available when assessing a student's source code on paper.
 It therefore takes either more mental energy to work out whether the student's code would behave correctly with all inputs or it takes some hassle to look up a student's automated assessment results every time.
 Another important drawback is that students have a much harder time seeing their feedback.
-While their numerical grades were posted online or emailed to them, to see the comments graders wrote alongside their code they had to come to a hands-on session and ask the assistant there to be able to view the annotated version of their code.
+While their numerical grades were posted online or emailed to them, to see the comments graders wrote alongside their code they had to come to a hands-on session and ask the assistant there to be able to view the annotated version of their code (which could sometimes be hard to read, depending on the handwriting of the grader).[fn::
+For the second evaluation, the feedback was also scanned and emailed, since there were no more hands-on sessions.
+This was even the basis for a Dodona exercise: https://dodona.be/en/activities/235452497/.
+]
 Very few students did so.
 There are a few possible explanations for this.
 They might experience social barriers for asking feedback on an evaluation they performed poorly on.
@@ -2562,9 +2571,9 @@ Code that was too complex or plain wrong usually received little more than a str
 Seeing the amount of hassle that assessing these evaluations brought with them, we decided to build support for manual feedback and grading into Dodona.
 The first step of this was the functionality of adding comments to code.
 This work was started in the academic year 2019--2020, so the onset of the COVID-19 pandemic brought a lot of momentum to this work.
-Suddenly, the idea of printing student submissions became impossible, since the evaluations had to be taken by students in their own homes and the graders were working from home as well.
-Graders could now add comments to a student's code which would allow the student to view the feedback from their own home as well.
-An example of such a comment can be seen on Figure\nbsp{}[[fig:feedbackfirstcomment]]
+Suddenly, the idea of printing student submissions became impossible, since the evaluations had to be taken remotely by students and the graders were working from home as well.
+Graders could now add comments to a student's code, which would allow the student to view the feedback remotely as well.
+An example of such a comment can be seen on Figure\nbsp{}[[fig:feedbackfirstcomment]].
 There were still a few drawbacks to this system for assessing and grading though:
 - Knowing which submissions to grade was not always trivial.
   For most students, the existing deadline system worked, since the solution they submitted right before the deadline was the submission taken into account when grading.
@@ -2575,7 +2584,15 @@ There were still a few drawbacks to this system for assessing and grading though
 - Comment visibility could not yet be time-gated towards students.
   This meant that graders had to write their comments in a local file with some extra metadata about the assessment.
   Afterwards this local file could be processed using some home-grown scripts to automatically add all comments at (nearly) the same time.
+- Grades were added in external files, which was quite error-prone, since this involves manually looking up the correct student and entering their scores in a global spreadsheet.
+  It is also less transparent towards students.
+  While rubrics were made for every exercise that had to be graded, every grader had their preferred way of aggregating and entering these scores.
+  This means that even though the rubrics exist, students had no option of seeing the different marks they received for different rubrics.
 It is obvious that this was not a great user experience, and not something we could roll out more widely outside of Dodona developers that were also involved with teaching.
+
+#+CAPTION: The first comment ever left on Dodona as part of a grading session.
+#+NAME: fig:feedbackfirstcomment
+[[./images/feedbackfirstcomment.png]]
 
 We could already do some anecdotal analysis of this new system.
 One first observation that might seem counterintuitive is that graders did not feel like they spent less time grading.
@@ -2589,29 +2606,22 @@ In the first trial of this system, the feedback was viewed by over 80% of studen
 :CUSTOM_ID: sec:feedbackevaluations
 :END:
 
-To streamline and automate the process of grading even more, the concept of an evaluation was added to Dodona.
-Evaluations address the two drawbacks identified above:
+To streamline and automate the process of grading even more, the concept of an evaluation was added to Dodona.[fn::
+See https://docs.dodona.be/en/guides/teachers/grading/ for the actual process of creating an evaluation.
+]
+Evaluations address two of the drawbacks identified above:
 - Comments made within an evaluation are linked to this evaluation.
   They are only made visible to students once the feedback of the evaluation is released.
-- They also add an overview of the submissions that need to receive feedback.
+- Evaluations also add an overview of the submissions that need to receive feedback.
   Since the submissions are explicitly linked to the evaluation, changing the submissions for students who receive extra time is also a lot less error-prone, since it can be done before actually starting out with the assessment.
   Evaluations also have specific UI to do this, where the timestamps are shown to teachers as accurately as Dodona saves them.
 The addition of evaluations resulted in a subjective feeling of time being saved by the graders, at least in comparison with the previous system of adding comments.
-There is still one main drawback though, in the fact that student scores still had to be entered outside of Dodona.
-This is again more error-prone, since this involves manually looking up the correct student and entering their scores in a global spreadsheet.
-It is also less transparent towards students.
-While rubrics were made for every exercise that had to be graded, every grader had their preferred way of aggregating and entering these scores.
-This means that even though the rubrics exist, students had no option of seeing the different marks they received for different rubrics.
 
-#+CAPTION: The first comment ever left on Dodona as part of a grading session.
-#+NAME: fig:feedbackfirstcomment
-[[./images/feedbackfirstcomment.png]]
-
-To address this concern, another feature was implemented in Dodona.
+To address the third concern mentioned above, another feature was implemented in Dodona.
 We added rubrics and a user-friendly way of entering scores.
 This means that students can view the scores they received for each rubric, and can do so right next to the feedback that was added manually.
 
-** Phase 3: Feedback re-use
+** Phase 3: Feedback reuse
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 17:39]
 :CUSTOM_ID: sec:feedbackreuse
@@ -2624,11 +2634,12 @@ Since evaluations are done with a few exercises solved by lots of students, ther
 This leads to graders giving the same feedback a lot of times.
 In fact, most graders maintained a list of commonly given feedback in a separate program or document.
 
-We implemented the concept of feedback re-use to streamline giving commonly re-used feedback.
+We implemented the concept of feedback reuse to streamline giving commonly reused feedback.
 When giving feedback, the grader has the option to save the annotation they are currently writing.
 When they later encounter a situation where they want to give that same feedback, the only thing they have to do is write a few letters of the annotation in the saved annotation search box, and they can quickly insert the text written earlier.
 While originally conceptualized mainly for the benefit of graders, students can actually benefit from this feature as well.
-Graders only need to write out a detailed and clear message once and can then re-use that message over a lot of submissions instead of writing a shorter message each time.
+Graders only need to write out a detailed and clear message once and can then reuse that message over a lot of submissions instead of writing a shorter message each time.
+Because feedback is also added to a specific section of code, graders naturally write atomic feedback that is easier to reuse than monolothic sections of feedback\nbsp{}[cite:@moonsAtomicReusableFeedback2022].
 
 ** Phase 4: Feedback prediction
 :PROPERTIES:
@@ -2636,9 +2647,11 @@ Graders only need to write out a detailed and clear message once and can then re
 :CUSTOM_ID: sec:feedbackprediction
 :END:
 
-Given that we now have a system for re-using earlier feedback, we can ask ourselves if we can do this in a smarter way.
+Given that we now have a system for reusing earlier feedback, we can ask ourselves if we can do this in a smarter way.
 Instead of teachers having to search for the annotation they want to use, what if we could predict which annotation they want to use?
-This is exactly what we will explore in this section, which is based on an article that is currently being prepared for submission.
+This is exactly what we will explore in this section.[fn::
+This section is based on an article that is currently being prepared for submission.
+]
 
 *** Introduction
 :PROPERTIES:
@@ -2659,7 +2672,7 @@ Consequently, numerous researchers have explored the enhancement of feedback mec
 Furthermore,\nbsp{}[cite/t:@berniusMachineLearningBased2022] introduced a framework based on clustering text segments in textual exercises to reduce the grading workload.
 
 The context of our work is in our own assessment system, called Dodona, developed at Ghent University\nbsp{}[cite:@vanpetegemDodonaLearnCode2023].
-Dodona provides automated feedback on every submission, but also allows teachers to give manual feedback on student sumbmissions and assign scores to them, from within the platform.
+Dodona provides automated feedback on every submission, but also allows teachers to give manual feedback on student submissions and assign scores to them, from within the platform.
 In 2023, 3\thinsp{}663\thinsp{}749 submissions were made on our platform, of which 44\thinsp{}012 were manually assessed.
 During those assessments, 22\thinsp{}888 annotations were added.
 The process of giving feedback on a programming assignment in Dodona is very similar to a code review, where mistakes or suggestions for improvements are annotated at the relevant line(s), as can be seen on Figure\nbsp{}[[fig:feedbackintroductionreview]].
@@ -2682,8 +2695,8 @@ This is the text that can be reused by graders when adding an annotation.
 
 In this section we give an answer to the following research question: Can we, in the context of grading code written by students during an evaluation, use previously given feedback to predict what feedback a grader will give on a particular line?
 
-We present a machine learning method for suggesting re-use of previously given feedback.
-The manuscript starts with an in-depth explanation of the design of the method.
+We present a machine learning method for suggesting reuse of previously given feedback.
+We start with an in-depth explanation of the design of the method.
 We then present and discuss the experimental results we obtained when testing our method on student submissions.
 Two datasets are used to evaluate our method, based on real (Python) code written by students for exams.
 With the first dataset we predict automated PyLint messages.
@@ -2704,10 +2717,10 @@ In an educational context, these techniques could then be used to, for example, 
 Other work looked into generating unit tests from mined patterns\nbsp{}[cite:@lienard2023extracting].
 
 We start with a general overview of our method (explained visually in Figure\nbsp{}[[fig:feedbackmethodoverview]]).
-We start by using the tree-sitter library\nbsp{}[cite:@brunsfeldTreesitterTreesitterV02024] to generate ASTs for each submission.
+The first step is using the tree-sitter library\nbsp{}[cite:@brunsfeldTreesitterTreesitterV02024] to generate ASTs for each submission.
 For every annotation, a constrained AST context surrounding the annotated line is extracted.
 Subsequently, we then aggregate all the subtrees for each occurrence of a message.
-Every message's collection of subtrees is processed by the =TreeminerD= algorithm, yielding a set of frequently occuring patterns specific for that message.
+Every message's collection of subtrees is processed by the =TreeminerD= algorithm\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005], yielding a set of frequently occuring patterns specific for that message.
 We assign weights to these patterns based on their length and their frequency across the entire dataset of patterns for all messages.
 The result of these operations is our trained model.
 
@@ -2721,7 +2734,7 @@ A detailed explanation of this process follows, with a particular emphasis on op
 Speed is a paramount concern throughout the model's lifecycle, from training to deployment in real-time grading contexts.
 Given the continuous generation of training data during the grading process, the model's training duration must be optimized to prevent significant delays, ensuring that the model remains practical for live grading situations.
 
-#+CAPTION: Overview of our machine learning method for predicting feedback re-use.
+#+CAPTION: Overview of our machine learning method for predicting feedback reuse.
 #+CAPTION: Code is converted to its Abstract Syntax Tree form.
 #+CAPTION: Annotations for the same message have been given the same colour.
 #+CAPTION: Per message, the context of each annotation is extracted and mined for patterns using the =TreeminerD= algorithm.
@@ -2755,7 +2768,7 @@ for digit in number:
 #+NAME: fig:feedbacksubtree
 [[./diagrams/feedbacksubtree.svg]]
 
-**** =TreeminerD=
+**** =TreeminerD= algorithm
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:33]
 :CUSTOM_ID: subsubsec:feedbackpredictiontreeminer
@@ -2815,7 +2828,7 @@ The full pseudocode for this algorithm can be seen in Listing\nbsp{}[[lst:feedba
 
 #+ATTR_LATEX: :float t
 #+CAPTION: Pseudocode for checking whether a pattern matches a subtree.
-#+CAPTION: Note that both pattern and subtree are stored in the encoding described by\nbsp{}[cite/t:@zakiEfficientlyMiningFrequent2005].
+#+CAPTION: Note that both the pattern and the subtree are stored in the encoding described by\nbsp{}[cite/t:@zakiEfficientlyMiningFrequent2005].
 #+NAME: lst:feedbackmatchingpseudocode
 #+BEGIN_SRC python
 subtree_matches(subtree, pattern):
@@ -2845,7 +2858,7 @@ subtree_matches(subtree, pattern):
     return False
 #+END_SRC
 
-Checking whether a pattern matches a subtree is an operation that needs to happen a lot of times.
+Checking whether a pattern matches a subtree is an operation that needs to happen a lot.
 For some messages, there are many patterns, and all patterns of all messages are checked.
 One important optimization we added was therefore to only execute the algorithm in Listing\nbsp{}[[lst:feedbackmatchingpseudocode]] if the set of labels in the pattern is a subset of the labels in the subtree.
 
@@ -2866,7 +2879,7 @@ The messages are sorted using this score.
 :END:
 
 We used two datasets to evaluate our method.
-Both are based on real (Python) code written by students for (different) exams.
+Both are based on real (Python) code written by students during multiple exams.
 To test our method, we split the datasets in half and used the first half to train and the second half to test.
 During the test phase, we iterate over the places where annotations were added in the source data.
 These are the lines we give to our model.
@@ -2883,7 +2896,7 @@ Most linting messages are detected through explicit pattern matching in the AST,
 Real-world data is more difficult, since graders are humans, and might miss an issue in one student's code that they annotated in another student's code, or they might not place the annotation for a certain message in a consistent location.
 The method by which graders place an annotation is also a lot more implicit than PyLint's pattern matching.
 
-**** PyLint
+**** Machine annotations (PyLint)
 :PROPERTIES:
 :CUSTOM_ID: subsubsec:feedbackpredictionresultspylint
 :CREATED: [2023-11-20 Mon 13:33]
@@ -2901,11 +2914,11 @@ For about 30% of the annotations, the message is even ranked first.
 
 In Figure\nbsp{}[[fig:feedbackpredictionpylintmessages]], we have highlighted some messages, some of which perform very well, and some of which perform worse.
 The differences in performance can be explained through the content of the message and the underlying patterns sought by PyLint.
-For example, the message "too many branches" performs rather poorly.
+For example, the message "too many branches"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/too-many-branches.html] performs rather poorly.
 This can be explained through the fact that we prune too much context for the pattern that PyLint used to be picked up by =TreeminerD=.
 There are also annotations that can not be predicted at all, because no patterns are found.
 
-Other messages, like "consider using with", perform very well.
+Other messages, like "consider using with"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/consider-using-with.html], perform very well.
 For these messages, =TreeminerD= does have enough context to pick up the underlying patterns.
 The amount of times the message occurs in the training set also has an impact.
 Messages which only have a few annotations are generally predicted worse than those with a lot of annotations.
@@ -2915,7 +2928,7 @@ Messages which only have a few annotations are generally predicted worse than th
 #+NAME: fig:feedbackpredictionpylintmessages
 [[./images/feedbackpredictionpylintmessages.png]]
 
-**** Real-world data
+**** Human annotations
 :PROPERTIES:
 :CREATED: [2023-11-20 Mon 13:33]
 :CUSTOM_ID: subsubsec:feedbackpredictionresultsrealworld
@@ -2968,8 +2981,8 @@ These figures show that while some build-up is required, once a critical mass of
 :CUSTOM_ID: subsec:feedbackpredictionconclusion
 :END:
 
-We presented a prediction method to help when giving feedback during grading by re-using messages.
-Improving re-use of messages can be both a time-saver, and improve consistency with which feedback is given.
+We presented a prediction method to help when giving feedback during grading by reusing messages.
+Improving reuse of messages can be both a time-saver, and improve consistency with which feedback is given.
 
 The framework already has promising results.
 We validated the framework by predicting both automated linting messages to establish a baseline and by using real-world data.
@@ -2997,12 +3010,12 @@ Another important aspect that was explicitly left out of scope in this chapter i
 :CUSTOM_ID: chap:discussion
 :END:
 
-It's safe to say that Dodona is a successful automated assessment platform.
-{{{num_users}}} users is quite a lot, and the fact that it is being actively used in every university in Flanders, a number of colleges, and a lot of secondary schools is a feat that not many other platforms like it have achieved.
+It feels safe to say that Dodona is a successful automated assessment platform.
+{{{num_users}}} users is quite a lot, and the fact that it is being actively used in every university in Flanders, a number of colleges, and a lot of secondary schools is a feat that not many other similar platforms have achieved.
 
 As we have tried to show in this dissertation, its development has also led to interesting opportunities for new research.
 Dodona generates a lot of data by being used, and we have shown that educational data mining can be used on this data.
-It can even be used to develop new educational data mining techniques.
+It can even be used to develop new educational data mining techniques that are applicable elsewhere.
 The work is, however, never finished.
 There are still possibilities for interesting computer science and educational research.
 
@@ -3013,7 +3026,7 @@ There are still possibilities for interesting computer science and educational r
 
 A big question, left open in this work, is what to do with the results we obtained in Chapter\nbsp{}[[#chap:passfail]].
 Teachers can use the results to figure out which aspects of their course students are struggling with, and take general measures to deal with this.
-But should we, and if so, /how/ should we communicate predictions to individual students?
+But should we, and if so, /how/ should we communicate predictions to individual students, or what other interventions with students should we take?
 
 Chapter\nbsp{}[[#chap:feedback]] also suggests a number of improvements that could still be worked on.
 It gives us a framework for suggesting the feedback a teacher probably wants to give when selecting a line, but we could also try to come up with a confidence score and use that to suggest feedback before the teacher has even done that.
@@ -3067,7 +3080,7 @@ This has some troubling implications for Dodona.
 Students using ChatGPT or GitHub Copilot when solving their exercises, might not learn as much as students who do the work fully on their own (just like students who plagiarize have a lower chance of passing their courses, as seen in Chapter\nbsp{}[[#chap:passfail]]).
 Another aspect is the fairness and integrity of evaluations using Dodona.
 The case study in Chapter\nbsp{}[[#chap:use]] details the use of open-book/open-internet evaluations.
-If students can use generative AI during these evaluations, and knowing that LLMs can solve most exercises on Dodona, these evaluations will test the students' abilities less and less, if students can use LLMs.
+If students can use generative AI during these evaluations (either locally or via a webservice), and knowing that LLMs can solve most exercises on Dodona, these evaluations will test the students' abilities less and less, if students can use LLMs.
 The way to solve these issues is not clear.
 It seems like LLMs are here to stay, and just like the calculator is a commonplace tool these days, the same could be true for LLMs in the future.
 Instead of banning the use of LLMs, teachers could integrate the use of them in their courses.
