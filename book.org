@@ -182,6 +182,7 @@ One of those platforms is Dodona[fn:: https://dodona.be], which is the platform 
 Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{},\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona itself.
 In Chapter\nbsp{}[[#chap:what]] we give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
 Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform, and an extensive case study on how Dodona's features are used to optimize teaching.
+This case study also provides insight into the educational context for the research described in Chapters\nbsp{}[[#chap:passfail]]\nbsp{}and\nbsp{}[[#chap:feedback]].
 Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspects of developing Dodona and its related ecosystem of software tools.
 This includes a discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
 
@@ -498,6 +499,7 @@ Computer science students get a wide plethora of languages, from Python and Java
 Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]],\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona[fn:: https://dodona.be/] itself.
 In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
 Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform, and an extensive case study on how Dodona's features are used to optimize teaching.
+This case study also provides insight into the educational context for the research described in Chapters\nbsp{}[[#chap:passfail]]\nbsp{}and\nbsp{}[[#chap:feedback]].
 Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
 This includes a discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
 
@@ -811,6 +813,7 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 This chapter discusses the use of Dodona.
 We start by mentioning some facts and figures, and discussing a user study we performed.
 We then explain how Dodona can be used on the basis of a case study.
+This case study also provides insight into the educational context for the research described in Chapters\nbsp{}[[#chap:passfail]]\nbsp{}and\nbsp{}[[#chap:feedback]].
 The chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023], published in SoftwareX.
 
 ** Facts and figures
@@ -849,7 +852,7 @@ Other negative feedback was mostly related to individual courses the students we
 ** Case study
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 08:48]
-:CUSTOM_ID: subsec:usecasestudy
+:CUSTOM_ID: sec:usecasestudy
 :END:
 
 Since the academic year 2011--2012 we have organized an introductory Python course at Ghent University (Belgium) with a strong focus on active and online learning.
@@ -859,7 +862,7 @@ The course is taken by a mix of undergraduate, graduate, and postgraduate studen
 *** Course structure
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 11:47]
-:CUSTOM_ID: subsubsec:usecourse
+:CUSTOM_ID: subsec:usecourse
 :END:
 
 Each course edition has a fixed structure, with 13 weeks of educational activities subdivided in two successive instructional units that each cover five topics of the Python programming language -- one topic per week -- followed by a graded test about all topics covered in the unit (Figure\nbsp{}[[fig:usefwecoursestructure]]).
@@ -892,7 +895,7 @@ Submissions for these additional exercises are not taken into account in the fin
 *** Assessment, feedback and grading
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 11:47]
-:CUSTOM_ID: subsubsec:useassessment
+:CUSTOM_ID: subsec:useassessment
 :END:
 
 We use the online learning environment Dodona to promote active learning through problem-solving\nbsp{}[cite:@princeDoesActiveLearning2004].
@@ -948,7 +951,7 @@ In our experience, most students traditionally perform much better on mandatory 
 *** Open and collaborative learning environment
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 11:59]
-:CUSTOM_ID: subsubsec:useopen
+:CUSTOM_ID: subsec:useopen
 :END:
 
 We strongly believe that effective collaboration among small groups of students is beneficial for learning\nbsp{}[cite:@princeDoesActiveLearning2004], and encourage students to collaborate and ask questions to tutors and other students during and outside lab sessions.
@@ -1012,7 +1015,7 @@ If we catalogue cases as plagiarism beyond reasonable doubt, the examination boa
 *** Workload for running a course edition
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 13:46]
-:CUSTOM_ID: subsubsec:useworkload
+:CUSTOM_ID: subsec:useworkload
 :END:
 
 To organize "open book/open Internet" tests and exams that are valid and reliable, we always create new assignments and avoid assignments whose solutions or parts thereof are readily available online.
@@ -1079,7 +1082,7 @@ We have drastically cut the time we initially spent on mandatory assignments by 
 *** Learning analytics and educational data mining
 :PROPERTIES:
 :CREATED: [2023-10-24 Tue 14:04]
-:CUSTOM_ID: subsubsec:uselearninganalytics
+:CUSTOM_ID: subsec:uselearninganalytics
 :END:
 
 A longitudinal analysis of student submissions across the term shows that most learning happens during the 13 weeks of educational activities and that students don't have to catch up practising their programming skills during the exam period (Figure\nbsp{}[[fig:usefwecoursestructure]]).
@@ -1920,6 +1923,7 @@ The DSL version of the example exercise can be seen in Listing\nbsp{}[[lst:techn
 :CUSTOM_ID: chap:passfail
 :END:
 
+We now shift to the chapters where we make use of the data provided by Dodona to perform educational data mining research.
 This chapter is based on\nbsp{}[cite/t:@vanpetegemPassFailPrediction2022], published in the Journal of Educational Computing Research, and also briefly discusses the work performed in\nbsp{}[cite/t:@zhidkikhReproducingPredictiveLearning2024], published in the Journal of Learning Analytics.
 
 ** Introduction
@@ -2006,7 +2010,9 @@ The results are discussed from a methodological and educational perspective with
 :CUSTOM_ID: subsec:passfailstructures
 :END:
 
-This study uses data from two introductory programming courses (referenced as course A and course B) collected during 3 editions of each course in academic years 2016--2017, 2017--2018 and 2018--2019.
+This study uses data from two introductory programming courses, referenced as course A and course B, collected during 3 editions of each course in academic years 2016--2017, 2017--2018, and 2018--2019.
+Course A is the course described in Section\nbsp{}[[#sec:usecasestudy]].
+Course B is the introductory programming course taught at the Faculty of Engineering at Ghent University.
 Both courses run once per academic year across a 12-week semester (September--December).
 They have separate lecturers and teaching assistants, and are taken by students of different faculties.
 The courses have their own structure, but each edition of a course follows the same structure.
@@ -2514,7 +2520,7 @@ Having this new framework at hand immediately raises some follow-up research que
 :CUSTOM_ID: chap:feedback
 :END:
 
-This chapter discusses the history of manual feedback in the programming course taught at the faculty of Sciences at Ghent University and how it informed the development of evaluation and grading features within Dodona.
+This chapter discusses the history of manual feedback in the programming course taught at the Faculty of Sciences at Ghent University (as described in the case study in Section\nbsp{}[[#sec:usecasestudy]]) and how it informed the development of evaluation and grading features within Dodona.
 We will then expand on some further experiments using data mining techniques we did to try to further reduce the time spent adding manual feedback.
 
 ** Phase 0: Assessment on paper
