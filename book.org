@@ -1162,10 +1162,11 @@ In this section, we will highlight a few of these components.
 
 #+CAPTION: Diagram of all the servers involved with running and developing Dodona.
 #+CAPTION: The role of each server in the deployment is listed below its name.
+#+CAPTION: Worker servers are marked in blue, development servers are marked in red.
 #+CAPTION: Servers are connected if they communicate.
 #+CAPTION: The direction of the connection signifies which server initiates the connection.
 #+CAPTION: Every server also has an implicit connection with Phocus (the monitoring server), since metrics such as load, CPU usage, disk usage, etc. are collected and sent to Phocus on every server.
-#+CAPTION: The Pandora server is greyed out because it is not used anymore (see Section\nbsp{}[[#subsec:techdodonatutor]] for more info).
+#+CAPTION: The Pandora server is greyed out because it is not used any more (see Section\nbsp{}[[#subsec:techdodonatutor]] for more info).
 #+NAME: fig:technicaldodonaservers
 [[./diagrams/technicaldodonaservers.svg]]
 
