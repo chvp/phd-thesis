@@ -1907,15 +1907,15 @@ The DSL version of the example exercise can be seen in Listing\nbsp{}[[lst:techn
       - testcases:
           - statement: "numbers01 = [0, 1, 2, 3, 4]"
           - expression: "rotate(numbers01, 2)"
-            return: "[3, 4, 0, 1, 2]"
+            return: [3, 4, 0, 1, 2]
           - expression: "rotate(numbers01, 1)"
-            return: "[4, 0, 1, 2, 3]"
+            return: [4, 0, 1, 2, 3]
       - testcases:
           - statement: "numbers02 = [0, 1, 2, 3, 4, 5]"
           - expression: "rotate(numbers02, 2)"
-            return: "[4, 5, 0, 1, 2, 3]"
+            return: [4, 5, 0, 1, 2, 3]
           - expression: "rotate(numbers02, 1)"
-            return: "[5, 0, 1, 2, 3, 4]"
+            return: [5, 0, 1, 2, 3, 4]
 #+END_SRC
 
 * Pass/fail prediction in programming courses
@@ -1970,7 +1970,7 @@ While this procedure does not rely on external background information, it has th
 Students can't work in their preferred programming environment and have to agree with extensive behaviour tracking.
 
 Approaches that are not using machine learning also exist.
-[cite/t:@feldmanAnsweringAmRight2019] try to answer the question "Am I on the right track?" on the level of individual exercises, by checking if the student's current progress can be used as a base to synthesise a correct program.
+[cite/t:@feldmanAnsweringAmRight2019] try to answer the question "Am I on the right track?" on the level of individual exercises, by checking if the student's current progress can be used as a base to synthesize a correct program.
 However, there is no clear way to transform this type of approach into an estimation of success on examinations.
 [cite/t:@werthPredictingStudentPerformance1986] found significant (\(p < 0.05\)) correlations between students' college grades, the number of hours worked, the number of high school mathematics classes and the students' grades for an introductory programming course.
 [cite/t:@gooldFactorsAffectingPerformance2000] also looked at learning style (surveyed using LSI2) as a factor in addition to demographics, academic ability, problem-solving ability and indicators of personal motivation.
