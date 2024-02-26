@@ -2638,6 +2638,12 @@ In fact, most graders maintained a list of commonly given feedback in a separate
 We implemented the concept of feedback reuse to streamline giving commonly reused feedback.
 When giving feedback, the grader has the option to save the annotation they are currently writing.
 When they later encounter a situation where they want to give that same feedback, the only thing they have to do is write a few letters of the annotation in the saved annotation search box, and they can quickly insert the text written earlier.
+An example of this can be seen in Figure\nbsp{}[[fig:feedbackreusesaved]].
+
+#+CAPTION: An example of searching for a previously saved annotation.
+#+NAME: fig:feedbackreusesaved
+[[./images/feedbackreusesaved.png]]
+
 While originally conceptualized mainly for the benefit of graders, students can actually benefit from this feature as well.
 Graders only need to write out a detailed and clear message once and can then reuse that message over a lot of submissions instead of writing a shorter message each time.
 Because feedback is also added to a specific section of code, graders naturally write atomic feedback that is easier to reuse than monolothic sections of feedback\nbsp{}[cite:@moonsAtomicReusableFeedback2022].
