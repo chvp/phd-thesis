@@ -3011,7 +3011,7 @@ Another important aspect that was explicitly left out of scope in this chapter i
 :CUSTOM_ID: chap:discussion
 :END:
 
-It feels safe to say that Dodona is a successful automated assessment platform.
+It feels safe to say that Dodona is a successful automated assessment platform with a big societal impact.
 {{{num_users}}} users is quite a lot, and the fact that it is being actively used in every university in Flanders, a number of colleges, and a lot of secondary schools is a feat that not many other similar platforms have achieved.
 
 As we have tried to show in this dissertation, its development has also led to interesting opportunities for new research.
