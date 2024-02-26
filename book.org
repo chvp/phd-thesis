@@ -881,12 +881,11 @@ Students who fail the course during the first exam in January can take a resit e
 #+NAME: fig:usefwecoursestructure
 [[./images/usefwecoursestructure.png]]
 
-Each week in which a new programming topic is covered, students must try to solve six programming assignments on that topic before a deadline one week later.
-That results in 60 mandatory assignments across the semester.
-Following the flipped classroom strategy\nbsp{}[cite:@bishopFlippedClassroomSurvey2013; @akcayirFlippedClassroomReview2018], students prepare themselves to achieve this goal by reading the textbook chapters covering the topic.
+In the regular weeks, when a new programming topic is covered, students prepare themselves by reading the textbook chapters covering the topic, following the flipped classroom approach\nbsp{}[cite:@bishopFlippedClassroomSurvey2013; @akcayirFlippedClassroomReview2018].
 Lectures are interactive programming sessions that aim at bridging the initial gap between theory and practice, advancing concepts, and engaging in collaborative learning\nbsp{}[cite:@tuckerFlippedClassroom2012].
 Along the same lines, the first assignment for each topic is an ISBN-themed programming challenge whose model solution is shared with the students, together with an instructional video that works step-by-step towards the model solution.
-As soon as students feel they have enough understanding of the topic, they can start working on the five remaining mandatory assignments.
+Students must then try to solve five other programming assignments on that topic before a deadline one week later.
+That results in 60 mandatory assignments across the semester.
 Students can work on their programming assignments during weekly computer labs, where they can collaborate in small groups and ask help from teaching assistants.
 They can also work on their assignments and submit solutions outside lab sessions.
 In addition to the mandatory assignments, students can further elaborate on their programming skills by tackling additional programming exercises they select from a pool of over 900 exercises linked to the ten programming topics.
@@ -898,19 +897,19 @@ Submissions for these additional exercises are not taken into account in the fin
 :CUSTOM_ID: subsec:useassessment
 :END:
 
-We use the online learning environment Dodona to promote active learning through problem-solving\nbsp{}[cite:@princeDoesActiveLearning2004].
-Each course edition has its own dedicated course in Dodona, with a learning path containing all mandatory, test and exam assignments, grouped into series with corresponding deadlines.
+We use Dodona to promote active learning through problem-solving\nbsp{}[cite:@princeDoesActiveLearning2004].
+Each course edition has its own dedicated course in Dodona, with a learning path containing all mandatory, test, and exam assignments grouped into series with corresponding deadlines.
 Mandatory assignments for the first unit are published at the start of the semester, and those for the second unit after the test of the first unit.
 For each test and exam we organize multiple sessions for different groups of students.
 Assignments for test and exam sessions are provided in a hidden series that is only accessible for students participating in the session using a shared token link.
 The test and exam assignments are published afterwards for all students, when grades are announced.
-Students can see class progress when working on their mandatory assignments to nudge them to avoid procrastination.
+Students can see class progress when working on their mandatory assignments, nudging them to avoid procrastination.
 Only teachers can see class progress for test and exam series so as not to accidentally stress out students.
 For the same reason, we intentionally organize tests and exams following exactly the same procedure, so that students can take high-stake exams in a familiar context and adjust their approach based on previous experiences.
 The only difference is that test assignments are not as hard as exam assignments, as students are still in the midst of learning programming skills when tests are taken.
 
 Students are stimulated to use an integrated development environment (IDE) to work on their programming assignments.
-IDEs bundle a battery of programming tools to support today's generation of software developers in writing, building, running, testing and debugging software.
+IDEs bundle a battery of programming tools to support today's generation of software developers in writing, building, running, testing, and debugging software.
 Working with such tools can be a true blessing for both seasoned and novice programmers, but there is no silver bullet\nbsp{}[cite:@brooksNoSilverBullet1987].
 Learning to code remains inherently hard\nbsp{}[cite:@kelleherAlice2ProgrammingSyntax2002] and consists of challenges that are different to reading and learning natural languages\nbsp{}[cite:@fincherWhatAreWe1999].
 As an additional aid, students can continuously submit (intermediate) solutions for their programming assignments and immediately receive automatically generated feedback upon each submission, even during tests and exams.
@@ -932,9 +931,9 @@ Students were direct beneficiaries from more and richer feedback, as observed fr
 What did not change is the fact that we complement personalized feedback with collective feedback sessions in which we discuss model solutions for test and exam assignments, and the low numbers of questions we received from students on their personalized feedback.
 As a future development, we hope to reduce the time spent on manual assessment through improved computer-assisted reuse of digital source code annotations in Dodona.
 
-We accept to primarily rely on automated assessment as a first step in providing formative feedback while students work on their mandatory assignments.
+We primarily rely on automated assessment as a first step in providing formative feedback while students work on their mandatory assignments.
 After all, a back-of-the-envelope calculation tells us it would take us 72 full-time equivalents (FTE) to generate equivalent amounts of manual feedback for mandatory assignments compared to what we do for tests and exams.
-In addition to volume, automated assessment also yields the responsiveness needed to establish an interactive feedback loop throughout the iterative software development process while it still matters to students and in time for them to pay attention to further learning or receive further assistance\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
+In addition to volume, automated assessment also yields the responsiveness needed to establish an interactive feedback loop\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
 Automated assessment thus allows us to motivate students working through enough programming assignments and to stimulate their self-monitoring and self-regulated learning\nbsp{}[cite:@schunkSelfregulationLearningPerformance1994; @pintrichUnderstandingSelfregulatedLearning1995].
 It results in triggering additional questions from students that we manage to respond to with one-to-one personalized human tutoring, either synchronously during hands-on sessions or asynchronously through Dodona's Q&A module.
 We observe that individual students seem to have a strong bias towards either asking for face-to-face help during hands-on sessions or asking questions online.
@@ -956,8 +955,8 @@ In our experience, most students traditionally perform much better on mandatory 
 
 We strongly believe that effective collaboration among small groups of students is beneficial for learning\nbsp{}[cite:@princeDoesActiveLearning2004], and encourage students to collaborate and ask questions to tutors and other students during and outside lab sessions.
 We also demonstrate how they can embrace collaborative coding and pair programming services provided by modern integrated development environments\nbsp{}[cite:@williamsSupportPairProgramming2002; @hanksPairProgrammingEducation2011].
-But we recommend them to collaborate in groups of no more than three students, and to exchange and discuss ideas and strategies for solving assignments rather than sharing literal code with each other.
-After all, our main reason for working with mandatory assignments is to give students sufficient opportunity to learn topic-oriented programming skills by applying them in practice and shared solutions spoil the learning experience.
+However, we do recommend them to collaborate in groups of no more than three students, and to exchange and discuss ideas and strategies for solving assignments rather than sharing literal code with each other.
+After all, our main reason for working with mandatory assignments is to give students sufficient opportunity to learn topic-oriented programming skills by applying them in practice, and shared solutions spoil the learning experience.
 The factor \(f\) in the score for a unit encourages students to keep fine-tuning their solutions for programming assignments until all test cases succeed before the deadline passes.
 But maximizing that factor without proper learning of programming skills will likely yield a low test score \(s\) and thus an overall low score for the unit, even if many mandatory exercises were solved correctly.
 
@@ -991,7 +990,7 @@ After all, the goal of summative tests is to evaluate if individual students hav
 
 When talking to students about plagiarism, we also point out that the plagiarism graphs are directed graphs, indicating which student is the potential source of exchanging a solution among a cluster of students.
 We specifically address these students by pointing out that they are probably good at programming and might want to exchange their solutions with other students in a way to help their peers.
-But instead of really helping them out, they actually take away learning opportunities from their fellow students by giving away the solution as a spoiler.
+Instead of really helping them out though, they actually take away learning opportunities from their fellow students by giving away the solution as a spoiler.
 Stated differently, they help maximize the factor \(f\) but effectively also reduce the \(s\) factor of the test score, where both factors need to be high to yield a high score for the unit.
 After this lecture, we usually notice a stark decline in the amount of plagiarized solutions.
 
@@ -1002,7 +1001,7 @@ The entire group of students is only addressed once about plagiarism, without go
 Every three or four years we see a persistent cluster of students exchanging code for mandatory assignments over multiple weeks.
 If this is the case, we individually address these students to point them again on their responsibilities, again differentiating between students that share their solution and students that receive solutions from others.
 
-Tests and exams, on the other hand, are taken on-campus under human surveillance and allow no communication with fellow students or other persons (and more recently, also no generative AI).
+Tests and exams, on the other hand, are taken on-campus under human surveillance and allow no communication with fellow students or other persons (and, more recently, also no generative AI).
 Students can work on their personal computers and get exactly two hours to solve two programming assignments during a test, and three hours and thirty minutes to solve three programming assignments during an exam.
 
 Tests and exams are "open book/open Internet", so any hard copy and digital resources can be consulted while solving test or exam assignments.
@@ -1051,7 +1050,7 @@ So how much effort does it cost us to run one edition of our programming course?
 For the most recent 2021--2022 edition we estimate about 34 person-weeks in total (Table\nbsp{}[[tab:usefweworkload]]), the bulk of which is spent on on-campus tutoring of students during hands-on sessions (30%), manual assessment and grading (22%), and creating new assignments (21%).
 About half of the workload (53%) is devoted to summative feedback through tests and exams: creating assignments, supervision, manual assessment and grading.
 Most of the other work (42%) goes into providing formative feedback through on-campus and online assistance while students work on their mandatory assignments.
-Out of 2215 questions that students asked through Dodona's online Q&A module, 1983 (90%) were answered by teaching assistants and 232 (10%) were marked as answered by the student who originally asked the question.
+Out of 2\thinsp{}215 questions that students asked through Dodona's online Q&A module, 1\thinsp{}983 (90%) were answered by teaching assistants and 232 (10%) were marked as answered by the student who originally asked the question.
 Because automated assessment provides first-line support, the need for human tutoring is already heavily reduced.
 We have drastically cut the time we initially spent on mandatory assignments by reusing existing assignments and because the Python judge is stable enough to require hardly any maintenance or further development.
 
@@ -1097,7 +1096,7 @@ Weekends are also used to work further on programming assignments, but students 
 Throughout a course edition, we use Dodona's series analytics to monitor how students perform on our selection of programming assignments (Figures\nbsp{}[[fig:usefweanalyticssubmissions]],\nbsp{}[[fig:usefweanalyticsstatuses]],\nbsp{}and\nbsp{}[[fig:usefweanalyticscorrect]]).
 This allows us to make informed decisions and appropriate interventions, for example when students experience issues with the automated assessment configuration of a particular assignment or if the original order of assignments in a series does not seem to align with our design goal to present them in increasing order of difficulty.
 The first students that start working on assignments usually are good performers.
-Seeing these early birds having trouble with solving one of the assignments may give an early warning that action is needed, as in improving the problem specification, adding extra tips & tricks, or better explaining certain programming concepts to all students during lectures or hands-on sessions.
+Seeing these early birds having trouble with solving one of the assignments may give an early warning that action is needed, such as improving the problem specification, adding extra tips & tricks, or better explaining certain programming concepts to all students during lectures or hands-on sessions.
 Reversely, observing that many students postpone working on their assignments until just before the deadline might indicate that some assignments are simply too hard at this moment in time through the learning pathway of the students or that completing the collection of programming assignments interferes with the workload from other courses.
 Such "deadline hugging" patterns are also a good breeding ground for students to resort on exchanging solutions among each other.
 
