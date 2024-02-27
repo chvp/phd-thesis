@@ -209,7 +209,7 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 
 #+LATEX: \begin{dutch}
 
-Al van bij de start van het programmeer onderwijs, proberen lesgevers hun taken te automatiseren en optimaliseren.
+Al van bij de start van het programmeeronderwijs, proberen lesgevers hun taken te automatiseren en optimaliseren.
 De digitalisering van de samenleving gaat ook steeds verder, waardoor ook steeds grotere groepen studenten leren programmeren.
 Deze groepen bevatten ook vaker studenten voor wie programmeren niet het hoofdonderwerp van hun studies is.
 Dit heeft geleid tot de ontwikkeling van zeer veel platformen voor de geautomatiseerde beoordeling van programmeeropdrachten\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005].
@@ -220,10 +220,10 @@ In Hoofdstuk\nbsp{}[[#chap:what]] geven we een overzicht van de gebruikersgerich
 Hoofdstuk\nbsp{}[[#chap:use]] focust zich dan op hoe Dodona in de praktijk gebruikt wordt, door wat statistieken over het gebruiken te presenteren, de meningen van studenten over het platform te presenteren en met een uitgebreide case study waarin getoond wordt hoe de verschillende features van Dodona kunnen bijdragen tot het optimaliseren van onderwijs.
 Deze case study presenteert ook de context waarin Hoofdstukken\nbsp{}[[#chap:passfail]]\nbsp{}en\nbsp{}[[#chap:feedback]] zich situeren.
 Hoofdstuk\nbsp{}[[#chap:technical]] focust op het technische aspect van het ontwikkelen van Dodona en het gerelateerde ecosysteem van software.
-Dit bevat onder meer een bespreking van de technische uitdagingen gerelateerd aand het ontwikkelen van een platform zoals Dodona en hoe het Dodona-team zich aan de moderne standaarden van softwareontwikkeling houdt.
+Dit bevat onder meer een bespreking van de technische uitdagingen gerelateerd aan het ontwikkelen van een platform zoals Dodona en hoe het Dodona-team zich aan de moderne standaarden van softwareontwikkeling houdt.
 
 Hoofdstukken\nbsp{}[[#chap:passfail]]\nbsp{}en\nbsp{}[[#chap:feedback]] verschillen van de vorige hoofdstukken, in de zin dat ze elks een /learning analytics/educational data mining/ studie bespreken.
-Deze studies werden uitgevoerd met de data die Dodona genereert.
+Deze studies werden uitgevoerd met de data die Dodona verzamelt over het leerproces.
 /Learning analytics/ en /educational data mining/ bevinden zich op het kruispunt tussen informatica, datawetenschap en de sociale wetenschappen, en focussen zich op het begrijpen en verbeteren van leren.
 Ze worden mogelijk gemaakt door de toegenomen beschikbaarheid van data over lerende studenten, wat op zijn beurt komt door de toegenomen beweging van onderwijs naar digitale platformen\nbsp{}[cite:@romeroDataMiningCourse2008].
 Ze kunnen ook dienen voor verschillende actoren in het onderwijsveld: ze kunnen studenten direct helpen, lesgevers helpen om hun eigen onderwijs te evalueren, ontwikkelaars van onderwijsplatformen laten weten waar ze zich op moeten focussen, de beslissingen van onderwijsinstellingen helpen gidsen, en zelfs overheden toelaten om op data gebaseerd beleid te voeren\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
@@ -234,7 +234,7 @@ Daarnaast wordt er kort een samenwerking besproken met onderzoekers van de unive
 In Hoofdstuk\nbsp{}[[#chap:feedback]] geven we eerst een overzicht van hoe Dodona het manueel verbeteren in onze eigen educationele context veranderd heeft.
 We sluiten dan het hoofdstuk af met een recent door ons ontwikkelde /machine-learning/-methode om te voorspellen welke feedback lesgevers zullen geven tijden het manueel verbeteren van indieningen van studenten.
 
-We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de mogelijkhen en uitdagingen waar Dodona in de toekomst voor staat.
+We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de mogelijkheden en uitdagingen waar Dodona in de toekomst voor staat.
 
 #+LATEX: \end{dutch}
 
@@ -483,13 +483,13 @@ Traditionally, the educational goals were quite loose, allowing the umbrella org
 The constitutional court agreed, after which the government went back to the drawing board, and made a lot of the goals less detailed.
 Digital competence is still a part of the new educational goals, but what that should look like is now not explicitly listed.
 In practice, a number of educational programs include programming in the curriculum, usually as part of mathematics classes.
-The programming language used is Python most of the time, but other programming languages like Java are also taught.
+Python is the most common programming language used at this level, but other programming languages like Java are also used.
 
-In higher education, programming has made its way into a lot of programs.
-Almost all students studying exact sciences or engineering have at least one programming course, but outside these domains programming is also taught (e.g. as part of a statistics course).
+In higher education, programming has made its way into a lot of programmes.
+Almost all students studying exact sciences or engineering have at least one programming course, but programming is also taught outside these domains (e.g. as part of a statistics course).
 Here we see the greatest diversity in the programming languages that are taught.
 Python, Java, and R are the most common languages for students for whom computer science is not the main subject.
-Computer science students get a wide plethora of languages, from Python and Java to Prolog, Haskell and Scheme.
+Computer science students are taught a wide plethora of languages, from Python and Java to Prolog, Haskell and Scheme.
 
 ** Structure of this dissertation
 :PROPERTIES:
@@ -914,8 +914,8 @@ About half of these users are from secondary education, a quarter from Ghent Uni
 The record for most submissions in one day was recently broken on the 12th of January 2024, when the course described in Section\nbsp{}[[#sec:usecasestudy]] had one exam for all students for the first time in its history, and those students submitted 38\thinsp{}771 solutions in total.
 Interestingly enough, the day before (the 11th of January) was the third-busiest day ever.
 The day with the most distinct users was the 23rd of October 2023, when there were 2\thinsp{}680 users who submitted at least one solution.
-This is just due to the fact that there were a lot of exercise sessions on Fridays in the first semester of the academic year; a lot of the other Fridays at the start of the semester are also in the top 10 of busiest days ever (both in submissions and in amount of users).
-The full top 10 of submissions can be seen in Table\nbsp{}[[tab:usetop10submissions]], the top 10 of users can be seen in Table\nbsp{}[[tab:usetop10users]].
+This is due to the fact that there were a lot of exercise sessions on Fridays in the first semester of the academic year; a lot of the other Fridays at the start of the semester are also in the top 10 of busiest days ever (both in submissions and in amount of users).
+The full top 10 of submissions can be seen in Table\nbsp{}[[tab:usetop10submissions]], the top 10 of active users can be seen in Table\nbsp{}[[tab:usetop10users]].
 Every year, we see the largest increase of new users during September, where the same ratios between Ghent University, higher, and secondary education are kept.
 
 #+CAPTION: Top 10 of days with the most submissions on Dodona.
@@ -936,19 +936,19 @@ Every year, we see the largest increase of new users during September, where the
 
 #+CAPTION: Top 10 of days with the most users who submitted at least once on Dodona.
 #+NAME: tab:usetop10users
-| Date       |       # users |
-|------------+---------------|
-| <l>        |           <r> |
-| 2023-10-23 | 2\thinsp{}680 |
-| 2023-10-09 | 2\thinsp{}659 |
-| 2023-11-20 | 2\thinsp{}581 |
-| 2023-10-02 | 2\thinsp{}381 |
-| 2023-10-16 | 2\thinsp{}364 |
-| 2023-11-06 | 2\thinsp{}343 |
-| 2023-10-17 | 2\thinsp{}287 |
-| 2023-11-27 | 2\thinsp{}274 |
-| 2022-10-03 | 2\thinsp{}265 |
-| 2023-11-13 | 2\thinsp{}167 |
+| Date       | # active users |
+|------------+----------------|
+| <l>        |            <r> |
+| 2023-10-23 |  2\thinsp{}680 |
+| 2023-10-09 |  2\thinsp{}659 |
+| 2023-11-20 |  2\thinsp{}581 |
+| 2023-10-02 |  2\thinsp{}381 |
+| 2023-10-16 |  2\thinsp{}364 |
+| 2023-11-06 |  2\thinsp{}343 |
+| 2023-10-17 |  2\thinsp{}287 |
+| 2023-11-27 |  2\thinsp{}274 |
+| 2022-10-03 |  2\thinsp{}265 |
+| 2023-11-13 |  2\thinsp{}167 |
 
 In addition to the quantitative figures above, we also performed a qualitative user experience study of Dodona in 2018.
 271 tertiary education students responded to a questionnaire that contained the following three questions:
@@ -2659,7 +2659,7 @@ The assignments themselves were also printed out and given to all students, whic
 ]
 
 It also has some important drawbacks while grading.
-SPOJ (and lated Dodona) was used to generate automated feedback on correctness.
+SPOJ (and later Dodona) was used to generate automated feedback on correctness.
 This automated feedback was not available when assessing a student's source code on paper.
 It therefore takes either more mental energy to work out whether the student's code would behave correctly with all inputs or it takes some hassle to look up a student's automated assessment results every time.
 Another important drawback is that students have a much harder time seeing their feedback.
