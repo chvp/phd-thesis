@@ -209,28 +209,29 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 
 #+LATEX: \begin{dutch}
 
-Sinds het begin van het programmeeronderwijs, proberen de lesgevers die anderen het programmeren aanleren hun onderwijs te automatiseren en optimaliseren.
-Onze samenleving wordt ook steeds digitaler, waardoor programmeren wordt aangeleerd aan steeds grotere groepen.
+Al van bij de start van het programmeer onderwijs, proberen lesgevers hun taken te automatiseren en optimaliseren.
+De digitalisering van de samenleving gaat ook steeds verder, waardoor ook steeds grotere groepen studenten leren programmeren.
 Deze groepen bevatten ook vaker studenten voor wie programmeren niet het hoofdonderwerp van hun studies is.
 Dit heeft geleid tot de ontwikkeling van zeer veel platformen voor de geautomatiseerde beoordeling van programmeeropdrachten\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005].
-Eén van deze platformen is Dodona[fn:: https://dodona.be], wat het platform is waar dit proefschrift over handelt.
+Eén van deze platformen is Dodona[fn:: https://dodona.be], het platform waar dit proefschrift over handelt.
 
 Hoofdstukken\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{}en\nbsp{}[[#chap:technical]] focussen op Dodona zelf.
 In Hoofdstuk\nbsp{}[[#chap:what]] geven we een overzicht van de gebruikersgerichte features van Dodona, van gebruikersbeheer tot hoe feedback getoond wordt.
-Hoofdstuk\nbsp{}[[#chap:use]] focust zich dan op hoe Dodona in de praktijk gebruikt wordt, door wat statistieken over het gebruiken te presenteren, de meningen van studenten over het platform te presenteren en door in een uitgebreide case study aan bod te laten komen hoe de features van Dodona gebruikt kunnen worden om het lesgeven te optimaliseren.
+Hoofdstuk\nbsp{}[[#chap:use]] focust zich dan op hoe Dodona in de praktijk gebruikt wordt, door wat statistieken over het gebruiken te presenteren, de meningen van studenten over het platform te presenteren en met een uitgebreide case study waarin getoond wordt hoe de verschillende features van Dodona kunnen bijdragen tot het optimaliseren van onderwijs.
+Deze case study presenteert ook de context waarin Hoofdstukken\nbsp{}[[#chap:passfail]]\nbsp{}en\nbsp{}[[#chap:feedback]] zich situeren.
 Hoofdstuk\nbsp{}[[#chap:technical]] focust op het technische aspect van het ontwikkelen van Dodona en het gerelateerde ecosysteem van software.
-Dit bevat onder meer een bespreking van de technische uitdagingen gerelatteerd aand het ontwikkelen van een platform zoals Dodona en hoe het Dodona-team zich houdt aan de moderne standaarden van softwareontwikkeling.
+Dit bevat onder meer een bespreking van de technische uitdagingen gerelateerd aand het ontwikkelen van een platform zoals Dodona en hoe het Dodona-team zich aan de moderne standaarden van softwareontwikkeling houdt.
 
-Hoofdstukken\nbsp{}[[#chap:passfail]]\nbsp{}en\nbsp{}[[#chap:feedback]] zijn anders.
-Deze hoofdstukken bespreken ieders een /learning analytics/educational data mining/ studie die we uitgevoerd hebben met de data die Dodona genereert.
+Hoofdstukken\nbsp{}[[#chap:passfail]]\nbsp{}en\nbsp{}[[#chap:feedback]] verschillen van de vorige hoofdstukken, in de zin dat ze elks een /learning analytics/educational data mining/ studie bespreken.
+Deze studies werden uitgevoerd met de data die Dodona genereert.
 /Learning analytics/ en /educational data mining/ bevinden zich op het kruispunt tussen informatica, datawetenschap en de sociale wetenschappen, en focussen zich op het begrijpen en verbeteren van leren.
-Ze worden mogelijk gemaakt door de toegenomen beschikbaarheid van data over lerende studenten, op zijn beurt door de toegenomen beweging van onderwijs naar digitale platformen\nbsp{}[cite:@romeroDataMiningCourse2008].
-Ze kunnen ook dienen voor verschillende actoren in het onderwijsveld: ze kunnen de lerenden direct helpen, lesgevers helpen om hun eigen onderwijs te evalueren, ontwikkelaars van onderwijsplatformen laten weten waar ze zich om moeten focussen, de beslissingen van onderwijsinstellingen helpen gidsen, en zelfs overheden toelaten om op data gebaseerd beleid te voeren\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
+Ze worden mogelijk gemaakt door de toegenomen beschikbaarheid van data over lerende studenten, wat op zijn beurt komt door de toegenomen beweging van onderwijs naar digitale platformen\nbsp{}[cite:@romeroDataMiningCourse2008].
+Ze kunnen ook dienen voor verschillende actoren in het onderwijsveld: ze kunnen studenten direct helpen, lesgevers helpen om hun eigen onderwijs te evalueren, ontwikkelaars van onderwijsplatformen laten weten waar ze zich op moeten focussen, de beslissingen van onderwijsinstellingen helpen gidsen, en zelfs overheden toelaten om op data gebaseerd beleid te voeren\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
 
 Hoofdstuk\nbsp{}[[#chap:passfail]] bespreekt een studie waarin we geprobeerd hebben te voorspellen of studenten al dan niet zouden slagen voor een vak op het einde van het semester, enkel en alleen gebaseerd op hun indiengedrag op Dodona.
-Daarnaast wordt er kort een samenwerking besproken met onderzoekers van de universiteit van Jyväskylä in Finland, waar we onze studie herhaald hebben in hun educationele context, met data van hun platform.
+Daarnaast wordt er kort een samenwerking besproken met onderzoekers van de universiteit van Jyväskylä in Finland, waar we onze studie herhaald hebben in hun educationele context, gebruikmakend van data afkomstig van hun platform.
 
-In Hoofdstuk\nbsp{}[[#chap:feedback]] geven we eerst een overzich van hoe Dodona het manueel verbeteren in onze eigen educationele context veranderd heeft.
+In Hoofdstuk\nbsp{}[[#chap:feedback]] geven we eerst een overzicht van hoe Dodona het manueel verbeteren in onze eigen educationele context veranderd heeft.
 We sluiten dan het hoofdstuk af met een recent door ons ontwikkelde /machine-learning/-methode om te voorspellen welke feedback lesgevers zullen geven tijden het manueel verbeteren van indieningen van studenten.
 
 We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de mogelijkhen en uitdagingen waar Dodona in de toekomst voor staat.
