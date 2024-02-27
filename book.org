@@ -342,7 +342,7 @@ He identifies several issues with gathering students' source files, and then com
 Students could write destructive code that destroys the teacher's files, or even write a clever program that alters their grades (and covers its tracks while doing so).
 Note that this is not a new issue: as we discussed before, this was already mentioned as a possibility by\nbsp{}[cite/t:@hollingsworthAutomaticGradersProgramming1960].
 This was, however, the first system that tried to solve this problem.
-His TRY system therefore has avoiding that teachers need to run their students' programs themselves as an explicit goal.
+His TRY system therefore has the avoidance of teachers needing to run their students' programs themselves as an explicit goal.
 Another goal was avoiding giving the inputs that the program was tested on to students.
 These goals were mostly achieved using the UNIX =setuid= mechanism.
 Note that students were using a true multi-user system, as in common use at the time.
@@ -1075,7 +1075,7 @@ When students ask for sample solutions of test or exam exercises, we explain tha
 
 So far, we have created more than 900 programming assignments for this introductory Python course alone.
 All these assignments are publicly shared on Dodona as open educational resources\nbsp{}[cite:@hylenOpenEducationalResources2021; @tuomiOpenEducationalResources2013; @wileyOpenEducationalResources2014; @downesModelsSustainableOpen2007; @caswellOpenEducationalResources2008].
-They are used in many other courses on Dodona (on average 10.8 courses per assignment) and by many students (on average 503.7 students and 4801.5 submitted solutions per assignment).
+They are used in many other courses on Dodona (on average 10.8 courses per assignment) and by many students (on average 503.7 students and 4\thinsp{}801.5 submitted solutions per assignment).
 We estimate that it takes about 10 person-hours on average to create a new assignment for a test or an exam: 2 hours for ideation, 30 minutes for implementing and tweaking a sample solution that meets the educational goals of the assignment and can be used to generate a test suite for automated assessment, 4 hours for describing the assignment (including background research), 30 minutes for translating the description from Dutch into English, one hour to configure support for automated assessment, and another 2 hours for reviewing the result by some extra pair of eyes.
 
 Generating a test suite usually takes 30 to 60 minutes for assignments that can rely on basic test and feedback generation features that are built into the judge.
