@@ -2941,10 +2941,10 @@ Previous iterations considered all the nodes that contained the relevant line (e
 #+CAPTION: Sample code that simply reads a number from standard input and prints its digits.
 #+NAME: lst:feedbacksubtreesample
 #+BEGIN_SRC python
-number = input()
-print(f'{number} has the following digits:')
-for digit in number:
-  print(digit)
+def jump(alpha, n):
+    alpha_number = ord(alpha)
+    adjusted = alpha_number + n
+    return chr(adjusted)
 #+END_SRC
 
 #+CAPTION: AST subtree corresponding to line 3 in Listing\nbsp{}[[lst:feedbacksubtreesample]].
