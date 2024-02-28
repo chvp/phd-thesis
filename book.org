@@ -180,7 +180,7 @@ Due to the ever-increasing digitalization of society, programming is also being 
 This has led to the development of myriad automated assessment tools\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005].
 One of those platforms is Dodona[fn:: https://dodona.be], which is the platform this dissertation is centred around.
 
-Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{},\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona itself.
+Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]],\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona itself.
 In Chapter\nbsp{}[[#chap:what]] we give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
 Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform, and an extensive case study on how Dodona's features are used to optimize teaching.
 This case study also provides insight into the educational context for the research described in Chapters\nbsp{}[[#chap:passfail]]\nbsp{}and\nbsp{}[[#chap:feedback]].
@@ -2993,7 +2993,7 @@ Weights are assigned using two criteria.
 The first criterion is the size of the pattern (i.e., the number of nodes in the pattern), since a pattern with twenty nodes is a lot more specific than a pattern with only one node.
 The second criterion is the amount of times a pattern occurs across all messages.
 If all messages contain a specific pattern, it can not be reliably used to determine which message should be predicted and will therefore be assigned a smaller weight.
-The weights are calculated by the following formula: \[weight(pattern) = \frac{len(pattern)}{\#occurences(pattern)}\]
+The weights are calculated by the following formula: \[\operatorname{weight}(pattern) = \frac{\operatorname{len}(pattern)}{\operatorname{\#occurences}(pattern)}\]
 
 **** Matching patterns to subtrees
 :PROPERTIES:
@@ -3055,7 +3055,7 @@ One important optimization we added was therefore to only execute the algorithm 
 :END:
 
 Given a model where we have weighted patterns for each message, and a method for matching patterns to subtrees, we can now put these two together to make a final ranking of the messages for a line of code.
-We calculate a matching score for each message with the following formula: \[ score(message) = \frac{\displaystyle\sum_{pattern}^{patterns} \begin{cases} weight(pattern) & \quad \text{if } pattern \text{ matches} \\ 0               & \quad \text{otherwise} \end{cases}}{len(patterns)} \]
+We calculate a matching score for each message with the following formula: \[ \operatorname{score}(message) = \frac{\displaystyle\sum_{pattern}^{patterns} \begin{cases} \operatorname{weight}(pattern) & \text{if } pattern \text{ matches} \\ 0               & \text{otherwise} \end{cases}}{\operatorname{len}(patterns)} \]
 The messages are sorted using this score.
 
 *** Results and discussion
