@@ -2993,7 +2993,8 @@ Weights are assigned using two criteria.
 The first criterion is the size of the pattern (i.e., the number of nodes in the pattern), since a pattern with twenty nodes is a lot more specific than a pattern with only one node.
 The second criterion is the amount of times a pattern occurs across all messages.
 If all messages contain a specific pattern, it can not be reliably used to determine which message should be predicted and will therefore be assigned a smaller weight.
-The weights are calculated by the following formula: \[\operatorname{weight}(pattern) = \frac{\operatorname{len}(pattern)}{\operatorname{\#occurences}(pattern)}\]
+The weights are calculated using the following formula below.
+\[\operatorname{weight}(pattern) = \frac{\operatorname{len}(pattern)}{\operatorname{\#occurences}(pattern)}\]
 
 **** Matching patterns to subtrees
 :PROPERTIES:
@@ -3055,7 +3056,8 @@ One important optimization we added was therefore to only execute the algorithm 
 :END:
 
 Given a model where we have weighted patterns for each message, and a method for matching patterns to subtrees, we can now put these two together to make a final ranking of the messages for a line of code.
-We calculate a matching score for each message with the following formula: \[ \operatorname{score}(message) = \frac{\displaystyle\sum_{pattern}^{patterns} \begin{cases} \operatorname{weight}(pattern) & \text{if } pattern \text{ matches} \\ 0               & \text{otherwise} \end{cases}}{\operatorname{len}(patterns)} \]
+We calculate a matching score for each message using the formula below.
+\[ \operatorname{score}(message) = \frac{\displaystyle\sum_{pattern \atop \in\, patterns} \begin{cases} \operatorname{weight}(pattern) & \text{if } pattern \text{ matches} \\ 0               & \text{otherwise} \end{cases}}{\operatorname{len}(patterns)} \]
 The messages are sorted using this score.
 
 *** Results and discussion
