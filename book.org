@@ -520,7 +520,7 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 
 Dodona is an online learning environment that recognizes the importance of active learning and just-in-time feedback in courses involving programming assignments.
 Dodona was started because our own educational needs outgrew SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008], the platform we were using before.
-In the following years, Dodona grew.
+Every year since its inception, more and more teachers have started using Dodona.
 It is now used in most higher education institutions in Flanders, and many secondary education institutions as well.
 In this chapter, we will give an overview of Dodona's most important features.
 We finish the chapter with a short overview of Dodona's most important releases and which features they included.
