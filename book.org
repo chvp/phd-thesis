@@ -481,8 +481,10 @@ They felt that the government was overreaching in the specificity of the educati
 Traditionally, the educational goals were quite loose, allowing the umbrella organizations to add their own accents to the subjects being taught.
 ]
 The constitutional court agreed, after which the government went back to the drawing board, and made a lot of the goals less detailed.
-Digital competence is still a part of the new educational goals, but what that should look like is now not explicitly listed.
-In practice, a number of educational programs include programming in the curriculum, usually as part of mathematics classes.
+Digital competence is still a part of the new educational goals, but what that should look like is now not explicitly listed for most programmes.
+For other programmes, mostly focused on the sciences, or with more mathematics, there are a few competences listed that students should have when finishing secondary education.
+These include algorithms, data structures, numerical methods, etc.
+For programmes focused on IT, there is an even bigger list of competences that the students should have.
 Python is the most common programming language used at this level, but other programming languages like Java are also used.
 
 In higher education, programming has made its way into a lot of programmes.
