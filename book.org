@@ -533,12 +533,15 @@ This chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023]
 :CUSTOM_ID: subsec:whatuser
 :END:
 
-Instead of providing its own authentication and authorization, Dodona delegates authentication to external identity providers (e.g.\nbsp{}educational and research institutions) through SAML\nbsp{}[cite:@farrellAssertionsProtocolOASIS2002], OAuth\nbsp{}[cite:@leibaOAuthWebAuthorization2012; @hardtOAuthAuthorizationFramework2012] and OpenID Connect\nbsp{}[cite:@sakimuraOpenidConnectCore2014].
+Establishing the identity of its users is very important for an educational platform.
+For this reason, instead of providing its own authentication and authorization, Dodona delegates authentication to external identity providers (e.g.\nbsp{}educational and research institutions) through SAML\nbsp{}[cite:@farrellAssertionsProtocolOASIS2002], OAuth\nbsp{}[cite:@leibaOAuthWebAuthorization2012; @hardtOAuthAuthorizationFramework2012] and OpenID Connect\nbsp{}[cite:@sakimuraOpenidConnectCore2014].
+The configured OAuth providers are Microsoft, Google, and Smartschool.
 This support for *decentralized authentication* allows users to benefit from single sign-on when using their institutional account across multiple platforms and teachers to trust their students' identities when taking high-stakes tests and exams in Dodona.
 
 Dodona automatically creates user accounts upon successful authentication and uses the association with external identity providers to assign an institution to users.
 These institutions can have multiple sign-in methods.
 If a user uses more than one of those methods, these logins are linked to the same user.
+Institutions within Dodona can be used by teachers to establish filters about who is allowed to register for their courses, establishing an extra level of trust that their students have correctly signed in.
 Institutions are also categorized internally in secundary education, higher education, and other (e.g. the Flemish government).
 
 By default, newly created users are assigned a student role.
