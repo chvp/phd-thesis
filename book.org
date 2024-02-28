@@ -955,16 +955,24 @@ The renewed interest in embedding computational thinking in formal education has
 All other educational institutions use the instance of Dodona hosted at Ghent University, which is free to use for educational purposes.
 
 Dodona currently hosts a collection of {{{num_exercises}}} learning activities that are freely available to all teachers, allowing them to create their own learning paths tailored to their teaching practice.
-In total, {{{num_users}}} students have submitted more than {{{num_submissions}}} solutions to Dodona in the seven years that it has been running (Figures\nbsp{}[[fig:useadoption1]]\nbsp{}&\nbsp{}[[fig:useadoption2]]).
+In total, {{{num_users}}} students have submitted more than {{{num_submissions}}} solutions to Dodona in the seven years that it has been running (Figures\nbsp{}[[fig:useadoption1]],\nbsp{}[[fig:useadoption2]]\nbsp{}&\nbsp{}[[fig:useadoption3]]).
 
 #+CAPTION: Overview of the number of submitted solutions by academic year.
+#+CAPTION: Note that the data for the academic year 2023--2024 is incomplete, since the academic year has not finished yet at the time of writing.
 #+NAME: fig:useadoption1
 [[./images/useadoption1.png]]
 
 #+CAPTION: Overview of the number of active users by academic year.
 #+CAPTION: Users were active when they submitted at least one solution for a programming assignment during the academic year.
+#+CAPTION: Note that the data for the academic year 2023--2024 is incomplete, since the academic year has not finished yet at the time of writing.
 #+NAME: fig:useadoption2
 [[./images/useadoption2.png]]
+
+#+CAPTION: Overview of the number of active users by academic year per institution type.
+#+CAPTION: Users were active when they submitted at least one solution for a programming assignment during the academic year.
+#+CAPTION: Note that the data for the academic year 2023--2024 is incomplete, since the academic year has not finished yet at the time of writing.
+#+NAME: fig:useadoption3
+[[./images/useadoption3.png]]
 
 In the year 2023, the highest number of monthly active users was reached in November, when 9\thinsp{}678 users submitted at least one solution.
 About half of these users are from secondary education, a quarter from Ghent University, and the rest mostly from other higher education institutions.
