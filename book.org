@@ -626,6 +626,7 @@ Understanding, knowledge and insights that can be used to make informed decision
 
 There are two types of assignments in Dodona: reading activities and programming exercises.
 While reading activities only consist of descriptions, programming exercises need an additional *assessment configuration* that sets a programming language and a judge (for more information on judges, see Section\nbsp{}[[#subsec:whatjudges]]).
+This configuration is used to perform the automated assessment.
 The configuration may also set a Docker image, a time limit, a memory limit and grant Internet access to the container that is instantiated from the image, but these settings have proper default values.
 The configuration might also provide additional *assessment resources*: files made accessible to the judge during assessment.
 The specification of how these resources must be structured and how they are used during assessment is completely up to the judge developers.
