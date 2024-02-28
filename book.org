@@ -4,7 +4,7 @@
 #+LANGUAGE: en-gb
 #+DATE: 2024-06-19
 #+LATEX_CLASS: book
-#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,parskip=half-,numbers=noendperiod,BCOR=10mm,DIV=10]
+#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,numbers=noendperiod,BCOR=10mm,DIV=10]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{luacode}
@@ -26,6 +26,7 @@
 #+LATEX_HEADER: \end{luacode*}
 #+LATEX_HEADER: \usepackage[newfloat]{minted}
 #+LATEX_HEADER: \usepackage{color}
+#+LATEX_HEADER: \usepackage{parskip}
 #+LATEX_HEADER: \usepackage{url}
 #+LATEX_HEADER: \usepackage{svg}
 #+LATEX_HEADER: \usepackage[type=report]{ugent2016-title}
