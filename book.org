@@ -476,7 +476,7 @@ In secondary education, things changed in recent history.
 Before 2021, education related to computing was very much up to the individual school and teacher.
 While there were some schools where programming was taught, this was mostly a rare occurrence.
 In 2021, however, the Flemish parliament approved a new set of educational goals.
-In these educational goals, there was an explicit focus on digital competence, where for a number of educational programs, this explicitly included programming.
+In these educational goals, there was an explicit focus on digital competence, where for a number of educational programmes, this explicitly included programming.
 Not much later though, one of the umbrella organizations for schools challenged the new educational goals in Belgium's constitutional court.
 They felt that the government was overreaching in the specificity of the educational goals.[fn::
 Traditionally, the educational goals were quite loose, allowing the umbrella organizations to add their own accents to the subjects being taught.
