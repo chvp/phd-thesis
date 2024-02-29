@@ -3000,7 +3000,7 @@ Weights are assigned using two criteria.
 The first criterion is the size of the pattern (i.e., the number of nodes in the pattern), since a pattern with twenty nodes is a lot more specific than a pattern with only one node.
 The second criterion is the amount of times a pattern occurs across all messages.
 If all messages contain a specific pattern, it can not be reliably used to determine which message should be predicted and will therefore be assigned a smaller weight.
-The weights are calculated using the following formula below.
+The weights are calculated using the formula below.
 \[\operatorname{weight}(pattern) = \frac{\operatorname{len}(pattern)}{\operatorname{\#occurences}(pattern)}\]
 
 **** Matching patterns to subtrees
