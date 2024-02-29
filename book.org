@@ -218,7 +218,7 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 #+LATEX: \begin{dutch}
 
 Al van bij de start van het programmeeronderwijs, proberen lesgevers hun taken te automatiseren en optimaliseren.
-De digitalisering van de samenleving gaat ook steeds verder, waardoor ook steeds grotere groepen studenten leren programmeren.
+De digitalisering van de samenleving gaat ook steeds verder, waardoor steeds meer en grotere groepen studenten leren programmeren.
 Deze groepen bevatten ook vaker studenten voor wie programmeren niet het hoofdonderwerp van hun studies is.
 Dit heeft geleid tot de ontwikkeling van zeer veel platformen voor de geautomatiseerde beoordeling van programmeeropdrachten\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005].
 Eén van deze platformen is Dodona[fn:: https://dodona.be], het platform waar dit proefschrift over handelt.
@@ -287,7 +287,7 @@ Their system made more efficient use of both.
 [cite/t:@hollingsworthAutomaticGradersProgramming1960] already notes that the class sizes were a main motivator to introduce their auto-grader.
 At the time of publication, they had tested about 3\thinsp{}000 student submissions which, given a grading run took about 30 to 60 seconds, represents about a day and a half of computation time.
 
-They also immediately identified some limitations, which are common problems that modern graders still need to consider.
+They also immediately identified some limitations, which are common problems that modern assessment systems still need to consider.
 These limitations include handling faults in the student code, making sure students can't modify the grader, and having to define an interface through which the student code is run.
 
 #+CAPTION: Example of a punch card.
@@ -303,7 +303,7 @@ The distinction between formal correctness and completeness that he makes can be
 In more modern terminology, Naur's "formally correct" would be called "free of syntax errors".
 
 [cite/t:@forsytheAutomaticGradingPrograms1965] note another issue when using automatic graders: students could use the feedback they get to hard-code the expected response in their programs.
-This is again an issue that modern assessment platforms (or the teachers creating exercises) still need to consider.
+This is again an issue that modern assessment systems (or the teachers creating exercises) still need to consider.
 Forsythe & Wirth solve this issue by randomizing the inputs to the student's program.
 While not explicitly explained by them, we can assume that to check the correctness of a student's answer, they calculate the expected answer themselves as well.
 Note that in this system, they were still writing a grading program for each individual exercise.
@@ -719,7 +719,7 @@ Where courses are created and managed in Dodona itself, other content is managed
 In this distributed content management model, a repository either contains a single judge or a collection of learning activities.
 Setting up a *webhook* for the repository guarantees that any changes pushed to its default branch are automatically and immediately synchronized with Dodona.
 This even works without the need to make repositories public, as they may contain information that should not be disclosed such as programming assignments that are under construction, contain model solutions, or will be used during tests or exams.
-Instead, a *Dodona service account* must be granted push/pull access to the repository.
+Instead, a *Dodona service account* must be granted push and pull access to the repository.
 Some settings of a learning activity can be modified through the web interface of Dodona, but any changes are always pushed back to the repository in which the learning activity is configured so that it always remains the master copy.
 
 #+CAPTION: Distributed content management model that allows to seamlessly integrate custom learning activities (reading activities and programming assignments with support for automated assessment) and judges (frameworks for automated assessment) into Dodona.
@@ -756,7 +756,7 @@ Dodona always displays *localized deadlines* based on a time zone setting in the
 A downside of using discussion forums in programming courses is that students can ask questions about programming assignments that are either disconnected from their current implementation or contain code snippets that may give away (part of) the solution to other students\nbsp{}[cite:@nandiEvaluatingQualityInteraction2012].
 Dodona therefore allows students to address teachers with questions they directly attach to their submitted source code.
 We support both general questions and questions linked to specific lines of their submission (Figure\nbsp{}[[fig:whatquestion]]).
-Questions are written in Markdown (e.g., to include markup, tables, syntax highlighted code snippets or multimedia), with support for MathJax (e.g., to include mathematical formulas).
+Questions are written in Markdown (e.g. to include markup, tables, syntax highlighted code snippets or multimedia), with support for MathJax (e.g. to include mathematical formulas).
 
 #+CAPTION: A student (Matilda) previously asked a question that has already been answered by her teacher (Miss Honey).
 #+CAPTION: Based on this response, the student is now asking a follow-up question that can be formatted using Markdown.
@@ -917,7 +917,7 @@ A full overview of all Dodona releases, with their full changelog, can be found 
 - 5.0 (2021-09-13) :: New learning analytics were added to each series.
   This release also includes the full release of grading after an extensive private beta.
 - 5.3 (2022-02-04) :: A new heatmap graph was added to the series analytics.
-- 5.5 (2022-04-25) :: Introduction of Papyros, our own online code editor,
+- 5.5 (2022-04-25) :: Introduction of Papyros, our own online code editor.
 - 5.6 (2022-07-04) :: Another visual refresh of Dodona, this time to follow the Material Design 3 spec.
 
 **** 2022--2023
@@ -986,12 +986,13 @@ In total, {{{num_users}}} students have submitted more than {{{num_submissions}}
 
 In the year 2023, the highest number of monthly active users was reached in November, when 9\thinsp{}678 users submitted at least one solution.
 About half of these users are from secondary education, a quarter from Ghent University, and the rest mostly from other higher education institutions.
+Every year, we see the largest increase of new users during September, where the same ratios between Ghent University, higher, and secondary education are kept.
 The record for most submissions in one day was recently broken on the 12th of January 2024, when the course described in Section\nbsp{}[[#sec:usecasestudy]] had one exam for all students for the first time in its history, and those students submitted 38\thinsp{}771 solutions in total.
 Interestingly enough, the day before (the 11th of January) was the third-busiest day ever.
 The day with the most distinct users was the 23rd of October 2023, when there were 2\thinsp{}680 users who submitted at least one solution.
 This is due to the fact that there were a lot of exercise sessions on Fridays in the first semester of the academic year; a lot of the other Fridays at the start of the semester are also in the top 10 of busiest days ever (both in submissions and in amount of users).
-The full top 10 of submissions can be seen in Table\nbsp{}[[tab:usetop10submissions]], the top 10 of active users can be seen in Table\nbsp{}[[tab:usetop10users]].
-Every year, we see the largest increase of new users during September, where the same ratios between Ghent University, higher, and secondary education are kept.
+The full top 10 of submissions can be seen in Table\nbsp{}[[tab:usetop10submissions]].
+The top 10 of active users can be seen in Table\nbsp{}[[tab:usetop10users]].
 
 #+CAPTION: Top 10 of days with the most submissions on Dodona.
 #+NAME: tab:usetop10submissions
@@ -1054,7 +1055,7 @@ The course is taken by a mix of undergraduate, graduate, and postgraduate studen
 
 Each course edition has a fixed structure, with 13 weeks of educational activities subdivided in two successive instructional units that each cover five topics of the Python programming language -- one topic per week -- followed by a graded test about all topics covered in the unit (Figure\nbsp{}[[fig:usefwecoursestructure]]).
 The final exam at the end of the term evaluates all topics covered in the entire course.
-Students who fail the course during the first exam in January can take a resit exam in August/September that gives them a second chance to pass the exam.
+Students who fail the course during the first exam in January can take a resit exam in August/September that gives them a second chance to pass the course.
 
 #+CAPTION: *Top*: Structure of the Python course that runs each academic year across a 13-week term (September--December).
 #+CAPTION: Students submit solutions for ten series with six mandatory assignments, two tests with two assignments and an exam with three assignments.
@@ -1084,7 +1085,7 @@ Submissions for these additional exercises are not taken into account in the fin
 :CUSTOM_ID: subsec:useassessment
 :END:
 
-We use Dodona to promote active learning through problem-solving\nbsp{}[cite:@princeDoesActiveLearning2004].
+We use Dodona to promote students' active learning through problem-solving\nbsp{}[cite:@princeDoesActiveLearning2004].
 Each course edition has its own dedicated course in Dodona, with a learning path containing all mandatory, test, and exam assignments grouped into series with corresponding deadlines.
 Mandatory assignments for the first unit are published at the start of the semester, and those for the second unit after the test of the first unit.
 For each test and exam we organize multiple sessions for different groups of students.
@@ -1116,7 +1117,7 @@ This was triggered by improved reusability of digital annotations and the foresi
 Where delivering custom feedback only requires a single click after the assessment of an evaluation has been completed in Dodona, it took us much more effort before to distribute our paper-based feedback.
 Students were direct beneficiaries from more and richer feedback, as observed from the fact that 75% of our students looked at their personalized feedback within 24 hours after it had been released, before we even published grades in Dodona.
 What did not change is the fact that we complement personalized feedback with collective feedback sessions in which we discuss model solutions for test and exam assignments, and the low numbers of questions we received from students on their personalized feedback.
-As a future development, we hope to reduce the time spent on manual assessment through improved computer-assisted reuse of digital source code annotations in Dodona.
+As a future development, we hope to reduce the time spent on manual assessment through improved computer-assisted reuse of digital source code annotations in Dodona (see Chapter\nbsp{}[[#chap:feedback]]).
 
 We primarily rely on automated assessment as a first step in providing formative feedback while students work on their mandatory assignments.
 After all, a back-of-the-envelope calculation tells us it would take us 72 full-time equivalents (FTE) to generate equivalent amounts of manual feedback for mandatory assignments compared to what we do for tests and exams.
@@ -1222,7 +1223,7 @@ When students ask for sample solutions of test or exam exercises, we explain tha
 So far, we have created more than 900 programming assignments for this introductory Python course alone.
 All these assignments are publicly shared on Dodona as open educational resources\nbsp{}[cite:@hylenOpenEducationalResources2021; @tuomiOpenEducationalResources2013; @wileyOpenEducationalResources2014; @downesModelsSustainableOpen2007; @caswellOpenEducationalResources2008].
 They are used in many other courses on Dodona (on average 10.8 courses per assignment) and by many students (on average 503.7 students and 4\thinsp{}801.5 submitted solutions per assignment).
-We estimate that it takes about 10 person-hours on average to create a new assignment for a test or an exam: 2 hours for ideation, 30 minutes for implementing and tweaking a sample solution that meets the educational goals of the assignment and can be used to generate a test suite for automated assessment, 4 hours for describing the assignment (including background research), 30 minutes for translating the description from Dutch into English, one hour to configure support for automated assessment, and another 2 hours for reviewing the result by some extra pair of eyes.
+We estimate that it takes about 10 person-hours on average to create a new assignment for a test or an exam: 2 hours for coming up with an idea, 30 minutes for implementing and tweaking a sample solution that meets the educational goals of the assignment and can be used to generate a test suite for automated assessment, 4 hours for describing the assignment (including background research), 30 minutes for translating the description from Dutch into English, one hour to configure support for automated assessment, and another 2 hours for reviewing the result by some extra pairs of eyes.
 
 Generating a test suite usually takes 30 to 60 minutes for assignments that can rely on basic test and feedback generation features that are built into the judge.
 The configuration for automated assessment might take 2 to 3 hours for assignments that require more elaborate test generation or that need to extend the judge with custom components for dedicated forms of assessment (e.g.\nbsp{}assessing non-deterministic behaviour) or feedback generation (e.g.\nbsp{}generating visual feedback).
@@ -1426,7 +1427,7 @@ Student submissions are automatically assessed in background jobs by our worker 
 To divide the work over these servers we make use of a job queue, based on =delayed_job=[fn:: https://github.com/collectiveidea/delayed_job].
 Each worker server has 6 job runners, which regularly poll the job queue when idle.
 
-For proper virtualization we use Docker containers\nbsp{}[cite:@pevelerComparingJailedSandboxes2019] that use OS-level containerization technologies and define runtime environments in which all data and executable software (e.g., scripts, compilers, interpreters, linters, database systems) are provided and executed.
+For proper virtualization we use Docker containers\nbsp{}[cite:@pevelerComparingJailedSandboxes2019] that use OS-level containerization technologies and define runtime environments in which all data and executable software (e.g. scripts, compilers, interpreters, linters, database systems) are provided and executed.
 These resources are typically pre-installed in the image of the container.
 Prior to launching the actual assessment, the container is extended with the submission, the judge and the resources included in the assessment configuration (Figure\nbsp{}[[fig:technicaloutline]]).
 Additional resources can be downloaded and/or installed during the assessment itself, provided that Internet access is granted to the container.
@@ -1582,7 +1583,7 @@ Given that the target audience for Papyros is secondary education students, we i
 - The editor of our online IDE should have syntax highlighting.
   Recent literature\nbsp{}[cite:@hannebauerDoesSyntaxHighlighting2018] has shown that this does not necessarily have an impact on students' learning, but as the authors point out, it was the prevailing wisdom for a long time that it does help.
 - It should also include linting.
-  Linters notify students about syntax errors, but also about style guide violations and antipatterns.
+  Linters notify students about syntax errors, but also about style guide violations and anti-patterns.
 - Error messages for errors that occur during execution should be user-friendly\nbsp{}[cite:@beckerCompilerErrorMessages2019].
 - Code completion should be available. When starting out with programming, it is hard to remember all the different functions available.
   Completion frameworks allow students to search for functions, and can show inline documentation for these functions.
@@ -1674,13 +1675,13 @@ After loading Pyodide, we load a Python script that overwrites certain functions
 For example, base Pyodide will overwrite =input= with a function that calls into JavaScript-land and executes =prompt=.
 Since we're running Pyodide in a web worker, =prompt= is not available (and we want to implement custom input handling anyway).
 For =input= we actually run into another problem: =input= is synchronous in Python.
-In a normal Python environment, =input= will only return a value once the user entered some value on the command line.
+In a normal Python environment, =input= will only return a value once the user entered a line of text on the command line.
 We don't want to edit user code (to make it asynchronous) because that process is error-prone and fragile.
 So we need a way to make our overwritten version of =input= synchronous as well.
 
 The best way to do this is by using the synchronization primitives of shared memory.
 We can block on some other thread writing to a certain memory location, and since blocking is synchronous, this makes our =input= synchronous as well.
-Unfortunately, not all browser supported shared memory at the time.
+Unfortunately, not all browsers supported shared memory at the time.
 Other browsers also severely constrain the environment in which shared memory can be used, since a number of CPU side channel attacks related to it were discovered.
 
 Luckily, there is another way we can make the browser perform indefinite synchronous operations from a web worker.
@@ -1801,7 +1802,7 @@ This is also reflected in the teacher API: they can access variables or execute 
 In R, all environments except the root environment have a parent, essentially creating a tree structure of environments.
 In most cases, this tree will actually be a path, but in the R judge, the student environment is explicitly attached to the base environment.
 This even makes sure that libraries loaded by the judge are not initially available to the student code (thus allowing teachers to test that students can correctly load libraries).
-The judge itself runs in an anonymous environment, so that even students with intimate knowledge of the inner workings of R and the judge itself would not be able to find this environment.
+The judge itself runs in an anonymous environment, so that even students with intimate knowledge of the inner workings of R and the judge itself would not be able to find it.
 
 The judge is also programmed very defensively.
 Every time execution is handed off to student code (or even teacher code), appropriate error handlers and output redirections are installed.
@@ -2120,7 +2121,7 @@ This chapter is based on\nbsp{}[cite/t:@vanpetegemPassFailPrediction2022], publi
 :END:
 
 A lot of educational opportunities are missed by keeping assessment separate from learning\nbsp{}[cite:@wiliamWhatAssessmentLearning2011; @blackAssessmentClassroomLearning1998].
-Educational technology can bridge this divide by providing real-time data and feedback to help students learn better, teachers teach better, and education systems become more effective\nbsp{}[cite:@oecdOECDDigitalEducation2021].
+Educational technology can bridge this divide by providing real-time data and feedback to help students learn better, teachers teach better, and educational systems become more effective\nbsp{}[cite:@oecdOECDDigitalEducation2021].
 Earlier research demonstrated that the adoption of interactive platforms may lead to better learning outcomes\nbsp{}[cite:@khalifaWebbasedLearningEffects2002] and allows collecting rich data on student behaviour throughout the learning process in non-evasive ways.
 Effectively using such data to extract knowledge and further improve the underlying processes, which is called educational data mining\nbsp{}[cite:@bakerStateEducationalData2009], is increasingly explored as a way to enhance learning and educational processes\nbsp{}[cite:@duttSystematicReviewEducational2017].
 
@@ -2375,7 +2376,9 @@ In practice, applying the framework on a student cohort in the current course ed
 Successive course editions are then aligned by identifying fixed time points throughout the course where predictions are made, for example at submission deadlines, intermediate tests or final exams (step 2).
 We conducted a longitudinal study to evaluate the accuracy of pass/fail predictions at successive stages of a course (step 3).
 This is done by extracting features from the raw submission metadata of one or more course editions and training machine learning models that can identify at-risk students during other course editions.
-Our scripts that implement this framework are provided as supplementary material.
+Our scripts that implement this framework are provided as supplementary material.[fn::
+https://github.com/dodona-edu/pass-fail-article
+]
 Teachers can also interpret the behaviour of students in their class by analysing the feature weights of the machine learning models (step 4).
 
 ** Results and discussion
@@ -2443,7 +2446,9 @@ This underscores the need to keep organizing final summative assessments as cata
 The variation in predictive accuracy for a group of corresponding snapshots is higher for course A than for course B.
 This might be explained by the fact that successive editions of course B use the same set of exercises, supplemented with evaluation and exam exercises from the previous edition, whereas each edition of course A uses a different selection of exercises.
 
-Predictions made with training sets from the same student cohort (5-fold cross-validation) perform better than those with training sets from different cohorts (see supplementary material for details).
+Predictions made with training sets from the same student cohort (5-fold cross-validation) perform better than those with training sets from different cohorts (see supplementary material for details[fn::
+https://github.com/dodona-edu/pass-fail-article
+]).
 This is more pronounced for F_1-scores than for balanced accuracy, but the differences are small enough so that nothing prevents us from building classification models with historical data from previous student cohorts to make pass/fail predictions for the current cohort, which is something that can't be done in practice with data from the same cohort as pass/fail information is needed during the training phase.
 In addition, we found no significant performance differences for classification models using data from a single course edition or combining data from two course editions.
 Given that cohort sizes are large enough, this tells us that accurate predictions can already be made in practice with historical data from a single course edition.
@@ -2499,7 +2504,9 @@ Features with a positive importance (red colour) will increase the odds with inc
 To simulate that we want to make predictions for each course edition included in this study, we trained logistic regression models with data from the remaining two editions of the same course.
 A label "edition 18--19" therefore means that we want to make predictions for the 2018--2019 edition of a course with a model built from the 2016--2017 and 2017--2018 editions of the course.
 However, in this case we are not interested in the predictions themselves, but in the importance of the features in the models.
-The importance of all features for each course edition can be found at https://github.com/dodona-edu/pass-fail-article.
+The importance of all features for each course edition can be found in the supplementary material.[fn::
+https://github.com/dodona-edu/pass-fail-article
+]
 We will restrict our discussion by highlighting the importance of a selection of feature types for the two courses.
 
 For course A, we look into the evaluation scores (Figure\nbsp{}[[fig:passfailfeaturesAevaluation]]) and the feature types =correct_after_15m= (Figure\nbsp{}[[fig:passfailfeaturesAcorrect]]) and =wrong= (Figure\nbsp{}[[fig:passfailfeaturesAwrong]]).
@@ -2650,7 +2657,7 @@ The jump in accuracy can be explained here by the fact that the period around th
 It was also observed that the first weeks of the course play an important role in reducing dropout.
 
 The addition of the self-reported data to the snapshots resulted in a statistically significant improvement of predictions in the first four weeks of the course.
-For the remaining weeks, the change in predication performance was not statistically significant.
+For the remaining weeks, the change in prediction performance was not statistically significant.
 This again points to the conclusion that the first few weeks of a CS1 course play a significant role in student success.
 The models trained only on self-reported data performed significantly worse than the other models.
 
