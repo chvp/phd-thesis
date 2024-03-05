@@ -251,6 +251,14 @@ We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de 
 :CREATED:  [2024-03-05 Tue 17:40]
 :END:
 
+Strijbol, N., Sels, B., *Van Petegem, C.*, Maertens, R., Scholliers, C., Mesuere B., Dawyndt, P., submitted.
+TESTed-DSL: a domain-specific language to create programming exercises with language-agnostic automated assessment.
+/Software Testing, Verification and Reliability/.
+
+Maertens, R., Van Neyghem, M., Geldhof, M., *Van Petegem, C.*, Strijbol, N., Dawyndt, P., Mesuere, B., submitted.
+Discovering and exploring cases of educational source code plagiarism with Dolos.
+/SoftwareX/
+
 Zhidkikh, D., Heilala, V., *Van Petegem, C.*, Dawyndt, P., Järvinen, M., Viitanen, S., De Wever, B., Mesuere, B., Lappalainen, V., Kettunen, L., & Hämäläinen, R., 2024.
 Reproducing Predictive Learning Analytics in CS1: Toward Generalizable and Explainable Models for Enhancing Student Retention.
 /Journal of Learning Analytics/, 1-21.
