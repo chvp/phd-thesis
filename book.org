@@ -246,6 +246,46 @@ We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de 
 
 #+LATEX: \end{dutch}
 
+* List of Publications
+:PROPERTIES:
+:CREATED:  [2024-03-05 Tue 17:40]
+:END:
+
+Zhidkikh, D., Heilala, V., *Van Petegem, C.*, Dawyndt, P., Järvinen, M., Viitanen, S., De Wever, B., Mesuere, B., Lappalainen, V., Kettunen, L., & Hämäläinen, R., 2024.
+Reproducing Predictive Learning Analytics in CS1: Toward Generalizable and Explainable Models for Enhancing Student Retention.
+/Journal of Learning Analytics/, 1-21.
+https://doi.org/10.18608/jla.2024.7979
+
+*Van Petegem, C.*, Maertens, R., Strijbol, N., Van Renterghem, J., Van der Jeugt, F., De Wever, B., Dawyndt, P., Mesuere, B., 2023b.
+Dodona: Learn to code with a virtual co-teacher that supports active learning.
+/SoftwareX/ 24, 101578.
+https://doi.org/10.1016/j.softx.2023.101578
+
+*Van Petegem, C.*, Dawyndt, P., Mesuere, B., 2023a.
+Dodona: Learn to Code with a Virtual Co-teacher that Supports Active Learning.
+/Proceedings of the 2023 Conference on Innovation and Technology in Computer Science Education V. 2/ ITiCSE 2023, 633.
+https://doi.org/10.1145/3587103.3594165
+
+Strijbol, N., *Van Petegem, C.*, Maertens, R., Sels, B., Scholliers, C., Dawyndt, P., Mesuere, B., 2023b.
+TESTed -- An educational testing framework with language-agnostic test suites for programming exercises.
+/SoftwareX/ 22, 101404.
+https://doi.org/10.1016/j.softx.2023.101404
+
+*Van Petegem, C.*, Deconinck, L., Mourisse, D., Maertens, R., Strijbol, N., Dhoedt, B., De Wever, B., Dawyndt, P., Mesuere, B., 2022.
+Pass/Fail Prediction in Programming Courses.
+/Journal of Educational Computing Research/ 68–95.
+https://doi.org/10.1177/07356331221085595
+
+Maertens, R., *Van Petegem, C.*, Strijbol, N., Baeyens, T., Jacobs, A.C., Dawyndt, P., Mesuere, B., 2022.
+Dolos: Language-agnostic plagiarism detection in source code.
+/Journal of Computer Assisted Learning/.
+https://doi.org/10.1111/jcal.12662
+
+Nüst, D., Eddelbuettel, D., Bennett, D., Cannoodt, R., Clark, D., Daróczi, G., Edmondson, M., Fay, C., Hughes, E., Kjeldgaard, L., Lopp, S., Marwick, B., Nolis, H., Nolis, J., Ooi, H., Ram, K., Ross, N., Shepherd, L., Sólymos, P., Swetnam, T.L., Turaga, N., *Van Petegem, C.*, Williams, J., Willis, C. Xiao, N., 2020.
+The Rockerverse: Packages and Applications for Containerisation with R.
+/The R Journal/, 12(1), 437–461.
+https://doi.org/10.32614/RJ-2020-007
+
 #+LATEX: \mainmatter
 
 * Introduction
