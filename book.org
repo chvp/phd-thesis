@@ -398,7 +398,8 @@ In one case at MIT over 30% of students were found to be plagiarizing\nbsp{}[cit
 If students carelessly copied another student's submission, they would also copy the whitespace.
 [cite/t:@schleimerWinnowingLocalAlgorithms2003] also published MOSS around this time.
 
-Another important platform[fn:: Especially in our context, since we used this platform for a long time.] is SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008].
+Another important platform is SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008].
+SPOJ is especially important in the context of this dissertation, since it was the platform we used before Dodona.
 SPOJ specifically notes the influence of online contest platforms (and in fact, is a platform that can be used to organize contests).
 Online contest platforms usually differ from the automated assessment platforms for education in the way they handle feedback.
 For online contests, the amount of feedback given to participants is often far less than the feedback given in education to students.
@@ -507,7 +508,15 @@ Computer science students are taught a plethora of languages, from Python and Ja
 :CUSTOM_ID: sec:introstructure
 :END:
 
-Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]],\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona[fn:: https://dodona.be/] itself.
+This dissertation is centred around Dodona[fn:: https://dodona.be/].
+Dodona is an online learning environment that recognizes the importance of active learning and just-in-time feedback in courses involving programming assignments.
+Dodona was started because our own educational needs outgrew SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008].
+SPOJ was chosen because it was one of the rare platforms that allowed the addition of courses, exercises (and even judges) by teachers.
+This also informed the development of Dodona.
+Every year since its inception in 2016, more and more teachers have started using Dodona.
+It is now used in most higher education institutions in Flanders, and many secondary education institutions as well.
+
+Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]],\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona itself.
 In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
 Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform, and an extensive case study on how Dodona's features are used to optimize teaching.
 This case study also provides insight into the educational context for the research described in Chapters\nbsp{}[[#chap:passfail]]\nbsp{}and\nbsp{}[[#chap:feedback]].
@@ -528,10 +537,6 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 :CUSTOM_ID: chap:what
 :END:
 
-Dodona is an online learning environment that recognizes the importance of active learning and just-in-time feedback in courses involving programming assignments.
-Dodona was started because our own educational needs outgrew SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008], the platform we were using before.
-Every year since its inception in 2016, more and more teachers have started using Dodona.
-It is now used in most higher education institutions in Flanders, and many secondary education institutions as well.
 In this chapter, we will give an overview of Dodona's most important features.
 We finish the chapter with a short overview of Dodona's most important releases and which features they included.
 
@@ -1334,7 +1339,7 @@ Given that cohort sizes are large enough, historical data from a single course e
 
 Dodona and its ecosystem comprise a lot of code.
 This chapter discusses the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor, Papyros (\url{https://papyros.dodona.be}), that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
-We will also discuss two judges that we were involved with the development of.
+We also discuss two judges that were developed in the context of this dissertation.
 The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
 The TESTed judge was first prototyped in a master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two other master's theses\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
 In this chapter we assume the reader is familiar with Dodona's features and how they are used, as detailed in Chapters\nbsp{}[[#chap:what]]\nbsp{}and\nbsp{}[[#chap:use]].
@@ -1514,7 +1519,7 @@ Since Dodona is accessible over the public web, it would be problematic if we co
 
 The way we release Dodona has seen a few changes over the years.
 We've gone from a few large releases with bugfix point-releases between them, to lots of smaller releases, to now a /release/ per pull request.
-Since ours is the only instance of Dodona, releasing every pull request immediately after merging makes getting feedback from our users a very quick process.
+Releasing every pull request immediately after merging makes getting feedback from our users a very quick process.
 When we did versioned releases we also wrote release notes at the time of release.
 Because we don't have versioned releases any more, we now bundle the changes into release notes for every month.
 They are mostly autogenerated from the merged PRs, but bigger features are given more context and explanation.
@@ -1536,7 +1541,7 @@ Backups of the database are automatically saved every day and kept for 12 months
 The backups are rotated according to a grandfather-father-son scheme\nbsp{}[cite:@jessen2010overview].
 The backups are taken by dumping a replica database.
 The replica database is used because dumping the main database write-locks it while it is being dumped, which would result in Dodona being unusable for a significant amount of time.
-The backups are regularly tested by restoring them on Naos.
+We regularly test the backups by restoring them on Naos.
 
 We also have an extensive monitoring and alerting system in place, based on Grafana[fn:: https://grafana.com/].
 This gives us some superficial analytics about Dodona usage, but can also tell us if there are problems with one of our servers.
@@ -3243,14 +3248,14 @@ Using those skills, we could try to estimate a student's mastery of those skills
 
 This leads right into another possibility for future research: exercise recommendation.
 Right now, learning paths in Dodona are static, determined by the teacher of the course the student is following.
-Dodona has a rich library of extra exercises, which is linked to in some courses, but it is not always easy for students to know what exercises would be good for them.
+Dodona has a rich library of extra exercises, which some courses point to as opportunities for extra practice, but it is not always easy for students to know what exercises would be good for them.
 The research from Chapter\nbsp{}[[#chap:passfail]] could also be used to help solve this problem.
 If we know a student has a higher chance of failing the course, we might want to recommend some easier exercises.
 The other way around, if a student has a higher chance of passing, we could suggest harder exercises, so they can keep up their good progress in their course.
 
 The use of LLMs in Dodona could also be an opportunity.
 As mentioned in Section\nbsp{}[[#subsec:feedbackpredictionconclusion]], a possibility for using LLMs could be to generate feedback while grading.
-Another option is to integrate an LLM as an AI tutor.
+Another option is to integrate an LLM as an AI tutor (as, for example, Khan Academy has done with Khanmigo[fn:: https://www.khanmigo.ai/]).
 This way, it could interactively help students while they are learning.
 The final possibility we will present here is to prepare suggestions for answers to student questions on Dodona.
 At first glance, LLMs should be quite good at this.
@@ -3277,7 +3282,7 @@ However, the funding for a full-time developer was always, and still is, tempora
 PhD students who can devote some of their time to it are attracted, grants are applied for (and sometimes granted), but there is no stable source of funding.
 We have the advantage that we can kindly make use of Ghent University's data centre, resulting in very few operational costs.
 A full-time developer, which Dodona is big enough to need, is expensive though.
-This puts Dodona's future in a precarious situation, where we constantly have to be on the lookout for new funding opportunities.
+This puts Dodona's future in a precarious situation, where there is a constant need to look for new funding opportunities.
 
 As much as generative AI can be an asset for Dodona, it is also a threat.
 Most exercises in Dodona can be solved by LLMs without issues.[fn:: Or at least with some nudging.]
@@ -3287,7 +3292,9 @@ Another aspect is the fairness and integrity of evaluations using Dodona.
 The case study in Chapter\nbsp{}[[#chap:use]] details the use of open-book/open-internet evaluations.
 If students can use generative AI during these evaluations (either locally or via a webservice), and knowing that LLMs can solve most exercises on Dodona, these evaluations will test the students' abilities less and less, if students can use LLMs.
 The way to solve these issues is not clear.
-It seems like LLMs are here to stay, and just like the calculator is a commonplace tool these days, the same could be true for LLMs in the future.
+It seems like LLMs are here to stay, and just like the calculator is a commonplace tool these days, the same could be true for LLMs in the future[fn::
+The IMEC digimeter (a yearly survey on technology use in Flanders) showed that 18% of Flemish people used generative AI at least monthly in 2023.
+].
 Instead of banning the use of LLMs, teachers could integrate the use of them in their courses.
 On the other hand, when children first learn to count and add, they do not use calculators.
 The same might be necessary when learning to program: to learn the basics, students might need to do a lot of things themselves, to really get a feel for what they are doing.
