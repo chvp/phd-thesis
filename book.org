@@ -3340,9 +3340,9 @@ Another aspect is the fairness and integrity of evaluations using Dodona.
 The case study in Chapter\nbsp{}[[#chap:use]] details the use of open-book/open-internet evaluations.
 If students can use generative AI during these evaluations (either locally or via a webservice), and knowing that LLMs can solve most exercises on Dodona, these evaluations will test the students' abilities less and less, if students can use LLMs.
 The way to solve these issues is not clear.
-It seems like LLMs are here to stay, and just like the calculator is a commonplace tool these days, the same could be true for LLMs in the future[fn::
+It seems like LLMs are here to stay, and just like the calculator is a commonplace tool these days, the same could be true for LLMs in the future.[fn::
 The IMEC digimeter (a yearly survey on technology use in Flanders) showed that 18% of Flemish people used generative AI at least monthly in 2023.
-].
+]
 Instead of banning the use of LLMs, teachers could integrate the use of them in their courses.
 On the other hand, when children first learn to count and add, they do not use calculators.
 The same might be necessary when learning to program: to learn the basics, students might need to do a lot of things themselves, to really get a feel for what they are doing.
