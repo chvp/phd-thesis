@@ -230,7 +230,7 @@ Deze case study presenteert ook de context waarin Hoofdstukken\nbsp{}[[#chap:pas
 Hoofdstuk\nbsp{}[[#chap:technical]] focust op het technische aspect van het ontwikkelen van Dodona en het gerelateerde ecosysteem van software.
 Dit bevat onder meer een bespreking van de technische uitdagingen gerelateerd aan het ontwikkelen van een platform zoals Dodona en hoe het Dodona-team zich aan de moderne standaarden van softwareontwikkeling houdt.
 
-Hoofdstukken\nbsp{}[[#chap:passfail]]\nbsp{}en\nbsp{}[[#chap:feedback]] verschillen van de vorige hoofdstukken, in de zin dat ze elks een /learning analytics/educational data mining/ studie bespreken.
+Hoofdstukken\nbsp{}[[#chap:passfail]]\nbsp{}en\nbsp{}[[#chap:feedback]] verschillen van de vorige hoofdstukken, in de zin dat ze elk een /learning analytics/educational data mining/ studie bespreken.
 Deze studies werden uitgevoerd met de data die Dodona verzamelt over het leerproces.
 /Learning analytics/ en /educational data mining/ bevinden zich op het kruispunt tussen informatica, datawetenschap en de sociale wetenschappen, en focussen zich op het begrijpen en verbeteren van leren.
 Ze worden mogelijk gemaakt door de toegenomen beschikbaarheid van data over lerende studenten, wat op zijn beurt komt door de toegenomen beweging van onderwijs naar digitale platformen\nbsp{}[cite:@romeroDataMiningCourse2008].
@@ -387,7 +387,7 @@ The coverage that these tests achieved was part of the testing done by the platf
 Tests are written using standard unit testing frameworks\nbsp{}[cite:@edwardsExperiencesUsingTestdriven2007].
 An example of Web-CAT's submission screen can be seen in Figure\nbsp{}[[fig:introductionwebcatsubmission]].
 
-#+CAPTION: Example of Web-CAT's submission screen for students.
+#+CAPTION: Web-CAT's submission screen for students.
 #+CAPTION: Image taken from\nbsp{}[cite/t:@edwardsWebCATWebbasedCenter2006].
 #+NAME: fig:introductionwebcatsubmission
 [[./images/introductionwebcatsubmission.png]]
@@ -469,7 +469,7 @@ Again, a number of machine learning techniques are compared, to determine which 
 :CREATED:  [2024-02-20 Tue 17:16]
 :END:
 
-In Flanders, programming is taught in lots of ways, and at many levels.
+In Flanders (Belgium), programming is taught in lots of ways, and at many levels.
 This includes secondary and higher education, but it is also something children can do in their free time, as a hobby.
 There are also trainings for the workforce, but these are not the focus of this dissertation.
 
@@ -477,9 +477,9 @@ Programming education as a hobby for children is provided by organizations such 
 CoderDojo is a non-profit organization that relies on volunteers to organize free sessions for children from 7 up to 18 years old.
 They use tools like Scratch\nbsp{}[cite:@maloneyScratchProgrammingLanguage2010], AppInventor\nbsp{}[cite:@patton2019app], and Code.org[fn:: https://code.org/] to teach children the basics of programming in a fun, gamified way.
 CodeFever is also a non-profit organization, but does ask for registration fees for enrolling in one of their courses.
-They focus on children aged 8 to 15, and primarily use Scratch to teach programming concepts.
+They focus on children aged 8 to 15, and primarily use Scratch and JavaScript to teach programming concepts.
 
-In secondary education, things changed in recent history.
+In secondary education, things recently changed.
 Before 2021, education related to computing was very much up to the individual school and teacher.
 While there were some schools where programming was taught, this was mostly a rare occurrence except for a few specific IT-oriented programmes.
 In 2021, however, the Flemish parliament approved a new set of educational goals.
@@ -492,14 +492,14 @@ The constitutional court agreed, after which the government went back to the dra
 Digital competence is still a part of the new educational goals, but programming is now not explicitly listed.
 For other programmes, mostly focused on the sciences, or with more mathematics, specific educational goals list competences that students should have when finishing secondary education.
 These include programming, algorithms, data structures, numerical methods, etc.
-For programmes focused on IT, there is an even bigger list of competences that the students should have.
+For programmes focused on IT, there is an even bigger list of related competences that the students should have.
 Python is the most common programming language used at this level, but other programming languages like Java and C# are also used.
 
 In higher education, programming has made its way into a lot of programmes.
 Almost all students studying exact sciences or engineering have at least one programming course, but programming is also taught outside these domains (e.g. as part of a statistics course).
 Here we see the greatest diversity in the programming languages that are taught.
 Python, Java, and R are the most common languages for students for whom computer science is not the main subject.
-Computer science students are taught a wide plethora of languages, from Python and Java to Prolog, Haskell and Scheme.
+Computer science students are taught a plethora of languages, from Python and Java to Prolog, Haskell and Scheme.
 
 ** Structure of this dissertation
 :PROPERTIES:
@@ -514,8 +514,8 @@ This case study also provides insight into the educational context for the resea
 Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
 This includes a discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
 
-Chapter\nbsp{}[[#chap:passfail]] discusses an educational data mining study where we tried to predict whether students would pass or fail a course at the end of the semester based solely on their submission history in Dodona.
-It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their educational context, with data from their educational platform.
+Chapter\nbsp{}[[#chap:passfail]] discusses an educational data mining study where we tried to predict whether students would pass or fail a programming course at the end of the semester based solely on their submission history in Dodona.
+It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their own educational context, with data from their own educational platform.
 
 In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
 We then finish the chapter with some recent work on a machine learning method we developed to predict what feedback teachers will give when manually assessing student submissions.
@@ -530,7 +530,7 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 
 Dodona is an online learning environment that recognizes the importance of active learning and just-in-time feedback in courses involving programming assignments.
 Dodona was started because our own educational needs outgrew SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008], the platform we were using before.
-Every year since its inception, more and more teachers have started using Dodona.
+Every year since its inception in 2016, more and more teachers have started using Dodona.
 It is now used in most higher education institutions in Flanders, and many secondary education institutions as well.
 In this chapter, we will give an overview of Dodona's most important features.
 We finish the chapter with a short overview of Dodona's most important releases and which features they included.
@@ -600,7 +600,7 @@ A token link can be used to grant access to invisible content, e.g.\nbsp{}when t
 Students can only mark reading activities as read once, but there is no restriction on the number of solutions they can submit for programming assignments.
 Submitted solutions are automatically assessed and students receive immediate feedback as soon as the assessment has completed, usually within a few seconds.
 Dodona stores all submissions, along with submission metadata and generated feedback, such that the submission and feedback history can be reclaimed at all times.
-On top of automated assessment, student submissions may be further assessed and graded manually by a teacher.
+On top of automated assessment, student submissions may be further assessed and graded manually by a teacher (see Chapter\nbsp{}[[#chap:feedback]]).
 
 Series can have a *deadline*.
 Passed deadlines do not prevent students from marking reading activities or submitting solutions for programming assignments in their series.
@@ -611,7 +611,7 @@ While working on a programming assignment, students will also see a clear warnin
 Courses also provide an iCalendar link\nbsp{}[cite:@stenersonInternetCalendaringScheduling1998] that students can use to publish course deadlines in their personal calendar application.
 
 Because Dodona logs all student submissions and their metadata, including feedback and grades from automated and manual assessment, we use that data to integrate reports and learning analytics in the course page\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
-This includes heatmaps (Figure\nbsp{}[[fig:whatcourseheatmap]]) and punch cards (Figure\nbsp{}[[fig:whatcoursepunchcard]]) of user activity, graphs showing class progress (Figure\nbsp{}[[fig:whatcourseprogress]]), ...
+This includes heatmaps (Figure\nbsp{}[[fig:whatcourseheatmap]]) and punch cards (Figure\nbsp{}[[fig:whatcoursepunchcard]]) of user activity, graphs showing class progress (Figure\nbsp{}[[fig:whatcourseprogress]]), and so on.
 
 #+CAPTION: Heatmap showing on which days in the semester students are more active or less active.
 #+NAME: fig:whatcourseheatmap
@@ -685,6 +685,7 @@ More information on this underlying mechanism can be found in Chapter\nbsp{}[[#c
 An overview of the existing judges and the corresponding number of exercises and submissions in Dodona can be found in Table\nbsp{}[[tab:whatoverviewjudges]].
 
 #+CAPTION: Overview of the judges in Dodona, together with the corresponding number of exercises and submissions in Dodona.
+#+CAPTION: The data was gathered in March 2024.
 #+CAPTION: The TESTed judge is a special case in that it supports multiple programming languages.
 #+CAPTION: More information on it can be found in Section\nbsp{}[[#sec:techtested]].
 #+CAPTION: The number of exercises and submissions for the JavaScript judge is undercounted: most of its exercises were converted to TESTed exercises, which also moved the submissions to those exercises to TESTed.
@@ -796,7 +797,7 @@ This automatic selection can be manually overruled afterwards.
 The evaluation deadline defaults to the deadline set for the associated series, if any, but an alternative deadline can be selected as well.
 
 #+CAPTION: Pseudonymized overview of an evaluation in Dodona.
-#+CAPTION: For each student, both the correctness of their submission and whether it has been graded yet is shown.
+#+CAPTION: For each student, both the correctness of their submission and whether it has been graded is shown.
 #+NAME: fig:whatevaluationoverview
 [[./images/whatevaluationoverview.png]]
 
@@ -836,7 +837,7 @@ A full overview of all Dodona releases, with their full changelog, can be found 
 :END:
 
 - 0.1 (2016-04-07) :: Minimal Rails app, where a list of exercises is shown based on files in the filesystem.
-  This was only for JavaScript, and the code was executed locally.
+  This was only for JavaScript, and the code was executed locally in the browser.
 - 0.2 (2016-04-14) :: Addition of a webhook to automatically update exercises.
   Assignments are rendered from Markdown, and can include media and formulas.
   Ace was introduced as the editor.
@@ -863,7 +864,7 @@ A full overview of all Dodona releases, with their full changelog, can be found 
 
 - 2.0 (2017-09-15) :: Introduction of the concept of a course administrator.
   Courses could also be set to hidden, and options for managing registration were added.
-- 2.3 (2018-07-26) :: OAuth sign in support was added, allowing users from other institutions to use Dodona.
+- 2.3 (2018-07-26) :: OAuth sign in support was added, allowing users from other institutions to use Dodona.[fn:: This is also the first release were I was personally involved with Dodona's development.]
 
 **** 2018--2019
 :PROPERTIES:
@@ -968,19 +969,19 @@ Dodona currently hosts a collection of {{{num_exercises}}} learning activities t
 In total, {{{num_users}}} students have submitted more than {{{num_submissions}}} solutions to Dodona in the seven years that it has been running (Figures\nbsp{}[[fig:useadoption1]],\nbsp{}[[fig:useadoption2]]\nbsp{}&\nbsp{}[[fig:useadoption3]]).
 
 #+CAPTION: Overview of the number of submitted solutions by academic year.
-#+CAPTION: Note that the data for the academic year 2023--2024 is incomplete, since the academic year has not finished yet at the time of writing.
+#+CAPTION: Note that the data for the academic year 2023--2024 is incomplete, since the academic year has not finished yet at the time of data collection (March 2024).
 #+NAME: fig:useadoption1
 [[./images/useadoption1.png]]
 
 #+CAPTION: Overview of the number of active users by academic year.
 #+CAPTION: Users were active when they submitted at least one solution for a programming assignment during the academic year.
-#+CAPTION: Note that the data for the academic year 2023--2024 is incomplete, since the academic year has not finished yet at the time of writing.
+#+CAPTION: Note that the data for the academic year 2023--2024 is incomplete, since the academic year has not finished yet at the time of data collection (March 2024).
 #+NAME: fig:useadoption2
 [[./images/useadoption2.png]]
 
 #+CAPTION: Overview of the number of active users by academic year per institution type.
 #+CAPTION: Users were active when they submitted at least one solution for a programming assignment during the academic year.
-#+CAPTION: Note that the data for the academic year 2023--2024 is incomplete, since the academic year has not finished yet at the time of writing.
+#+CAPTION: Note that the data for the academic year 2023--2024 is incomplete, since the academic year has not finished yet at the time of data collection (March 2024).
 #+NAME: fig:useadoption3
 [[./images/useadoption3.png]]
 
@@ -995,6 +996,7 @@ The full top 10 of submissions can be seen in Table\nbsp{}[[tab:usetop10submissi
 The top 10 of active users can be seen in Table\nbsp{}[[tab:usetop10users]].
 
 #+CAPTION: Top 10 of days with the most submissions on Dodona.
+#+CAPTION: This analysis was done in March 2024.
 #+NAME: tab:usetop10submissions
 | Date       |  # submissions |
 |------------+----------------|
@@ -1011,6 +1013,7 @@ The top 10 of active users can be seen in Table\nbsp{}[[tab:usetop10users]].
 | 2023-10-16 | 30\thinsp{}103 |
 
 #+CAPTION: Top 10 of days with the most users who submitted at least once on Dodona.
+#+CAPTION: This analysis was done in March 2024.
 #+NAME: tab:usetop10users
 | Date       | # active users |
 |------------+----------------|
@@ -1150,7 +1153,7 @@ But maximizing that factor without proper learning of programming skills will li
 
 Fostering an open collaboration environment to work on mandatory assignments with strict deadlines and taking them into account for computing the final score is a potential promoter for plagiarism, but using it as a weight factor for the test score rather than as an independent score item should promote learning by avoiding that plagiarism is rewarded.
 It takes some effort to properly explain this to students.
-We initially used Moss\nbsp{}[cite:@schleimerWinnowingLocalAlgorithms2003] and now use Dolos\nbsp{}[cite:@maertensDolosLanguageagnosticPlagiarism2022] to monitor submitted solutions for mandatory assignments, both before and at the deadline.
+We initially used MOSS\nbsp{}[cite:@schleimerWinnowingLocalAlgorithms2003] and now use Dolos\nbsp{}[cite:@maertensDolosLanguageagnosticPlagiarism2022] to monitor submitted solutions for mandatory assignments, both before and at the deadline.
 The solution space for the first few mandatory assignments is too small for linking high similarity to plagiarism: submitted solutions only contain a few lines of code and the diversity of implementation strategies is small.
 But at some point, as the solution space broadens, we start to see highly similar solutions that are reliable signals of code exchange among larger groups of students.
 Strikingly this usually happens among students enrolled in the same study programme (Figure\nbsp{}[[fig:usefweplagiarism]]).
@@ -1353,7 +1356,7 @@ In this section, we will highlight a few of these components.
 #+CAPTION: Servers are connected if they communicate.
 #+CAPTION: The direction of the connection signifies which server initiates the connection.
 #+CAPTION: Every server also has an implicit connection with Phocus (the monitoring server), since metrics such as load, CPU usage, disk usage, etc. are collected and sent to Phocus on every server.
-#+CAPTION: The Pandora server is greyed out because it is not used any more (see Section\nbsp{}[[#subsec:techdodonatutor]] for more info).
+#+CAPTION: The Pandora server is greyed out because it has been decommissioned (see Section\nbsp{}[[#subsec:techdodonatutor]] for more info).
 #+NAME: fig:technicaldodonaservers
 [[./diagrams/technicaldodonaservers.svg]]
 
@@ -1363,10 +1366,10 @@ In this section, we will highlight a few of these components.
 :CUSTOM_ID: subsec:techdodonaweb
 :END:
 
-The user-facing part of Dodona runs on the main web server, which also called Dodona (see Figure\nbsp{}[[fig:technicaldodonaservers]]).
+The user-facing part of Dodona runs on the main web server, which is also called Dodona (see Figure\nbsp{}[[fig:technicaldodonaservers]]).
 Dodona is a Ruby-on-Rails web application, currently running on Ruby 3.1 and Rails 7.1.
 We use Apache 2.4.52 to proxy our requests to the actual application.
-We follow the Rails-standard way of organizing functionality in models, views and controllers
+We follow the Rails-standard way of organizing functionality in models, views and controllers.
 In Rails, requests are sent to the appropriate action in the appropriate controller by the router.
 In these actions, models are queried and/or edited, after which they are used to construct the data for a response.
 This data is then rendered by the corresponding view, which can be HTML, JSON, JavaScript, or even a CSV.
@@ -1470,14 +1473,14 @@ Another form of inheritance is specifying default assessment configurations at t
 :CUSTOM_ID: subsec:techdodonatutor
 :END:
 
-The Python Tutor\nbsp{}[cite:@guoOnlinePythonTutor2013] is a debugger built in to Dodona.
-It provides timeline debugging, where for each step in the timeline, each correspondig to a line being executed, all variables on the stack are visualized.
+The Python Tutor\nbsp{}[cite:@guoOnlinePythonTutor2013] is a debugger built into Dodona.
+It provides timeline debugging, where for each step in the timeline, each corresponding to a line being executed, all variables on the stack are visualized.
 
 The deployment of the Python Tutor also saw a number of changes over the years.
 The Python Tutor itself is written in Python, so could not be part of Dodona itself.
 It started out as a Docker container on the same server as the main Dodona web application.
 Because it is used mainly by students who want to figure out their mistakes, the service responsible for running student code could become overwhelmed and in extreme cases even make the entire server unresponsive.
-After we identified this issue, the Python tutor was moved to its own server (Pandora in Figure\nbsp{}[[fig:technicaldodonaservers]]).
+After we identified this issue, the Python Tutor was moved to its own server (Pandora in Figure\nbsp{}[[fig:technicaldodonaservers]]).
 This did not fix the Tutor itself becoming overwhelmed however, which meant that students that depended on the Tutor were sometimes unable to use it.
 This of course happened more during periods where the Tutor was being used a lot, such as evaluations and exams.
 One can imagine that the experience for students who are already quite stressed out about the exam they are taking when the Tutor suddenly failed was not very good.
@@ -1594,7 +1597,7 @@ Given that the target audience for Papyros is secondary education students, we i
 :CUSTOM_ID: subsec:papyrosexecution
 :END:
 
-Python can not be executed directly by a browser, since only JavaScript and WebAssembly are natively supported.
+Python can't be executed directly by a browser, since only JavaScript and WebAssembly are natively supported.
 We investigated a number of solutions for running Python code in the browser.
 
 The first of these is Brython[fn:: https://brython.info].
@@ -1613,7 +1616,7 @@ Pyodide is a port of the Python interpreter to WebAssembly, allowing it to be ex
 Since the project is focused on scientific research, it has wide support for external libraries such as NumPy.
 Because Pyodide can be treated as a regular JavaScript library, it can be run in a web worker, making sure that the page stays responsive while the user's code is being executed.
 
-We also looked into integrating other platforms such as Repl.it, but none of them were free or did not provide a suitable interface for integration.
+We also looked into integrating other platforms such as Repl.it, but all of them were either not free or did not provide a suitable interface for integration.
 We chose to base Papyros on Pyodide given its active development, support for recent Python versions and its ability to be executed on a separate thread.
 
 *** Implementation
@@ -1654,7 +1657,7 @@ Its documentation is also very clear and extensive.
 Given the clear advantages, we decided to use CodeMirror for Papyros.
 
 The two other main components of Papyros are the output window and the input window.
-The output window is a simple read-only textarea.
+The output window is a simple read-only text area.
 The input window is a text area that has two modes: interactive mode and batch input.
 In interactive mode, the user is expected to write the input needed by their program the moment it asks for it (similar to running their program on the command line and answering the prompts when they appear).
 In batch mode, the user can prefill all the input required by their program.
@@ -1757,9 +1760,9 @@ The latter tests whether the specific function is used when initializing a speci
 If some code needs to be executed in the student's environment before the student's code is run (e.g. to make some dataset available, or to fix a random seed), the =preExec= argument of the =context= function can be used to do so.
 
 #+CAPTION: Sample evaluation code for a simple R exercise.
-#+CAPTION: The feedback table will contain one context with two testcases in it.
-#+CAPTION: The first testcase checks whether some t-test was performed correctly, and does this by performing two equality checks.
-#+CAPTION: The second testcase checks that the \(p\)-value calculated by the t-test is correct.
+#+CAPTION: The feedback table will contain one context with two test cases in it.
+#+CAPTION: The first test case checks whether some t-test was performed correctly, and does this by performing two equality checks.
+#+CAPTION: The second test case checks that the \(p\)-value calculated by the t-test is correct.
 #+CAPTION: The =preExec= is executed in the student's environment and here fixes a random seed for the student's execution.
 #+NAME: lst:technicalrsample
 #+ATTR_LATEX: :float t
@@ -1870,7 +1873,7 @@ The exit status code can only be checked in this testcase as well.
 Like the communication with Dodona, this test plan is a JSON document under the hood.
 In the following sections, we will use the JSON representation of the test plan to discuss how TESTed works.
 Exercise authors use the DSL to write their tests, which we discuss in Section\nbsp{}[[#subsec:techtesteddsl]].
-This DSL is internally converted by TESTed to a JSON test plan before execution.
+This DSL is internally converted by TESTed to the more extensive underlying structure before execution.
 A test plan of the example exercise can be seen in Listing\nbsp{}[[lst:technicaltestedtestplan]].
 
 #+CAPTION: Basic structure of a test plan.
@@ -2082,9 +2085,9 @@ YAML's concise nature also contributes to the read- and writability of its test 
 The main addition of the DSL is an abstract programming language, made to look somewhat like Python 3.
 Note that this is not a full programming language, but only supports language constructs as far as they are needed by TESTed.
 Values are interpreted as basic types, but can be cast explicitly to one of the more advanced types.
-The DSL version of the example exercise can be seen in Listing\nbsp{}[[lst:technicaltesteddsl]].
+The DSL version of the test plan for the example exercise can be seen in Listing\nbsp{}[[lst:technicaltesteddsl]].
 
-#+CAPTION: DSL version of the example exercise.
+#+CAPTION: DSL version of the test plan for the example exercise.
 #+CAPTION: This version also demonstrates the use of an assignment.
 #+NAME: lst:technicaltesteddsl
 #+ATTR_LATEX: :float t
@@ -2245,7 +2248,7 @@ We opted to use two different courses that are structured quite differently to m
 :CUSTOM_ID: subsec:passfaillearningenvironment
 :END:
 
-Both courses use Dodona as their online learning environment.
+Both courses use Dodona as their online learning environment\nbsp{}[cite:@vanpetegemDodonaLearnCode2023].
 Dodona promotes active learning through problem-solving\nbsp{}[cite:@princeDoesActiveLearning2004].
 Each course edition has its own Dodona course, with a learning path that groups exercises in separate series (Figure\nbsp{}[[fig:passfailstudentcourse]]).
 Course A has one series per covered programming topic (10 series in total) and course B has one series per lab session (20 series in total).
@@ -2275,7 +2278,7 @@ One of the effects of active learning, triggered by exercises with deadlines and
 #+CAPTION: Weekly deadlines for mandatory exercises were on Tuesdays at 22:00.
 #+CAPTION: There were four exam sessions for different groups in January.
 #+CAPTION: There is little activity in the exam periods, except for days on which there was an exam.
-#+CAPTION: The course is not taught in the second semester, so there is very little activity there
+#+CAPTION: The course is not taught in the second semester, so there is very little activity there.
 #+CAPTION: Two exam sessions were organized in August/September granting an extra chance to students who failed on their exam in January/February.
 #+NAME: fig:passfailheatmap
 [[./images/passfailheatmap.png]]
@@ -2557,7 +2560,7 @@ Finally, if we look at the feature type =wrong= (Figure\nbsp{}[[fig:passfailfeat
 This underscores the old adage that practice makes perfect, as real learning happens where students learn from their mistakes.
 Exceptions to this rule are found for series 2, 3, 9 and 10.
 The lecturer and teaching assistants identify the topics covered in series 2 and 9 by far as the easiest topics covered in the course, and identify the topics covered in series 3, 6 and 10 as the hardest.
-However, it does not feel very intuitive that being stuck with logical exercises longer than other students either inhibits the odds for passing on topics that are extremely hard or easy or promotes the odds on topics with moderate difficulty.
+However, it does not feel very intuitive that being stuck with logical errors longer than other students either inhibits the odds for passing on topics that are extremely hard or easy or promotes the odds on topics with moderate difficulty.
 This shows that interpreting the importance of feature types is not always straightforward.
 
 #+CAPTION: Importance of feature type =wrong= (the number of wrong submissions in a series) in logistic regression models for course A (full feature set).
@@ -2662,7 +2665,7 @@ This again points to the conclusion that the first few weeks of a CS1 course pla
 The models trained only on self-reported data performed significantly worse than the other models.
 
 The replication done at JYU showed that our prediction strategy can be used in significantly different educational contexts.
-Of course adaptations to the method have to be made sometimes given differences in course structure and learning environment used, but these adaptations do not result in different prediction results.
+Of course, adaptations to the method have to be made sometimes given differences in course structure and learning environment used, but these adaptations do not result in different prediction results.
 
 ** Conclusions and future work
 :PROPERTIES:
@@ -2692,7 +2695,7 @@ While our visualizations of the features (Figures\nbsp{}[[fig:passfailfeaturesAe
 This is where the expertise and experience of teachers comes in.
 These visualizations can be interpreted by teachers and further contextualized towards the specific course objectives.
 For example, teachers know the content and goals of every series of exercises, and they can use the information presented in our visualizations in order to investigate why certain series of exercises are more or less important in view of passing the course.
-In addition, they may use the information to further redesign their course
+In addition, they may use the information to further redesign their course.
 
 We can thus conclude that the proposed framework achieves the objectives set for accuracy, early prediction and interpretability.
 Having this new framework at hand immediately raises some follow-up research questions that urge for further exploration:
@@ -3239,7 +3242,7 @@ There are a few ways we could try to infer what skills are being tested by exerc
 Using those skills, we could try to estimate a student's mastery of those skills, using their submissions.
 
 This leads right into another possibility for future research: exercise recommendation.
-Right now, learning paths in Dodona are static, determined by the author of the course the student is following.
+Right now, learning paths in Dodona are static, determined by the teacher of the course the student is following.
 Dodona has a rich library of extra exercises, which is linked to in some courses, but it is not always easy for students to know what exercises would be good for them.
 The research from Chapter\nbsp{}[[#chap:passfail]] could also be used to help solve this problem.
 If we know a student has a higher chance of failing the course, we might want to recommend some easier exercises.
@@ -3271,7 +3274,7 @@ The most important of these challenges is the sustainability of the project.
 Dodona was started in the spare time of some researchers.
 After a few years, there was somebody working on it full-time.
 However, the funding for a full-time developer was always, and still is, temporary.
-PhD students who can devote some of their time to it are attracted, grants are applied for (and sometimes received), but there is no stable source of funding.
+PhD students who can devote some of their time to it are attracted, grants are applied for (and sometimes granted), but there is no stable source of funding.
 We have the advantage that we can kindly make use of Ghent University's data centre, resulting in very few operational costs.
 A full-time developer, which Dodona is big enough to need, is expensive though.
 This puts Dodona's future in a precarious situation, where we constantly have to be on the lookout for new funding opportunities.
