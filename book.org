@@ -917,7 +917,7 @@ A full overview of all Dodona releases, with their full changelog, can be found 
 
 - 2.0 (2017-09-15) :: Introduction of the concept of a course administrator.
   Courses could also be set to hidden, and options for managing registration were added.
-- 2.3 (2018-07-26) :: OAuth sign in support was added, allowing users from other institutions to use Dodona.[fn:: This is also the first release were I was personally involved with Dodona's development.]
+- 2.3 (2018-07-26) :: OAuth sign in support was added, allowing users from other institutions to use Dodona.[fn:: This is also the first release where I was personally involved with Dodona's development.]
 
 **** 2018--2019
 :PROPERTIES:
