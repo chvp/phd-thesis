@@ -2773,6 +2773,7 @@ Having this new framework at hand immediately raises some follow-up research que
 
 This chapter discusses the history of manual feedback in the programming course taught at the Faculty of Sciences at Ghent University (as described in the case study in Section\nbsp{}[[#sec:usecasestudy]]) and how it informed the development of evaluation and grading features within Dodona.
 We will then expand on some further experiments using data mining techniques we did to try to further reduce the time spent adding manual feedback.
+Section\nbsp{}[[#sec:feedbackprediction]] is based on an article that is currently being prepared for submission.
 
 ** Phase 0: Paper-based assessment
 :PROPERTIES:
@@ -2906,9 +2907,7 @@ Because feedback is also added to a specific section of code, graders naturally 
 
 Given that we now have a system for reusing earlier feedback, we can ask ourselves if we can do this in a smarter way.
 Instead of teachers having to search for the annotation they want to use, what if we could predict which annotation they want to use?
-This is exactly what we will explore in this section.[fn::
-This section is based on an article that is currently being prepared for submission.
-]
+This is exactly what we will explore in this section.
 
 *** Introduction
 :PROPERTIES:
