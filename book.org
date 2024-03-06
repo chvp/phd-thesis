@@ -3192,6 +3192,8 @@ Therefore we also test on real-world data.
 Real-world data is expected to be more inconsistent because human reviewer may miss a problem in one student's code that they annotated in another student's code, or they may not place an instance of a particular annotation in a consistent location.
 The method by which human reviewers place an annotation is also much more implicit than PyLint's pattern matching.
 
+Timings mentioned in this section were measured on a consumer-grade Macbook Pro with a 1.4GHz Intel quad-core processor and 16 GB of RAM.
+
 **** Machine annotations (PyLint)
 :PROPERTIES:
 :CUSTOM_ID: subsubsec:feedbackpredictionresultspylint
@@ -3199,15 +3201,17 @@ The method by which human reviewers place an annotation is also much more implic
 :END:
 
 We will first discuss the results for the PyLint annotations.
-Depending on the exercise, the actual annotation is ranked among the top five annotations for 50% to 80% of all test instances (Figure\nbsp{}[[fig:feedbackpredictionpylintglobal]]).
-The annotation is even ranked first for 10% to 45% of all test instances.
+During the experiment, a few PyLint annotations not related to the actual code were left out to avoid skewing the results.
+These are "line too long", "trailing whitespace", "trailing newlines", "missing module docstring", "missing class docstring", and "missing function docstring".
+Depending on the exercise, the actual annotation is ranked among the top five annotations for 50% to 78% of all test instances (Figure\nbsp{}[[fig:feedbackpredictionpylintglobal]]).
+The annotation is even ranked first for 19% to 58% of all test instances.
 Interestingly, the method performs worse when the instances for all exercises are combined.
 This highlights the fact that our method is most useful in the context where similar code needs to be reviewed many times.
-For the submissions and instances in the training set, training takes 1.5 to 50 seconds to process all submissions and instances in a training set, depending on the number of patterns found.
-Testing takes 4 seconds to 22 minutes, again depending on the number of patterns.
-Performance was measured on a consumer-grade Macbook Pro with a 1.4GHz Intel quad-core processor and 16 GB of RAM.
+For the submissions and instances in the training set, training takes 1.5 to 52 seconds to process all submissions and instances in a training set, depending on the number of patterns found.
+Testing takes 4 seconds to 10.5 minutes, again depending on the number of patterns.
 
 #+CAPTION: Predictive accuracy for suggesting instances of PyLint annotations.
+#+CAPTION: Numbers on the right are the total amount of annotations and instances respectively.
 #+NAME: fig:feedbackpredictionpylintglobal
 [[./images/feedbackpredictionpylintglobal.png]]
 
@@ -3239,7 +3243,7 @@ At the start of the assessment no annotations are available and the first instan
 As more submissions have been reviewed, and more instances of annotations are placed on those submissions, the training set for modelling predictions on the next submission under review grows gradually.
 
 If we evenly split submissions and the corresponding annotations from a human reviewer into a training and a test set, the predictive accuracy is similar or even slightly better compared to the PyLint annotations (Figure\nbsp{}[[fig:feedbackpredictionrealworldglobal]]).
-The number of instances where the true annotation is ranked first is generally higher (between 20% and 62% depending on the exercise), and the number of instances where it is ranked in the top five is between 42.5% and 81% depending on the exercise.
+The number of instances where the true annotation is ranked first is generally higher (between 20% and 62% depending on the exercise), and the number of instances where it is ranked in the top five is between 42% and 82% depending on the exercise.
 However, there is quite some variance between exercises.
 This can be explained by the quality of the data.
 For example, for the exercise "Symbolic", very few instances were placed for most annotations, which makes it difficult to predict additional instances.
@@ -3249,6 +3253,7 @@ These evaluations were run on the same hardware as those for the machine annotat
 
 #+CAPTION: Prediction results for six exercises that were designed and used for an exam.
 #+CAPTION: Models were trained on half of the submissions from the dataset and tested on the other half of the submissions from the dataset.
+#+CAPTION: Numbers on the right are the total amount of annotations and instances respectively.
 #+NAME: fig:feedbackpredictionrealworldglobal
 [[./images/feedbackpredictionrealworldglobal.png]]
 
@@ -3296,6 +3301,35 @@ The point at which the critical mass is reached will of course depend on the nat
 #+CAPTION: The graph on the right shows the number of annotations present with at least one instance in the training set.
 #+NAME: fig:feedbackpredictionrealworldsimulation4
 [[./images/feedbackpredictionrealworldsimulation4.png]]
+
+Figures\nbsp{}[[fig:feedbackpredictionrealworldtimings1]],\nbsp{}[[fig:feedbackpredictionrealworldtimings2]],\nbsp{}[[fig:feedbackpredictionrealworldtimings3]],\nbsp{}and\nbsp{}[[fig:feedbackpredictionrealworldtimings4]] show the timings for these experiments.
+The timings show that even though there are some outliers, most predictions can be performed quickly enough to make this an interactive system.
+The outliers also correspond with higher training times, indicating this is mainly caused by a high number of underlying patterns for some annotations.
+Currently this process is also parallelized over the files, but in the real world, the process would probably be parallelized over the patterns, which would speed up the prediction even more.
+
+#+CAPTION: Progression of timings for the exercise "A last goodbye".
+#+CAPTION: The top graph shows the training time.
+#+CAPTION: The bottom graph shows the times per prediction, where the range shows the minimum and maximum, and the orange dot shows the average.
+#+NAME: fig:feedbackpredictionrealworldtimings1
+[[./images/feedbackpredictionrealworldtimings1.png]]
+
+#+CAPTION: Progression of timings for the exercise "Narcissus cipher".
+#+CAPTION: The top graph shows the training time.
+#+CAPTION: The bottom graph shows the times per prediction, where the range shows the minimum and maximum, and the orange dot shows the average.
+#+NAME: fig:feedbackpredictionrealworldtimings2
+[[./images/feedbackpredictionrealworldtimings2.png]]
+
+#+CAPTION: Progression of timings for the exercise "Cocktail bar".
+#+CAPTION: The top graph shows the training time.
+#+CAPTION: The bottom graph shows the times per prediction, where the range shows the minimum and maximum, and the orange dot shows the average.
+#+NAME: fig:feedbackpredictionrealworldtimings3
+[[./images/feedbackpredictionrealworldtimings3.png]]
+
+#+CAPTION: Progression of timings for the exercise "Anthropomorphic emoji".
+#+CAPTION: The top graph shows the training time.
+#+CAPTION: The bottom graph shows the times per prediction, where the range shows the minimum and maximum, and the orange dot shows the average.
+#+NAME: fig:feedbackpredictionrealworldtimings4
+[[./images/feedbackpredictionrealworldtimings4.png]]
 
 As mentioned before, we are working with a slightly inconsistent data set when using annotations by human reviewers.
 They will sometimes miss an instance of an annotation, place it inconsistently, or create duplicate annotations.
