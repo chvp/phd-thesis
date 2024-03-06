@@ -16,7 +16,8 @@
                            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
       org-latex-caption-above nil
       org-latex-src-block-backend 'minted
-      org-latex-minted-options '(("linenos" . "true"))
+      org-latex-minted-options '(("linenos" . "true")
+                                 ("breaklines" . "true"))
       org-latex-prefer-user-labels t
       org-latex-subtitle-format "\\subtitle{%s}"
       org-latex-subtitle-separate t)
