@@ -329,16 +329,6 @@ Dodona is used by many people, and thus needs extensive documentation.
 This repository contains all user-facing documentation, both for teachers and students, and is accessible in a user-friendly format on https://docs.dodona.be/.
 This includes guides on how to get started with Dodona, how to add new exercises to Dodona, and much more.
 
-**** Docker images
-:PROPERTIES:
-:CREATED:  [2024-03-07 Thu 10:32]
-:END:
-
-https://github.com/dodona-edu/docker-images
-
-This repository contains Dockerfiles corresponding to Dodona's judges.
-These Dockerfiles make sure every judge has all the libraries and binaries required for the judge to function.
-
 **** TESTed
 :PROPERTIES:
 :CREATED:  [2024-03-07 Thu 10:30]
@@ -368,6 +358,16 @@ https://github.com/dodona-edu/papyros
 
 Web IDE that can execute Python code in the browser, using Pyodide to do so.
 It also has a built-in debugger, based on the Python Tutor.
+
+**** Docker images
+:PROPERTIES:
+:CREATED:  [2024-03-07 Thu 10:32]
+:END:
+
+https://github.com/dodona-edu/docker-images
+
+This repository contains Dockerfiles corresponding to Dodona's judges.
+These Dockerfiles make sure every judge has all the libraries and binaries required for the judge to function.
 
 #+LATEX: \mainmatter
 
