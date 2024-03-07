@@ -414,7 +414,7 @@ They also immediately identified some limitations, which are common problems tha
 These limitations include handling faults in the student code, making sure students can't modify the grader, and having to define an interface through which the student code is run.
 
 #+CAPTION: Example of a punch card.
-#+CAPTION: Picture provided by Bart Coppens in personal correspondence.
+#+CAPTION: Scan from the archive of Ludo Coppens, provided by Bart Coppens in personal correspondence.
 #+NAME: fig:introductionpunchard
 [[./images/introductionpunchcard.jpg]]
 
