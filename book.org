@@ -250,6 +250,7 @@ We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de 
 * List of Publications
 :PROPERTIES:
 :CREATED:  [2024-03-05 Tue 17:40]
+:UNNUMBERED: t
 :END:
 
 Strijbol, N., Sels, B., *Van Petegem, C.*, Maertens, R., Scholliers, C., Mesuere B., Dawyndt, P., submitted.
@@ -294,6 +295,85 @@ Nüst, D., Eddelbuettel, D., Bennett, D., Cannoodt, R., Clark, D., Daróczi, G.,
 The Rockerverse: Packages and Applications for Containerisation with R.
 /The R Journal/, 12(1), 437–461.
 https://doi.org/10.32614/RJ-2020-007
+
+* List of Software Artefacts
+:PROPERTIES:
+:CREATED:  [2024-03-07 Thu 10:07]
+:UNNUMBERED: t
+:END:
+
+Part of the process of this PhD was also the development of software.
+Chapter\nbsp{}[[#chap:technical]] discusses (part of) the development of Dodona and its ecosystem of software.
+For convenience, all open source repositories for software used in production that was part of this PhD is listed below, together with a short description.
+
+**** Dodona
+:PROPERTIES:
+:CREATED:  [2024-03-07 Thu 10:29]
+:END:
+
+https://github.com/dodona-edu/dodona
+
+This is the main Dodona repository.
+It contains all Dodona's application code, from frontend to backend.
+Also included is all machinery necessary to run background jobs.
+
+**** Dodona documentation
+:PROPERTIES:
+:CREATED:  [2024-03-07 Thu 10:30]
+:END:
+
+https://github.com/dodona-edu/dodona-edu.github.io
+
+Dodona is used by many people, and thus needs extensive documentation.
+This repository contains all user-facing documentation, both for teachers and students.
+
+**** Docker images
+:PROPERTIES:
+:CREATED:  [2024-03-07 Thu 10:32]
+:END:
+
+https://github.com/dodona-edu/docker-images
+
+This repository contains Dockerfiles corresponding to Dodona's judges.
+These Dockerfiles make sure every judge has all the libraries and binaries required for the judge to function.
+
+**** Example exercises
+:PROPERTIES:
+:CREATED:  [2024-03-07 Thu 10:32]
+:END:
+
+https://github.com/dodona-edu/example-exercises
+
+This repository contains a bunch of example exercises, demonstrating the functionality of every judge.
+
+**** TESTed
+:PROPERTIES:
+:CREATED:  [2024-03-07 Thu 10:30]
+:END:
+
+https://github.com/dodona-edu/universal-judge
+
+TESTed is a universal judge, in that it can evaluate student submissions in multiple programming languages.
+
+**** R judge
+:PROPERTIES:
+:CREATED:  [2024-03-07 Thu 10:30]
+:END:
+
+https://github.com/dodona-edu/judge-r
+
+Judge for the R programming language.
+This judge also has support for showing generated figures in the feedback table and can even do introspection on GGPlot objects.
+
+**** Papyros
+:PROPERTIES:
+:CREATED:  [2024-03-07 Thu 10:34]
+:END:
+
+https://github.com/dodona-edu/papyros
+
+Web IDE that can execute Python code in the browser itself.
+Pyodide is used to do so.
 
 #+LATEX: \mainmatter
 
