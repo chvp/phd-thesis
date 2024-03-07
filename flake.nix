@@ -52,7 +52,7 @@
         '';
         ugent2016 = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
           pname = "ugent2016";
-          version = "0.11.0";
+          version = "0.12.0";
           passthru = {
             pkgs = [ finalAttrs.finalPackage ];
             tlDeps = with pkgs.texlive; [
@@ -66,7 +66,6 @@
               textcase
               graphics
               geometry
-              setspace
               ulem
             ];
             tlType = "run";
@@ -74,7 +73,7 @@
 
           src = pkgs.fetchurl {
             url = "https://github.com/niknetniko/ugent2016/releases/download/${finalAttrs.version}/ugent2016.zip";
-            hash = "sha256-4SY6F1DKnkaWWlFfVzxxZLFpqDrAnmbQ3uPCqi9doLQ=";
+            hash = "sha256-9yax8pH0L9/fNbRM9lOcauYVa6GbxeDwquCMFhLMXpE=";
           };
 
           nativeBuildInputs = [ pkgs.unzip ];
