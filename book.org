@@ -339,15 +339,6 @@ https://github.com/dodona-edu/docker-images
 This repository contains Dockerfiles corresponding to Dodona's judges.
 These Dockerfiles make sure every judge has all the libraries and binaries required for the judge to function.
 
-**** Example exercises
-:PROPERTIES:
-:CREATED:  [2024-03-07 Thu 10:32]
-:END:
-
-https://github.com/dodona-edu/example-exercises
-
-This repository contains a bunch of example exercises, demonstrating the functionality of every judge.
-
 **** TESTed
 :PROPERTIES:
 :CREATED:  [2024-03-07 Thu 10:30]
