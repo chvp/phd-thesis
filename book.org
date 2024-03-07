@@ -3306,6 +3306,8 @@ Figures\nbsp{}[[fig:feedbackpredictionrealworldtimings1]],\nbsp{}[[fig:feedbackp
 The timings show that even though there are some outliers, most predictions can be performed quickly enough to make this an interactive system.
 The outliers also correspond with higher training times, indicating this is mainly caused by a high number of underlying patterns for some annotations.
 Currently this process is also parallelized over the files, but in the real world, the process would probably be parallelized over the patterns, which would speed up the prediction even more.
+Note that the training time can also go down given more training data.
+If there are more instances per annotation, the diversity in related subtrees will usually increase, which decreases the number of patterns that can be found, which also decreases the training time.
 
 #+CAPTION: Progression of timings for the exercise "A last goodbye".
 #+CAPTION: The top graph shows the training time.
@@ -3362,6 +3364,7 @@ This could also have an extra advantage, since it could help reviewers be more c
 Annotations that don’t lend themselves well to prediction also need further investigation.
 The context used could be expanded, although the important caveat here is that the method still needs to maintain its speed.
 We could also consider applying some of the source code pattern mining techniques proposed by\nbsp{}[cite/t:@phamMiningPatternsSource2019] to achieve further speed improvements.
+This could also help with the outliers seen in the timing data.
 Another important aspect that was explicitly left out of the scope of this chapter was its integration into a learning platform and user testing.
 
 Of course, alternative methods could also be considered.
