@@ -218,7 +218,7 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 
 #+LATEX: \begin{dutch}
 
-Al van bij de start van het programmeeronderwijs, proberen lesgevers hun taken te automatiseren en optimaliseren.
+Al van bij de start van het programmeeronderwijs, proberen docenten hun taken te automatiseren en optimaliseren.
 De digitalisering van de samenleving gaat ook steeds verder, waardoor steeds meer en grotere groepen studenten leren programmeren.
 Deze groepen bevatten ook vaker studenten voor wie programmeren niet het hoofdonderwerp van hun studies is.
 Dit heeft geleid tot de ontwikkeling van zeer veel platformen voor de geautomatiseerde beoordeling van programmeeropdrachten\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005].
@@ -226,22 +226,22 @@ Eén van deze platformen is Dodona[fn:: https://dodona.be], het platform waar di
 
 Hoofdstukken\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]]\nbsp{}en\nbsp{}[[#chap:technical]] focussen op Dodona zelf.
 In Hoofdstuk\nbsp{}[[#chap:what]] geven we een overzicht van de gebruikersgerichte features van Dodona, van gebruikersbeheer tot hoe feedback getoond wordt.
-Hoofdstuk\nbsp{}[[#chap:use]] focust zich dan op hoe Dodona in de praktijk gebruikt wordt, door wat statistieken over het gebruiken te presenteren, de meningen van studenten over het platform te presenteren en met een uitgebreide case study waarin getoond wordt hoe de verschillende features van Dodona kunnen bijdragen tot het optimaliseren van onderwijs.
+Hoofdstuk\nbsp{}[[#chap:use]] focust zich dan op hoe Dodona in de praktijk gebruikt wordt, door statistieken over het gebruiken te presenteren, de meningen van studenten over het platform te presenteren en met een uitgebreide case study waarin getoond wordt hoe de verschillende features van Dodona kunnen bijdragen tot het optimaliseren van onderwijs.
 Deze case study presenteert ook de context waarin Hoofdstukken\nbsp{}[[#chap:passfail]]\nbsp{}en\nbsp{}[[#chap:feedback]] zich situeren.
-Hoofdstuk\nbsp{}[[#chap:technical]] focust op het technische aspect van het ontwikkelen van Dodona en het gerelateerde ecosysteem van software.
+Hoofdstuk\nbsp{}[[#chap:technical]] focust op het technische aspect van het ontwikkelen van Dodona en het ecosysteem van software gerelateerd aan Dodona.
 Dit bevat onder meer een bespreking van de technische uitdagingen gerelateerd aan het ontwikkelen van een platform zoals Dodona en hoe het Dodona-team zich aan de moderne standaarden van softwareontwikkeling houdt.
 
 Hoofdstukken\nbsp{}[[#chap:passfail]]\nbsp{}en\nbsp{}[[#chap:feedback]] verschillen van de vorige hoofdstukken, in de zin dat ze elk een /learning analytics/educational data mining/ studie bespreken.
 Deze studies werden uitgevoerd met de data die Dodona verzamelt over het leerproces.
 /Learning analytics/ en /educational data mining/ bevinden zich op het kruispunt tussen informatica, datawetenschap en de sociale wetenschappen, en focussen zich op het begrijpen en verbeteren van leren.
 Ze worden mogelijk gemaakt door de toegenomen beschikbaarheid van data over lerende studenten, wat op zijn beurt komt door de toegenomen beweging van onderwijs naar digitale platformen\nbsp{}[cite:@romeroDataMiningCourse2008].
-Ze kunnen ook dienen voor verschillende actoren in het onderwijsveld: ze kunnen studenten direct helpen, lesgevers helpen om hun eigen onderwijs te evalueren, ontwikkelaars van onderwijsplatformen laten weten waar ze zich op moeten focussen, de beslissingen van onderwijsinstellingen helpen gidsen, en zelfs overheden toelaten om op data gebaseerd beleid te voeren\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
+Ze kunnen ook dienen voor verschillende actoren in het onderwijsveld: ze kunnen studenten direct helpen, docenten helpen om hun eigen onderwijs te evalueren, ontwikkelaars van onderwijsplatformen laten weten waar ze zich op moeten focussen, de beslissingen van onderwijsinstellingen helpen gidsen, en zelfs overheden toelaten om op data gebaseerd beleid te voeren\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
 
 Hoofdstuk\nbsp{}[[#chap:passfail]] bespreekt een studie waarin we geprobeerd hebben te voorspellen of studenten al dan niet zouden slagen voor een vak op het einde van het semester, enkel en alleen gebaseerd op hun indiengedrag op Dodona.
 Daarnaast wordt er kort een samenwerking besproken met onderzoekers van de universiteit van Jyväskylä in Finland, waar we onze studie herhaald hebben in hun educationele context, gebruikmakend van data afkomstig van hun platform.
 
 In Hoofdstuk\nbsp{}[[#chap:feedback]] geven we eerst een overzicht van hoe Dodona het manueel verbeteren in onze eigen educationele context veranderd heeft.
-We sluiten dan het hoofdstuk af met een recent door ons ontwikkelde /machine-learning/-methode om te voorspellen welke feedback lesgevers zullen geven tijden het manueel verbeteren van indieningen van studenten.
+We sluiten dan het hoofdstuk af met een recent door ons ontwikkelde /machine-learning/-methode om te voorspellen welke feedback docenten zullen geven tijden het manueel verbeteren van indieningen van studenten.
 
 We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de mogelijkheden en uitdagingen waar Dodona in de toekomst voor staat.
 
@@ -302,7 +302,7 @@ https://doi.org/10.32614/RJ-2020-007
 :UNNUMBERED: t
 :END:
 
-Development of software was a big part of the work that went into this PhD.
+Development of software was an important part of the work that went into this PhD.
 Chapter\nbsp{}[[#chap:technical]] discusses (part of) the development of Dodona and its ecosystem of software, but for convenience, all repositories that I worked on as part of this PhD are listed below, together with a short description.
 For brevity, only open-source repositories that are used in production are listed.
 
@@ -392,7 +392,7 @@ Finally, we give a brief overview of the remaining chapters of this dissertation
 
 Increasing interactivity in learning has long been considered important, and also something that can be achieved through the addition of (web-based) IT components to a course\nbsp{}[cite:@vanpetegemPowerfulLearningInteractive2004].
 This isn't any different when learning to program: learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
-[cite/t:@cheangAutomatedGradingProgramming2003] identified the labor-intensive nature of assessing programming assignments as the main reason why students are given few such assignments when in an ideal world they should be given many more.
+[cite/t:@cheangAutomatedGradingProgramming2003] identified the labor-intensive nature of assessing programming assignments as the main reason why students are given only few assignments when in an ideal world they should be given many more.
 Automated assessment allows students to receive immediate and personalized feedback on each submitted solution without the need for human intervention.
 Because of its potential to provide feedback loops that are scalable and responsive enough for an active learning environment, automated source code assessment has become a driving force in programming courses.
 
@@ -426,12 +426,12 @@ The distinction between formal correctness and completeness that he makes can be
 In more modern terminology, Naur's "formally correct" would be called "free of syntax errors".
 
 [cite/t:@forsytheAutomaticGradingPrograms1965] note another issue when using automatic graders: students could use the feedback they get to hard-code the expected response in their programs.
-This is again an issue that modern assessment systems (or the teachers creating exercises) still need to consider.
+This is also still an issue that modern assessment systems (or the teachers creating exercises) need to consider.
 Forsythe & Wirth solve this issue by randomizing the inputs to the student's program.
-While not explicitly explained by them, we can assume that to check the correctness of a student's answer, they calculate the expected answer themselves as well.
+While not explicitly explained by them, we can assume that to check the correctness of a student's answer, they calculate the expected answer in the grader program as well.
 Note that in this system, they were still writing a grading program for each individual exercise.
 
-[cite/t:@hextAutomaticGradingScheme1969] introduce a new innovation: their system could be used for exercises in multiple different programming languages.
+[cite/t:@hextAutomaticGradingScheme1969] introduce another innovation: their system could be used for exercises in multiple different programming languages.
 They are also the first to implement a history of student's attempts in the assessment tool itself, and mention explicitly that enough data should be recorded in this history so that it can be used to calculate a mark for a student.
 
 Other grader programs were in use at the time, but these did not necessarily bring any new innovations or ideas to the table\nbsp{}[cite:@braden1965introductory; @berryGraderPrograms1966; @temperlyGradingProcedurePL1968].
@@ -446,7 +446,7 @@ So, it should not come as a surprise that the feedback these systems gave was sl
 :CREATED:  [2024-02-06 Tue 17:29]
 :END:
 
-We now take a leap forward in time.
+We now take a leap forward in time to the late 1970s.
 The way people use computers has changed significantly, and the way assessment systems are implemented changed accordingly.
 Note that while the previous section was complete (as far as we could find in published literature), this section is decidedly not so.
 At this point, the explosion of automated assessment systems/automated grading systems for programming education had already set in.
@@ -474,7 +474,7 @@ He identifies several issues with gathering students' source files, and then com
 Students could write destructive code that destroys the teacher's files, or even write a clever program that alters their grades (and covers its tracks while doing so).
 Note that this is not a new issue: as we discussed before, this was already mentioned as a possibility by\nbsp{}[cite/t:@hollingsworthAutomaticGradersProgramming1960].
 This was, however, the first system that tried to solve this problem.
-His TRY system therefore has the avoidance of teachers needing to run their students' programs themselves as an explicit goal.
+Avoiding that teachers need to run their students' programs was therefore an explicit goal of his TRY system.
 Another goal was avoiding giving the inputs that the program was tested on to students.
 These goals were mostly achieved using the UNIX =setuid= mechanism.
 Note that students were using a true multi-user system, as in common use at the time.
@@ -519,7 +519,7 @@ This is also the time when we first start to see mentions of plagiarism and plag
 In one case at MIT over 30% of students were found to be plagiarizing\nbsp{}[cite:@wagner2000plagiarism].
 [cite/t:@dalyPatternsPlagiarism2005] analysed plagiarizing behaviour by watermarking student submissions, where the watermark consisted of added whitespace at the end of lines.
 If students carelessly copied another student's submission, they would also copy the whitespace.
-[cite/t:@schleimerWinnowingLocalAlgorithms2003] also published MOSS around this time.
+Around this time, [cite/t:@schleimerWinnowingLocalAlgorithms2003] also published MOSS, a popular tool for checking code similarity.
 
 Another important platform is SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008].
 SPOJ is especially important in the context of this dissertation, since it was the platform we used before Dodona.
@@ -613,9 +613,10 @@ They felt that the government was overreaching in the specificity of the educati
 Traditionally, the educational goals were quite loose, allowing the umbrella organizations to add their own accents to the subjects being taught.
 ]
 The constitutional court agreed, after which the government went back to the drawing board, and made a lot of the goals less detailed.
-Digital competence is still a part of the new educational goals, but programming is now not explicitly listed.
-For other programmes, mostly focused on the sciences, or with more mathematics, specific educational goals list competences that students should have when finishing secondary education.
-These include programming, algorithms, data structures, numerical methods, etc.
+Digital competence is still a part of the new educational goals, but programming is no longer explicitly listed.
+However, for some programmes there are specific educational goals that list competences related to computer science that students should have when finishing secondary education.
+These programmes are mostly focused on the sciences or have more mathematics.
+The listed competences include programming, algorithms, data structures, numerical methods, etc.
 For programmes focused on IT, there is an even bigger list of related competences that the students should have.
 Python is the most common programming language used at this level, but other programming languages like Java and C# are also used.
 
@@ -635,7 +636,7 @@ This dissertation is centred around Dodona[fn:: https://dodona.be/].
 Dodona is an online learning environment that recognizes the importance of active learning and just-in-time feedback in courses involving programming assignments.
 Dodona was started because our own educational needs outgrew SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008].
 SPOJ was chosen because it was one of the rare platforms that allowed the addition of courses, exercises (and even judges) by teachers.
-This also informed the development of Dodona.
+This also influenced the development of Dodona.
 Every year since its inception in 2016, more and more teachers have started using Dodona.
 It is now used in most higher education institutions in Flanders, and many secondary education institutions as well.
 
@@ -733,7 +734,7 @@ On top of automated assessment, student submissions may be further assessed and 
 Series can have a *deadline*.
 Passed deadlines do not prevent students from marking reading activities or submitting solutions for programming assignments in their series.
 However, learning analytics, reports and exports usually only take into account submissions before the deadline.
-Because of the importance of deadlines and to avoid discussions with students about missed deadlines, series deadlines are not only announced on the course page.
+Because of the importance of deadlines and to avoid discussions with students about missed deadlines, deadlines are not only announced on the course page.
 The student's home page highlights upcoming deadlines for individual courses and across all courses.
 While working on a programming assignment, students will also see a clear warning starting from ten minutes before a deadline.
 Courses also provide an iCalendar link\nbsp{}[cite:@stenersonInternetCalendaringScheduling1998] that students can use to publish course deadlines in their personal calendar application.
@@ -1089,7 +1090,7 @@ The chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023],
 :CUSTOM_ID: sec:usefacts
 :END:
 
-Dodona's design decisions have allowed it to spread to more than {{{num_schools}}} schools, colleges and universities, mainly in Flanders (Belgium) and the Netherlands.
+Dodona's design decisions have allowed it to spread to more than {{{num_schools}}} schools and higher education institutions, mainly in Flanders (Belgium) and the Netherlands.
 The renewed interest in embedding computational thinking in formal education has undoubtedly been an important stimulus for such a wide uptake\nbsp{}[cite:@wingComputationalThinking2006].
 All other educational institutions use the instance of Dodona hosted at Ghent University, which is free to use for educational purposes.
 
@@ -2276,7 +2277,7 @@ Data collection is time-consuming and the data itself can be considered privacy-
 Usability of predictive models therefore not only depends on their accuracy, but also on their dependency on findable, accessible, interoperable and reusable data\nbsp{}[cite:@wilkinsonFAIRGuidingPrinciples2016].
 Predictions based on educational history and socio-economic background also raise ethical concerns.
 Such background information definitely does not explain everything and lowers the perceived fairness of predictions\nbsp{}[cite:@grgic-hlacaCaseProcessFairness2018; @binnsItReducingHuman2018].
-A student can also not change their background, so these items are not actionable for any corrective intervention.
+Students also can't change their background, so these items are not actionable for any corrective intervention.
 
 It might be more convenient and acceptable if predictive models are restricted to data collected on student behaviour during the learning process of a single course.
 An example of such an approach comes from\nbsp{}[cite/t:@vihavainenPredictingStudentsPerformance2013], using snapshots of source code written by students to capture their work attitude.
@@ -2845,7 +2846,7 @@ Having this new framework at hand immediately raises some follow-up research que
 :CUSTOM_ID: chap:feedback
 :END:
 
-This chapter discusses the history of manual feedback in the programming course taught at the Faculty of Sciences at Ghent University (as described in the case study in Section\nbsp{}[[#sec:usecasestudy]]) and how it informed the development of evaluation and grading features within Dodona.
+This chapter discusses the history of manual feedback in the programming course taught at the Faculty of Sciences at Ghent University (as described in the case study in Section\nbsp{}[[#sec:usecasestudy]]) and how it influenced the development of evaluation and grading features within Dodona.
 We will then expand on some further experiments using data mining techniques we did to try to further reduce the time spent adding manual feedback.
 Section\nbsp{}[[#sec:feedbackprediction]] is based on an article that is currently being prepared for submission.
 
@@ -2914,7 +2915,7 @@ There were still a few drawbacks to this system for assessing and grading though
   It is also less transparent towards students.
   While rubrics were made for every exercise that had to be graded, every grader had their preferred way of aggregating and entering these scores.
   This means that even though the rubrics exist, students had no option of seeing the different marks they received for different rubrics.
-It is obvious that this was not a great user experience, and not something we could roll out more widely outside of Dodona developers that were also involved with teaching.
+This was obviously not a great user experience, and not something we could recommend to anyone using Dodona who wasn't part of the Dodona development team.
 
 #+CAPTION: The first comment ever left on Dodona as part of a grading session.
 #+NAME: fig:feedbackfirstcomment
@@ -3453,10 +3454,10 @@ Fine-tuning of a model with feedback already given could also be considered.
 :END:
 
 It feels safe to say that Dodona is a successful automated assessment platform with a big societal impact.
-{{{num_users}}} users is quite a lot, and the fact that it is being actively used in every university in Flanders, a number of colleges, and a lot of secondary schools is a feat that not many other similar platforms have achieved.
+{{{num_users}}} users is quite a lot, and the fact that it is being actively used in a lot of higher education institutions and secondary schools in Flanders is a feat that not many other similar platforms have achieved.
 
 As we have tried to show in this dissertation, its development has also led to interesting opportunities for new research.
-Dodona generates a lot of data by being used, and we have shown that educational data mining can be used on this data.
+Dodona generates a lot of data, and we have shown that educational data mining can be used on this data.
 It can even be used to develop new educational data mining techniques that are applicable elsewhere.
 The work is, however, never finished.
 There are still possibilities for interesting computer science and educational research.
@@ -3483,7 +3484,7 @@ Right now, learning paths in Dodona are static, determined by the teacher of the
 Dodona has a rich library of extra exercises, which some courses point to as opportunities for extra practice, but it is not always easy for students to know what exercises would be good for them.
 The research from Chapter\nbsp{}[[#chap:passfail]] could also be used to help solve this problem.
 If we know a student has a higher chance of failing the course, we might want to recommend some easier exercises.
-The other way around, if a student has a higher chance of passing, we could suggest harder exercises, so they can keep up their good progress in their course.
+The other way around, if a student has a higher chance of passing, we could suggest more difficult exercises, so they can keep up their good progress in their course.
 
 The use of LLMs in Dodona could also be an opportunity.
 As mentioned in Section\nbsp{}[[#subsec:feedbackpredictionconclusion]], a possibility for using LLMs could be to generate feedback while grading.
