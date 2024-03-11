@@ -1839,7 +1839,7 @@ CodeMirror already has a number of functionalities it supports out of the box su
 It is, however, a pure JavaScript library.
 This means that these functionalities had to be newly implemented, since the standard tooling for Python is almost entirely implemented in Python.
 Fortunately CodeMirror also supports supplying one's own linting message and code completion.
-Since we have a working Python environment, we can also use it to run the standard Python tools for linting (PyLint) and code completion (Jedi) and hook up their results to CodeMirror.
+Since we have a working Python environment, we can also use it to run the standard Python tools for linting (Pylint) and code completion (Jedi) and hook up their results to CodeMirror.
 For code completion this has the added benefit of also showing the documentation for the autocompleted items, which is especially useful for people new to programming (which is exactly our target audience).
 
 Usability was further improved by adding the =FriendlyTraceback= library.
@@ -3011,7 +3011,7 @@ During these assessments, 22\thinsp{}888 annotations were added.
 #+CAPTION: Manual assessment of a submission: a teacher gives feedback on the code by adding inline annotations and scores the submission by filling out the exercise-specific scoring rubric.
 #+CAPTION: The teacher just searched for an annotation so that they could reuse it.
 #+CAPTION: Automated assessment was already performed beforehand, where 22 test cases failed, as can be seen from the badge on the "Correctness" tab.
-#+CAPTION: An automated annotation left by PyLint can be seen on line 22.
+#+CAPTION: An automated annotation left by Pylint can be seen on line 22.
 #+NAME: fig:feedbackintroductionreview
 [[./images/feedbackintroductionreview.png]]
 
@@ -3028,7 +3028,7 @@ We present a machine learning method for suggesting reuse of previously given fe
 We begin with a detailed explanation of the design of the method.
 We then present and discuss the experimental results we obtained by testing our method on student submissions.
 The dataset we use is based on real (Python) code written by students for exams.
-First, we test our method by predicting automated PyLint annotations.
+First, we test our method by predicting automated Pylint annotations.
 Second, we use manual annotations left by human reviewers during assessment.
 
 *** Methodology
@@ -3239,7 +3239,7 @@ The lines these occur on are the lines we feed to our model.
 We evaluate if the correct annotation is ranked first, or if it is ranked in the top five.
 This gives us a good idea of how useful the suggested ranking would be in practice: if an annotation is ranked higher than fifth, we would expect the reviewer to have to search for it instead of directly selecting it from the suggested ranking.
 
-We first ran PyLint on the student submissions, and used PyLint's machine annotations as our training and test data.
+We first ran Pylint on the student submissions, and used Pylint's machine annotations as our training and test data.
 For a second evaluation, we used the manual annotations left by human reviewers on student code in Dodona.
 In this case, we train and test per exercise, since the set of annotations used is also different for each exercise.
 Exercises have between 55 and 469 instances of annotations.
@@ -3260,23 +3260,23 @@ Table\nbsp{}[[tab:feedbackresultsdataset]] gives an overview of some of the feat
 | Anthropomorphic emoji[fn:: https://dodona.be/en/activities/2046492002/] |   214 |   84 |   322 |  37 | 3.83 |
 | Hermit[fn:: https://dodona.be/en/activities/2146239081/]                |   194 |   70 |   215 |  29 | 3.07 |
 
-We distinguish between these two sources of annotations, because we expect PyLint to be more consistent both in when it places an instance of an annotation and also where it places the instance.
+We distinguish between these two sources of annotations, because we expect Pylint to be more consistent both in when it places an instance of an annotation and also where it places the instance.
 Most linting annotations are detected through explicit pattern matching in the AST, so we expect our implicit pattern matching to work fairly well.
 However, we want to skip this explicit pattern matching because of the time required to assemble them and the fact that annotations will often be specific to a particular exercise.
 Therefore we also test on real-world data.
 Real-world data is expected to be more inconsistent because human reviewer may miss a problem in one student's code that they annotated in another student's code, or they may not place an instance of a particular annotation in a consistent location.
-The method by which human reviewers place an annotation is also much more implicit than PyLint's pattern matching.
+The method by which human reviewers place an annotation is also much more implicit than Pylint's pattern matching.
 
 Timings mentioned in this section were measured on a consumer-grade Macbook Pro with a 1.4GHz Intel quad-core processor and 16 GB of RAM.
 
-**** Machine annotations (PyLint)
+**** Machine annotations (Pylint)
 :PROPERTIES:
 :CUSTOM_ID: subsubsec:feedbackpredictionresultspylint
 :CREATED: [2023-11-20 Mon 13:33]
 :END:
 
-We will first discuss the results for the PyLint annotations.
-During the experiment, a few PyLint annotations not related to the actual code were left out to avoid skewing the results.
+We will first discuss the results for the Pylint annotations.
+During the experiment, a few Pylint annotations not related to the actual code were left out to avoid skewing the results.
 These are "line too long", "trailing whitespace", "trailing newlines", "missing module docstring", "missing class docstring", and "missing function docstring".
 Depending on the exercise, the actual annotation is ranked among the top five annotations for 50% to 78% of all test instances (Figure\nbsp{}[[fig:feedbackpredictionpylintglobal]]).
 The annotation is even ranked first for 19% to 58% of all test instances.
@@ -3285,15 +3285,15 @@ This highlights the fact that our method is most useful in the context where sim
 For the submissions and instances in the training set, training takes 1.5 to 52 seconds to process all submissions and instances in a training set, depending on the number of patterns found.
 Testing takes 4 seconds to 10.5 minutes, again depending on the number of patterns.
 
-#+CAPTION: Predictive accuracy for suggesting instances of PyLint annotations.
+#+CAPTION: Predictive accuracy for suggesting instances of Pylint annotations.
 #+CAPTION: Numbers on the right are the total amount of annotations and instances respectively.
 #+NAME: fig:feedbackpredictionpylintglobal
 [[./images/feedbackpredictionpylintglobal.png]]
 
 We have selected some annotations for further inspection, some of which perform very well, and some of which perform worse (Figure\nbsp{}[[fig:feedbackpredictionpylintmessages]]).
-The differences in performance can be explained by the content of the annotation and the underlying patterns PyLint is looking for.
+The differences in performance can be explained by the content of the annotation and the underlying patterns Pylint is looking for.
 For example, the annotation "too many branches"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/too-many-branches.html] performs rather poorly.
-This can be explained by the fact that we do not feed enough context to =TreeminerD= to find predictive patterns for this PyLint annotation.
+This can be explained by the fact that we do not feed enough context to =TreeminerD= to find predictive patterns for this Pylint annotation.
 There are also annotations that can't be predicted at all, because no patterns are found.
 
 Other annotations, like "consider using with"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/consider-using-with.html], work very well.
@@ -3301,7 +3301,7 @@ For these annotations, =TreeminerD= does have enough context to pick up the unde
 The number of instances of an annotation in the training set also has an impact.
 Annotations which have only a few instances are generally predicted worse than those with lots of instances.
 
-#+CAPTION: Predictive accuracy for a selection of PyLint annotations.
+#+CAPTION: Predictive accuracy for a selection of Pylint annotations.
 #+CAPTION: Each line corresponds to a Pylint annotation, with the number of instances in the training and test set denoted in brackets after the name of the annotation.
 #+NAME: fig:feedbackpredictionpylintmessages
 [[./images/feedbackpredictionpylintmessages.png]]
@@ -3313,11 +3313,11 @@ Annotations which have only a few instances are generally predicted worse than t
 :END:
 
 For the annotations added by human reviewers, we applied two different scenarios to evaluate our method.
-Besides using the same 50/50 split as with the PyLint data, we also simulated how a human reviewer would use the method in practice by gradually increasing the training set and decreasing the test set as the reviewer progresses through the submissions during the assessment.
+Besides using the same 50/50 split as with the Pylint data, we also simulated how a human reviewer would use the method in practice by gradually increasing the training set and decreasing the test set as the reviewer progresses through the submissions during the assessment.
 At the start of the assessment no annotations are available and the first instance of an annotation that applies to a reviewed submission cannot be predicted.
 As more submissions have been reviewed, and more instances of annotations are placed on those submissions, the training set for modelling predictions on the next submission under review grows gradually.
 
-If we evenly split submissions and the corresponding annotations from a human reviewer into a training and a test set, the predictive accuracy is similar or even slightly better compared to the PyLint annotations (Figure\nbsp{}[[fig:feedbackpredictionrealworldglobal]]).
+If we evenly split submissions and the corresponding annotations from a human reviewer into a training and a test set, the predictive accuracy is similar or even slightly better compared to the Pylint annotations (Figure\nbsp{}[[fig:feedbackpredictionrealworldglobal]]).
 The number of instances where the true annotation is ranked first is generally higher (between 20% and 62% depending on the exercise), and the number of instances where it is ranked in the top five is between 42% and 82% depending on the exercise.
 However, there is quite some variance between exercises.
 This can be explained by the quality of the data.
