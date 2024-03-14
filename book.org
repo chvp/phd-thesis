@@ -1717,7 +1717,8 @@ Given that the target audience for Papyros is secondary education students, we i
 - It should also include linting.
   Linters notify students about syntax errors, but also about style guide violations and anti-patterns.
 - Error messages for errors that occur during execution should be user-friendly\nbsp{}[cite:@beckerCompilerErrorMessages2019].
-- Code completion should be available. When starting out with programming, it is hard to remember all the different functions available.
+- Code completion should be available.
+  When starting out with programming, it is hard to remember all the different functions available.
   Completion frameworks allow students to search for functions, and can show inline documentation for these functions.
 
 *** Execution
@@ -3138,7 +3139,8 @@ The choice of Python might seem antithetical to our desire for efficiency, but t
 :END:
 
 We now have a set of patterns corresponding to each annotation.
-Some patterns are more important that others though. Therefore we need to assign weight to the patterns we got from =TreeminerD=
+Some patterns are more important that others though.
+Therefore we need to assign weight to the patterns we got from =TreeminerD=
 
 Weights are assigned using two criteria.
 The first criterion is the size of the pattern (i.e., the number of nodes in the pattern), since a pattern with twenty nodes is much more specific than a pattern with only one node.
