@@ -3404,7 +3404,7 @@ The point at which the critical mass is reached will of course depend on the nat
 #+NAME: fig:feedbackpredictionrealworldsimulation4
 [[./images/feedbackpredictionrealworldsimulation4.png]]
 
-#+CAPTION: Evolution of the percentage of suggestions that are in the top 5.
+#+CAPTION: Evolution of the percentage of suggestions that are in the top\nbsp{}5.
 #+CAPTION: The percentages are quite stable after 20 to 30 submissions have been reviewed.
 #+NAME: fig:feedbackpredictionrealworldevolution
 [[./images/feedbackpredictionrealworldevolution.png]]
