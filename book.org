@@ -3355,8 +3355,8 @@ For example, for the exercise "Symbolic", very few instances were placed for mos
 For this experiment, training took between 1.2 and 16.7 seconds depending on the exercise.
 The entire testing phase took between 1.5 and 35 seconds depending on the exercise.
 These evaluations were run on the same hardware as those for the machine annotations.
-For one prediction, average times range between 0.1ms and 1 second.
-The minima range between 0.1ms and 240ms and the maxima range between 0.2ms and 3 seconds.
+For one prediction, average times range between 0.1 milliseconds and 1 second.
+The minima range between 0.1 milliseconds and 240 milliseconds and the maxima range between 0.2 milliseconds and 3 seconds.
 The explanation for these wide ranges remains the same as for the Pylint predictions: everything depends on the number of patterns found.
 
 These results show that we can predict reuse with an accuracy that is quite high at the midpoint of a reviewing session for an exercise.
