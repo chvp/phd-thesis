@@ -3089,6 +3089,7 @@ Patterns are embedded subtrees: the nodes in a pattern are a subset in the nodes
 An example of a valid pattern for the tree in Figure\nbsp{}[[fig:feedbacksubtree]] can be seen in Figure\nbsp{}[[fig:feedbackpattern]].
 
 #+CAPTION: Valid pattern for the tree in Figure\nbsp{}[[fig:feedbacksubtree]].
+#+CAPTION: Indirect ancestor-descendant relationships have been marked with dashed lines.
 #+NAME: fig:feedbackpattern
 [[./diagrams/feedbackpattern.svg]]
 
@@ -3102,7 +3103,6 @@ Since we are not interested in this information for our method, it was an obviou
 We use a custom implementation of the =TreeminerD= algorithm, to find patterns in the AST subtrees for each annotation.
 In our implementation, we set the =minimum support= parameter to 0.8.
 This value was determined experimentally.
-
 
 **** Weight assignment
 :PROPERTIES:
