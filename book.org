@@ -272,11 +272,6 @@ Dodona: Learn to code with a virtual co-teacher that supports active learning.
 /SoftwareX/ 24, 101578.
 https://doi.org/10.1016/j.softx.2023.101578
 
-*Van Petegem, C.*, Dawyndt, P., Mesuere, B., 2023a.
-Dodona: Learn to Code with a Virtual Co-teacher that Supports Active Learning.
-/Proceedings of the 2023 Conference on Innovation and Technology in Computer Science Education V. 2/ ITiCSE 2023, 633.
-https://doi.org/10.1145/3587103.3594165
-
 Strijbol, N., *Van Petegem, C.*, Maertens, R., Sels, B., Scholliers, C., Dawyndt, P., Mesuere, B., 2023b.
 TESTed -- An educational testing framework with language-agnostic test suites for programming exercises.
 /SoftwareX/ 22, 101404.
