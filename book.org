@@ -63,6 +63,15 @@
 #+cite_export: csl citation-style.csl
 #+bibliography: bibliography.bib
 
+#+BEGIN_COMMENT
+The gradient on the cover visualizes Dodona submission statuses:
+Purple to blue: Misc (344789 submissions)
+Blue to green: Runtime error (5911290 submissions)
+Green to yellow: Correct (3849412 submissions)
+Yellow to orange: Wrong (5613762 submissions)
+Orange to red: Compilation error (2020977 submissions)
+#+END_COMMENT
+
 #+LATEX: \frontmatter
 #+TOC: headlines 2
 
