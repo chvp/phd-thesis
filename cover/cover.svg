@@ -9,7 +9,7 @@
    id="svg1"
    inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
    sodipodi:docname="cover.svg"
-   inkscape:export-filename="cover.pdf"
+   inkscape:export-filename="cover.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -29,14 +29,14 @@
      inkscape:document-units="mm"
      showguides="true"
      inkscape:zoom="0.92738901"
-     inkscape:cx="662.61298"
+     inkscape:cx="662.07384"
      inkscape:cy="457.73672"
      inkscape:window-width="2302"
      inkscape:window-height="2132"
      inkscape:window-x="11"
      inkscape:window-y="11"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer2"
      inkscape:lockguides="false">
     <sodipodi:guide
        position="0,240.00001"
@@ -22354,11 +22354,11 @@
        xml:space="preserve"
        transform="matrix(0,0.26458333,-0.26458333,0,211.33614,106.91269)"
        id="text2"
-       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:24px;font-family:Roboto;-inkscape-font-specification:'Roboto Light';white-space:pre;shape-inside:url(#rect7);display:inline;fill:#ffffff;fill-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:Roboto;-inkscape-font-specification:Roboto;white-space:pre;shape-inside:url(#rect7);display:inline;fill:#ffffff;fill-opacity:1"
        inkscape:label="Author"><tspan
          x="195.96484"
          y="138.88881"
-         id="tspan3">Charlotte Van Petegem</tspan></text>
+         id="tspan1">Charlotte Van Petegem</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0,0.26458333,-0.26458333,0,116.43451,-110.56832)"
@@ -22369,9 +22369,9 @@
        y="0"><tspan
          x="482.09766"
          y="-216.39348"
-         id="tspan5"><tspan
+         id="tspan3"><tspan
            style="font-weight:500;font-family:Roboto;-inkscape-font-specification:'Roboto Medium'"
-           id="tspan4">Dodona</tspan></tspan></text>
+           id="tspan2">Dodona</tspan></tspan></text>
     <rect
        style="fill:none;fill-opacity:1;stroke-width:0.652436"
        id="rect2"
@@ -22389,32 +22389,32 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,63.763181,-5.1353137)"
        id="text2-2"
-       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:29.3333px;font-family:Roboto;-inkscape-font-specification:'Roboto Light';text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect3-7);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.3333px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect3-7);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-opacity:1"
        inkscape:label="Author"><tspan
          x="490.14844"
          y="372.4257"
-         id="tspan6">Charlotte Van Petegem</tspan></text>
+         id="tspan4">Charlotte Van Petegem</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,7.8913118,19.61429)"
        id="text5"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect6);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:26.6667px;font-family:Roboto;-inkscape-font-specification:'Roboto Light';text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect6);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-opacity:1"
        inkscape:label="Subtitle"><tspan
          x="701.46094"
          y="115.45027"
-         id="tspan7">Improving programming education 
+         id="tspan5">Improving programming education 
 </tspan><tspan
          x="701.46094"
          y="148.78364"
-         id="tspan8">through automated assessment, 
+         id="tspan6">through automated assessment, 
 </tspan><tspan
          x="701.46094"
          y="182.11701"
-         id="tspan9">learning analytics, and 
+         id="tspan7">learning analytics, and 
 </tspan><tspan
          x="701.46094"
          y="215.45039"
-         id="tspan10">educational data mining</tspan></text>
+         id="tspan11">educational data mining</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,8.6051368,12.368291)"
@@ -22423,6 +22423,6 @@
        inkscape:label="Title"><tspan
          x="693.14062"
          y="83.395408"
-         id="tspan11">Dodona</tspan></text>
+         id="tspan12">Dodona</tspan></text>
   </g>
 </svg>
