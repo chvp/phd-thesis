@@ -150,6 +150,7 @@
                 else
                     builddir=$(mktemp -d --tmpdir=/tmp)
                 fi
+                sed -i "s/journal = {\([^{].*\)}/journal = {{\1}}/" bibliography.bib
                 ${emacs}/bin/emacs -batch -load build.el
                 ${full-texlive}/bin/latexmk -f -pdf -lualatex -shell-escape -interaction=nonstopmode -output-directory="''${builddir}" book.tex
                 mv "''${builddir}"/book.pdf .
