@@ -120,21 +120,141 @@
          offset="0"
          id="stop5" />
       <stop
+         style="stop-color:#db88ff;stop-opacity:1;"
+         offset="0.002857142857"
+         id="stop51" />
+      <stop
+         style="stop-color:#c492ff;stop-opacity:1;"
+         offset="0.005714285714"
+         id="stop52" />
+      <stop
+         style="stop-color:#ac9bff;stop-opacity:1;"
+         offset="0.008571428571"
+         id="stop53" />
+      <stop
+         style="stop-color:#95a2ff;stop-opacity:1;"
+         offset="0.01142857143"
+         id="stop54" />
+      <stop
+         style="stop-color:#80a8ff;stop-opacity:1;"
+         offset="0.01428571429"
+         id="stop55" />
+      <stop
+         style="stop-color:#6eadff;stop-opacity:1;"
+         offset="0.01714285714"
+         id="stop56" />
+      <stop
          style="stop-color:#60b0ff;stop-opacity:1;"
-         offset="0.02014316"
+         offset="0.02"
          id="stop9" />
       <stop
+         style="stop-color:#20b7f6;stop-opacity:1;"
+         offset="0.06714285714"
+         id="stop91" />
+      <stop
+         style="stop-color:#00bbe6;stop-opacity:1;"
+         offset="0.1142857143"
+         id="stop92" />
+      <stop
+         style="stop-color:#00bed1;stop-opacity:1;"
+         offset="0.1614285714"
+         id="stop93" />
+      <stop
+         style="stop-color:#2dbeb9;stop-opacity:1;"
+         offset="0.2085714286"
+         id="stop94" />
+      <stop
+         style="stop-color:#56bda3;stop-opacity:1;"
+         offset="0.2557142857"
+         id="stop95" />
+      <stop
+         style="stop-color:#75ba90;stop-opacity:1;"
+         offset="0.3028571429"
+         id="stop96" />
+      <stop
          style="stop-color:#8fb682;stop-opacity:1;"
-         offset="0.34999999"
+         offset="0.35"
          id="stop8" />
+      <stop
+         style="stop-color:#91b676;stop-opacity:1;"
+         offset="0.38"
+         id="stop81" />
+      <stop
+         style="stop-color:#94b668;stop-opacity:1;"
+         offset="0.41"
+         id="stop82" />
+      <stop
+         style="stop-color:#9ab65a;stop-opacity:1;"
+         offset="0.44"
+         id="stop83" />
+      <stop
+         style="stop-color:#a1b44a;stop-opacity:1;"
+         offset="0.47"
+         id="stop84" />
+      <stop
+         style="stop-color:#a9b339;stop-opacity:1;"
+         offset="0.50"
+         id="stop85" />
+      <stop
+         style="stop-color:#b3b024;stop-opacity:1;"
+         offset="0.53"
+         id="stop86" />
       <stop
          style="stop-color:#bead00;stop-opacity:1;"
          offset="0.56"
          id="stop7" />
       <stop
+          style="stop-color:#c6aa00;stop-opacity:1;"
+          offset="0.6057142857"
+          id="stop71" />
+      <stop
+          style="stop-color:#cfa700;stop-opacity:1;"
+          offset="0.6514285714"
+          id="stop72" />
+      <stop
+          style="stop-color:#d7a400;stop-opacity:1;"
+          offset="0.6971428571"
+          id="stop73" />
+      <stop
+          style="stop-color:#e0a000;stop-opacity:1;"
+          offset="0.7428571429"
+          id="stop74" />
+      <stop
+          style="stop-color:#e89c00;stop-opacity:1;"
+          offset="0.7885714286"
+          id="stop75" />
+      <stop
+          style="stop-color:#f09800;stop-opacity:1;"
+          offset="0.8342857143"
+          id="stop76" />
+      <stop
          style="stop-color:#f89300;stop-opacity:1;"
          offset="0.88"
          id="stop6" />
+      <stop
+          style="stop-color:#fd8f24;stop-opacity:1;"
+          offset="0.8971428571"
+          id="stop61" />
+      <stop
+          style="stop-color:#ff8c37;stop-opacity:1;"
+          offset="0.9142857143"
+          id="stop62" />
+      <stop
+          style="stop-color:#ff8a46;stop-opacity:1;"
+          offset="0.9314285714"
+          id="stop63" />
+      <stop
+          style="stop-color:#ff8954;stop-opacity:1;"
+          offset="0.9485714286"
+          id="stop64" />
+      <stop
+          style="stop-color:#ff8861;stop-opacity:1;"
+          offset="0.9657142857"
+          id="stop65" />
+      <stop
+          style="stop-color:#ff886d;stop-opacity:1;"
+          offset="0.9828571429"
+          id="stop66" />
       <stop
          style="stop-color:#ff8978;stop-opacity:1;"
          offset="1"
