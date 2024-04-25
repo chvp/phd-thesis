@@ -2968,44 +2968,47 @@ This is exactly what we will explore in this section.
 Feedback is a key factor in student learning\nbsp{}[cite:@hattiePowerFeedback2007; @blackAssessmentClassroomLearning1998].
 In programming education, many steps have been taken to give feedback using automated assessment systems\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @ala-mutkaSurveyAutomatedAssessment2005].
 These automated assessment systems give feedback on correctness, and can give some feedback on style and best practices through the use of linters.
-They are, however, generally not able to give the same high-level feedback on program design that an experienced programmer can give.
+However, they are generally unable to give the same high-level feedback on program design that an experienced programmer can give.
 In many educational practices, automated assessment is therefore supplemented with manual feedback, especially when grading evaluations or exams\nbsp{}[cite:@debuseEducatorsPerceptionsAutomated2008].
 This requires a significant time investment of teachers\nbsp{}[cite:@tuckFeedbackgivingSocialPractice2012].
 
 As a result, many researchers have explored the use of AI to enhance giving feedback.
 [cite/t:@vittoriniAIBasedSystemFormative2021] used natural language processing to automate grading, and found that students who used the system during the semester were more likely to pass the course at the end of the semester.
 [cite/t:@leeSupportingStudentsGeneration2023] has used supervised learning with ensemble learning to enable students to perform peer and self-assessment.
-In addition, [cite/t:@berniusMachineLearningBased2022] introduced a framework based on clustering text segments in textual exercises to reduce the grading workload.
+In addition, [cite/t:@berniusMachineLearningBased2022] introduced a framework based on clustering text segments in free-form textual exercises to reduce the grading workload.
+[cite/t:@strickrothSupportingSemiautomaticFeedback2023] attempt to solve this problem specifically for programming exercises by clustering submissions based on failed tests cases and compiler error messages.
 
-The context of our work is in our own assessment system, called Dodona, developed at Ghent University\nbsp{}[cite:@vanpetegemDodonaLearnCode2023].
-Dodona gives automated feedback on each submission, but also has a module that allows teachers to give manual feedback on student submissions and assign scores to them.
-The process of giving manual feedback on a submission for a programming exercise in Dodona is very similar to a code review, where errors or suggestions for improvements are annotated on the relevant line(s)\nbsp{}(Figure\nbsp{}[[fig:feedbackintroductionreview]]).
-3\thinsp{}663\thinsp{}749 submissions were submitted to Dodona in 2023 alone, of which 44\thinsp{}012 were then also assessed manually.
+The context of our work is the Dodona learning environment, developed at Ghent University\nbsp{}[cite:@vanpetegemDodonaLearnCode2023].
+Dodona gives automated feedback on each submitted solution to programming exercises, but also has a module that allows teachers to give manual feedback on student submissions and assign scores.
+The process of giving manual feedback on a submission to a programming exercise in Dodona is very similar to a code review, where errors or suggestions for improvements are annotated on the relevant line(s)\nbsp{}(Figure\nbsp{}[[fig:feedbackintroductionreview]]).
+n 2023 alone, 3\thinsp{}663\thinsp{}749 solutions were submitted to Dodona, of which 44\thinsp{}012 were manually assessed.
 During manual assessment, 22\thinsp{}888 annotations were added to specific lines of code.
 
-#+CAPTION: Manual assessment of a submission: a teacher gives feedback on the code by adding inline annotations and scores the submission by filling out the exercise-specific scoring rubric.
-#+CAPTION: Automated assessment was already performed beforehand, where 22 test cases failed, as can be seen from the badge on the "Correctness" tab.
-#+CAPTION: The teacher just searched for a previously saved annotation so that they could reuse it.
+#+CAPTION: Assessment of a submitted solution in Dodona.
+#+CAPTION: An automated assessment has already been performed, with 22 failed test cases, as can be seen from the badge on the "Correctness" tab.
 #+CAPTION: An automated annotation left by Pylint can be seen on line 22.
-#+CAPTION: After manually assessing this submission, the teacher still needs to assess 23 other submissions, as can be seen on the progress bar on the right.
+#+CAPTION: A teacher gives feedback on the code by adding inline annotations and scores the submission by filling out the exercise-specific scoring rubric.
+#+CAPTION: The teacher has just searched for a previously saved annotation so that they could reuse it.
+#+CAPTION: After manually assessing this submission, the teacher still has another 23 submissions to assess, as shown in the progress bar on the right.
 #+NAME: fig:feedbackintroductionreview
 [[./images/feedbackintroductionreview.png]]
 
 However, there is a crucial difference between traditional code reviews and those in an educational context: teachers often give feedback on numerous submissions to the same exercise.
 Since students often make similar mistakes in their submissions to an exercise, it logically follows that teachers will repeatedly give the same or similar feedback on multiple student submissions.
-Because of this repetitive nature of feedback, Dodona allows teachers to save and later search for and retrieve specific annotations.
-This feature facilitates the reuse of feedback by allowing teachers to search for previously saved annotations.
-In 2023, 777 annotations were saved by teachers on Dodona, which were reused 7\thinsp{}180 times in total.
-The utilisation of this functionality has generated data that we can use in this study: code submissions, annotated on specific lines with annotations that are being shared across submissions.
+To facilitate the reuse of feedback, Dodona allows teachers to save specific annotations for later search and retrieval.
+In 2023, 777 annotations were saved by teachers on Dodona, which were reused a total of 7\thinsp{}180 times.
+The usage of this functionality has generated data that we can use in this study: annotations that are shared between code submissions and that occur on specific lines of those submissions.
 
-In this section we answer the following research question: Can previously added annotations be used to predict what annotations a reviewer is likely to add to a specific line of code, during the manual assessment of student-written code?
+In this section we answer the following research questions:
+(RQ1) Can previously added annotations be used to predict what annotations a reviewer is likely to add to a specific line of code during manual assessment of student-written code?
+(RQ2) Additionally, can this be done so that both training of and predictions by the method are fast enough to use in live reviewing situations with human reviewers?
 
-We present a machine learning approach aimed at facilitating the reuse of previously given feedback.
-We begin with a detailed explanation of the design of our method.
-We then present and discuss the experimental results we obtained by testing our method on student submissions.
-The dataset we used for this experiment is based on real Python code written by students during examinations.
-First, we test our method by predicting machine annotations by Pylint.
-Second, we use manual annotations left by human reviewers during assessment.
+We present ECHO (Efficient Critique Harvesting and Ordering), a machine learning approach that aims to facilitate the reuse of previously given feedback.
+We begin with a detailed explanation of the design of ECHO.
+We then present and discuss the experimental results we obtained by testing ECHO on student submissions.
+The dataset we used for this experiment is based on real Python code written by students during exams.
+First, we test ECHO by predicting Pylint machine annotations.
+Next, we use annotations left by human reviewers during manual assessment.
 
 *** Methodology
 :PROPERTIES:
@@ -3013,54 +3016,60 @@ Second, we use manual annotations left by human reviewers during assessment.
 :CUSTOM_ID: subsec:feedbackpredictionmethodology
 :END:
 
-Our approach for predicting what feedback a reviewer will give on source code is based on tree mining.
+We consider predicting relevant annotations to be a ranking problem, which we solve by determining similarity between the lines of code where annotations are added.
+The approach to determine this similarity is based on tree mining.
 This is a data mining technique for extracting frequently occurring patterns from data that can be represented as trees\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005; @asaiEfficientSubstructureDiscovery2004].
 Program code can be represented as an abstract syntax tree (AST), where the nodes of the tree represent the language constructs used in the program.
-Recent work has used this fact to investigate how these pattern mining algorithms can be used to efficiently find frequent patterns in source code\nbsp{}[cite:@phamMiningPatternsSource2019].
-In an educational context, these techniques were already used, for example, to find patterns common to solutions that failed a given exercise\nbsp{}[cite:@mensGoodBadUgly2021].
-Other work has looked at automatically generating unit tests from mined patterns\nbsp{}[cite:@lienard2023extracting].
-We use tree mig to find commonalities between the lines of code where the same annotation was added.
+Recent work has used demonstrated the efficacy of this approach in efficiently identifying frequent patterns in source code\nbsp{}[cite:@phamMiningPatternsSource2019].
+In an educational context, these techniques have already been used to find patterns common to solutions that failed a given exercise\nbsp{}[cite:@mensGoodBadUgly2021].
+Other work has demonstrated the potential of automatically generating unit tests from mined patterns\nbsp{}[cite:@lienard2023extracting].
+We use tree minig to find commonalities between the lines of code where the same annotation has been added.
 
-We start with a general overview of our method (Figure\nbsp{}[[fig:feedbackmethodoverview]]).
+We begin with a general overview of ECHO (Figure\nbsp{}[[fig:feedbackmethodoverview]]).
 The first step is to use the tree-sitter library\nbsp{}[cite:@brunsfeldTreesitterTreesitterV02024] to generate ASTs for each submission.
-Using tree-sitter makes our method independent of the programming language used, since it is a generic interface for generating syntax trees.
+Using tree-sitter makes ECHO independent of the programming language used, since it presents an interface for generating syntax trees independent of the programming language.
+The syntax trees are post-processed to include identifier names.
 For each annotation, we identify all occurrences and extract a constrained AST context around the annotated line for each instance.
-The resulting subtrees are then aggrefated for each annotation, after which they are processed by the =TreeminerD= algorithm\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005].
+The resulting subtrees are then aggregated for each annotation.
+If there are three or more subtrees, they are processed by the =TreeminerD= algorithm\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005].
 This yields a set of frequently occurring patterns specific to that annotation.
-We assign weights to these patterns based on their length and their frequency across the entire dataset of patterns for all annotations.
+We then assign weights to these patterns based on their length and their frequency across the entire dataset of patterns for all annotations.
+In addition to pattern mining, we also determine a set of unique nodes per forest of subtrees.
 The result of these operations is our trained model.
 
 The model can then be used to score how well an annotation matches a given code fragment.
 In practice, the reviewer first selects a line of code in a given student's submission.
 Next, the AST of the selected line and its surrounding context is generated.
 For each annotation, each of its patterns is matched to the line, and a similarity score is calculated, given the previously determined weights.
-This similarity score is used to rank the annotations and this ranking is displayed to the teacher.
+The percentage of unique nodes which match in the current subtree is also taken into account.
+These scores are used to rank the annotations, which are then displayed to the reviewer.
+It is important to note that the reviewer remains in control of which annotation is used, if any.
 
-A detailed explanation of this process follows, with a particular emphasis on operational efficiency.
-Speed is a paramount concern throughout the model's lifecycle, from training to deployment in real-time reviewing contexts.
-Given the continuous generation of training data during the reviewing process, the model's training time must be optimized to avoid significant delays, ensuring that the model remains practical for live reviewing situations.
+We will now provide a more in-depth explanation of this process, with a particular emphasis on operational efficiency.
+Speed is of the utmost importance throughout the model's lifecycle, from training to deployment in real-time reviewing contexts.
+Given the continuous generation of training data during the review process, the model's training time must be optimized to avoid significant delays, ensuring that the model remains practical for live review situations.
 
-#+CAPTION: Overview of our machine learning method for predicting annotation reuse.
+#+CAPTION: Overview of ECHO.
 #+CAPTION: Code of previously reviewed submissions is converted to its abstract syntax tree (AST) form.
 #+CAPTION: Instances of the same annotation have the same colour.
 #+CAPTION: For each annotation, the context of each instance is extracted and mined for patterns using the =TreeminerD= algorithm.
 #+CAPTION: These patterns are then weighted to form our model.
-#+CAPTION: When a teacher wants to place an annotation on a line of the submissions they are currently reviewing, all previously given annotations are ranked based on the similarity determined for that line.
-#+CAPTION: The teacher can then choose which annotation they want to place, with the goal to have the selected annotation high up in the ranking.
+#+CAPTION: When a reviewer wants to place an annotation on a line of the submissions they are currently reviewing, all previously given annotations are ranked based on the similarity determined for that line.
+#+CAPTION: The reviewer can then choose which annotation they want to place, with the aim of having the selected annotation at the top of in the ranking.
 #+NAME: fig:feedbackmethodoverview
 [[./diagrams/feedbackmethodoverview.svg]]
 
-**** Subtree extraction
+**** Training
 :PROPERTIES:
 :CREATED:  [2024-01-19 Fri 15:44]
 :CUSTOM_ID: subsubsec:feedbackpredictionsubtree
 :END:
 
-The first step of our method is to extract a subtree for every instance of an annotation and then aggregate them per annotation.
-Currently, the context around a line is extracted by taking all AST nodes from that line.
-For example, Figure\nbsp{}[[fig:feedbacksubtree]] shows that the subtree extracted for the code on line 3 in Listing\nbsp{}[[lst:feedbacksubtreesample]].
+The first step of ECHO is to extract a subtree for each instance of an annotation and then aggregate them per annotation.
+Currently, the context around a line is extracted by taking all the AST nodes from that line.
+For example, Figure\nbsp{}[[fig:feedbacksubtree]] shows that the subtree extracted for the code on line 3 of Listing\nbsp{}[[lst:feedbacksubtreesample]].
 Note that the context we extract here is very limited.
-Previous iterations of our method considered all nodes that contained the relevant line (e.g. the function node for a line in a function), but these contexts proved too large to process in an acceptable time frame.
+Previous iterations of our method considered all nodes that contained the relevant line (e.g. the function node for a line in a function), but these contexts proved too large to process in an acceptable time.
 
 #+ATTR_LATEX: :float t
 #+CAPTION: Example code that simply adds a number to the ASCII value of a character and converts it back to a character.
@@ -3072,63 +3081,51 @@ def jump(alpha, n):
     return chr(adjusted)
 #+END_SRC
 
-#+CAPTION: AST subtree corresponding to line 3 in Listing\nbsp{}[[lst:feedbacksubtreesample]], as generated by tree-sitter.
+#+ATTR_LATEX: :width 0.5\linewidth
+#+CAPTION: AST subtree corresponding to line 3 in Listing\nbsp{}[[lst:feedbacksubtreesample]] as generated by tree-sitter.
 #+NAME: fig:feedbacksubtree
 [[./diagrams/feedbacksubtree.svg]]
 
-**** Pattern mining
-:PROPERTIES:
-:CREATED: [2023-11-20 Mon 13:33]
-:CUSTOM_ID: subsubsec:feedbackpredictiontreeminer
-:END:
-
-After we have gathered a collection of subtrees for every annotation, we the need to mine patterns from these subtrees.
-=Treeminer=\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005] is an algorithm for discovering frequently occurring patterns in datasets of rooted, ordered and labelled trees.
-It does this by starting with a list of frequently occurring nodes, and then iteratively expanding the frequently occurring patterns.
+After collecting subtrees for each annotation, ECHO mines patterns from these subtrees using =TreeminerD=\nbsp{}[cite:@zakiEfficientlyMiningFrequent2005]: an algorithm for discovering frequently occurring patterns in datasets of rooted, ordered and labelled trees.
+=TreeminerD= starts with a list of frequently occurring nodes, and then iteratively expands the frequently occurring patterns.
 Patterns are embedded subtrees: the nodes in a pattern are a subset in the nodes of the tree, preserving the ancestor-descendant relationships and the left-to-right order of the nodes.
-An example of a valid pattern for the tree in Figure\nbsp{}[[fig:feedbacksubtree]] can be seen in Figure\nbsp{}[[fig:feedbackpattern]].
+An example of a valid pattern for the tree in Figure\nbsp{}[[fig:feedbacksubtree]] is shown in Figure\nbsp{}[[fig:feedbackpattern]].
 
+#+ATTR_LATEX: :width 0.5\linewidth
 #+CAPTION: Valid pattern for the tree in Figure\nbsp{}[[fig:feedbacksubtree]].
-#+CAPTION: Indirect ancestor-descendant relationships have been marked with dashed lines.
+#+CAPTION: Indirect ancestor-descendant relationships are marked with dashed lines.
 #+NAME: fig:feedbackpattern
 [[./diagrams/feedbackpattern.svg]]
 
-In the base =Treeminer= algorithm, frequently occurring means that the number of times the pattern occurs in all trees divided by the number of trees is greater than some predefined threshold.
-This threshold is called the =minimum support= parameter of the algorithm.
-
-=TreeminerD= is a more efficient variant of the base =Treeminer= algorithm.
-It achieves this efficiency by not counting occurrences of a frequent pattern within a tree.
-Since we are not interested in this information for our method, it was an obvious choice to use the =TreeminerD= variant.
+In the =TreeminerD= algorithm, frequent means that the number of times the pattern occurs in all trees divided by the number of trees is greater than some predefined threshold.
+This is called the =minimum support= parameter of the algorithm.
 
 We use a custom implementation of the =TreeminerD= algorithm, to find patterns in the AST subtrees for each annotation.
-In our implementation, we set the =minimum support= parameter to 0.8.
-This value was determined experimentally.
+Due to the exponential nature of the number of possible patterns in a tree, we only mine for patterns when there are at least three trees.
 
-**** Weight assignment
-:PROPERTIES:
-:CREATED: [2023-11-22 Wed 14:39]
-:CUSTOM_ID: subsubsec:feedbackpredictionweights
-:END:
-
-We now have a set of patterns corresponding to each annotation.
-Some patterns are more informative that others though.
-Therefore we assign weights to the patterns we obtain from =TreeminerD=
+ECHO now has a set of patterns corresponding to each annotation.
+However, some patterns are more informative that others.
+So it assigns weights to the patterns it gets from =TreeminerD=
 
 Weights are assigned using two criteria.
 The first criterion is the size of the pattern (i.e., the number of nodes in the pattern), since a pattern with twenty nodes is much more specific than a pattern with only one node.
 The second criterion is the number of occurrences of a pattern across all annotations.
-If the pattern sets for all annotations contain a particular pattern, it can't be used reliably to determine which annotation should be predicted and is therefore given a lower weight.
+If the pattern sets for all annotations contain a particular pattern, it cannot be used reliably to determine which annotation should be predicted and is therefore given a lower weight.
 Weights are calculated using the formula below.
 \[\operatorname{weight}(pattern) = \frac{\operatorname{len}(pattern)}{\operatorname{\#occurences}(pattern)}\]
 
-**** Pattern matching
+In addition to mining and weighting patterns, ECHO also determines a set of nodes that are unique to the subtrees of each annotation.
+This is done by taking the union of the nodes of all subtrees for that annotation, and then removing from that set any nodes that occur in the subtrees of at least three other annotations.
+This step does not require a minimum number of instances per annotation.
+
+**** Ranking
 :PROPERTIES:
 :CREATED:  [2024-02-01 Thu 14:25]
 :CUSTOM_ID: subsubsec:feedbackpredictionmatching
 :END:
 
-After completing the steps above we have trained our model.
-To use our model, we need to know how to match patterns to subtrees.
+Having completed the above steps, ECHO has trained its model.
+To use the model, ECHO needs to know how to match patterns to subtrees.
 
 To check whether a given pattern matches a given subtree, we iterate over all the nodes in the subtree.
 At the same time, we also iterate over the nodes in the pattern.
@@ -3139,7 +3136,7 @@ Moving up in the tree is more complicated.
 If the current depth and the depth of the last match (stored on the stack) are the same, we can move forwards in the pattern (and the subtree).
 If not, we need to check that we are still in the embedded subtree, otherwise we need to reset our position in the pattern to the start.
 Since subtrees can contain multiple instances of the same label, we also need to make sure that we can backtrack.
-Listings\nbsp{}[[lst:feedbackmatchingpseudocode1]]\nbsp{}and\nbsp{}[[lst:feedbackmatchingpseudocode2]] contain the full pseudocode for this algorithm.
+Listings\nbsp{}[[lst:feedbackmatchingpseudocode1]]\nbsp{}and\nbsp{}[[lst:feedbackmatchingpseudocode2]] give the full pseudocode for this algorithm.
 
 #+ATTR_LATEX: :float t
 #+CAPTION: Pseudocode for checking whether a pattern matches a subtree.
@@ -3194,20 +3191,14 @@ find_in_subtree(subtree, current_subtree):
   return False
 #+END_SRC
 
-Checking whether a pattern matches a subtree is an operation that needs to happen a lot.
-For some annotations, there are many patterns, and all patterns of all annotations are checked.
+Checking whether a pattern matches a subtree is an operation that ECHO has to perform many times.
+For some annotations there are many patterns, and all patterns of all annotations are checked.
 An important optimization we added was to run the algorithm in Listings\nbsp{}[[lst:feedbackmatchingpseudocode1]]\nbsp{}and\nbsp{}[[lst:feedbackmatchingpseudocode2]] only if the set of labels in the pattern is a subset of the labels in the subtree.
 
-**** Annotation ranking
-:PROPERTIES:
-:CREATED: [2023-11-22 Wed 14:47]
-:CUSTOM_ID: subsubsec:feedbackpredictionsimilarity
-:END:
-
 Given a model where we have weighted patterns for each annotation, and a method for matching patterns to subtrees, we can now put the two together to make a final ranking of the available annotations for a given line of code.
-We compute a match score for each annotation using the formula below.
+We calculate a match score for each annotation using the formula below.
 \[ \operatorname{score}(annotation) = \frac{\displaystyle\sum_{pattern \atop \in\, patterns} \begin{cases} \operatorname{weight}(pattern) & pattern \text{ matches} \\ 0               & \text{otherwise} \end{cases}}{\operatorname{len}(patterns)} \]
-The annotations are ranked according to this score.
+ECHO then ranks the annotations by combining the score and the percentage of nodes in the set of unique nodes for that annotation.
 
 *** Results and discussion
 :PROPERTIES:
@@ -3215,39 +3206,52 @@ The annotations are ranked according to this score.
 :CUSTOM_ID: subsec:feedbackpredictionresults
 :END:
 
-As a dataset to validate our method, we used Python code written by students for exercises from (different) exams.
+As a dataset to validate ECHO, we used Python code written by students for programming exercises from (different) exams.
 The dataset contains between 135 and 214 submissions per exercise.
-We initially split the datasets evenly into a training set and a test set.
+Each submission for a particular exercise is by a different student.
+We first split the datasets equally into a training set and a test set.
 This simulates the midpoint of an assessment session for the exercise.
-During testing, we let our model suggest annotations for each of the lines that had an actual annotation associated with it in the test set.
-We evaluate at which position the correct annotation is ranked.
-We only look at the top five to give us a good idea of how useful the suggested ranking would be in practice: if an annotation is not in the top five, we would expect the reviewer to have to search for it instead of directly selecting it from the suggested ranking.
+During testing, we let our model suggest annotations for each of the lines that had an actual annotation associated with them in the test set.
+We evaluate where the correct annotation is ranked.
+We only look at the top five to get a good idea of how useful the suggested ranking would be in practice: if an annotation is not in the top five, we would expect the reviewer to have to search for it manually, rather than selecting it directly from the suggested ranking.
 
-We first ran Pylint[fn:: https://www.pylint.org/] (version 3.1.0) on the student submissions.
-Pylint is a static code analyser for Python that checks for erros and code smells, and enforces a standard programming style.
+We first ran Pylint[fn:: https://www.pylint.org/] (version 3.1.0) on the students' submissions.
+Pylint is a static code analyser for Python that checks for errors and code smells, and enforces a standard programming style.
 We used Pylint's machine annotations as our training and test data.
-We test per exercise since that's our main use case for this method, but also perform one test where all submissions of all exercises are combined.
+We test per exercise because that's our main use case for this method, but we also run a test that combines all submissions from all exercises.
+An overview of some annotation statistics for the data generated by Pylint can be found in Table\nbsp{}[[tab:feedbackresultsdatasetpylint]].
 
-For a second experiment, we used the manual annotations left by human reviewers on student code in Dodona.
-Exercises were reviewed by different people, but all submissions for an exercise were reviewed by the same person.
-The reviewers were not aware at the time this method would be developed.
-In this case, there is no combined test, since the set of annotations used is also different for each exercise.
+#+CAPTION: Statistics of Pylint annotations for the programming exercises used in the benchmark.
+#+NAME: tab:feedbackresultsdataset
+| Exercise              | subm. | ann. | inst. | max |   avg |
+|-----------------------+-------+------+-------+-----+-------|
+| <l>                   |   <r> |  <r> |   <r> | <r> |   <r> |
+| A last goodbye        |   135 |   25 |   189 |  29 |  7.56 |
+| Symbolic              |   141 |   28 |   277 |  66 |  9.89 |
+| Narcissus cipher      |   144 |   29 |   148 |  24 |  5.10 |
+| Cocktail bar          |   211 |   31 |   162 |  29 |  5.23 |
+| Anthropomorphic emoji |   214 |   24 |   144 |  40 |  6.00 |
+| Hermit                |   194 |   82 |   388 |  59 |  6.80 |
+| Combined              |  1039 |   82 |  1479 | 196 | 18.04 |
 
-We distinguish between these two sources of annotations because we expect Pylint to be more consistent both in when it places an instance of an annotation and also where it places the instance.
-Most linting annotations are detected by explicit pattern matching in the AST, so we expect our implicit pattern matching to work fairly well.
-However, we want to skip this explicit pattern matching for manual annotations because of the time required to assemble them and the fact that annotations will often be specific to a particular exercise and to a particular reviewer.
-Therefore we also test on manual annotations.
-Manual annotations are expected to be more inconsistent because reviewers may miss a problem in one student's code that they annotated in another student's code, or they may not place instances of a particular annotation in consistent locations.
+In a second experiment, we used the manual annotations left by human reviewers on student code in Dodona.
+Exercises were reviewed by different people, but all submissions for a specific exercise were reviewed by the same person.
+The reviewers were not aware of ECHO at the time they reviewed the submissions.
+In this case there is no combined test as the set of annotations used is different for each exercise.
+
+We distinguish between these two sources of annotations because we expect Pylint to be more consistent in both when it places an instance of an annotation and also where it places the instance.
+Most linting annotations are detected by explicit pattern matching in the AST, so we expect the implicit pattern matching to work fairly well.
+However, we want to skip this explicit pattern matching for manual annotations because of the time it takes to compile them and the fact that annotations are often specific to a particular exercise and reviewer.
+Therefore, we also test on manual annotations.
+Manual annotations are expected to be more inconsistent because reviewers may miss a problem in one student's code that they have annotated in another student's code, or they may not place instances of a particular annotation in consistent locations.
 The method by which human reviewers place an annotation is also much more implicit than Pylint's pattern matching.
 
-Exercises have between 55 and 469 instances of manual annotations.
+The reviewed programming exercises have between 55 and 469 instances of manual annotations.
 The number of distinct annotations varies between 7 and 34 per exercise.
-Table\nbsp{}[[tab:feedbackresultsdataset]] gives an overview of some of the features of the dataset.
-Timings mentioned in this section were measured on a 2019 Macbook Pro with a 1.4GHz Intel quad-core processor and 16 GB of RAM.
+Table\nbsp{}[[tab:feedbackresultsdataset]] gives an overview of some of characteristics of the dataset.
+Timings mentioned in this section were measured on a 2022 Dell laptop with a 3GHz Intel quad-core processor and 32 GB of RAM.
 
-#+CAPTION: Statistics of manually added annotations for the exercises used in the benchmark.
-#+CAPTION: Max is the maximum amount of instances per annotation.
-#+CAPTION: Avg is the average amount of instances per annotation.
+#+CAPTION: Statistics of manually added annotations for the programming exercises used in the benchmark.
 #+NAME: tab:feedbackresultsdataset
 | Exercise              | subm. | ann. | inst. | max |   avg |
 |-----------------------+-------+------+-------+-----+-------|
@@ -3266,40 +3270,36 @@ Timings mentioned in this section were measured on a 2019 Macbook Pro with a 1.4
 :END:
 
 We will first discuss the results for the Pylint annotations.
-During the experiment, a few Pylint annotations not related to the actual code were left out to avoid skewing the results.
+During the experiment, a few Pylint annotations that are not related to the structure of the code were omitted to avoid distorting the results.
 These are "line too long", "trailing whitespace", "trailing newlines", "missing module docstring", "missing class docstring", and "missing function docstring".
-Depending on the exercise, the actual annotation is ranked among the top five annotations for 45% to 75% of all test instances (Figure\nbsp{}[[fig:feedbackpredictionpylintglobal]]).
-The annotation is even ranked first for 19% to 59% of all test instances.
-Interestingly, the method mostly performs worse when the instances for all exercises are combined.
-This highlights the fact that our method is most useful in the context where similar code needs to be reviewed many times.
-For the submissions and instances in the training set, training took 1.5 to 52 seconds for an exercise.
-The entire testing phase took between 4 seconds to 9.5 minutes.
-The average time of one prediction ranges between 30 milliseconds and 6 seconds.
-The minima range between 6 milliseconds and 4 seconds, the maxima between 127 milliseconds and 55 seconds.
-Note that these are very wide ranges.
-These big differences can be explained through the number of patterns that are found for the annotations.
-If there are annotations with a very large amount of patterns, this will be reflected in both the training and testing time.
+Depending on the exercise, the actual annotation is ranked among the top five annotations in 45% to 77% of all test instances (Figure\nbsp{}[[fig:feedbackpredictionpylintglobal]]).
+The annotation is even ranked first for 23% to 52% of all test instances.
+Interestingly, the method performs worse when the instances for all exercises are combined.
+This highlights the fact that ECHO is most useful in the context of reviewing similar code many times.
+For the submissions and instances in the training set, training took between 70 and 245 milliseconds to process all submissions and instances for an exercise.
+The entire test phase took between 30 and 180 milliseconds per exercise.
+Individual predictions never exceed 15 milliseconds.
 
-#+CAPTION: Predictive accuracy for suggesting instances of Pylint annotations.
-#+CAPTION: Numbers on the right are the total number of annotations and instances respectively.
-#+CAPTION: The "Combined" test evaluated our method on the entire set of submissions for all exercises.
+#+CAPTION: Prediction accuracy for suggesting instances of Pylint annotations.
+#+CAPTION: The numbers on the right are the total number of annotations and instances respectively.
+#+CAPTION: The "Combined" test evaluated ECHO on the entire set of submissions for all exercises.
 #+NAME: fig:feedbackpredictionpylintglobal
 [[./images/feedbackpredictionpylintglobal.png]]
 
-We have selected some interesting annotations for further inspection, some of which perform very well, and some of which perform worse (Figure\nbsp{}[[fig:feedbackpredictionpylintmessages]]).
-We selected these specific annotations to demonstrate interesting behaviours our method exhibits.
-The differences in performance can be explained by the content of the annotation and the underlying patterns Pylint is looking for.
-For example, the annotation "unused variable"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/warning/unused-variable.html] performs rather poorly.
-This can be explained by the fact that we do not feed enough context to =TreeminerD= to find predictive patterns for this Pylint annotation.
+We have selected some interesting annotations for further inspection, some of which perform very well, and some of which perform less well (Figure\nbsp{}[[fig:feedbackpredictionpylintmessages]]).
+We chose these specific annotations to demonstrate interesting behaviours exhibited by ECHO.
+The differences in performance can be explained by the content of the annotation and the underlying patterns that Pylint is looking for.
+For example, the "unused variable"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/warning/unused-variable.html] annotation performs poorly.
+This can be explained by the fact that we do not feed =TreeminerD= with enough context to find predictive patterns for this Pylint annotation.
 There are also annotations that can't be predicted at all, because no patterns are found.
 
-Other annotations, like "consider using in"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/consider-using-in.html], work very well.
+Other annotations, such as "consider using with"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/consider-using-with.html], work very well.
 For these annotations, =TreeminerD= does have enough context to automatically determine the underlying patterns.
-The number of instances of an annotation in the training set also has an impact.
-Annotations which have only a few instances are generally predicted worse than those with lots of instances.
+The number of instances of an annotation in the training set also has an effect.
+Annotations with few instances are generally predicted worse than those with many instances.
 
-#+CAPTION: Predictive accuracy for a selection of machine annotations by Pylint.
-#+CAPTION: Each line corresponds to a Pylint annotation, with the number of instances in the training and test set denoted in brackets after the name of the annotation.
+#+CAPTION: Prediction accuracy for a selection of Pylint machine annotations.
+#+CAPTION: Each line corresponds to a Pylint annotation, with the number of instances in the training and test sets given in parentheses after the annotation name.
 #+NAME: fig:feedbackpredictionpylintmessages
 [[./images/feedbackpredictionpylintmessages.png]]
 
@@ -3309,119 +3309,115 @@ Annotations which have only a few instances are generally predicted worse than t
 :CUSTOM_ID: subsubsec:feedbackpredictionresultsrealworld
 :END:
 
-For the annotations added by human reviewers, we applied two different scenarios to evaluate our method.
-Besides using the same 50/50 split between training and testing data as with the Pylint data, we also simulated how a human reviewer would use the method in practice by gradually increasing the training set and decreasing the test set as the reviewer progresses through the submissions during the assessment.
-At the start of the assessment no annotations are available and the first instance of an annotation that applies to a reviewed submission cannot be predicted.
-As more submissions have been reviewed, and more instances of annotations are placed on those submissions, the training set for modelling predictions on the next submission under review grows gradually.
+For the annotations added by human reviewers, we used two different scenarios to evaluate ECHO.
+In addition to using the same 50/50 split between training and test data as for the Pylint data, we also simulated how a human reviewer would use ECHO in practice by gradually increasing the training set and decreasing the test set as the reviewer progresses through the submissions during the assessment.
+At the start of the assessment, no annotations are available and the first instance of an annotation that applies to a reviewed submission cannot be predicted.
+As more submissions are reviewed and more instances of annotations are placed on those submissions, the training set for modelling predictions on the next submission under review gradually grows.
 
-If we evenly split submissions and the corresponding annotations from a human reviewer into a training and a test set, the predictive accuracy is similar or even slightly better compared to the Pylint annotations (Figure\nbsp{}[[fig:feedbackpredictionrealworldglobal]]).
-The number of instances where the true annotation is ranked first is generally higher (between 36.4% and 60% depending on the exercise), and the number of instances where it is ranked in the top five is between 61% and 89% depending on the exercise.
-However, there is quite some variance between exercises.
-This can be explained by the quality of the data.
-For example, for the exercise "Symbolic", very few instances were placed for most annotations, which makes it difficult to predict additional instances.
+If we split the submissions and the corresponding annotations of a human reviewer equally into a training and a test set, the prediction accuracy is similar or even slightly better compared to the Pylint annotations (Figure\nbsp{}[[fig:feedbackpredictionrealworldglobal]]).
+The number of instances where the true annotation is ranked first is generally higher (between 29% and 63% depending on the exercise), and the number of instances where it is ranked in the top five is between 63% and 93% depending on the exercise.
 
-#+CAPTION: Prediction results for six exercises that were designed and used for an exam, using manual annotations.
-#+CAPTION: Models were trained on half of the submissions from the dataset and tested on the other half of the submissions from the dataset.
-#+CAPTION: Numbers on the right are the total number of annotations and instances respectively.
+#+CAPTION: Prediction accuracy for suggesting instances of annotations by human reviewers.
+#+CAPTION: The numbers on the right are the total number of annotations and instances respectively.
 #+NAME: fig:feedbackpredictionrealworldglobal
 [[./images/feedbackpredictionrealworldglobal.png]]
 
-For this experiment, training took between 1.2 and 16.7 seconds depending on the exercise.
-The entire testing phase took between 1.5 and 35 seconds depending on the exercise.
+In this experiment, training took between 67 milliseconds and 22.4 seconds depending on the exercise.
+The entire testi phase took between 49 milliseconds and 27 seconds, depending on the exercise.
 These evaluations were run on the same hardware as those for the machine annotations.
-For one prediction, average times range between 0.1 milliseconds and 1 second.
-The minima range between 0.1 milliseconds and 240 milliseconds and the maxima range between 0.2 milliseconds and 3 seconds.
-The explanation for these wide ranges remains the same as for the Pylint predictions: everything depends on the number of patterns found.
+For one prediction, the average time ranged from 0.1 milliseconds to 150 milliseconds and the maxima from 0.5 milliseconds to 2.8 seconds.
+The explanation for these wide ranges remains the same as for the Pylint predictions: it all depends on the number of patterns found.
 
-These results show that we can predict reuse with an accuracy that is quite high at the midpoint of a reviewing session for an exercise.
-The accuracy depends on the amount of instances per annotation and the consistency of the reviewer.
-Looking at the underlying data, we can also see that short, atomic messages can be predicted very well, as hinted by\nbsp{}[cite/t:@moonsAtomicReusableFeedback2022].
-We will now look at the accuracy of our method over time, to test how the accuracy evolves as the reviewing session progresses.
+These results show that we can predict reuse with a fairly high accuracy at the midpoint of a review session for a programming exercise.
+The accuracy depends on the number of instances per annotation and the consistency of the reviewer.
+Looking at the underlying data, we can also see that short, atomic messages can be predicted very well, as suggested by\nbsp{}[cite/t:@moonsAtomicReusableFeedback2022].
+We will now look at the longitudinal prediction accuracy of ECHO, to test how accuracy evolves over the course of a review session.
 
-For the next experiment, we introduce two specific categories of negative predictive outcomes, namely "No training instances" and "No patterns".
-"No training instances means that the annotation corresponding to the true instance had no instances in the test set, and therefore could never have been predicted.
-"No patterns" means that =TreeminerD= was unable to find any frequent patterns for the set of subtrees extracted from the annotation instances.
-This could be because the collection of subtrees is too diverse, or because we have only seen one or two instances of a particular annotation, in which case we can't run =TreeminerD=.
-We know beforehand that test instances of such annotations cannot be predicted.
+For the next experiment, we introduce two specific categories of negative prediction results, namely "No training instances" and "No patterns".
+"No training instances" means that the annotation corresponding to the true instance had no instances in the training set, and therefore could never have been predicted.
+"No patterns" means that =TreeminerD= was unable to find any frequent patterns for the set of subtrees extracted from the annotation instances (and there were also no nodes unique to this set of subtrees in the entire set of subtrees).
+This could be because the collection of subtrees is too diverse to have common patterns.
 
-Figures\nbsp{}[[fig:feedbackpredictionrealworldsimulation1]],\nbsp{}[[fig:feedbackpredictionrealworldsimulation2]],\nbsp{}[[fig:feedbackpredictionrealworldsimulation3]]\nbsp{}and\nbsp{}[[fig:feedbackpredictionrealworldsimulation4]] show the results of this experiment for four of the exercises we used in the previous experiments.
-The two exercises that performed worse in the previous experiment were not taken into account for this experiment.
+Figures\nbsp{}[[fig:feedbackpredictionrealworldsimulation1]],\nbsp{}[[fig:feedbackpredictionrealworldsimulation2]],\nbsp{}[[fig:feedbackpredictionrealworldsimulation3]]\nbsp{}and\nbsp{}[[fig:feedbackpredictionrealworldsimulation4]] show the results of this experiment for four of the programming exercises used in the previous experiments.
+The "Symbolic" exercise was excluded due to its low number of unique annotations, while the "Hermit" exercise was excluded due to its poor performance in the previous experiment.
 We also excluded submissions that received no annotations during the human review process, which explains the lower number of submissions compared to the numbers in Table\nbsp{}[[tab:feedbackresultsdataset]].
-This experiment shows that while the review process requires some build-up before sufficient training instances are available, once a critical mass of training instances is reached, the accuracy for suggesting new instances of annotations reaches its maximal predictive power.
-This critical mass is reached after about 20 to 30 reviews, which is quite early in the reviewing process\nbsp{}(Figure\nbsp{}[[fig:feedbackpredictionrealworldevolution]]).
+This experiment shows that while the review process requires some time to build up before sufficient training instances are available, once a critical mass of training instances is reached, the accuracy for suggesting new instances of annotations reaches its maximum predictive power.
+This critical mass is reached after about 20 to 30 submissions reviewed, which is quite early in the review process\nbsp{}(Figure\nbsp{}[[fig:feedbackpredictionrealworldevolution]]).
+This means that a lot of time could be saved during the review process when ECHO is integrated into an online learning environment.
 The point at which the critical mass is reached will of course depend on the nature of the exercises and the consistency of the reviewer.
 
-#+CAPTION: Progression of the predictive accuracy for the exercise "A last goodbye" throughout the review process.
+#+CAPTION: Progression of the prediction accuracy for the "A last goodbye" exercise over the course of the review process.
 #+CAPTION: Predictions for instances whose annotation had no instances in the training set are classified as "No training instances.
 #+CAPTION: Predictions for instances whose annotation had no corresponding patterns in the model learned from the training set are classified as "No patterns".
 #+CAPTION: The graph on the right shows the number of annotations present with at least one instance in the training set.
 #+NAME: fig:feedbackpredictionrealworldsimulation1
 [[./images/feedbackpredictionrealworldsimulation1.png]]
 
-#+CAPTION: Progression of the predictive accuracy for the exercise "Narcissus cipher" throughout the review process.
+#+CAPTION: Progression of the prediction accuracy for the "Narcissus cipher" exercise over the course of the review process.
 #+CAPTION: Predictions for instances whose annotation had no instances in the training set are classified as "No training instances.
 #+CAPTION: Predictions for instances whose annotation had no corresponding patterns in the model learned from the training set are classified as "No patterns".
 #+CAPTION: The graph on the right shows the number of annotations present with at least one instance in the training set.
 #+NAME: fig:feedbackpredictionrealworldsimulation2
 [[./images/feedbackpredictionrealworldsimulation2.png]]
 
-#+CAPTION: Progression of the predictive accuracy for the exercise "Cocktail bar" throughout the review process.
+#+CAPTION: Progression of the prediction accuracy for the "Cocktail bar" exercise over the course of the review process.
 #+CAPTION: Predictions for instances whose annotation had no instances in the training set are classified as "No training instances.
 #+CAPTION: Predictions for instances whose annotation had no corresponding patterns in the model learned from the training set are classified as "No patterns".
 #+CAPTION: The graph on the right shows the number of annotations present with at least one instance in the training set.
 #+NAME: fig:feedbackpredictionrealworldsimulation3
 [[./images/feedbackpredictionrealworldsimulation3.png]]
 
-#+CAPTION: Progression of the predictive accuracy for the exercise "Anthropomorphic emoji" throughout the review process.
+#+CAPTION: Progression of the prediction accuracy for the "Anthropomorphic emoji" exercise over the course of the review process.
 #+CAPTION: Predictions for instances whose annotation had no instances in the training set are classified as "No training instances.
 #+CAPTION: Predictions for instances whose annotation had no corresponding patterns in the model learned from the training set are classified as "No patterns".
 #+CAPTION: The graph on the right shows the number of annotations present with at least one instance in the training set.
 #+NAME: fig:feedbackpredictionrealworldsimulation4
 [[./images/feedbackpredictionrealworldsimulation4.png]]
 
-#+CAPTION: Evolution of the percentage of suggestions that are in the top\nbsp{}5.
-#+CAPTION: The percentages are quite stable after 20 to 30 submissions have been reviewed.
+#+CAPTION: Evolution of the percentage of suggestions that are ranked in the top\nbsp{}5.
+#+CAPTION: The percentages are fairly stable after 20 to 30 submissions have been reviewed.
 #+NAME: fig:feedbackpredictionrealworldevolution
 [[./images/feedbackpredictionrealworldevolution.png]]
 
-As mentioned before, we are working with a slightly inconsistent dataset when using annotations by human reviewers.
+As mentioned above, we are working with a slightly inconsistent dataset when using annotations from human reviewers.
 They will sometimes miss an instance of an annotation, place it inconsistently, or unnecessarily create duplicate annotations.
-If this system is used in practice, the predictions could possibly be even better, since knowing about its existence might further motivate a reviewer to be more consistent in their reviews.
-The exercises were also reviewed by different people, which could also be an explanation for the differences in accuracy of predictions between the exercises.
+If ECHO is used in practice, the predictions may be even better, as the knowledge of its existence may further motivate reviewers to be more consistent in their reviews.
+The programming exercises were also reviewed by different people, which may also explain the differences in prediction accuracy between the exercises.
 
-To evaluate the performance of our model for these experiments, we measure the training times, and the times required for each prediction (this corresponds to a teacher wanting to add an annotation to a line in practice).
-Figures\nbsp{}[[fig:feedbackpredictionrealworldtimings1]],\nbsp{}[[fig:feedbackpredictionrealworldtimings2]],\nbsp{}[[fig:feedbackpredictionrealworldtimings3]],\nbsp{}and\nbsp{}[[fig:feedbackpredictionrealworldtimings4]] show the timings for these experiments.
-Like in the previous experiments, we can see that there is a big difference between exercises: for two of the exercises, the training time does not exceed 10 seconds, where for the others the training times go up to about a minute.
-Prediction times show a similar diversity: for one exercise the prediction times never exceed 3 seconds, while for the others there are some outliers up to 25 seconds.
-The average prediction times never exceed a few seconds though.
+To evaluate the performance of ECHO for these experiments, we measure the training times, and the times required for each prediction (this corresponds to a reviewer wanting to add an annotation to a line in practice).
+Figures\nbsp{}[[fig:feedbackpredictionrealworldtimings1]],\nbsp{}[[fig:feedbackpredictionrealworldtimings2]],\nbsp{}[[fig:feedbackpredictionrealworldtimings3]],\nbsp{}and\nbsp{}[[fig:feedbackpredictionrealworldtimings4]] show the performance of running these experiments.
+As in the previous experiments, we can see that there is a considerable difference between the exercises.
+However, the training time only exceeds one seconds in a few cases and remains well below that in most cases
+The prediction times are mostly below 50 milliseconds, except for a few outliers.
+The average prediction time never exceeds 500 milliseconds.
 
-The timings show that even though there are some outliers, most predictions can be performed quickly enough to make this an interactive system.
-The outliers also correspond with higher training times, indicating this is mainly caused by a high number of underlying patterns for some annotations.
+The timings show that although there are some outliers, predictions can be made fast enough to make this an interactive system.
+The outliers also correspond to higher training times, indicating that this is mainly caused by a high number of underlying patterns for some annotations.
 Currently this process is also parallelized over the files, but in practice, the process could be parallelized over the patterns, which would speed up the prediction even more.
-Note that the training time can also go down given more training data.
-If there are more instances per annotation, the diversity in related subtrees will usually increase, which decreases the number of patterns that can be found, which also decreases the training time.
+Note that the training time may also decrease with more training data.
+If there are more instances per annotation, the diversity in the related subtrees will usually increase, which reduces the number of patterns that can be found and thus reduces the training time.
 
-#+CAPTION: Time needed for training and testing throughout the review process for the exercise "A last goodbye".
+#+CAPTION: Time needed for training and testing during the entire review process for the exercise "A last goodbye".
 #+CAPTION: Top: training time.
-#+CAPTION: Bottom: average (orange dot) and range (blue line) of time required for predicting a single instance.
+#+CAPTION: Bottom: average (orange dot) and range (blue line) of time needed to predict a single instance.
 #+NAME: fig:feedbackpredictionrealworldtimings1
 [[./images/feedbackpredictionrealworldtimings1.png]]
 
-#+CAPTION: Time needed for training and testing throughout the review process for the exercise "Narcissus cipher".
+#+CAPTION: Time needed for training and testing during the entire review process for the exercise "Narcissus cipher".
 #+CAPTION: Top: training time.
-#+CAPTION: Bottom: average (orange dot) and range (blue line) of time required for predicting a single instance.
+#+CAPTION: Bottom: average (orange dot) and range (blue line) of time needed to predict a single instance.
 #+NAME: fig:feedbackpredictionrealworldtimings2
 [[./images/feedbackpredictionrealworldtimings2.png]]
 
-#+CAPTION: Time needed for training and testing throughout the review process for the exercise "Cocktail bar".
+#+CAPTION: Time needed for training and testing during the entire review process for the exercise "Cocktail bar".
 #+CAPTION: Top: training time.
-#+CAPTION: Bottom: average (orange dot) and range (blue line) of time required for predicting a single instance.
+#+CAPTION: Bottom: average (orange dot) and range (blue line) of time needed to predict a single instance.
 #+NAME: fig:feedbackpredictionrealworldtimings3
 [[./images/feedbackpredictionrealworldtimings3.png]]
 
-#+CAPTION: Time needed for training and testing throughout the review process for the exercise "Anthropomorphic emoji".
+#+CAPTION: Time needed for training and testing during the entire review process for the exercise "Anthropomorphic emoji".
 #+CAPTION: Top: training time.
-#+CAPTION: Bottom: average (orange dot) and range (blue line) of time required for predicting a single instance.
+#+CAPTION: Bottom: average (orange dot) and range (blue line) of time needed to predict a single instance.
 #+NAME: fig:feedbackpredictionrealworldtimings4
 [[./images/feedbackpredictionrealworldtimings4.png]]
 
@@ -3431,32 +3427,32 @@ If there are more instances per annotation, the diversity in related subtrees wi
 :CUSTOM_ID: subsec:feedbackpredictionconclusion
 :END:
 
-We presented a prediction method to assist human reviewers in giving feedback while reviewing students submissions for an exercise by reusing annotations.
-Improving annotation reuse can be both a time-saver, and improve the consistency with which feedback is given.
-The latter itself might further improve the accuracy of the predictions when the strategy is applied during the review process.
+We presented ECHO as a predictive method to assist human reviewers in giving feedback when reviewing students submissions to a programming exercise by reusing annotations.
+Improving the reuse of annotations can both save time and improve the consistency with which feedback is given.
+The latter in itself might further improve the accuracy of predictions if the strategy is applied during the review process.
 
-The method has already shown promising results.
-We validated the framework both by predicting automated linting annotations to establish a baseline and by predicting annotations from human reviewers.
-The method has about the same predictive accuracy for machine (Pylint) and human annotations.
-Thus, we can give a positive answer to our research question that reuse of feedback given previously by a human reviewer can be predicted with high accuracy on a particular line of a new submission.
+ECHO has already shown promising results.
+We have validated the framework both by predicting automated linting annotations to establish a baseline, and by predicting annotations from human reviewers.
+The method has about the same prediction accuracy for machine (Pylint) and human annotations.
+Thus, we can answer both our research questions in an affirmative way, meaning that the reuse of feedback previously given by a human reviewer on a particular line of a new submission can be predicted with high accuracy (RQ1), and that this can be done fast enough to assist human reviewers in future reviews (RQ2).
 
-We can conclude that the proposed method has achieved the desired objective as expressed in the research question.
-Having this method at hand immediately raises some possible follow-up work.
-Currently, the proposed model is reactive: we suggest a ranking of most likely annotations when a reviewer wants to add an annotation to a particular line of a submission.
-By introducing a confidence score, we could check beforehand if we have a confident match for each line, and then immediately propose those suggestions to the reviewer.
+Having ECHO at hand immediately raises some opportunities fo follow-up work.
+Currently, the proposed model is reactive: we suggest a ranking of the most likely annotations when a reviewer wants to add an annotation to a particular line of a submission.
+By introducing a confidence score, we could check beforehand whether we have a confident match for each line, and then immediately propose these suggestions to the reviewer.
 Whether or not a reviewer accepts these suggestions could then also be used as an input to the model.
-This could also have an extra advantage, since it could help reviewers be more consistent in where and when they place annotations.
+This could also have an additional benefit by helping reviewers to be more consistent in where and when they place annotations.
 
 Annotations that don't lend themselves well to prediction also need further investigation.
 The context used could be expanded, although the important caveat here is that the method still needs to maintain sufficient performance.
 We could also consider applying some of the source code pattern mining techniques proposed by\nbsp{}[cite/t:@phamMiningPatternsSource2019] to achieve further speed improvements.
 This could help with the outliers seen in the timing data.
-Another important aspect that was explicitly left out of the scope of this chapter was its integration into a learning platform and user testing.
+Another important aspect that was explicitly outside of the scope of this chapter was the integration of ECHO into a learning platform and user testing.
 
 Of course, alternative methods could also be considered.
-One cannot overlook the rise of Large Language Models (LLMs) and the way they could contribute to this problem.
-LLMs can generate feedback for students, based on their code and a well-chosen system prompt.
-Fine-tuning of a model with feedback already given is another option.
+One cannot overlook the rise of Large Language Models (LLMs) and the way in which they could contribute to this problem.
+LLMs can generate feedback for students based on their submitted solution and a well-chosen system prompt.
+Fine-tuning of an LLM with feedback already given is another possibility.
+Future applications could also combine user generated and LLM generated feedback, showing human reviewers the source of the feedback during their reviews.
 
 * Looking ahead: opportunities and challenges
 :PROPERTIES:
