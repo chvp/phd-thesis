@@ -1501,7 +1501,7 @@ Once Dodona was opened up to more and more teachers, we gradually locked down wh
 Content where teachers can inject raw HTML into Dodona was moved to iframes, to make sure that teachers could still be as creative as they wanted while writing exercises, while simultaneously not allowing them to execute JavaScript in a session where users are logged in.
 For user content where this creative freedom is not as necessary (e.g. series or course descriptions), but some Markdown/HTML content is still wanted, we sanitize the (generated) HTML so that it can only include HTML elements and attributes that are specifically allowed.
 
-One of the most important components of Dodona is the feedback table.
+One of the most important components of Dodona is the feedback table (as seen in Figure\nbsp{}[[fig:whatfeedback]]).
 It has, therefore, seen a lot of security, optimization and UI work over the years.
 Judge and exercise authors (and even students, through their submissions) can determine a lot of the content that eventually ends up in the feedback table.
 Therefore, the same sanitization that is used for series and course descriptions is used for the messages that are added to the feedback table (since these can contain Markdown and arbitrary HTML as well).
