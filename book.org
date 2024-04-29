@@ -433,7 +433,7 @@ As far as we know none of the platforms described in this section are still in u
 ACSES, by\nbsp{}[cite/t:@nievergeltACSESAutomatedComputer1976], was envisioned as a full course for learning computer programming.
 They even designed it as a full replacement for a course: it was the first system that integrated both instructional texts and exercises.
 Students following this course would not need personal instruction.
-In the modern day, this would probably be considered a MOOC.[fn::
+In the modern day, this would probably be considered a massive open online course (MOOC).[fn::
 Except that it obviously was not an online course; TCP/IP would not be standardized until 1982.
 ]
 
@@ -493,9 +493,9 @@ This is also the time when we first start to see mentions of plagiarism and plag
 In one case at MIT over 30% of students were found to be plagiarizing\nbsp{}[cite:@wagner2000plagiarism].
 [cite/t:@dalyPatternsPlagiarism2005] analysed plagiarizing behaviour by watermarking student submissions, where the watermark consisted of added whitespace at the end of lines.
 If students carelessly copied another student's submission, they would also copy the whitespace.
-Around this time, [cite/t:@schleimerWinnowingLocalAlgorithms2003] also published MOSS, a popular tool for checking code similarity.
+Around this time, [cite/t:@schleimerWinnowingLocalAlgorithms2003] also published MOSS (Measure of Software Similarity), a popular tool for checking code similarity.
 
-Another important platform is SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008].
+Another important platform is the Sphere Online Judge (SPOJ)\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008].
 SPOJ is especially important in the context of this dissertation, since it was the platform we used before Dodona.
 SPOJ specifically notes the influence of online contest platforms (and in fact, is a platform that can be used to organize contests).
 Online contest platforms usually differ from the automated assessment platforms for education in the way they handle feedback.
@@ -678,7 +678,7 @@ In what follows, we will also use the generic term teacher as a synonym for cour
 
 The course itself is laid out as a *learning path* that consists of course units called *series*, each containing a sequence of *learning activities* (Figure\nbsp{}[[fig:whatcourse]]).
 Among the learning activities we differentiate between *reading activities* that can be marked as read and *programming assignments* with support for automated assessment of submitted solutions.
-Learning paths are composed as a recommended sequence of learning activities to build knowledge progressively, allowing students to monitor their own progress at any point in time.
+Learning paths are composed as a recommended sequence of learning activities to build knowledge and skills progressively, allowing students to monitor their own progress at any point in time.
 Courses can either be created from scratch or from copying an existing course and making additions, deletions and rearrangements to its learning path.
 
 #+CAPTION: Main course page (administrator view) showing some series with deadlines, reading activities and programming assignments in its learning path.
@@ -1094,7 +1094,7 @@ Every year, we see the largest increase of new users during September, where the
 The record for most submissions in one day was recently broken on the 12th of January 2024, when the course described in Section\nbsp{}[[#sec:usecasestudy]] had one exam for all students for the first time in its history, and those students submitted 38\thinsp{}771 solutions in total.
 Interestingly enough, the day before (the 11th of January) was the third-busiest day ever.
 The day with the most distinct users was the 23rd of October 2023, when there were 2\thinsp{}680 users who submitted at least one solution.
-This is due to the fact that there were a lot of exercise sessions on Fridays in the first semester of the academic year; a lot of the other Fridays at the start of the semester are also in the top 10 of busiest days ever (both in submissions and in amount of users).
+This is due to the fact that there were a lot of exercise sessions on Fridays in the first semester of the academic year; a lot of the other Fridays at the start of the semester are also in the top 10 of busiest days ever (both in submissions and in number of users).
 The full top 10 of submissions can be seen in Table\nbsp{}[[tab:usetop10submissions]].
 The top 10 of active users can be seen in Table\nbsp{}[[tab:usetop10users]].
 
@@ -1286,7 +1286,7 @@ When talking to students about plagiarism, we also point out that the plagiarism
 We specifically address these students by pointing out that they are probably good at programming and might want to exchange their solutions with other students in a way to help their peers.
 Instead of really helping them out though, they actually take away learning opportunities from their fellow students by giving away the solution as a spoiler.
 Stated differently, they help maximize the factor \(f\) but effectively also reduce the \(s\) factor of the test score, where both factors need to be high to yield a high score for the unit.
-After this lecture, we usually notice a stark decline in the amount of plagiarized solutions.
+After this lecture, we usually notice a stark decline in the number of plagiarized solutions.
 
 The goal of plagiarism detection at this stage is prevention rather than penalization, because we want students to take responsibility over their learning.
 The combination of realizing that teachers and instructors can easily detect plagiarism and an upcoming test that evaluates if students can solve programming challenges on their own, usually has an immediate and persistent effect on reducing cluster sizes in the plagiarism graphs to at most three students.
@@ -1538,7 +1538,7 @@ These resources are typically pre-installed in the image of the container.
 Prior to launching the actual assessment, the container is extended with the submission, the judge and the resources included in the assessment configuration (Figure\nbsp{}[[fig:technicaloutline]]).
 Additional resources can be downloaded and/or installed during the assessment itself, provided that Internet access is granted to the container.
 When the container is started, limits are placed on the amount of resources it can consume.
-This includes a limit in runtime, memory usage, disk usage, network access and the amount of processes a container can have running at the same time.
+This includes a limit in runtime, memory usage, disk usage, network access and the number of processes a container can have running at the same time.
 Some of these limits are (partially) configurable per exercise, but sane upper bounds are always applied.
 This is also the case for network access, where even if the container is allowed internet access, it can not access other Dodona hosts (such as the database server).
 
@@ -1602,7 +1602,7 @@ Development of Dodona is done on GitHub.
 Over the years, Dodona has seen over {{{num_commits}}} commits by {{{num_contributors}}} contributors, and there have been {{{num_releases}}} releases.
 All new features and bug fixes are added to the =main= branch through pull requests, of which there have been about {{{num_prs}}}.
 These pull requests are reviewed by (at least) two developers of the Dodona team before they are merged.
-We also treat pull requests as a form of internal documentation by writing an extensive PR description and adding screenshots for all visual changes or additions.
+We also treat pull requests as a form of internal documentation by writing an extensive description and adding screenshots for all visual changes or additions.
 The extensive test suite also runs automatically for every pull request (using GitHub Actions), and developers are encouraged to add new tests for each feature or bug fix.
 We've also made it very easy to deploy to our testing (Mestra) and staging (Naos) environments so that reviewers can test changes without having to spin up their local development instance of Dodona.
 These are the two unconnected servers seen in Figure\nbsp{}[[fig:technicaldodonaservers]].
@@ -2747,7 +2747,7 @@ The specific feature types left out of the study at JYU are =comp_error= and =ru
 
 The course at JYU had been taught in the same way since 2015, resulting in behavioural and survey data from 2\thinsp{}615 students from the 2015--2021 academic years.
 The snapshots were made weekly as well, since the course also works with weekly assignments and deadlines.
-The self-reported data consists of pre-course and midterm surveys that inquire about aptitudes towards learning programming and motivation, including expectation about grades, prior programming experience, study year, attendance and amount of concurrent courses.
+The self-reported data consists of pre-course and midterm surveys that inquire about aptitudes towards learning programming and motivation, including expectation about grades, prior programming experience, study year, attendance and number of concurrent courses.
 
 In the analysis, the same four classifiers as the original study were tested.
 In addition to this, the dropout analysis was done for three datasets:
