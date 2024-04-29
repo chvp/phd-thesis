@@ -365,7 +365,7 @@ Finally, we give a brief overview of the remaining chapters of this dissertation
 :END:
 
 Increasing interactivity in learning has long been considered important, and also something that can be achieved through the addition of (web-based) IT components to a course\nbsp{}[cite:@vanpetegemPowerfulLearningInteractive2004].
-This isn't any different when learning to program: learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
+This is also the case when learning to program: learning how to solve problems with computer programs requires practice, and programming assignments are the main way in which such practice is generated\nbsp{}[cite:@gibbsConditionsWhichAssessment2005].
 [cite/t:@cheangAutomatedGradingProgramming2003] identified the labor-intensive nature of assessing programming assignments as the main reason why students are given only few assignments when in an ideal world they should be given many more.
 Automated assessment allows students to receive immediate and personalized feedback on each submitted solution without the need for human intervention.
 Because of its potential to provide feedback loops that are scalable and responsive enough for an active learning environment, automated source code assessment has become a driving force in programming courses.
@@ -385,7 +385,7 @@ Their system made more efficient use of both.
 At the time of publication, they had tested about 3\thinsp{}000 student submissions which, given a grading run took about 30 to 60 seconds, represents about a day and a half of computation time.
 
 They also immediately identified some limitations, which are common problems that modern assessment systems still need to consider.
-These limitations include handling faults in the student code, making sure students can't modify the grader, and having to define an interface through which the student code is run.
+These limitations include handling faults in the student code, making sure students cannot modify the grader, and having to define an interface through which the student code is run.
 
 #+CAPTION: Example of a punch card.
 #+CAPTION: Scan from the archive of Ludo Coppens, provided by Bart Coppens in personal correspondence.
@@ -434,7 +434,7 @@ ACSES, by\nbsp{}[cite/t:@nievergeltACSESAutomatedComputer1976], was envisioned a
 They even designed it as a full replacement for a course: it was the first system that integrated both instructional texts and exercises.
 Students following this course would not need personal instruction.
 In the modern day, this would probably be considered a MOOC.[fn::
-Except that it obviously wasn't an online course; TCP/IP wouldn't be standardized until 1982.
+Except that it obviously was not an online course; TCP/IP would not be standardized until 1982.
 ]
 
 Another good example of this generation of grading systems is the system by\nbsp{}[cite/t:@isaacson1989automating].
@@ -1238,7 +1238,7 @@ The final score is computed as the sum of a score obtained for the exam (80%) an
 We use Dodona's grading module to determine scores for tests and exams based on correctness, programming style, choice made between the use of different programming techniques and the overall quality of the implementation.
 The score for a unit is calculated as the score \(s\) for the two test assignments multiplied by the fraction \(f\) of mandatory assignments the student has solved correctly.
 A solution for a mandatory assignment is considered correct if it passes all unit tests.
-Evaluating mandatory assignments therefore doesn't require any human intervention, except for writing unit tests when designing the assignments, and is performed entirely by our Python judge.
+Evaluating mandatory assignments therefore does not require any human intervention, except for writing unit tests when designing the assignments, and is performed entirely by our Python judge.
 In our experience, most students traditionally perform much better on mandatory assignments compared to test and exam assignments\nbsp{}[cite:@glassFewerStudentsAre2022], given the possibilities for collaboration on mandatory assignments.
 
 *** Open and collaborative learning environment
@@ -1378,7 +1378,7 @@ We have drastically cut the time we initially spent on mandatory assignments by 
 :CUSTOM_ID: subsec:uselearninganalytics
 :END:
 
-A longitudinal analysis of student submissions across the term shows that most learning happens during the 13 weeks of educational activities and that students don't have to catch up practising their programming skills during the exam period (Figure\nbsp{}[[fig:usefwecoursestructure]]).
+A longitudinal analysis of student submissions across the term shows that most learning happens during the 13 weeks of educational activities and that students do not have to catch up practising their programming skills during the exam period (Figure\nbsp{}[[fig:usefwecoursestructure]]).
 Active learning thus effectively avoids procrastination.
 We observe that students submit solutions every day of the week and show increased activity around hands-on sessions and in the run-up to the weekly deadlines (Figure\nbsp{}[[fig:usefwepunchcard]]).
 Weekends are also used to work further on programming assignments, but students seem to be watching over a good night's sleep.
@@ -1410,7 +1410,7 @@ Such "deadline hugging" patterns are also a good breeding ground for students to
 [[./images/usefweanalyticscorrect.png]]
 
 Using educational data mining techniques on historical data exported from several editions of the course, we further investigated what aspects of practising programming skills promote or inhibit learning, or have no or minor effect on the learning process\nbsp{}(see Chapter\nbsp{}[[#chap:passfail]]).
-It won't come as a surprise that midterm test scores are good predictors for a student's final grade, because tests and exams are both summative assessments that are organized and graded in the same way.
+It will not come as a surprise that midterm test scores are good predictors for a student's final grade, because tests and exams are both summative assessments that are organized and graded in the same way.
 However, we found that organizing a final exam end-of-term is still a catalyst of learning, even for courses with a strong focus of active learning during weeks of educational activities.
 
 In evaluating if students gain deeper understanding when learning from their mistakes while working progressively on their programming assignments, we found the old adage that practice makes perfect to depend on what kind of mistakes students make.
@@ -1619,7 +1619,7 @@ The way we release Dodona has seen a few changes over the years.
 We've gone from a few large releases with bugfix point-releases between them, to lots of smaller releases, to now a /release/ per pull request.
 Releasing every pull request immediately after merging makes getting feedback from our users a very quick process.
 When we did versioned releases we also wrote release notes at the time of release.
-Because we don't have versioned releases any more, we now bundle the changes into release notes for every month.
+Because we do not have versioned releases any more, we now bundle the changes into release notes for every month.
 They are mostly autogenerated from the merged PRs, but bigger features are given more context and explanation.
 
 *** Deployment process
@@ -1647,7 +1647,7 @@ See Figure\nbsp{}[[fig:technicaldashboard]] for an example of the data this dash
 The analytics are also calculated using the replica database to avoid putting unnecessary load on our main production database.
 
 The web server and worker servers also send notifications when an error occurs in their runtime.
-This is one of the main ways we discover bugs that got through our tests, since our users don't regularly report bugs themselves.
+This is one of the main ways we discover bugs that got through our tests, since our users do not regularly report bugs themselves.
 We also get notified when there are long-running requests, since we consider our users having to wait a long time to see the page they requested a bug in itself.
 These notifications were an important driver to optimize some pages or to make certain operations asynchronous.
 
@@ -1668,7 +1668,7 @@ In the educational practice that Dodona was born out of, this was an explicit de
 We wanted to guide students to use an IDE locally instead of programming in Dodona directly, since if they needed to program later in life, they would not have Dodona available as their programming environment.
 This same goal is not present in secondary education.
 In that context, the challenge of programming is already big enough, without complicating things by installing a real IDE with a lot of buttons and menus that students will never use.
-Students might also be working on devices that they don't own (PCs in the school), where installing an IDE might not even be possible.
+Students might also be working on devices that they do not own (PCs in the school), where installing an IDE might not even be possible.
 
 #+CAPTION: User interface of Papyros.
 #+CAPTION: The editor can be seen on the left, with the output window to the right of it.
@@ -1682,7 +1682,7 @@ Even though we can use a lot of the infrastructure very graciously offered by Gh
 The extra (interactive) evaluation of student code was something we did not have the resources for, nor did we have any architectural components in place to easily integrate this into Dodona.
 The main goal of Papyros was thus to provide a client-side Python execution environment we could then include in Dodona.
 We focused on Python because it is the most widely used programming language in secondary education, at least in Flanders.
-Note that we don't want to replace Dodona's entire execution model with client-side execution, as the client is an untrusted execution environment where debugging tools could be used to manipulate the results.
+Note that we do not want to replace Dodona's entire execution model with client-side execution, as the client is an untrusted execution environment where debugging tools could be used to manipulate the results.
 Because the main idea is integration in Dodona, we primarily wanted users to be able to execute entire programs, and not necessarily offer a REPL at first.
 
 Given that the target audience for Papyros is secondary education students, we identified a number of secondary requirements:
@@ -1701,7 +1701,7 @@ Given that the target audience for Papyros is secondary education students, we i
 :CUSTOM_ID: subsec:papyrosexecution
 :END:
 
-Python can't be executed directly by a browser, since only JavaScript and WebAssembly are natively supported.
+Python cannot be executed directly by a browser, since only JavaScript and WebAssembly are natively supported.
 We investigated a number of solutions for running Python code in the browser.
 
 The first of these is Brython[fn:: https://brython.info].
@@ -1748,7 +1748,7 @@ There were three main options:
 
 Ace was the editor used by Dodona at the time.
 It supports syntax highlighting and has some built-in linting.
-However, it is not very extensible, it doesn't support mobile devices well, and it's no longer actively developed.
+However, it is not very extensible, it does not support mobile devices well, and it's no longer actively developed.
 
 Monaco is the editor extracted from Visual Studio Code and often used by people building full-fledged web IDE's.
 It also has syntax highlighting and linting and is much more extensible.
@@ -1783,7 +1783,7 @@ For example, base Pyodide will overwrite =input= with a function that calls into
 Since we're running Pyodide in a web worker, =prompt= is not available (and we want to implement custom input handling anyway).
 For =input= we actually run into another problem: =input= is synchronous in Python.
 In a normal Python environment, =input= will only return a value once the user entered a line of text on the command line.
-We don't want to edit user code (to make it asynchronous) because that process is error-prone and fragile.
+We do not want to edit user code (to make it asynchronous) because that process is error-prone and fragile.
 So we need a way to make our overwritten version of =input= synchronous as well.
 
 The best way to do this is by using the synchronization primitives of shared memory.
@@ -2031,7 +2031,7 @@ These data types are basic primitives like integers, reals (floating point numbe
 Note that the serialization format is also used on the side of the programming language, to receive (function) arguments and send back execution results.
 
 Of course, a number of data serialization formats already exist, like =MessagePack=[fn:: https://msgpack.org/], =ProtoBuf=[fn:: https://protobuf.dev/],\nbsp{}...
-Binary formats were excluded from the start, because they can't easily be embedded in our JSON test plan, but more importantly, they can neither be written nor read by humans.
+Binary formats were excluded from the start, because they cannot easily be embedded in our JSON test plan, but more importantly, they can neither be written nor read by humans.
 Other formats did not support all the types we wanted to support and could not be extended to do so.
 Because of our goal in supporting many programming languages, the format also had to be either widely implemented or be easily implementable.
 None of the formats we investigated met all these requirements.
@@ -2110,7 +2110,7 @@ Listing\nbsp{}[[lst:technicaltestedassignment]] shows what it would look like if
 
 We also need to make sure that the programming language of the submission under test is supported by the test plan of its exercise.
 The two things that are checked are whether a programming language supports all the types that are used and whether the language has all the necessary language constructs.
-For example, if the test plan uses a =tuple=, but the language doesn't support it, it's obviously not possible to evaluate a submission in that language.
+For example, if the test plan uses a =tuple=, but the language does not support it, it's obviously not possible to evaluate a submission in that language.
 The same is true for overloaded functions: if it is necessary that a function can be called with a string and with a number, a language like C will not be able to support this.
 Collections also are not yet supported for C, since the way arrays and their lengths work in C is quite different from other languages.
 Our example exercise will not work in C for this reason.
@@ -2177,7 +2177,7 @@ The best option of these was PEML: the Programming Exercise Markup Language\nbsp
 Envisioned as a universal format for programming exercise descriptions, their goals seemed to align with ours.
 Unfortunately, they did not base themselves on any existing formats.
 This means that there is little tooling around PEML.
-Parsing it as part of TESTed would require a lot of implementation work, and IDEs or other editors don't do syntax highlighting for it.
+Parsing it as part of TESTed would require a lot of implementation work, and IDEs or other editors do not do syntax highlighting for it.
 The format itself is also quite error-prone when writing.
 Because of these reasons, we discarded PEML and started working on our own DSL.
 
@@ -2252,7 +2252,7 @@ Data collection is time-consuming and the data itself can be considered privacy-
 Usability of predictive models therefore not only depends on their accuracy, but also on their dependency on findable, accessible, interoperable and reusable data\nbsp{}[cite:@wilkinsonFAIRGuidingPrinciples2016].
 Predictions based on educational history and socio-economic background also raise ethical concerns.
 Such background information definitely does not explain everything and lowers the perceived fairness of predictions\nbsp{}[cite:@grgic-hlacaCaseProcessFairness2018; @binnsItReducingHuman2018].
-Students also can't change their background, so these items are not actionable for any corrective intervention.
+Students also cannot change their background, so these items are not actionable for any corrective intervention.
 
 It might be more convenient and acceptable if predictive models are restricted to data collected on student behaviour during the learning process of a single course.
 An example of such an approach comes from\nbsp{}[cite/t:@vihavainenPredictingStudentsPerformance2013], using snapshots of source code written by students to capture their work attitude.
@@ -2261,7 +2261,7 @@ These snapshots undergo static and dynamic analysis to detect good practices and
 In a follow-up study they applied the same data and classifier to accurately predict learning outcomes for the same student cohort in another course\nbsp{}[cite:@vihavainenUsingStudentsProgramming2013].
 In this case, their predictions were 98.1% accurate, although the sample size was rather small.
 While this procedure does not rely on external background information, it has the drawback that data collection is more invasive and directly intervenes with the learning process.
-Students can't work in their preferred programming environment and have to agree with extensive behaviour tracking.
+Students cannot work in their preferred programming environment and have to agree with extensive behaviour tracking.
 
 Approaches that are not using machine learning also exist.
 [cite/t:@feldmanAnsweringAmRight2019] try to answer the question "Am I on the right track?" on the level of individual exercises, by checking if the student's current progress can be used as a base to synthesize a correct program.
@@ -2543,7 +2543,7 @@ Compared to the accuracy results of\nbsp{}[cite/t:@kovacicPredictingStudentSucce
 Our balanced accuracy results are similar to the accuracy results of\nbsp{}[cite/t:@livierisPredictingSecondarySchool2019], who used semi-supervised machine learning.
 [cite/t:@asifAnalyzingUndergraduateStudents2017] achieve an accuracy of about 80% when using one cohort of training and another cohort for testing, which is again similar to our balanced accuracy results.
 All of these studies used prior academic history as the basis for their methods, which we do not use in our framework.
-We also see similar results as compared to\nbsp{}[cite/t:@vihavainenPredictingStudentsPerformance2013] where we don't have to rely on data collection that interferes with the learning process.
+We also see similar results as compared to\nbsp{}[cite/t:@vihavainenPredictingStudentsPerformance2013] where we do not have to rely on data collection that interferes with the learning process.
 Note that we are comparing the basic accuracy results of prior studies with the more reliable balanced accuracy results of our framework.
 
 F_1-scores follow the same trend as balanced accuracy, but the inclination is even more pronounced because it starts lower and ends higher.
@@ -2556,7 +2556,7 @@ This might be explained by the fact that successive editions of course B use the
 Predictions made with training sets from the same student cohort (5-fold cross-validation) perform better than those with training sets from different cohorts (see supplementary material for details[fn::
 https://github.com/dodona-edu/pass-fail-article
 ]).
-This is more pronounced for F_1-scores than for balanced accuracy, but the differences are small enough so that nothing prevents us from building classification models with historical data from previous student cohorts to make pass/fail predictions for the current cohort, which is something that can't be done in practice with data from the same cohort as pass/fail information is needed during the training phase.
+This is more pronounced for F_1-scores than for balanced accuracy, but the differences are small enough so that nothing prevents us from building classification models with historical data from previous student cohorts to make pass/fail predictions for the current cohort, which is something that cannot be done in practice with data from the same cohort as pass/fail information is needed during the training phase.
 In addition, we found no significant performance differences for classification models using data from a single course edition or combining data from two course editions.
 Given that cohort sizes are large enough, this tells us that accurate predictions can already be made in practice with historical data from a single course edition.
 This is also relevant when the structure of a course changes, because we can only make predictions from historical data for course editions whose snapshots align.
@@ -2630,7 +2630,7 @@ They have zero impact on predictions for earlier snapshots, as the information i
 [[./images/passfailfeaturesAevaluation.png]]
 
 The second feature type we want to highlight is =correct_after_15m=: the number of exercises in a series where the first correct submission was made within fifteen minutes after the first submission (Figure\nbsp{}[[fig:passfailfeaturesAcorrect]]).
-Note that we can't directly measure how long students work on an exercise, as they may write, run and test their solutions on their local machine before their first submission to Dodona.
+Note that we cannot directly measure how long students work on an exercise, as they may write, run and test their solutions on their local machine before their first submission to Dodona.
 Rather, this feature type measures how long it takes students to find and remedy errors in their code (debugging), after they start getting automatic feedback from Dodona.
 
 For exercise series in the first unit of course A (series 1--5), we generally see that the features have a positive impact (red).
@@ -2890,7 +2890,7 @@ There were still a few drawbacks to this system for assessing and grading though
   It is also less transparent towards students.
   While rubrics were made for every exercise that had to be graded, every grader had their preferred way of aggregating and entering these scores.
   This means that even though the rubrics exist, students had no option of seeing the different marks they received for different rubrics.
-This was obviously not a great user experience, and not something we could recommend to anyone using Dodona who wasn't part of the Dodona development team.
+This was obviously not a great user experience, and not something we could recommend to anyone using Dodona who was not part of the Dodona development team.
 
 #+CAPTION: The first comment ever left on Dodona as part of a grading session.
 #+NAME: fig:feedbackfirstcomment
@@ -3291,7 +3291,7 @@ We chose these specific annotations to demonstrate interesting behaviours exhibi
 The differences in performance can be explained by the content of the annotation and the underlying patterns that Pylint is looking for.
 For example, the "unused variable"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/warning/unused-variable.html] annotation performs poorly.
 This can be explained by the fact that we do not feed =TreeminerD= with enough context to find predictive patterns for this Pylint annotation.
-There are also annotations that can't be predicted at all, because no patterns are found.
+There are also annotations that cannot be predicted at all, because no patterns are found.
 
 Other annotations, such as "consider using with"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/consider-using-with.html], work very well.
 For these annotations, =TreeminerD= does have enough context to automatically determine the underlying patterns.
@@ -3443,7 +3443,7 @@ By introducing a confidence score, we could check beforehand whether we have a c
 Whether or not a reviewer accepts these suggestions could then also be used as an input to the model.
 This could also have an additional benefit by helping reviewers to be more consistent in where and when they place annotations.
 
-Annotations that don't lend themselves well to prediction also need further investigation.
+Annotations that do not lend themselves well to prediction also need further investigation.
 The context used could be expanded, although the important caveat here is that the method still needs to maintain sufficient performance.
 We could also consider applying some of the source code pattern mining techniques proposed by\nbsp{}[cite/t:@phamMiningPatternsSource2019] to achieve further speed improvements.
 This could help with the outliers seen in the timing data.
@@ -3502,7 +3502,7 @@ The final possibility we will present here is to prepare suggestions for answers
 At first glance, LLMs should be quite good at this.
 If we use the LLM output as a suggestion for what the teacher could answer, this should be a big time-saver.
 However, there are some issues around data quality.
-Questions are sometimes asked on a specific line, but the question doesn't necessarily have anything to do with that line.
+Questions are sometimes asked on a specific line, but the question does not necessarily have anything to do with that line.
 Sometimes the question also needs context that is hard to pass on to the LLM.
 For example, if the question is just "I don't know what's wrong.", a human might look at the failed test cases and be able to answer the "question" in that way.
 Passing on the failed test cases to the LLM is a harder problem to solve.
