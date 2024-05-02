@@ -232,25 +232,29 @@ We sluiten af in Hoofdstuk\nbsp{}[[#chap:discussion]] met een bespreking van de 
 :UNNUMBERED: t
 :END:
 
+*Van Petegem, C.*, Demeyere, K., Maertens, R., Strijbol, N., De Wever, B., Mesuere, B., Dawyndt, P.,  submitted.
+Mining patterns in syntax trees to automate code reviews of student solutions for programming exercises.
+/International Journal of Artificial Intelligence in Education/.
+
 Strijbol, N., Sels, B., *Van Petegem, C.*, Maertens, R., Scholliers, C., Mesuere B., Dawyndt, P., submitted.
 TESTed-DSL: a domain-specific language to create programming exercises with language-agnostic automated assessment.
 /Software Testing, Verification and Reliability/.
 
-Maertens, R., Van Neyghem, M., Geldhof, M., *Van Petegem, C.*, Strijbol, N., Dawyndt, P., Mesuere, B., submitted.
+Maertens, R., Van Neyghem, M., Geldhof, M., *Van Petegem, C.*, Strijbol, N., Dawyndt, P., Mesuere, B., accepted.
 Discovering and exploring cases of educational source code plagiarism with Dolos.
-/SoftwareX/
+/SoftwareX/.
 
 Zhidkikh, D., Heilala, V., *Van Petegem, C.*, Dawyndt, P., Järvinen, M., Viitanen, S., De Wever, B., Mesuere, B., Lappalainen, V., Kettunen, L., & Hämäläinen, R., 2024.
 Reproducing Predictive Learning Analytics in CS1: Toward Generalizable and Explainable Models for Enhancing Student Retention.
 /Journal of Learning Analytics/, 1-21.
 https://doi.org/10.18608/jla.2024.7979
 
-*Van Petegem, C.*, Maertens, R., Strijbol, N., Van Renterghem, J., Van der Jeugt, F., De Wever, B., Dawyndt, P., Mesuere, B., 2023b.
+*Van Petegem, C.*, Maertens, R., Strijbol, N., Van Renterghem, J., Van der Jeugt, F., De Wever, B., Dawyndt, P., Mesuere, B., 2023.
 Dodona: Learn to code with a virtual co-teacher that supports active learning.
 /SoftwareX/ 24, 101578.
 https://doi.org/10.1016/j.softx.2023.101578
 
-Strijbol, N., *Van Petegem, C.*, Maertens, R., Sels, B., Scholliers, C., Dawyndt, P., Mesuere, B., 2023b.
+Strijbol, N., *Van Petegem, C.*, Maertens, R., Sels, B., Scholliers, C., Dawyndt, P., Mesuere, B., 2023.
 TESTed -- An educational testing framework with language-agnostic test suites for programming exercises.
 /SoftwareX/ 22, 101404.
 https://doi.org/10.1016/j.softx.2023.101404
