@@ -2190,7 +2190,7 @@ YAML is a superset of JSON and describes itself as "a human-friendly data serial
 The DSL structure is quite similar to the actual test plan, though it does limit the amount of repetition required for common operations.
 YAML's concise nature also contributes to the read- and writability of its test plans.
 
-The main addition of the DSL is an abstract programming language, made to look somewhat like Python 3.
+For the actual statements, expressions and values, we added an abstract programming language, made to look somewhat like Python 3.
 Note that this is not a full programming language, but only supports language constructs as far as they are needed by TESTed.
 Values are interpreted as basic types, but can be cast explicitly to one of the more advanced types.
 The DSL version of the test plan for the example exercise can be seen in Listing\nbsp{}[[lst:technicaltesteddsl]].
