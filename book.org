@@ -1460,7 +1460,7 @@ In this section, we will highlight a few of these components.
 #+CAPTION: Diagram of all the servers involved with running and developing Dodona.
 #+CAPTION: The role of each server in the deployment is listed below its name.
 #+CAPTION: Worker servers are marked in blue, development servers are marked in red.
-#+CAPTION: Servers are connected if they communicate.
+#+CAPTION: Servers are connected if they communicate with each other.
 #+CAPTION: The direction of the connection signifies which server initiates the connection.
 #+CAPTION: Every server also has an implicit connection with Phocus (the monitoring server), since metrics such as load, CPU usage, disk usage, etc. are collected and sent to Phocus on every server.
 #+CAPTION: The Pandora server is greyed out because it has been decommissioned (see Section\nbsp{}[[#subsec:techdodonatutor]] for more info).
@@ -2279,7 +2279,8 @@ The method only relies on submission behaviour for programming exercises to make
 Interpretability of the resulting models was an important design goal to enable further investigation on learning habits.
 We also focused on early detection of at-risk students, because predictive models are only effective for the cohort under investigation if remedial actions can be started long before students take their final exam.
 
-#+CAPTION: Step-by-step process of the proposed pass/fail prediction framework for programming courses: 1) Collect metadata from student submissions during successive course editions.
+#+CAPTION: Step-by-step process of the proposed pass/fail prediction framework for programming courses:
+#+CAPTION: 1) Collect metadata from student submissions during successive course editions.
 #+CAPTION: 2) Align course editions by identifying corresponding time points and calculating snapshots at these time points.
 #+CAPTION: A snapshot measures student performance only from metadata available in the course edition at the time the snapshot was taken.
 #+CAPTION: 3) Train a machine learning model on snapshot data from previous course editions and predict which students will likely pass or fail the current course edition by applying the model on a snapshot of the current edition.
