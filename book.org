@@ -242,7 +242,7 @@ TESTed-DSL: a domain-specific language to create programming exercises with lang
 
 Maertens, R., Van Neyghem, M., Geldhof, M., *Van Petegem, C.*, Strijbol, N., Dawyndt, P., Mesuere, B., accepted.
 Discovering and exploring cases of educational source code plagiarism with Dolos.
-/SoftwareX/.
+/SoftwareX/. https://arxiv.org/abs/2402.10853
 
 Zhidkikh, D., Heilala, V., *Van Petegem, C.*, Dawyndt, P., Järvinen, M., Viitanen, S., De Wever, B., Mesuere, B., Lappalainen, V., Kettunen, L., & Hämäläinen, R., 2024.
 Reproducing Predictive Learning Analytics in CS1: Toward Generalizable and Explainable Models for Enhancing Student Retention.
