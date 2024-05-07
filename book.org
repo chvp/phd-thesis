@@ -1934,6 +1934,7 @@ TESTed was developed to solve two major drawbacks with the current judge system 
   Most judges offer the same basic concepts and features, most of which are independent of programming language (communication with Dodona, checking correctness, I/O,\nbsp{}...).
 
 The goal of TESTed was to implement a judge so that programming exercises only have to be created once to be available in all programming languages TESTed supports.
+TESTed currently supports Bash, C, C#, Haskell, Java, JavaScript, Kotlin, and Python.
 An exercise should also not have to be changed when support for a new programming language is added.
 As a secondary goal, we also wanted to make it as easy as possible to create new exercises.
 Teachers who have not used Dodona before should be able to create a new basic exercise without too many issues.
