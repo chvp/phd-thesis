@@ -325,7 +325,7 @@ Supported programming languages include Python, JavaScript, Java, Kotlin, C#, C,
 https://github.com/dodona-edu/judge-r
 
 Judge for the R programming language.
-This judge also has support for showing generated figures in the feedback table and can even do introspection on GGPlot objects.
+This judge also has support for showing generated figures in the feedback and can even do introspection on GGPlot objects.
 
 **** Papyros
 :PROPERTIES:
@@ -981,7 +981,7 @@ A full overview of all Dodona releases, with their full changelog, can be found 
 - 2.4 (2018-09-17) :: Add management and ownership of exercises and repositories by users.
   Users with teacher rights could no longer see and edit all users.
 - 2.5 (2018-10-26) :: Improved search functionality. Courses were now also linked to an institution for improved searchability.
-- 2.6 (2018-11-21) :: Diffing in the feedback table was fully reworked (see Chapter\nbsp{}[[#chap:technical]] for more details).
+- 2.6 (2018-11-21) :: Diffing in the feedback view was fully reworked (see Chapter\nbsp{}[[#chap:technical]] for more details).
 - 2.7 (2018-12-04) :: The punchcard was added to the course page.
   Labels could now also be added to course members.
 - 2.8 (2019-03-05) :: Submissions and their feedback were moved from the database to the filesystem.
@@ -1046,7 +1046,7 @@ A full overview of all Dodona releases, with their full changelog, can be found 
 
 - 2023.10 (2023-10-01) :: Annotation reuse is rolled out to all users.
 - 2023.11 (2023-11-01) :: The Python Tutor is moved client-side.
-- 2023.12 (2023-12-01) :: The feedback table was reworked, moving every context to its own card.
+- 2023.12 (2023-12-01) :: The feedback view was reworked, moving every context to its own card.
 - 2024.02 (2024-02-01) :: Papyros now also has an integrated debugger based on the Python Tutor.
 
 
@@ -1505,27 +1505,27 @@ Once Dodona was opened up to more and more teachers, we gradually locked down wh
 Content where teachers can inject raw HTML into Dodona was moved to iframes, to make sure that teachers could still be as creative as they wanted while writing exercises, while simultaneously not allowing them to execute JavaScript in a session where users are logged in.
 For user content where this creative freedom is not as necessary (e.g. series or course descriptions), but some Markdown/HTML content is still wanted, we sanitize the (generated) HTML so that it can only include HTML elements and attributes that are specifically allowed.
 
-One of the most important components of Dodona is the feedback table (as seen in Figure\nbsp{}[[fig:whatfeedback]]).
+One of the most important components of Dodona is the feedback shown after a submission is evaluated (as seen in Figure\nbsp{}[[fig:whatfeedback]]).
 It has, therefore, seen a lot of security, optimization and UI work over the years.
-Judge and exercise authors (and even students, through their submissions) can determine a lot of the content that eventually ends up in the feedback table.
-Therefore, the same sanitization that is used for series and course descriptions is used for the messages that are added to the feedback table (since these can contain Markdown and arbitrary HTML as well).
+Judge and exercise authors (and even students, through their submissions) can determine a lot of the content that eventually ends up in the feedback.
+Therefore, the same sanitization that is used for series and course descriptions is used for the messages that are added to the feedback (since these can contain Markdown and arbitrary HTML as well).
 The increase in teachers that added exercises to Dodona also meant that the variety in feedback given grew, sometimes resulting in a huge volume of testcases and long output.
 
 Optimization work was needed to cope with this volume of feedback.
 For example, one of the biggest optimizations was in how expected and generated feedback are diffed and how these diffs are rendered.
 When Dodona was first written, the library used for creating diffs of the generated and expected results (=diffy=[fn:: https://github.com/samg/diffy]) actually shelled out to the GNU =diff= command.
 This output was parsed and transformed into HTML by the library using find and replace operations.
-As one can expect, starting a new process and doing a lot of string operations every time outputs had to be diffed resulted in very slow loading times for the feedback table.
+As one can expect, starting a new process and doing a lot of string operations every time outputs had to be diffed resulted in very slow loading times.
 The library was replaced with a pure Ruby library (=diff-lcs=[fn:: https://github.com/halostatue/diff-lcs]), and its outputs were built into HTML using Rails' efficient =Builder= class.
 This change of diffing method also fixed a number of bugs we were experiencing along the way.
 
 Even this was not enough to handle the most extreme of exercises though.
 Diffing hundreds of lines hundreds of times still takes a long time, even if done in-process while optimized by a JIT.
-The resulting feedback tables also contained so much HTML that the browsers on our development machines (which are pretty powerful machines) noticeably slowed down when loading and rendering them.
+The resulting feedback also contained so much HTML that the browsers on our development machines (which are pretty powerful machines) noticeably slowed down when loading and rendering them.
 To handle these cases, we needed to do less work and needed to output less HTML.
 We decided to only diff line-by-line (instead of character-by-character) in most of these cases and to not diff at all in the most extreme cases, reducing the amount of HTML required to render them as well.
 This was also motivated by usability.
-If there are lots of small differences between a very long generated and expected output, the diff view in the feedback table could also become visually overwhelming for students.
+If there are lots of small differences between a very long generated and expected output, the diff view in the feedback could also become visually overwhelming for students.
 
 *** Judging submissions
 :PROPERTIES:
@@ -1848,27 +1848,27 @@ Another feature that teachers wanted that we had not built into a judge previous
 :CUSTOM_ID: subsec:techrapi
 :END:
 
-The API for the R judge was designed to follow the visual structure of the feedback table as closely as possible, as can be seen in the sample evaluation code in Listing\nbsp{}[[lst:technicalrsample]].
+The API for the R judge was designed to follow the visual structure of the feedback shown as closely as possible, as can be seen in the sample evaluation code in Listing\nbsp{}[[lst:technicalrsample]].
 Tabs are represented by different evaluation files.
 In addition to the =testEqual= function demonstrated in Listing\nbsp{}[[lst:technicalrsample]] there are some other functions to specifically support the requested functionality.
-=testImage= will set up some handlers in the R environment so that generated plots (or other images) are sent to the feedback table (in a base 64 encoded string) instead of the filesystem.
+=testImage= will set up some handlers in the R environment so that generated plots (or other images) are sent as feedback (in a base-64 encoded string) instead of the filesystem.
 It will also by default make the test fail if no image was generated (but does not do any verification of the image contents).
-An example of what the feedback table looks like when an image is generated can be seen in Figure\nbsp{}[[fig:technicalrplot]].
+An example of what the feedback looks like when an image is generated can be seen in Figure\nbsp{}[[fig:technicalrplot]].
 =testDF= has some extra functionality for testing the equality of data frames, where it is possible to ignore row and column order.
 The generated feedback is also limited to 5 lines of output, to avoid overwhelming students (and their browsers) with the entire table.
 =testGGPlot= can be used to introspect plots generated with GGPlot\nbsp{}[cite:@wickhamGgplot2CreateElegant2023].
 To test whether students use certain functions, =testFunctionUsed= and =testFunctionUsedInVar= can be used.
 The latter tests whether the specific function is used when initializing a specific variable.
 
-#+CAPTION: Feedback table showing the feedback for an R exercise where the goal is to generate a plot.
-#+CAPTION: The code generates a plot showing a simple sine function, which is reflected in the feedback table.
+#+CAPTION: Feedback for an R exercise where the goal is to generate a plot.
+#+CAPTION: The code generates a plot showing a simple sine function, which is reflected in the feedback.
 #+NAME: fig:technicalrplot
 [[./images/technicalrplot.png]]
 
 If some code needs to be executed in the student's environment before the student's code is run (e.g. to make some dataset available, or to fix a random seed), the =preExec= argument of the =context= function can be used to do so.
 
 #+CAPTION: Sample evaluation code for a simple R exercise.
-#+CAPTION: The feedback table will contain one context with two test cases in it.
+#+CAPTION: The feedback will contain one context with two test cases in it.
 #+CAPTION: The first test case checks whether some t-test was performed correctly, and does this by performing two equality checks.
 #+CAPTION: The second test case checks that the \(p\)-value calculated by the t-test is correct.
 #+CAPTION: The =preExec= is executed in the student's environment and here fixes a random seed for the student's execution.
@@ -1971,7 +1971,7 @@ For example, in Python, ~rotate([0, 1, 2, 3, 4], 2)~ should return ~[3, 4, 0, 1,
 :END:
 
 One of the most important elements that is needed to perform these steps is the test plan.
-This test plan is a hierarchical structure, which closely resembles the underlying structure of Dodona's feedback table.
+This test plan is a hierarchical structure, which closely resembles the underlying structure of Dodona's feedback.
 There are, however, a few important differences.
 The first of these is the /context testcase/.
 This is a special testcase per context that executes the main function (or the entire program in case this is more appropriate for the language being executed).
@@ -1985,7 +1985,7 @@ This DSL is internally converted by TESTed to the more extensive underlying stru
 A test plan of the example exercise can be seen in Listing\nbsp{}[[lst:technicaltestedtestplan]].
 
 #+CAPTION: Basic structure of a test plan.
-#+CAPTION: The structure of Dodona's feedback table is followed closely.
+#+CAPTION: The structure of Dodona's feedback is followed closely.
 #+CAPTION: The function arguments have been left out, as they are explained in Section\nbsp{}[[#subsec:techtestedserialization]].
 #+NAME: lst:technicaltestedtestplan
 #+ATTR_LATEX: :float t
