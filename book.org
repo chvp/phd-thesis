@@ -1938,7 +1938,7 @@ An exercise should also not have to be changed when support for a new programmin
 As a secondary goal, we also wanted to make it as easy as possible to create new exercises.
 Teachers who have not used Dodona before should be able to create a new basic exercise without too many issues.
 
-We first developed it as a proof of concept in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018], which presented a method for estimating the computational complexity of solutions for programming exercises.
+We first developed it as a proof of concept in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018], which presented a method for estimating the time and memory complexity of solutions for programming exercises.
 One of the goals was to make this method work over many programming languages.
 To do this, we wrote a framework based on Jupyter kernels[fn:: https://jupyter.org] where the interaction with each programming language was abstracted away behind a common interface.
 We realized this framework could be useful in itself, but it was only developed as far as we needed for the thesis.
