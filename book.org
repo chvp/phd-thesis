@@ -2997,6 +2997,7 @@ These automated assessment systems give feedback on correctness, and can give so
 However, they are generally unable to give the same high-level feedback on program design that an experienced programmer can give.
 In many educational practices, automated assessment is therefore supplemented with manual feedback, especially when grading evaluations or exams\nbsp{}[cite:@debuseEducatorsPerceptionsAutomated2008].
 This requires a significant time investment of teachers\nbsp{}[cite:@tuckFeedbackgivingSocialPractice2012].
+Reducing the time spent on giving feedback also benefits students since it generally means they will receive more timely feedback, which has long been considered important\nbsp{}[cite:@poulosEffectivenessFeedbackStudents2008].
 
 As a result, many researchers have explored the use of AI to enhance giving feedback.
 [cite/t:@vittoriniAIBasedSystemFormative2021] used natural language processing to automate grading, and found that students who used the system during the semester were more likely to pass the course at the end of the semester.
