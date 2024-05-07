@@ -640,7 +640,7 @@ Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some
 :END:
 
 In this chapter, we will give an overview of Dodona's most important features.
-This chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023], published in SoftwareX.
+This chapter is partially based on *Van Petegem, C.*, Maertens, R., Strijbol, N., Van Renterghem, J., Van der Jeugt, F., De Wever, B., Dawyndt, P., Mesuere, B., 2023. Dodona: Learn to code with a virtual co-teacher that supports active learning. /SoftwareX/ 24, 101578. https://doi.org/10.1016/j.softx.2023.101578
 
 ** User management
 :PROPERTIES:
@@ -936,7 +936,7 @@ This chapter discusses the use of Dodona.
 We start by mentioning some facts and figures, and discussing a user study we performed.
 We then explain how Dodona can be used on the basis of a case study.
 This case study also provides insight into the educational context for the research described in Chapters\nbsp{}[[#chap:passfail]]\nbsp{}and\nbsp{}[[#chap:feedback]].
-The chapter is partially based on\nbsp{}[cite/t:@vanpetegemDodonaLearnCode2023], published in SoftwareX.
+This chapter is partially based on *Van Petegem, C.*, Maertens, R., Strijbol, N., Van Renterghem, J., Van der Jeugt, F., De Wever, B., Dawyndt, P., Mesuere, B., 2023. Dodona: Learn to code with a virtual co-teacher that supports active learning. /SoftwareX/ 24, 101578. https://doi.org/10.1016/j.softx.2023.101578
 
 ** Facts and figures
 :PROPERTIES:
@@ -2100,7 +2100,8 @@ The DSL version of the test plan for the example exercise can be seen in Listing
 :END:
 
 We now shift to the chapters where we make use of the data provided by Dodona to perform educational data mining research.
-This chapter is based on\nbsp{}[cite/t:@vanpetegemPassFailPrediction2022], published in the Journal of Educational Computing Research, and also briefly discusses the work performed in\nbsp{}[cite/t:@zhidkikhReproducingPredictiveLearning2024], published in the Journal of Learning Analytics.
+This chapter is based on *Van Petegem, C.*, Deconinck, L., Mourisse, D., Maertens, R., Strijbol, N., Dhoedt, B., De Wever, B., Dawyndt, P., Mesuere, B., 2022. Pass/Fail Prediction in Programming Courses. /Journal of Educational Computing Research/, 68–95. https://doi.org/10.1177/07356331221085595
+It also briefly discusses the work performed in Zhidkikh, D., Heilala, V., *Van Petegem, C.*, Dawyndt, P., Järvinen, M., Viitanen, S., De Wever, B., Mesuere, B., Lappalainen, V., Kettunen, L., & Hämäläinen, R., 2024. Reproducing Predictive Learning Analytics in CS1: Toward Generalizable and Explainable Models for Enhancing Student Retention. /Journal of Learning Analytics/, 1-21. https://doi.org/10.18608/jla.2024.7979
 
 ** Introduction
 :PROPERTIES:
