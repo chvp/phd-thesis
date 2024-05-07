@@ -1240,7 +1240,7 @@ This could be influenced by the time when they mainly work on their assignments,
 In computing a final score for the course, we try to find an appropriate balance between stimulating students to find solutions for programming assignments themselves and collaborating with and learning from peers, instructors and teachers while working on assignments.
 The final score is computed as the sum of a score obtained for the exam (80%) and a score for each unit that combines the student's performance on the mandatory and test assignments (10% per unit).
 We use Dodona's grading module to determine scores for tests and exams based on correctness, programming style, choice made between the use of different programming techniques and the overall quality of the implementation.
-The score for a unit is calculated as the score \(s\) for the two test assignments multiplied by the fraction \(f\) of mandatory assignments the student has solved correctly.
+The score for a unit is calculated as \[s \times f\] where \(s\) is the score for the two test assignments and \(f\) is the fraction of mandatory assignments the student has solved correctly.
 A solution for a mandatory assignment is considered correct if it passes all unit tests.
 Evaluating mandatory assignments therefore does not require any human intervention, except for writing unit tests when designing the assignments, and is performed entirely by our Python judge.
 In our experience, most students traditionally perform much better on mandatory assignments compared to test and exam assignments\nbsp{}[cite:@glassFewerStudentsAre2022], given the possibilities for collaboration on mandatory assignments.
@@ -2463,13 +2463,33 @@ There are many metrics that can be used to evaluate how accurately a classifier 
 Predicting a student will pass the course is called a positive prediction, and predicting they will fail the course is called a negative prediction.
 Predictions that correspond with the actual outcome are called true predictions, and predictions that differ from the actual outcome are called false predictions.
 This results in four possible combinations of predictions: true positives (\(TP\)), true negatives (\(TN\)), false positives (\(FP\)) and false negatives (\(FN\)).
-Two standard accuracy metrics used in information retrieval are precision (\(TP/(TP+FP)\)) and recall (\(TP/(TP+FN)\)).
-The latter is also called sensitivity if used in combination with specificity (\(TN/(TN+FP)\)).
+Two standard accuracy metrics used in information retrieval are precision (Equation\nbsp{}[[eq:precision]]) and recall (Equation\nbsp{}[[eq:recall]]).
+The latter is also called sensitivity if used in combination with specificity (Equation\nbsp{}[[eq:specificity]]).
 
-Many studies for pass/fail prediction use accuracy (\((TP+TN)/(TP+TN+FP+FN)\)) as a single performance metric.
+#+NAME: eq:precision
+\begin{equation}
+\frac{TP}{TP+FP}
+\end{equation}
+
+#+NAME: eq:recall
+\begin{equation}
+\frac{TP}{TP+FN}
+\end{equation}
+
+#+NAME: eq:specificity
+\begin{equation}
+\frac{TN}{TN+FP}
+\end{equation}
+
+Many studies for pass/fail prediction use accuracy (Equation\nbsp{}[[eq:accuracy]]) as a single performance metric.
 However, this can yield misleading results.
 For example, let's take a dummy classifier that always "predicts" students will pass, no matter what.
 This is clearly a bad classifier, but it will nonetheless have an accuracy of 75% for a course where 75% of the students pass.
+
+#+NAME: eq:accuracy
+\begin{equation}
+\frac{TP+TN}{TP+TN+FP+FN}
+\end{equation}
 
 In our study, we will therefore use two more complex metrics that take these effects into account: balanced accuracy and F_1-score.
 Balanced accuracy is the average of sensitivity and specificity.
