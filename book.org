@@ -389,7 +389,7 @@ Their system made more efficient use of both.
 At the time of publication, they had tested about 3\thinsp{}000 student submissions which, given a grading run took about 30 to 60 seconds, represents about a day and a half of computation time.
 
 They also immediately identified some limitations, which are common problems that modern assessment systems still need to consider.
-These limitations include handling faults in the student code, making sure students cannot modify the grader, and having to define an interface through which the student code is run.
+These limitations include handling faults in the student code, making sure students can not modify the grader, and having to define an interface through which the student code is run.
 
 #+CAPTION: Example of a punch card.
 #+CAPTION: Scan from the archive of Ludo Coppens, provided by Bart Coppens in personal correspondence.
@@ -1104,7 +1104,7 @@ All submitted solutions are stored, but for each assignment only the last submis
 This allows students to update their solutions after the deadline (i.e.\nbsp{}after model solutions are published) without impacting their grades, as a way to further practice their programming skills.
 One effect of active learning, triggered by mandatory assignments with weekly deadlines and intermediate tests, is that most learning happens during the term (Figure\nbsp{}[[fig:usefwecoursestructure]]).
 In contrast to other courses, students do not spend a lot of time practising their coding skills for this course in the days before an exam.
-We want to explicitly encourage this behaviour, because we strongly believe that one cannot learn to code in a few days' time\nbsp{}[cite:@peternorvigTeachYourselfProgramming2001].
+We want to explicitly encourage this behaviour, because we strongly believe that one can not learn to code in a few days' time\nbsp{}[cite:@peternorvigTeachYourselfProgramming2001].
 
 For the assessment of tests and exams, we follow the line of thought that human expert feedback through source code annotations is a valuable complement to feedback coming from automated assessment, and that human interpretation is an absolute necessity when it comes to grading\nbsp{}[cite:@staubitzPracticalProgrammingExercises2015; @jacksonGradingStudentPrograms1997; @ala-mutkaSurveyAutomatedAssessment2005].
 We shifted from paper-based to digital code reviews and grading when support for manual assessment was released in version 3.7 of Dodona (summer 2020).
@@ -1592,7 +1592,7 @@ Given that the target audience for Papyros is secondary education students, we i
 :CUSTOM_ID: subsec:papyrosexecution
 :END:
 
-Python cannot be executed directly by a browser, since only JavaScript and WebAssembly are natively supported.
+Python can not be executed directly by a browser, since only JavaScript and WebAssembly are natively supported.
 We investigated a number of solutions for running Python code in the browser.
 
 The first of these is Brython[fn:: https://brython.info].
@@ -1923,7 +1923,7 @@ These data types are basic primitives like integers, reals (floating point numbe
 Note that the serialization format is also used on the side of the programming language, to receive (function) arguments and send back execution results.
 
 Of course, a number of data serialization formats already exist, like =MessagePack=[fn:: https://msgpack.org/], =ProtoBuf=[fn:: https://protobuf.dev/],\nbsp{}...
-Binary formats were excluded from the start, because they cannot easily be embedded in our JSON test plan, but more importantly, they can neither be written nor read by humans.
+Binary formats were excluded from the start, because they can not easily be embedded in our JSON test plan, but more importantly, they can neither be written nor read by humans.
 Other formats did not support all the types we wanted to support and could not be extended to do so.
 Because of our goal in supporting many programming languages, the format also had to be either widely implemented or be easily implementable.
 None of the formats we investigated met all these requirements.
@@ -2145,7 +2145,7 @@ Data collection is time-consuming and the data itself can be considered privacy-
 Usability of predictive models therefore not only depends on their accuracy, but also on their dependency on findable, accessible, interoperable and reusable data\nbsp{}[cite:@wilkinsonFAIRGuidingPrinciples2016].
 Predictions based on educational history and socio-economic background also raise ethical concerns.
 Such background information definitely does not explain everything and lowers the perceived fairness of predictions\nbsp{}[cite:@grgic-hlacaCaseProcessFairness2018; @binnsItReducingHuman2018].
-Students also cannot change their background, so these items are not actionable for any corrective intervention.
+Students also can not change their background, so these items are not actionable for any corrective intervention.
 
 It might be more convenient and acceptable if predictive models are restricted to data collected on student behaviour during the learning process of a single course.
 An example of such an approach comes from\nbsp{}[cite/t:@vihavainenPredictingStudentsPerformance2013], using snapshots of source code written by students to capture their work attitude.
@@ -2154,7 +2154,7 @@ These snapshots undergo static and dynamic analysis to detect good practices and
 In a follow-up study they applied the same data and classifier to accurately predict learning outcomes for the same student cohort in another course\nbsp{}[cite:@vihavainenUsingStudentsProgramming2013].
 In this case, their predictions were 98.1% accurate, although the sample size was rather small.
 While this procedure does not rely on external background information, it has the drawback that data collection is more invasive and directly intervenes with the learning process.
-Students cannot work in their preferred programming environment and have to agree with extensive behaviour tracking.
+Students can not work in their preferred programming environment and have to agree with extensive behaviour tracking.
 
 Approaches that are not using machine learning also exist.
 [cite/t:@feldmanAnsweringAmRight2019] try to answer the question "Am I on the right track?" on the level of individual exercises, by checking if the student's current progress can be used as a base to synthesize a correct program.
@@ -2470,7 +2470,7 @@ This might be explained by the fact that successive editions of course B use the
 Predictions made with training sets from the same student cohort (5-fold cross-validation) perform better than those with training sets from different cohorts (see supplementary material for details[fn::
 https://github.com/dodona-edu/pass-fail-article
 ]).
-This is more pronounced for F_1-scores than for balanced accuracy, but the differences are small enough so that nothing prevents us from building classification models with historical data from previous student cohorts to make pass/fail predictions for the current cohort, which is something that cannot be done in practice with data from the same cohort as pass/fail information is needed during the training phase.
+This is more pronounced for F_1-scores than for balanced accuracy, but the differences are small enough so that nothing prevents us from building classification models with historical data from previous student cohorts to make pass/fail predictions for the current cohort, which is something that can not be done in practice with data from the same cohort as pass/fail information is needed during the training phase.
 In addition, we found no significant performance differences for classification models using data from a single course edition or combining data from two course editions.
 Given that cohort sizes are large enough, this tells us that accurate predictions can already be made in practice with historical data from a single course edition.
 This is also relevant when the structure of a course changes, because we can only make predictions from historical data for course editions whose snapshots align.
@@ -2544,7 +2544,7 @@ They have zero impact on predictions for earlier snapshots, as the information i
 [[./images/passfailfeaturesAevaluation.png]]
 
 The second feature type we want to highlight is =correct_after_15m=: the number of exercises in a series where the first correct submission was made within fifteen minutes after the first submission (Figure\nbsp{}[[fig:passfailfeaturesAcorrect]]).
-Note that we cannot directly measure how long students work on an exercise, as they may write, run and test their solutions on their local machine before their first submission to Dodona.
+Note that we can not directly measure how long students work on an exercise, as they may write, run and test their solutions on their local machine before their first submission to Dodona.
 Rather, this feature type measures how long it takes students to find and remedy errors in their code (debugging), after they start getting automatic feedback from Dodona.
 
 For exercise series in the first unit of course A (series 1--5), we generally see that the features have a positive impact (red).
@@ -3025,7 +3025,7 @@ So it assigns weights to the patterns it gets from =TreeminerD=.
 Weights are assigned using two criteria.
 The first criterion is the size of the pattern (i.e., the number of nodes in the pattern), since a pattern with twenty nodes is much more specific than a pattern with only one node.
 The second criterion is the number of occurrences of a pattern across all annotations.
-If the pattern sets for all annotations contain a particular pattern, it cannot be used reliably to determine which annotation should be predicted and is therefore given a lower weight.
+If the pattern sets for all annotations contain a particular pattern, it can not be used reliably to determine which annotation should be predicted and is therefore given a lower weight.
 Weights are calculated using the formula below.
 \[\operatorname{weight}(pattern) = \frac{\operatorname{len}(pattern)}{\operatorname{\#occurences}(pattern)}\]
 
@@ -3206,7 +3206,7 @@ We chose these specific annotations to demonstrate interesting behaviours exhibi
 The differences in performance can be explained by the content of the annotation and the underlying patterns that Pylint is looking for.
 For example, the "unused variable"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/warning/unused-variable.html] annotation performs poorly.
 This can be explained by the fact that we do not feed =TreeminerD= with enough context to find predictive patterns for this Pylint annotation.
-There are also annotations that cannot be predicted at all, because no patterns are found.
+There are also annotations that can not be predicted at all, because no patterns are found.
 
 Other annotations, such as "consider using with"[fn:: https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/consider-using-with.html], work very well.
 For these annotations, =TreeminerD= does have enough context to automatically determine the underlying patterns.
@@ -3226,7 +3226,7 @@ Annotations with few instances are generally predicted worse than those with man
 
 For the annotations added by human reviewers, we used two different scenarios to evaluate ECHO.
 In addition to using the same 50/50 split between training and test data as for the Pylint data, we also simulated how a human reviewer would use ECHO in practice by gradually increasing the training set and decreasing the test set as the reviewer progresses through the submissions during the assessment.
-At the start of the assessment, no annotations are available and the first instance of an annotation that applies to a reviewed submission cannot be predicted.
+At the start of the assessment, no annotations are available and the first instance of an annotation that applies to a reviewed submission can not be predicted.
 As more submissions are reviewed and more instances of annotations are placed on those submissions, the training set for modelling predictions on the next submission under review gradually grows.
 
 If we split the submissions and the corresponding annotations of a human reviewer equally into a training and a test set, the prediction accuracy is similar or even slightly better compared to the Pylint annotations (Figure\nbsp{}[[fig:feedbackpredictionrealworldglobal]]).
@@ -3365,7 +3365,7 @@ This could help with the outliers seen in the timing data.
 Another important aspect that was explicitly outside of the scope of this chapter was the integration of ECHO into a learning platform and user testing.
 
 Of course, alternative methods could also be considered.
-One cannot overlook the rise of Large Language Models (LLMs) and the way in which they could contribute to this problem.
+One can not overlook the rise of Large Language Models (LLMs) and the way in which they could contribute to this problem.
 LLMs can generate feedback for students based on their submitted solution and a well-chosen system prompt.
 Fine-tuning of an LLM with feedback already given is another possibility.
 Future applications could also combine user generated and LLM generated feedback, showing human reviewers the source of the feedback during their reviews.
