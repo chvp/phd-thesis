@@ -545,6 +545,10 @@ They can also serve different actors in the educational landscape: they can help
 Learning analytics and educational data mining are overlapping fields, but in general, learning analytics is seen as focusing on the educational challenge, while educational data mining is more focused on the technical challenge\nbsp{}[cite:@fergusonLearningAnalyticsDrivers2012].
 The analytics focusing on governments or educational institutions is called academic analytics.
 
+In this dissertation, we will use the definitions of educational data mining and learning analytics from [cite/t:@romeroEducationalDataMining2020].
+They define educational data mining to be "concerned with developing methods for exploring the unique types of data that come from educational environments" and learning analytics as "the measurement, collection, analysis, and reporting of data about learners and their contexts, for purposes of understanding and optimizing learning and the environments in which it occurs".
+In short, educational data mining is concerned with developing methods and tools to use educational data, while learning analytics is used to gather and present insights into learning.
+
 [cite/t:@chattiReferenceModelLearning2012] defined a reference model for learning analytics and educational data mining based on four dimensions:
 #+ATTR_LATEX: :environment enumerate*
 #+ATTR_LATEX: :options [label={\emph{\roman*)}}, itemjoin={{ }}, itemjoin*={{ }}]
