@@ -610,26 +610,33 @@ Computer science students are taught a plethora of languages, from Python and Ja
 :CUSTOM_ID: sec:introstructure
 :END:
 
-This dissertation is centred around Dodona[fn:: https://dodona.be/].
+This dissertation tries to answer the following central research question: How can we use data from an automated assessment platform to improve learning and teaching in programming education?
+An important prerequisite for answering this question is the existence of an automated assessment platform.
+For this dissertation we use Dodona[fn:: https://dodona.be/] as that automated assessment platform.
 Dodona is an online learning environment that recognizes the importance of active learning and just-in-time feedback in courses involving programming assignments.
-Dodona was started because our own educational needs outgrew SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008].
+We started Dodona because our own educational needs outgrew SPOJ\nbsp{}[cite:@kosowskiApplicationOnlineJudge2008], the platform we were using before.
 SPOJ was chosen because it was one of the rare platforms that allowed the addition of courses, exercises (and even judges) by teachers.
 This also influenced the development of Dodona.
 Every year since its inception in 2016, more and more teachers have started using Dodona.
 It is now used in most higher education institutions in Flanders, and many secondary education institutions as well.
 
-Chapters\nbsp{}[[#chap:what]],\nbsp{}[[#chap:use]],\nbsp{}and\nbsp{}[[#chap:technical]] focus on Dodona itself.
-In Chapter\nbsp{}[[#chap:what]] we will give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
-Chapter\nbsp{}[[#chap:use]] then focuses on how Dodona is used in practice, by presenting some facts and figures of its use, students' opinions of the platform, and an extensive case study on how Dodona's features are used to optimize teaching.
+The development and use of Dodona is an important part of the work that went into this dissertation, and therefore constitutes the first part of this dissertation.
+Chapter\nbsp{}[[#chap:what]] answers the following question: What features does a platform like Dodona need?
+We therefore give an overview of the user-facing features of Dodona, from user management to how feedback is represented.
+Chapter\nbsp{}[[#chap:use]] answers the question: How is Dodona used in practice?
+We do this by presenting some facts and figures of its use, students' opinions of the platform, and an extensive case study on how Dodona's features are used to optimize teaching.
 This case study also provides insight into the educational context for the research described in Chapters\nbsp{}[[#chap:passfail]]\nbsp{}and\nbsp{}[[#chap:feedback]].
-Chapter\nbsp{}[[#chap:technical]] focuses on the technical aspect of developing Dodona and its related ecosystem of software.
+Chapter\nbsp{}[[#chap:technical]] answers the question: What goes into building a platform like Dodona?
+We therefore focus on the technical aspect of developing Dodona and its related ecosystem of software.
 This includes a discussion of the technical challenges related to developing a platform like Dodona, and how the Dodona team adheres to modern standards of software development.
 
-Chapter\nbsp{}[[#chap:passfail]] discusses an educational data mining study where we tried to predict whether students would pass or fail a programming course at the end of the semester based solely on their submission history in Dodona.
+In the second part of this dissertation, we focus on the educational data mining studies we performed to improve learning and teaching.
+Chapter\nbsp{}[[#chap:passfail]] asks whether we can predict student performance and whether we can do so in a way that makes it clear which factors influence this prediction.
+The chapter discusses an educational data mining study where we tried to predict whether students would pass or fail a programming course at the end of the semester based solely on their submission history in Dodona.
 It also briefly details a study we collaborated on with researchers from Jyväskylä University in Finland, where we replicated our study in their own educational context, with data from their own educational platform.
 
-In Chapter\nbsp{}[[#chap:feedback]], we first give an overview of how Dodona changed manual assessment in our own educational context.
-We then finish the chapter with some recent work on a machine learning method we developed to predict what feedback teachers will give when manually assessing student submissions.
+Chapter\nbsp{}[[#chap:feedback]] then looks at the teacher's side of our central question and answers the question on how we can optimize the process of giving manual feedback.
+We first give an overview of how Dodona changed manual assessment in our own educational context and then finish the chapter with some recent work on a machine learning method we developed to predict what feedback teachers will give when manually assessing student submissions.
 
 Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on Dodona's opportunities and challenges for the future.
 
