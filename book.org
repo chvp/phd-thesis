@@ -361,7 +361,8 @@ Due to the ever-increasing digitalization of society, programming is also being 
 This has led to the development of myriad automated assessment tools\nbsp{}[cite:@paivaAutomatedAssessmentComputer2022; @ihantolaReviewRecentSystems2010; @douceAutomaticTestbasedAssessment2005; @ala-mutkaSurveyAutomatedAssessment2005], of which we give a historical overview in this introduction.
 We also discuss learning analytics and educational data mining, and how these techniques can help us to cope with the growing class sizes.
 We then give an overview of programming education in Flanders, including recent societal changes around this topic.
-Finally, we give a brief overview of the remaining chapters of this dissertation.
+Afterwards, we give a brief overview of the remaining chapters of this dissertation.
+We then conclude the introduction with a brief section on the ethics and research integrity of the work presented in this dissertation.
 
 ** Automated assessment in programming education
 :PROPERTIES:
@@ -644,6 +645,27 @@ Chapter\nbsp{}[[#chap:feedback]] then looks at the teacher's side of our central
 We first give an overview of how Dodona changed manual assessment in our own educational context and then finish the chapter with some recent work on a machine learning method we developed to predict what feedback teachers will give when manually assessing student submissions.
 
 Finally, Chapter\nbsp{}[[#chap:discussion]] concludes the dissertation with some discussion on Dodona's opportunities and challenges for the future.
+
+** On ethics and research integrity
+:PROPERTIES:
+:CREATED:  [2024-05-13 Mon 10:45]
+:CUSTOM_ID: sec:introethics
+:END:
+
+Ethics and integrity have been very important during the development of Dodona.
+Early in its development, we met with the Data Protection Officer of Ghent University to create a privacy policy.
+We also only keep the data required for running the platform.
+This results in very little personal information being stored; only the users' names, usernames, and email addresses are stored in their profile.
+The only other data stored is data generated in the platform: submissions, evaluations, questions, answers, etc.
+In this case also, we only keep the information required for the correct functioning of these features.
+The development of Dodona is also done in the open: the platform has been open-source since August 2019.
+
+The same philosophy has been extended to our research.
+All data used in Chapter\nbsp{}[[#chap:passfail]] was pseudonymized before the analysis was started.
+The data used in the study was also not published.
+This is of course not conducive to the verifiability of the research, which is why we were very happy to see that our method could be reproduced in another context.
+The research presented in Chapter\nbsp{}[[#chap:feedback]] also doesn't rely on any personal information: only the IDs and locations of the saved feedback items were used, in addition to the relevant code.
+Here also, the underlying data was not published, to avoid any inadvertent personal information present in the code being published.
 
 * A closer look at Dodona
 :PROPERTIES:
@@ -3511,24 +3533,6 @@ Instead of banning the use of LLMs, teachers could integrate the use of them in 
 On the other hand, when children first learn to count and add, they do not use calculators.
 The same might be necessary when learning to program: to learn the basics, students might need to do a lot of things themselves, to really get a feel for what they are doing.
 
-** On ethics and research integrity
-:PROPERTIES:
-:CREATED:  [2024-05-13 Mon 10:45]
-:END:
-
-Ethics and integrity have been very important during the development of Dodona.
-Early in its development, we met with the Data Protection Officer of Ghent University to create a privacy policy.
-We also only keep the data required for running the platform.
-This results in very little personal information being stored; only the users' names, usernames, and email addresses are stored in their profile.
-The only other data stored is data generated in the platform: submissions, evaluations, questions, answers, etc.
-In this case also, we only keep the information required for the correct functioning of these features.
-
-The same philosophy has been extended to our research.
-All data used in Chapter\nbsp{}[[#chap:passfail]] was pseudonymized before the analysis was started.
-The data used in the study was also not published.
-This is of course not conducive to the verifiability of the research, which is why we were very happy to see that our method could be reproduced in another context.
-The research presented in Chapter\nbsp{}[[#chap:feedback]] also doesn't rely on any personal information: only the IDs and locations of the saved feedback items were used, in addition to the relevant code.
-Here also, the underlying data was not published, to avoid any inadvertent personal information present in the code being published.
 
 #+LATEX: \appendix
 * Overview of Dodona releases
