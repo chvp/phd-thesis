@@ -240,9 +240,10 @@ Strijbol, N., Sels, B., *Van Petegem, C.*, Maertens, R., Scholliers, C., Mesuere
 TESTed-DSL: a domain-specific language to create programming exercises with language-agnostic automated assessment.
 /Software Testing, Verification and Reliability/.
 
-Maertens, R., Van Neyghem, M., Geldhof, M., *Van Petegem, C.*, Strijbol, N., Dawyndt, P., Mesuere, B., accepted.
+Maertens, R., Van Neyghem, M., Geldhof, M., *Van Petegem, C.*, Strijbol, N., Dawyndt, P., Mesuere, B., 2024.
 Discovering and exploring cases of educational source code plagiarism with Dolos.
-/SoftwareX/. https://arxiv.org/abs/2402.10853
+/SoftwareX/ 26, 101755.
+https://doi.org/10.1016/j.softx.2024.101755
 
 Zhidkikh, D., Heilala, V., *Van Petegem, C.*, Dawyndt, P., Järvinen, M., Viitanen, S., De Wever, B., Mesuere, B., Lappalainen, V., Kettunen, L., & Hämäläinen, R., 2024.
 Reproducing Predictive Learning Analytics in CS1: Toward Generalizable and Explainable Models for Enhancing Student Retention.
