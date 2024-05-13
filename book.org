@@ -678,6 +678,9 @@ This chapter answers the question what features a platform like Dodona needs.
 The most important feature is automated assessment, but as we show in this chapter, a lot more features than that are needed.
 
 This chapter is partially based on *Van Petegem, C.*, Maertens, R., Strijbol, N., Van Renterghem, J., Van der Jeugt, F., De Wever, B., Dawyndt, P., Mesuere, B., 2023. Dodona: Learn to code with a virtual co-teacher that supports active learning. /SoftwareX/ 24, 101578. https://doi.org/10.1016/j.softx.2023.101578
+The work described in this chapter was performed by the whole Dodona team.
+It is difficult to pinpoint who did what.
+The code and its history can be looked at[fn:: https://github.com/dodona-edu/dodona/commits/main/], but it will never give a full view of the true collaborative effort of Dodona.
 
 ** User management
 :PROPERTIES:
@@ -987,7 +990,9 @@ This chapter answers the question how Dodona is used and shows how it creates an
 We start by mentioning some facts and figures, and discussing a user study we performed.
 We then explain how Dodona can be used on the basis of a case study.
 This case study also provides insight into the educational context for the research described in Chapters\nbsp{}[[#chap:passfail]]\nbsp{}and\nbsp{}[[#chap:feedback]].
+
 This chapter is partially based on *Van Petegem, C.*, Maertens, R., Strijbol, N., Van Renterghem, J., Van der Jeugt, F., De Wever, B., Dawyndt, P., Mesuere, B., 2023. Dodona: Learn to code with a virtual co-teacher that supports active learning. /SoftwareX/ 24, 101578. https://doi.org/10.1016/j.softx.2023.101578
+The course described in this chapter was mostly developed by prof. Peter Dawyndt, but has also seen numerous contributions by teaching assistents.
 
 ** Facts and figures
 :PROPERTIES:
@@ -1379,11 +1384,19 @@ While there is still a lot of time invested in running a course like this, the t
 
 Dodona and its ecosystem comprise a lot of code.
 This chapter answers the question of what technical work goes into building a platform like Dodona.
-We do this by discussing the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor, Papyros (\url{https://papyros.dodona.be}), that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
+We do this by discussing the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023].
+As mentioned in Chapter\nbsp{}[[#chap:what]], Dodona is the fruit of a collaborative effort of the entire Dodona team.
+
+We also present a stand-alone online code editor, Papyros (\url{https://papyros.dodona.be}), that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
+This work was done by Winnie De Ridder in his master's thesis, under supervision and guidance of myself, prof. Bart Mesuere and prof. Peter Dawyndt.
+
 We also discuss two judges that were developed in the context of this dissertation.
-The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
-The TESTed judge was first prototyped in a master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two other master's theses\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
+The R judge, which was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
+
+The TESTed judge was first prototyped in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two other master's theses by Niko Strijbol\nbsp{}[cite:@strijbolTESTedOneJudge2020] and Boris Sels\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021], which I also supervised and guided along with prof. Peter Dawyndt.
+
 In this chapter we assume the reader is familiar with Dodona's features and how they are used, as detailed in Chapters\nbsp{}[[#chap:what]]\nbsp{}and\nbsp{}[[#chap:use]].
+
 
 ** Dodona
 :PROPERTIES:
@@ -2177,8 +2190,11 @@ The infrastructure and tooling required for supporting the assessment of many su
 :END:
 
 We now shift to the chapters where we make use of the data provided by Dodona to perform educational data mining research.
+
 This chapter is based on *Van Petegem, C.*, Deconinck, L., Mourisse, D., Maertens, R., Strijbol, N., Dhoedt, B., De Wever, B., Dawyndt, P., Mesuere, B., 2022. Pass/Fail Prediction in Programming Courses. /Journal of Educational Computing Research/, 68–95. https://doi.org/10.1177/07356331221085595
-It also briefly discusses the work performed in Zhidkikh, D., Heilala, V., *Van Petegem, C.*, Dawyndt, P., Järvinen, M., Viitanen, S., De Wever, B., Mesuere, B., Lappalainen, V., Kettunen, L., & Hämäläinen, R., 2024. Reproducing Predictive Learning Analytics in CS1: Toward Generalizable and Explainable Models for Enhancing Student Retention. /Journal of Learning Analytics/, 1-21. https://doi.org/10.18608/jla.2024.7979
+It also briefly discusses the work reproduction of this research performed in Zhidkikh, D., Heilala, V., *Van Petegem, C.*, Dawyndt, P., Järvinen, M., Viitanen, S., De Wever, B., Mesuere, B., Lappalainen, V., Kettunen, L., & Hämäläinen, R., 2024. Reproducing Predictive Learning Analytics in CS1: Toward Generalizable and Explainable Models for Enhancing Student Retention. /Journal of Learning Analytics/, 1-21. https://doi.org/10.18608/jla.2024.7979
+
+The work presented in this chapter was part of the master thesis by Louise Deconinck, with the reproduction being led by Denis Zhidkikh.
 
 ** Introduction
 :PROPERTIES:
@@ -2804,6 +2820,10 @@ Having this new framework at hand immediately raises some follow-up research que
 This chapter discusses the history of manual feedback in the programming course taught at the Faculty of Sciences at Ghent University (as described in the case study in Section\nbsp{}[[#sec:usecasestudy]]) and how it influenced the development of evaluation and grading features within Dodona.
 We will then expand on some further experiments using data mining techniques we did to try to further reduce the time spent adding manual feedback.
 Section\nbsp{}[[#sec:feedbackprediction]] is based on an article that is currently being prepared for submission.
+
+Comments and evaluations were added to Dodona by myself.
+Jorg Van Renterghem finalized the addition of feedback reuse.
+The work on feedback prediction was started by myself and further developed in collaboration with Kasper Demeyere during his master's thesis.
 
 ** Phase 0: Paper-based assessment
 :PROPERTIES:
