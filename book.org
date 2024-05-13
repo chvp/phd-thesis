@@ -1837,14 +1837,41 @@ TESTed was developed to solve two major drawbacks with the current judge system 
 The goal of TESTed was to implement a judge so that programming exercises only have to be created once to be available in all programming languages TESTed supports.
 TESTed currently supports Bash, C, C#, Haskell, Java, JavaScript, Kotlin, and Python.
 An exercise should also not have to be changed when support for a new programming language is added.
+Adding a new programming language itself should also be easier than creating a new judge from scratch.
 As a secondary goal, we also wanted to make it as easy as possible to create new exercises.
 Teachers who have not used Dodona before should be able to create a new basic exercise without too many issues.
 
-We first developed it as a proof of concept in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018], which presented a method for estimating the time and memory complexity of solutions for programming exercises.
+TESTed was first developed as a proof of concept in my master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018], which presented a method for estimating the time and memory complexity of solutions for programming exercises.
 One of the goals was to make this method work over many programming languages.
 To do this, we wrote a framework based on Jupyter kernels[fn:: https://jupyter.org] where the interaction with each programming language was abstracted away behind a common interface.
 We realized this framework could be useful in itself, but it was only developed as far as we needed for the thesis.
 Further work then developed this proof of concept into the full judge we will present in the following sections.
+
+We will expand on TESTed using an example exercise.
+In this exercise, students need to rotate a list.
+For example, in Python, ~rotate([0, 1, 2, 3, 4], 2)~ should return ~[3, 4, 0, 1, 2]~.
+The goal is that teachers can write their exercises as in Listing\nbsp{}[[lst:technicaltesteddsl]].
+
+#+CAPTION: Example of a TESTed test plan, showing statements and expressions.
+#+CAPTION: Statements and expressions are in a custom Python-like language.
+#+NAME: lst:technicaltesteddsl
+#+ATTR_LATEX: :float t
+#+BEGIN_SRC yaml
+  - tab: "Feedback"
+    contexts:
+      - testcases:
+          - statement: "numbers01 = [0, 1, 2, 3, 4]"
+          - expression: "rotate(numbers01, 2)"
+            return: [3, 4, 0, 1, 2]
+          - expression: "rotate(numbers01, 1)"
+            return: [4, 0, 1, 2, 3]
+      - testcases:
+          - statement: "numbers02 = [0, 1, 2, 3, 4, 5]"
+          - expression: "rotate(numbers02, 2)"
+            return: [4, 5, 0, 1, 2, 3]
+          - expression: "rotate(numbers02, 1)"
+            return: [5, 0, 1, 2, 3, 4]
+#+END_SRC
 
 *** Overview
 :PROPERTIES:
@@ -1862,9 +1889,6 @@ TESTed generally works using the following steps:
 1. Evaluate the results, either with programming language-specific evaluation, programmed evaluation, or generic evaluation.
 1. Send the evaluation results to Dodona.
 
-In the following sections we will expand on these steps using an example exercise to demonstrate them in practice.
-In this exercise, students need to rotate a list.
-For example, in Python, ~rotate([0, 1, 2, 3, 4], 2)~ should return ~[3, 4, 0, 1, 2]~.
 
 *** Test plan 
 :PROPERTIES:
@@ -2096,27 +2120,6 @@ For the actual statements, expressions and values, we added an abstract programm
 Note that this is not a full programming language, but only supports language constructs as far as they are needed by TESTed.
 Values are interpreted as basic types, but can be cast explicitly to one of the more advanced types.
 The DSL version of the test plan for the example exercise can be seen in Listing\nbsp{}[[lst:technicaltesteddsl]].
-
-#+CAPTION: DSL version of the test plan for the example exercise.
-#+CAPTION: This version also demonstrates the use of an assignment.
-#+NAME: lst:technicaltesteddsl
-#+ATTR_LATEX: :float t
-#+BEGIN_SRC yaml
-  - tab: "Feedback"
-    contexts:
-      - testcases:
-          - statement: "numbers01 = [0, 1, 2, 3, 4]"
-          - expression: "rotate(numbers01, 2)"
-            return: [3, 4, 0, 1, 2]
-          - expression: "rotate(numbers01, 1)"
-            return: [4, 0, 1, 2, 3]
-      - testcases:
-          - statement: "numbers02 = [0, 1, 2, 3, 4, 5]"
-          - expression: "rotate(numbers02, 2)"
-            return: [4, 5, 0, 1, 2, 3]
-          - expression: "rotate(numbers02, 1)"
-            return: [5, 0, 1, 2, 3, 4]
-#+END_SRC
 
 * Pass/fail prediction in programming courses
 :PROPERTIES:
