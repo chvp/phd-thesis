@@ -3652,7 +3652,6 @@ A full overview of all Dodona releases, with their full changelog, can be found 
 - 2023.12 (2023-12-01) :: The feedback view was reworked, moving every context to its own card.
 - 2024.02 (2024-02-01) :: Papyros now also has an integrated debugger based on the Python Tutor.
 
-
 * Pass/fail prediction feature types
 :PROPERTIES:
 :CREATED: [2023-10-23 Mon 18:09]
