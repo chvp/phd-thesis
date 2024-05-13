@@ -751,6 +751,7 @@ Understanding, knowledge and insights that can be used to make informed decision
 ** Exercises
 :PROPERTIES:
 :CREATED:  [2024-02-20 Tue 14:32]
+:CUSTOM_ID: subsec:whatexercises
 :END:
 
 There are two types of assignments in Dodona: reading activities and programming exercises.
@@ -833,6 +834,7 @@ An overview of the existing judges and the corresponding number of exercises and
 ** Repositories
 :PROPERTIES:
 :CREATED:  [2024-02-20 Tue 15:20]
+:CUSTOM_ID: sec:whatrepositories
 :END:
 
 Where courses are created and managed in Dodona itself, other content is managed in external git *repositories* (Figure\nbsp{}[[fig:whatrepositories]]).
@@ -944,6 +946,7 @@ The evaluation tracks which submissions have been manually assessed, so that ana
 ** Conclusion
 :PROPERTIES:
 :CREATED:  [2024-05-13 Mon 07:22]
+:CUSTOM_ID: sec:whatconclusion
 :END:
 
 As we have shown in this chapter, a platform like Dodona needs a lot more features than just  automated assessment and feedback.
