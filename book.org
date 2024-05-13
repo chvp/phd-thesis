@@ -1355,7 +1355,8 @@ While there is still a lot of time invested in running a course like this, the t
 :END:
 
 Dodona and its ecosystem comprise a lot of code.
-This chapter discusses the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor, Papyros (\url{https://papyros.dodona.be}), that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
+This chapter answers the question of what technical work goes into building a platform like Dodona.
+We do this by discussing the technical background of Dodona itself\nbsp{}[cite:@vanpetegemDodonaLearnCode2023] and a stand-alone online code editor, Papyros (\url{https://papyros.dodona.be}), that was integrated into Dodona\nbsp{}[cite:@deridderPapyrosSchrijvenUitvoeren2022].
 We also discuss two judges that were developed in the context of this dissertation.
 The R judge was written entirely by myself\nbsp{}[cite:@nustRockerversePackagesApplications2020].
 The TESTed judge was first prototyped in a master's thesis\nbsp{}[cite:@vanpetegemComputationeleBenaderingenVoor2018] and was further developed in two other master's theses\nbsp{}[cite:@selsTESTedProgrammeertaalonafhankelijkTesten2021; @strijbolTESTedOneJudge2020].
@@ -2134,6 +2135,17 @@ For the actual statements, expressions and values, we added an abstract programm
 Note that this is not a full programming language, but only supports language constructs as far as they are needed by TESTed.
 Values are interpreted as basic types, but can be cast explicitly to one of the more advanced types.
 The DSL version of the test plan for the example exercise can be seen in Listing\nbsp{}[[lst:technicaltesteddsl]].
+
+** Conclusion
+:PROPERTIES:
+:CREATED:  [2024-05-13 Mon 09:55]
+:CUSTOM_ID: sec:techconclusion
+:END:
+
+This chapter shows that building a platform like Dodona takes a lot of work.
+No software is ever free of bugs, and we have to keep up with dependency updates.
+Expanding into secondary education also meant catering to their needs, by building a basic in-browser IDE.
+The infrastructure and tooling required for supporting the assessment of many submissions in a lot of different programming languages is also considerable.
 
 * Pass/fail prediction in programming courses
 :PROPERTIES:
