@@ -52,14 +52,14 @@
 #+OPTIONS: H:4
 #+OPTIONS: toc:nil
 #+OPTIONS: broken-links:mark
-#+MACRO: num_commits 16 thousand
-#+MACRO: num_prs 3\thinsp{}800
+#+MACRO: num_commits 16\thinsp{}500
+#+MACRO: num_prs 4\thinsp{}000
 #+MACRO: num_contributors 26
-#+MACRO: num_exercises 16 thousand
-#+MACRO: num_releases 340
-#+MACRO: num_schools 1\thinsp{}700
-#+MACRO: num_submissions 17 million
-#+MACRO: num_users 66\thinsp{}500
+#+MACRO: num_exercises 17 thousand
+#+MACRO: num_releases 342
+#+MACRO: num_schools 1\thinsp{}800
+#+MACRO: num_submissions 18 million
+#+MACRO: num_users 69\thinsp{}600
 #+cite_export: csl citation-style.csl
 #+bibliography: bibliography.bib
 
