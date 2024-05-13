@@ -3418,18 +3418,30 @@ Another interesting (more educational) line of research that this work suggests 
 A new idea for research using Dodona's data would be skill estimation.
 There are a few ways we could try to infer what skills are being tested by exercises: we could try to use the model solution, or the labels assigned to the exercise in Dodona.
 Using those skills, we could try to estimate a student's mastery of those skills, using their submissions.
+This would probably be done similarly to the research presented in Chapter\nbsp{}[[#chap:passfail]] (using metrics like time-on-task).
+A skill profile would be more complicated though, since we would want some kind of vector to represent a student's progress in each estimated skill.
 
 This leads right into another possibility for future research: exercise recommendation.
 Right now, learning paths in Dodona are static, determined by the teacher of the course the student is following.
 Dodona has a rich library of extra exercises, which some courses point to as opportunities for extra practice, but it is not always easy for students to know what exercises would be good for them.
-The research from Chapter\nbsp{}[[#chap:passfail]] could also be used to help solve this problem.
+Using a skill profile, we could recommend exercise that only contain one skill where the student is behind on, allowing them to focus their practice on that skill specifically.
+We would again need to infer what skills are tested by exercises, but this was already required for the skill estimation itself as well.
+
+The research from Chapter\nbsp{}[[#chap:passfail]] could also be used to help solve this problem in another way.
 If we know a student has a higher chance of failing the course, we might want to recommend some easier exercises.
 The other way around, if a student has a higher chance of passing, we could suggest more difficult exercises, so they can keep up their good progress in their course.
+Estimating the difficulty of an exercise is a problem unto itself though (and how difficult an exercise is, is also dependent on the student themselves).
 
 The use of LLMs in Dodona could also be an opportunity.
 As mentioned in Section\nbsp{}[[#subsec:feedbackpredictionconclusion]], a possibility for using LLMs could be to generate feedback while grading.
+By feeding an LLM with the student's code, an indication of the failed test cases (although doing this in a good format is an issue to solve in itself) and the type of issues that the teacher wants to remark upon it should be able to give a good starting point for the feedback.
+This could also kickstart the process explained in Section\nbsp{}[[#subsec:feedbackpredictionconclusion]].
+By making generated feedback reusable, the given feedback can still remain consistent and fair.
+
 Another option is to integrate an LLM as an AI tutor (as, for example, Khan Academy has done with Khanmigo[fn:: https://www.khanmigo.ai/]).
 This way, it could interactively help students while they are learning.
+Instead of tools like ChatGPT or Bard which are typically used to get a correct answer immediately, an AI tutor can guide students to find the correct answer to an exercise by themselves.
+
 The final possibility we will present here is to prepare suggestions for answers to student questions on Dodona.
 At first glance, LLMs should be quite good at this.
 If we use the LLM output as a suggestion for what the teacher could answer, this should be a big time-saver.
@@ -3437,7 +3449,7 @@ However, there are some issues around data quality.
 Questions are sometimes asked on a specific line, but the question does not necessarily have anything to do with that line.
 Sometimes the question also needs context that is hard to pass on to the LLM.
 For example, if the question is just "I don't know what's wrong.", a human might look at the failed test cases and be able to answer the "question" in that way.
-Passing on the failed test cases to the LLM is a harder problem to solve.
+As mentioned previously, passing on the failed test cases to the LLM is a harder problem to solve.
 The actual assignment also needs to be passed on, but depending on its size this might also present a problem given token limitations/cost per token of some models.
 Another important aspect of this research would be figuring out how to evaluate the quality of the suggestions.
 
