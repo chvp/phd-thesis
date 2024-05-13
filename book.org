@@ -3510,6 +3510,25 @@ Instead of banning the use of LLMs, teachers could integrate the use of them in 
 On the other hand, when children first learn to count and add, they do not use calculators.
 The same might be necessary when learning to program: to learn the basics, students might need to do a lot of things themselves, to really get a feel for what they are doing.
 
+** On ethics and research integrity
+:PROPERTIES:
+:CREATED:  [2024-05-13 Mon 10:45]
+:END:
+
+Ethics and integrity have been very important during the development of Dodona.
+Early in its development, we met with the Data Protection Officer of Ghent University to create a privacy policy.
+We also only keep the data required for running the platform.
+This results in very little personal information being stored; only the users' names, usernames, and email addresses are stored in their profile.
+The only other data stored is data generated in the platform: submissions, evaluations, questions, answers, etc.
+In this case also, we only keep the information required for the correct functioning of these features.
+
+The same philosophy has been extended to our research.
+All data used in Chapter\nbsp{}[[#chap:passfail]] was pseudonymized before the analysis was started.
+The data used in the study was also not published.
+This is of course not conducive to the verifiability of the research, which is why we were very happy to see that our method could be reproduced in another context.
+The research presented in Chapter\nbsp{}[[#chap:feedback]] also doesn't rely on any personal information: only the IDs and locations of the saved feedback items were used, in addition to the relevant code.
+Here also, the underlying data was not published, to avoid any inadvertent personal information present in the code being published.
+
 #+LATEX: \appendix
 * Overview of Dodona releases
 :PROPERTIES:
