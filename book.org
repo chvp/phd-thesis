@@ -957,7 +957,7 @@ Creating a platform like Dodona entails a lot of work to get these things right.
 :CUSTOM_ID: chap:use
 :END:
 
-This chapter discusses the use of Dodona.
+This chapter answers the question how Dodona is used and shows how it creates an active learning environment.
 We start by mentioning some facts and figures, and discussing a user study we performed.
 We then explain how Dodona can be used on the basis of a case study.
 This case study also provides insight into the educational context for the research described in Chapters\nbsp{}[[#chap:passfail]]\nbsp{}and\nbsp{}[[#chap:feedback]].
@@ -1333,6 +1333,17 @@ Using historical data from previous course editions, we can also make highly acc
 This can already be done after a few weeks into the course, so remedial actions for at-risk students can be started well in time.
 The approach is privacy-friendly as we only need to process metadata on student submissions for programming assignments and results from automated and manual assessment extracted from Dodona.
 Given that cohort sizes are large enough, historical data from a single course edition are already enough to make accurate predictions.
+
+** Conclusion
+:PROPERTIES:
+:CREATED:  [2024-05-13 Mon 10:07]
+:CUSTOM_ID: sec:useconclusion
+:END:
+
+Dodona has grown into a widely used automated assessment platform.
+As we have shown in this chapter, both students and teachers alike appreciate its extensive feature set and user-friendliness.
+By exploiting all Dodona features, it is possible to build out a highly activating course.
+While there is still a lot of time invested in running a course like this, the time Dodona saves can be reinvested in hands-on guidance of students and giving manual feedback on evaluations and examinations.
 
 * Under the hood: technical architecture and design
 :PROPERTIES:
