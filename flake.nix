@@ -109,6 +109,7 @@
             full-texlive
             pkgs.inkscape
             pkgs.nixpkgs-fmt
+            pkgs.pandoc
             (pkgs.python3.withPackages (ps: [ ps.pygments ]))
           ];
           env = [
@@ -158,6 +159,14 @@
                 then
                     rm "''${builddir}" -rf
                 fi
+              '';
+            }
+            {
+              name = "build-rebuttal";
+              category = "general commands";
+              help = "build rebuttal";
+              command = ''
+                pandoc -o rebuttal.pdf rebuttal.md
               '';
             }
             {

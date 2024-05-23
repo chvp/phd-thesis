@@ -4,7 +4,7 @@
 #+LANGUAGE: en-gb
 #+DATE: 2024-06-19
 #+LATEX_CLASS: book
-#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,numbers=noendperiod,BCOR=10mm,DIV=10]
+#+LATEX_CLASS_OPTIONS: [paper=240mm:170mm,numbers=noendperiod,BCOR=10mm,10pt]
 #+LATEX_COMPILER: lualatex
 #+LATEX_HEADER: \usepackage[inline]{enumitem}
 #+LATEX_HEADER: \usepackage{luacode}
